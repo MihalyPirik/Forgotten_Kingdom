@@ -1,0 +1,57 @@
+.logo {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mainPanel {
+    margin-top: 150px;
+    border: 1px solid black;
+}
+
+.buttonPanel {
+    height: 50px;
+    border: 1px solid black;
+}
+
+#log {
+    border: 1px solid black;
+    height: 300px;
+}
+
+#bejelentkezes {
+    margin: 50px;
+}
+
+#reg {
+    border: 1px solid black;
+    height: 150px;
+}
+
+.belepesBtn {
+    width: 100px;
+}
+
+#kerdes {
+    margin: 40px 0px 10px 0px;
+}
+
+.regBtn {
+    width: 100px;
+}
+
+#ujdonsagBal {
+    border: 1px solid black;
+    height: 450px;
+    margin: 5px 0px 5px 0px;
+}
+
+#ujdonsagJobb {
+    border: 1px solid black;
+    height: 450px;
+    margin: 5px 0px 5px 0px;
+}
+
+#logRegMenu {
+    padding: 0px;
+    margin: 5px 0px 5px 0px;
+}
