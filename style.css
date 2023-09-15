@@ -1,15 +1,28 @@
-.logo {
+.SocLogo {
     padding-left: 10px;
     padding-right: 10px;
 }
 
 .mainPanel {
-    margin-top: 150px;
+    margin-top: 50px;
     border: 1px solid black;
 }
 
 .buttonPanel {
     height: 50px;
+    border: 1px solid black;
+}
+
+#gameLogo {
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menuElem {
     border: 1px solid black;
 }
 
