@@ -47,8 +47,8 @@
         </div>
     </div>
 
-    <div class="container w-50 text-center mainPanel">
-        <div class="row buttonPanel">
+    <div class="container w-50 text-center" id="mainPanel">
+        <div class="row" id="buttonPanel">
             <div class="col-lg-4 col-md-6 col-sm-12 menuElem">
                 Menu
             </div>
@@ -61,20 +61,27 @@
         </div>
         <div class="row">
             <div class="col-lg-6 col-sm-12" id="firstBlock">
-                <div class="col" id="news">
+                <div class="col news">
                     feature
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12" id="logRegMenu">
-                <div id="log">
+                <div class="form-floating" id="log">
+
                     <h3 id="bejelentkezes">Bejelentkezés</h3>
-                    <input type="text" placeholder="Email" class="mb-2"><br>
-                    <input type="text" placeholder="Jelszó"><br>
-                    <button type="button" class="btn btn-secondary mt-2">belépés</button>
+
+                    <div class="form-floating">
+                        <input type="email" class="mb-2" placeholder="name@example.com">
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" placeholder="Password">
+                    </div>
+
+                    <button type="button" class="btn btn-secondary mt-2 customBtn" data-bs-toggle="button">Belépés</button>
                 </div>
-                <div id="reg">
+                <div class="form-floating" id="reg">
                     <p id="kerdes">Nincs még fiókod?</p>
-                    <button type="button" class="btn btn-secondary">Regisztráció</button>
+                    <button type="button" class="btn btn-secondary customBtn" data-bs-toggle="button">Regisztráció</button>
                 </div>
             </div>
         </div>

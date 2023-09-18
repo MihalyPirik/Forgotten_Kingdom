@@ -12,12 +12,12 @@
     margin-right: auto;
 }
 
-.mainPanel {
+#mainPanel {
     margin-top: 50px;
     border: 1px solid black;
 }
 
-.buttonPanel {
+#buttonPanel {
     border: 1px solid black;
 }
 
@@ -29,7 +29,7 @@
     padding: 0px;
 }
 
-#news {
+.news {
     border: 1px solid black;
     height: 450px;
 }
@@ -43,14 +43,17 @@
     height: 300px;
 }
 
+#reg {
+    border: 1px solid black;
+    height: 150px;
+}
+
 #bejelentkezes {
     text-align: center;
     margin: 50px 0px 10px 0px;
 }
 
-#reg {
-    border: 1px solid black;
-    height: 150px;
+.customBtn {
 }
 
 #kerdes {
