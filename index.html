@@ -1,49 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./kezdo_felulet/bootstrap-5.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css" type="text/css">
-    <title>Document</title>
+    <title>Forgotten Kingdom</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Forgotten Kingdom</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Menu</a>
-                    </li>
-                </ul>
-                <a class="nav-item SocLogo" href="#"><img src="./kezdo_felulet/assets/fb_logo.png" alt="" width="20"
-                        height="20"></a>
-                <a class="nav-item SocLogo" href="#"><img src="./kezdo_felulet/assets/ig_logo.png" alt="" width="20"
-                        height="20"></a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html">Forgotten Kingdom</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Menu</a>
+                        </li>
+                    </ul>
+                    <a class="nav-item SocLogo" href="#"><img src="./kezdo_felulet/assets/fb_logo.png" alt="" width="20"
+                            height="20"></a>
+                    <a class="nav-item SocLogo" href="#"><img src="./kezdo_felulet/assets/ig_logo.png" alt="" width="20"
+                            height="20"></a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <div id="gameLogo">
         <div class="container text-center">
             <p>logo</p>
         </div>
     </div>
-    <div class="container text-center mainPanel">
+
+    <div class="container w-50 text-center mainPanel">
         <div class="row buttonPanel">
             <div class="col-lg-4 col-md-6 col-sm-12 menuElem">
                 Menu
@@ -56,31 +60,29 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
-                <div class="row">
-                    <div class="col-8" id="ujdonsagBal">
-                        feature
-                    </div>
-
-                    <div class="col-4" id="ujdonsagJobb">
-                        feature1
-                    </div>
+            <div class="col-lg-6 col-sm-12" id="firstBlock">
+                <div class="col" id="news">
+                    feature
                 </div>
             </div>
-            <div class="col-4" id="logRegMenu">
+            <div class="col-lg-6 col-sm-12" id="logRegMenu">
                 <div id="log">
                     <h3 id="bejelentkezes">Bejelentkezés</h3>
                     <input type="text" placeholder="Email" class="mb-2"><br>
                     <input type="text" placeholder="Jelszó"><br>
-                    <button class="mt-2 belepesBtn">belépés</button>
+                    <button type="button" class="btn btn-secondary mt-2">belépés</button>
                 </div>
                 <div id="reg">
                     <p id="kerdes">Nincs még fiókod?</p>
-                    <button class="RegBtn">Regisztráció</button>
+                    <button type="button" class="btn btn-secondary">Regisztráció</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <footer>
+
+    </footer>
 
     <script src="./kezdo_felulet/bootstrap-5.3.1-dist/js/bootstrap.min.js"></script>
 </body>
