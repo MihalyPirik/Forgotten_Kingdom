@@ -15,17 +15,23 @@
 #mainPanel {
     margin-top: 50px;
     border: 1px solid black;
+    min-width: 300px;
 }
 
 #buttonPanel {
     border: 1px solid black;
 }
 
-.menuElem {
+.menuBox {
     border: 1px solid black;
+    min-height: 50px;
 }
 
 #firstBlock {
+    padding: 0px;
+}
+
+#secondBlock {
     padding: 0px;
 }
 
@@ -40,12 +46,12 @@
 
 #log {
     border: 1px solid black;
-    height: 300px;
+    height: 280px;
 }
 
 #reg {
     border: 1px solid black;
-    height: 150px;
+    height: 170px;
 }
 
 #bejelentkezes {
@@ -53,9 +59,39 @@
     margin: 50px 0px 10px 0px;
 }
 
+.input {
+    width: 170px;
+}
+
 .customBtn {
+    width: 120px;
 }
 
 #kerdes {
     margin: 40px 0px 10px 0px;
+}
+
+#mobilePanel {
+    padding: 0px;
+    border: 1px solid black;
+}
+
+.androidPanel {
+    padding: 0px;
+}
+
+.android {
+    border: 1px solid black;
+    height: 300px;
+    margin: 74px 0px 74px 0px;
+}
+
+#androidLogo {
+    margin: 50px 0px 50px 0px;
+}
+
+#androidObject {
+    margin: 75px 0px 75px 0px;
+    width: 70px;
+    height: 70px;
 }
