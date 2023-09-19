@@ -1,97 +1,98 @@
 .SocLogo {
-    padding-left: 10px;
-    padding-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 #gameLogo {
-    border: 1px solid black;
-    height: 200px;
-    width: 200px;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #mainPanel {
-    margin-top: 50px;
-    border: 1px solid black;
-    min-width: 300px;
+  margin-top: 50px;
+  border: 1px solid black;
+  min-width: 300px;
 }
 
 #buttonPanel {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .menuBox {
-    border: 1px solid black;
-    min-height: 50px;
+  border: 1px solid black;
+  min-height: 50px;
 }
 
 #firstBlock {
-    padding: 0px;
+  padding: 0px;
 }
 
 #secondBlock {
-    padding: 0px;
+  padding: 0px;
 }
 
 .news {
-    border: 1px solid black;
-    height: 450px;
+  border: 1px solid black;
+  height: 450px;
 }
 
 #logRegMenu {
-    padding: 0px;
+  padding: 0px;
 }
 
 #log {
-    border: 1px solid black;
-    height: 280px;
+  border: 1px solid black;
+  height: 280px;
 }
 
 #reg {
-    border: 1px solid black;
-    height: 170px;
+  border: 1px solid black;
+  height: 170px;
 }
 
 #bejelentkezes {
-    text-align: center;
-    margin: 50px 0px 10px 0px;
+  text-align: center;
+  margin: 50px 0px 10px 0px;
 }
 
 .input {
-    width: 170px;
+  width: 170px;
 }
 
 .customBtn {
-    width: 120px;
+  width: 120px;
 }
 
 #kerdes {
-    margin: 40px 0px 10px 0px;
+  margin: 40px 0px 10px 0px;
+}
+
+#mobile {
+  border: 1px solid black;
+  height: 450px;
 }
 
 #mobilePanel {
-    padding: 0px;
-    border: 1px solid black;
+  padding: 0px;
 }
 
 .androidPanel {
-    padding: 0px;
+    margin: 17px auto 17px auto;
 }
 
 .android {
-    border: 1px solid black;
-    height: 300px;
-    margin: 74px 0px 74px 0px;
+  border: 1px solid black;
+  height: 200px;
 }
 
 #androidLogo {
-    margin: 50px 0px 50px 0px;
+    padding: 30px 0px 10px 0px;
 }
 
 #androidObject {
-    margin: 75px 0px 75px 0px;
-    width: 70px;
-    height: 70px;
+    padding: 75px 0px 75px 0px;
 }
