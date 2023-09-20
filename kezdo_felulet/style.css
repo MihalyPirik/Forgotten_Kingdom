@@ -1,3 +1,7 @@
+body {
+  padding: 0px;
+}
+
 #name {
   font-size: 20px;
   vertical-align: middle;
@@ -14,32 +18,57 @@
 }
 
 #gameLogo {
-  border: 2px solid black;
   border-radius: 100%;
-  height: 250px;
-  width: 250px;
-  margin-top: 100px;
+  height: 300px;
+  width: 300px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  z-index: 2;
 }
 
 #mainPanel {
-  margin-top: 50px;
-  border: 1px solid black;
+  border: 50px solid transparent;
+  border-image: url(./assets/border.png) 30 stretch;
   min-width: 300px;
+  margin-top: 210px
 }
 
 #buttonPanel {
   border: 1px solid black;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 
 .menuBox {
   border: 1px solid black;
-  min-height: 50px;
+  min-height: 40px;
+  min-width: 130px;
+  padding: 0px;
+}
+
+.menuItem {
+  border: 1px solid black;
+  margin: 10px 0px 10px 0px;
+  border-radius: 25px;
+  min-width: 130px;
 }
 
 #firstBlock {
   padding: 0px;
+}
+
+.featureHeader {
+  min-height: 50px;
+  background-color: rgb(145, 84, 60);
+}
+
+.featureTitle {
+  padding: 20px 0px 20px 0px;
+  margin-bottom: 20px;
 }
 
 #secondBlock {
@@ -92,7 +121,7 @@
 }
 
 .androidPanel {
-    margin: 17px auto 17px auto;
+  margin: 17px auto 17px auto;
 }
 
 .android {
@@ -100,10 +129,27 @@
   height: 200px;
 }
 
+.box{
+  height: 100px;
+  margin: 48px 0px 48px 0px;
+}
+
 #androidLogo {
-    padding: 30px 0px 10px 0px;
+  padding-bottom: 10px;
 }
 
 #androidObject {
-    padding: 75px 0px 75px 0px;
+  padding: 75px 0px 75px 0px;
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1500px) {
+  .menuItem {
+    min-width: 90px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #mainPanel {
+    margin-top: 230px
+  }
 }
