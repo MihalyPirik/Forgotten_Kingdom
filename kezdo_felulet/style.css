@@ -30,18 +30,17 @@ body {
   right: 0px;
   z-index: 2;
 }
-
-#mainPanel {
-  border: 50px solid transparent;
-  border-image: url(./assets/border.png) 30 stretch;
-  background-image: url(./assets/asd.png);
-  /* background-image: linear-gradient(
-    to bottom,
-    rgba(230, 174, 22, 0.263),
-    rgba(230, 174, 22, 0.263)
-  ), url(./assets/asd.png); */
-  min-width: 300px;
+#border {
+  border: 25px solid transparent;
+  border-image: url(./assets/border3.png) 70 round;
   margin-top: 210px;
+  min-width: 300px;
+}
+#mainPanel {
+  background-image: url(./assets/table_backgroundV1.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 #buttonPanel {
@@ -74,6 +73,10 @@ body {
 
 #firstBlock {
   padding: 0px;
+  background-image: url(./assets/paper2.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .featureHeader {
@@ -87,15 +90,23 @@ body {
 
 #secondBlock {
   padding: 0px;
+  background-image: url(./assets/paper2.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .news {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   height: 450px;
 }
 
 #logRegMenu {
   padding: 0px;
+  background-image: url(./assets/paper2.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 #log {
@@ -132,6 +143,10 @@ body {
 
 #mobilePanel {
   padding: 0px;
+  background-image: url(./assets/paper3.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .androidPanel {
@@ -164,10 +179,6 @@ body {
 @media only screen and (max-width: 950px) {
   body {
     font-size: 13px;
-  }
-
-  #mainPanel {
-    margin-top: 230px;
   }
 
   .input {
