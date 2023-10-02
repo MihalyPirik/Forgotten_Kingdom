@@ -1,9 +1,15 @@
+@font-face {
+  font-family: 'OwnFont';
+  src: url('./assets/font/font.woff2') format('woff2');
+}
+
 body {
   padding: 0px;
   background-image: url(./assets/main_bg.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
+  font-family: 'OwnFont', sans-serif !important;
 }
 
 #name {
@@ -88,9 +94,9 @@ nav {
   overflow: hidden;
   color: black;
   text-align: left;
-  font-weight: bold;
   border: 2px solid white;
   margin-bottom: 0;
+  font-weight: bold;
 }
 
 .jatekrol {
@@ -112,8 +118,11 @@ nav {
 }
 
 .featureTitle {
-  padding: 20px 0px 0px 0px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  color: rgb(176, 18, 18) !important;
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 10px;
 }
 
 .feature {
@@ -216,7 +225,7 @@ nav {
   padding: 75px 0px 75px 0px;
 }
 
-#lanc { 
+#lanc {
   margin: auto;
   height: 200px;
   border-right: 20px solid transparent;
@@ -262,7 +271,7 @@ nav {
   #border {
     margin-top: 210px;
   }
-  
+
   .menuBox {
     min-width: 70px;
   }
