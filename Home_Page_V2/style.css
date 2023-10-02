@@ -40,6 +40,7 @@ nav {
   right: 0px;
   z-index: 2;
 }
+
 #border {
   border: 20px solid transparent;
   border-image: url(./assets/border.png) 70 repeat;
@@ -67,8 +68,6 @@ nav {
 }
 
 .menuItem {
-  /* border: 1px solid white;
-  border: 2px solid black; */
   background-image: url(./assets/gombok/fooldal_gomb_1.png);
   background-size: cover;
   background-position: center;
@@ -76,14 +75,11 @@ nav {
   transition-duration: 0.4s;
   margin: 10px 0px 10px 0px;
   min-height: 50px;
-  min-width: 160px;
+  min-width: 155px;
   border-radius: 5px;
 }
 
 .menuItem:hover {
-  /* box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
-  background-color: black;
-  color: white; */
   background-image: url(./assets/gombok/fooldal_gomb_2.png);
 }
 
@@ -99,11 +95,16 @@ nav {
 
 .jatekrol {
   border: 1px solid white;
-  background-image: url(./assets/paper2.png); 
+  background-image: url(./assets/paper2.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
   height: 50%;
+}
+
+.jatekrol a {
+  padding: 20px 40px 10px 0px;
+  float: right;
 }
 
 .featureHeader {
@@ -113,6 +114,12 @@ nav {
 .featureTitle {
   padding: 20px 0px 0px 0px;
   margin-bottom: 20px;
+}
+
+.feature {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0px;
 }
 
 #secondBlock {
@@ -125,8 +132,17 @@ nav {
   margin-bottom: 0;
 }
 
+#thirdBlock {
+  padding: 0px;
+  overflow: hidden;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+  border: 2px solid white;
+  margin-bottom: 0;
+}
+
 .news {
-  /* border: 1px solid white; */
   height: 450px;
 }
 
@@ -200,9 +216,18 @@ nav {
   padding: 75px 0px 75px 0px;
 }
 
+#lanc { 
+  margin: auto;
+  height: 200px;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  border-image: url(./assets/border.png) 70 repeat;
+}
+
 #footer {
   height: 200px;
   background-color: black;
+  opacity: 0.7;
 }
 
 @media only screen and (max-width: 950px) {
@@ -219,7 +244,7 @@ nav {
   }
 
   .menuItem {
-    min-width: 100px;
+    min-width: 140px;
     min-height: 40px;
     padding: 0px;
   }
@@ -228,19 +253,29 @@ nav {
     margin-top: 220px;
   }
 
+  .jatekrol a {
+    padding: 0px 20px 30px 0px;
+  }
 }
 
 @media only screen and (min-width: 950px) and (max-width: 1100px) {
+  #border {
+    margin-top: 210px;
+  }
+  
   .menuBox {
     min-width: 70px;
   }
 
   .menuItem {
-    min-width: 70px;
-    min-height: 30px;
+    min-width: 95px;
+    min-height: 40px;
     padding: 0px;
   }
 
+  .jatekrol a {
+    padding: 0px 20px 30px 0px;
+  }
 }
 
 @media only screen and (min-width: 1100px) and (max-width: 1500px) {
@@ -250,13 +285,11 @@ nav {
 
   .menuItem {
     min-height: 40px;
-    min-width: 100px;
+    min-width: 105px;
     padding: 0px;
   }
 
-}
-
-footer{
-  margin-top: 500px;
-  opacity: 0.7;
+  .jatekrol a {
+    padding: 0px 20px 30px 0px;
+  }
 }
