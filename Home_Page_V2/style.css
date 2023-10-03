@@ -50,7 +50,7 @@ nav {
 #border {
   border: 20px solid transparent;
   border-image: url(./assets/border.png) 70 repeat;
-  margin-top: 200px;
+  margin-top: 220px;
   min-width: 300px;
 }
 
@@ -82,7 +82,6 @@ nav {
   margin: 10px 0px 10px 0px;
   min-height: 50px;
   min-width: 155px;
-  border-radius: 5px;
 }
 
 .menuItem:hover {

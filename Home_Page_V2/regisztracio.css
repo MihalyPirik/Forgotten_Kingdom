@@ -1,0 +1,193 @@
+@font-face {
+    font-family: 'OwnFont';
+    src: url('./assets/font/font.woff2') format('woff2');
+}
+
+body {
+    padding: 0px;
+    background-image: url(./assets/main_bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: 'OwnFont', sans-serif !important;
+}
+
+#name {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+nav {
+    background-image: url(./assets/navbar_piece.png);
+    background-repeat: repeat;
+    background-size: 90px;
+}
+
+.fbLogo {
+    float: right;
+    padding: 2.5px 10px 2.5px 10px;
+    opacity: 1;
+}
+
+.igLogo {
+    float: right;
+    padding: 2.5px 10px 2.5px 10px;
+}
+
+#gameLogo {
+    border-radius: 100%;
+    height: 260px;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    z-index: 2;
+}
+
+#border {
+    border: 20px solid transparent;
+    border-image: url(./assets/border.png) 70 repeat;
+    margin-top: 220px;
+    min-width: 300px;
+}
+
+#mainPanel {
+    position: relative;
+    background: transparent url(./assets/table_bg.png) repeat;
+    overflow: hidden;
+}
+
+#buttonPanel {
+    border: 1px solid white;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.menuBox {
+    border: 1px solid white;
+    min-height: 40px;
+    min-width: 130px;
+    padding: 0px;
+}
+
+.menuItem {
+    background-image: url(./assets/gombok/fooldal_gomb_1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition-duration: 0.4s;
+    margin: 10px 0px 10px 0px;
+    min-height: 50px;
+    min-width: 155px;
+    border-radius: 5px;
+}
+
+.menuItem:hover {
+    background-image: url(./assets/gombok/fooldal_gomb_2.png);
+}
+
+#logRegMenu {
+    padding: 0px;
+    overflow: hidden;
+    color: white;
+    border-color: white;
+    border: solid 1px;
+}
+
+#log {
+    border: 1px solid white;
+    height: 280px;
+}
+
+#bejelentkezes {
+    text-align: center;
+    margin: 50px 0px 10px 0px;
+}
+
+.input {
+    width: 170px;
+}
+
+.customBtn {
+    width: 120px;
+}
+
+.androidPanel {
+    margin: 17px auto 17px auto;
+}
+
+.android {
+    border: 1px solid white;
+    height: 200px;
+}
+
+#lanc {
+    margin: auto;
+    height: 200px;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-image: url(./assets/border.png) 70 repeat;
+    min-width: 300px;
+}
+
+#footer {
+    height: 200px;
+    background-color: black;
+    opacity: 0.7;
+    min-width: 300px;
+}
+
+@media only screen and (max-width: 950px) {
+    body {
+        font-size: 13px;
+    }
+
+    .input {
+        width: 130px;
+    }
+
+    .menuBox {
+        min-width: 100px;
+    }
+
+    .menuItem {
+        min-width: 140px;
+        min-height: 40px;
+        padding: 0px;
+    }
+
+    #border {
+        margin-top: 220px;
+    }
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1100px) {
+    #border {
+        margin-top: 210px;
+    }
+
+    .menuBox {
+        min-width: 70px;
+    }
+
+    .menuItem {
+        min-width: 95px;
+        min-height: 40px;
+        padding: 0px;
+    }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1500px) {
+    .menuBox {
+        min-width: 100px;
+    }
+
+    .menuItem {
+        min-height: 40px;
+        min-width: 105px;
+        padding: 0px;
+    }
+}
