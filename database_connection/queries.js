@@ -8,25 +8,21 @@ const hostData={
 }
 
 
-
-
+export const registration=(name,password)=>{
+  
+}
 const mysql=require('mysql')
-const c=mysql.createConnection({
-  host: hostData.host,
-  user: hostData.user,
-  port: hostData.port,
-  password: hostData.password,
-  database: hostData.databse
-})
+const c=mysql.createConnection(hostData)
+
+
 c.connect(function (error) {
   if (error) {
-      console.log("Error in the connection")
-    //   console.log(err)
-    // Egyéb feltételek (használt felhasználónév stb..)
+    
   }
   else {
     c.query("",function (error, result){
-        if (error){}
+        if (error){// Egyéb feltételek (használt felhasználónév stb..)
+        }
         else{}
     }
         )
