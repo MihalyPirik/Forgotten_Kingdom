@@ -74,18 +74,88 @@ nav {
 }
 
 .menuItem {
-  background-image: url(./assets/gombok/fooldal_gomb_1.png);
-  background-size: cover;
+  background-image: url(./assets/buttons/button1.png);
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   margin: 10px 0px 10px 0px;
   min-height: 50px;
   min-width: 155px;
+  color: yellow;
+  font-size: 25px;
 }
 
 .menuItem:hover {
-  background-image: url(./assets/gombok/fooldal_gomb_2.png);
+  background-image: url(./assets/buttons/button1H.png);
+}
+
+.menuItem2 {
+  background-image: url(./assets/buttons/button2.png);
+  background-color: transparent;
+  border-style: none;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition-duration: 0.4s;
+  margin: 10px 0px 10px 0px;
+  min-height: 80%;
+  min-width: 100%;
+  color: yellow;
+  font-size: 25px;
+}
+
+.menuItem2:hover {
+  background-image: url(./assets/buttons/button2H.png);
+}
+
+.loginBtn {
+  background-image: url(./assets/buttons/button3.png);
+  background-color: transparent;
+  border-style: none;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition-duration: 0.4s;
+  margin: 10px 0px 10px 0px;
+  min-height: 80%;
+  min-width: 100%;
+  color: yellow;
+  font-size: 25px;
+}
+
+.loginBtn:hover {
+  background-image: url(./assets/buttons/button3H.png);
+}
+
+.marginLeft {
+  margin-left: 120px;
+}
+
+.apkDownload {
+  background-image: url(./assets/android.png);
+  background-color: transparent;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition-duration: 0.4s;
+  border-style: none;
+  min-height: 70%;
+  min-width: 90%;
+}
+
+.apkDownload:hover {
+  background-color: transparent;
+  background-image: url(./assets/android.gif);
+}
+
+.apkManual {
+  font-weight: bold;
+}
+
+.arrow {
+  font-weight: 1000%;
+  text-align: center;
 }
 
 #firstBlock {
@@ -100,11 +170,11 @@ nav {
 
 .jatekrol {
   border: 1px solid white;
-  background-image: url(./assets/paper2.png);
+  background-image: url(./assets/paper.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
-  height: 50%;
+  height: 100%;
 }
 
 .jatekrol a {
@@ -179,10 +249,6 @@ nav {
 
 .input {
   width: 170px;
-}
-
-.customBtn {
-  width: 120px;
 }
 
 #kerdes {
