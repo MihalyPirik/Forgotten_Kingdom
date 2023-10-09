@@ -285,9 +285,9 @@ nav {
 #lanc {
   margin: auto;
   height: 200px;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  border-image: url(./assets/border.png) 70 repeat;
+  border-right: 30px solid;
+  border-left: 30px solid;
+  border-image: url(./assets/chain.png) 150 repeat;
   min-width: 300px;
 }
 
