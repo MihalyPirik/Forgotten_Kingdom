@@ -61,10 +61,8 @@ nav {
 }
 
 #buttonPanel {
-  /* background-image: url(./assets/bg2.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%; */
+  border-bottom: 10px solid transparent;
+  border-image: url(./assets/border2.png) 70 repeat;
   margin-left: 12px;
   margin-right: 12px;
 }
@@ -83,34 +81,16 @@ nav {
   transition-duration: 0.4s;
   margin: 10px 0px 10px 0px;
   min-height: 60px;
-  min-width: 200px;
+  min-width: 165px;
   color: gold;
   font-size: 25px;
   border-radius: 1rem;
+  font-weight: bold;
 }
 
 .menuItem:hover {
   background-image: url(./assets/buttons/button1H.png);
   color: yellow;
-}
-
-.menuItem2 {
-  background-image: url(./assets/buttons/button2.png);
-  background-color: transparent;
-  border-style: none;
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition-duration: 0.4s;
-  margin: 10px 0px 10px 0px;
-  min-height: 80%;
-  min-width: 100%;
-  color: yellow;
-  font-size: 25px;
-}
-
-.menuItem2:hover {
-  background-image: url(./assets/buttons/button2H.png);
 }
 
 .loginBtn {
@@ -124,42 +104,52 @@ nav {
   margin: 10px 0px 10px 0px;
   min-height: 80%;
   min-width: 100%;
-  color: yellow;
+  color: white;
   font-size: 25px;
 }
 
 .loginBtn:hover {
   background-image: url(./assets/buttons/button3H.png);
-}
-
-.marginLeft {
-  margin-left: 120px;
+  color: rgb(255, 255, 162);
 }
 
 .apkDownload {
   background-image: url(./assets/android.png);
-  background-color: transparent;
-  background-size: 100% 100%;
+  background-color: rgb(0, 0, 0, 0.4);
+  background-size: 90% 80%;
   background-position: center;
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   border-style: none;
   min-height: 70%;
   min-width: 90%;
+  margin-bottom: 0PX;
 }
 
 .apkDownload:hover {
-  background-color: transparent;
+  background-color: rgb(0, 0, 0, 0.4);
   background-image: url(./assets/android.gif);
 }
 
 .apkManual {
-  font-weight: bold;
+  font-size: 30px;
+  color: gold;
+  background-color: rgb(0, 0, 0, 0.4);
+  border-bottom: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+  margin-bottom: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .arrow {
-  font-weight: 1000%;
-  text-align: center;
+  color: gold;
+  font-size: 30PX;
+  background-color: rgb(0, 0, 0, 0.4);
+  border-bottom: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+  margin: 0;
+  padding: 0;
 }
 
 #firstBlock {
@@ -167,13 +157,11 @@ nav {
   overflow: hidden;
   color: black;
   text-align: left;
-  border: 2px solid white;
   margin-bottom: 0;
   font-weight: bold;
 }
 
 .jatekrol {
-  border: 1px solid white;
   background-image: url(./assets/paper.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -191,10 +179,9 @@ nav {
 }
 
 .featureTitle {
-  font-size: 20px;
   color: rgb(176, 18, 18) !important;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 10px;
 }
 
@@ -202,6 +189,7 @@ nav {
   padding-left: 30px;
   padding-right: 30px;
   margin: 0px;
+  font-size: 20px;
 }
 
 #secondBlock {
@@ -210,7 +198,6 @@ nav {
   color: black;
   text-align: left;
   font-weight: bold;
-  border: 2px solid white;
   margin-bottom: 0;
 }
 
@@ -220,7 +207,6 @@ nav {
   color: black;
   text-align: left;
   font-weight: bold;
-  border: 2px solid white;
   margin-bottom: 0;
 }
 
@@ -231,24 +217,29 @@ nav {
 #logRegMenu {
   padding: 0px;
   overflow: hidden;
-  color: white;
-  border-color: white;
-  border: solid 1px;
+  color: gold;
 }
 
 #log {
-  border: 1px solid white;
-  height: 280px;
+  margin-top: 20px;
+  background-color: rgb(0, 0, 0, 0.4);
+  border: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+  height: 250px;
 }
 
 #reg {
-  border: 1px solid white;
-  height: 170px;
+  background-color: rgb(0, 0, 0, 0.4);
+  border-bottom: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+  font-size: 20px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
 #bejelentkezes {
   text-align: center;
-  margin: 50px 0px 10px 0px;
+  margin: 30px 0px 10px 0px;
 }
 
 .input {
@@ -256,11 +247,11 @@ nav {
 }
 
 #kerdes {
-  margin: 40px 0px 10px 0px;
+  padding-top: 20px;
+  margin: 0px;
 }
 
 #mobile {
-  border: 1px solid white;
   height: 450px;
 }
 
@@ -268,8 +259,6 @@ nav {
   padding: 0px;
   overflow: hidden;
   color: white;
-  border-color: white;
-  border: solid 1px;
 }
 
 .androidPanel {
@@ -277,7 +266,6 @@ nav {
 }
 
 .android {
-  border: 1px solid white;
   height: 200px;
 }
 
@@ -304,10 +292,23 @@ nav {
 }
 
 #footer {
+  padding-top: 30px;
+  text-align: center;
+  color: white;
   height: 200px;
-  background-color: black;
-  opacity: 0.7;
+  background-color: rgb(0, 0, 0,0.5);
   min-width: 300px;
+  border: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+}
+
+#footer h1 {
+  font-size: 30px;
+}
+
+#footer p {
+  color: gold;
+  font-size: 20px;
 }
 
 @media only screen and (max-width: 950px) {
