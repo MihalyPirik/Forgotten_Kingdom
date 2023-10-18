@@ -4,11 +4,10 @@ const hostData={
     user:"root",
     password:"admin",
     port:3306,
-    databse:"ForgottenKingdom"
+    databse:"forgottenkingdom"
 }
 
-
-export const registration=(name,password)=>{
+const registration=(name,password)=>{
   
 }
 const mysql=require('mysql')
@@ -17,13 +16,15 @@ const c=mysql.createConnection(hostData)
 
 c.connect(function (error) {
   if (error) {
-    
+    console.log(error)
   }
   else {
     c.query("",function (error, result){
-        if (error){// Egyéb feltételek (használt felhasználónév stb..)
+        if (error){
+        console.log(error.message)
         }
-        else{}
+        else{console.log(result[0].player_id)}
+        c.end()
     }
         )
             }
