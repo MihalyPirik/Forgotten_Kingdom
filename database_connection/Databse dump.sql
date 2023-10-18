@@ -18,7 +18,8 @@
 --
 -- Table structure for table `buildings`
 --
-
+CREATE DATABASE `forgottenkingdom`;
+USE forgottenkingdom;
 DROP TABLE IF EXISTS `buildings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
@@ -42,7 +43,6 @@ LOCK TABLES `buildings` WRITE;
 /*!40000 ALTER TABLE `buildings` DISABLE KEYS */;
 /*!40000 ALTER TABLE `buildings` ENABLE KEYS */;
 UNLOCK TABLES;
-
 --
 -- Table structure for table `cities`
 --
