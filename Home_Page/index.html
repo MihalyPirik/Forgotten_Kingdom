@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <nav class="container-fluid bg-light">
+        <!-- <nav class="container-fluid bg-light">
             <div class="row">
                 <div class="nb_trp">
                     <a id="name" class="navbar-brand content" href="./index.html"></a>
@@ -25,11 +25,11 @@
                             height="25"></a>
                 </div>
             </div>
-        </nav>
-        <!-- <nav class="navbar-brand">
-            <a href=""><img src="./assets/ig_logo.png" alt="" width="25" height="25"></a>
-                <a href=""><img src="./assets/fb_logo.png" alt="" width="25" height="25"></a>
-          </nav> -->
+        </nav> -->
+        <nav class="navbar-brand d-flex flex-row-reverse">
+            <a class="me-3" href=""><img src="./assets/ig_logo.png" alt="" width="25" height="25"></a>
+                <a class="me-3" href=""><img src="./assets/fb_logo.png" alt="" width="25" height="25"></a>
+          </nav>
     </header>
 
 
@@ -39,22 +39,22 @@
     <main>
         <div class="container w-50 p-0 text-center" id="border">
             <div id="mainPanel">
-                <div class="row mt-3 mb-3" id="buttonPanel">
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <a href="./index.html"><button class="menuItem" type="button">HOME</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <a href="./regisztracio.html"><button class="menuItem" type="button">RÓLUNK</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <a href=""><button class="menuItem" type="button">GALÉRIA</button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <a href=""><button class="menuItem" type="button">REPORT</button></a>
-                    </div>
+                <div class="row justify-content-center px-4" id="buttonPanel">
+
+                    <button class="col-xl col-lg-6 col-md-6 m-2 p-1" type="button"><a href="./index.html">HOME</a></button>
+              
+                 
+                    <button class="col-xl col-lg-6 col-md-6 m-2 p-1" type="button"><a href="./regisztracio.html">RÓLUNK</a></button>
+              
+           
+                    <button class="col-xl col-lg-6 col-md-6 m-2 p-1" type="button"><a href="">GALÉRIA</a></button>
+                
+                  
+                    <button class="col-xl col-lg-6 col-md-6 m-2 p-1" type="button"><a href="">REPORT</a></button>
+           
                 </div>
                 <div class="row m-2 mb-3">
-                    <div class="col-lg-7 col-sm-12" id="firstBlock">
+                    <div class="col-xl-7 col-lg-12" id="firstBlock">
                         <div class="me-1 ms-1 rounded jatekrol">
                             <div class="container-fluid featureHeader">
                                 <div class="featureTitle">
@@ -69,33 +69,25 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-5 col-sm-12" id="logRegMenu">
-                        <div class="me-4 ms-4 rounded" id="log">
-
-                            <h3 id="bejelentkezes">BEJELENTKEZÉS</h3>
-
-                            <div class="form-floating">
-                                <input type="email" class="mb-2 input" placeholder="name@example.com">
-                            </div>
-                            <div class="form-floating">
-                                <input type="password" class="input" placeholder="Password">
-                            </div>
-                            <div class="btn">
-                                <a href=""><button class="loginBtn" type="button">BELÉPÉS</button></a>
-                            </div>
+                    <div class="col-xl-5 col-lg-12" id="logRegMenu">
+                        <div class="d-flex flex-column justify-content-evenly align-items-center" id="log">
+                            <h3>BEJELENTKEZÉS</h3>
+                            <input type="email" placeholder="name@example.com">
+                            <input type="password" placeholder="Password">
+                            <a href="" class="btn"><button type="button">BELÉPÉS</button></a>
                             <a style="color: gold;" href="">Elfelejtett jelszó</a>
                         </div>
-                        <div class="me-5 ms-5 rounded" id="reg">
-                            <p id="kerdes">NINCS MÉG FIÓKOD?</p>
-                            <div class="btn">
-                                <a href="./regisztracio.html"><button class="btn loginBtn" type="button">REGISZTRÁCIÓ</button></a>
-                            </div>
-                            
+
+                        <div class="d-flex flex-column justify-content-center align-items-center" id="reg">
+                            <p>NINCS MÉG FIÓKOD?</p>
+                            <a class="btn" href="./regisztracio.html"><button type="button">REGISZTRÁCIÓ</button></a>
                         </div>
+
                     </div>
                 </div>
+
                 <div class="row m-2 mb-3">
-                    <div class="col-lg-7 col-sm-12" id="secondBlock">
+                    <div class="col-xl-7 col-lg-12" id="secondBlock">
                         <div class="me-1 ms-1 rounded jatekrol">
                             <div class="container-fluid featureHeader">
                                 <div class="featureTitle">
@@ -107,16 +99,16 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-5 col-sm-12" id="mobilePanel">
-                        <div class="col me-3 ms-3 rounded" id="mobile">
-                            <h2 class="apkManual">MANUAL ALKALMAZÁS!</h2>
-                            <a href=""><button class="apkDownload" type="button"></button></a>
-                            <p class="me-3 ms-3 arrow">↑ K A T T I N T S ↑</p>
-                        </div>
-                    </div>
+                    <div class="col-xl-5 col-lg-12 pe-3 ps-3" id="mobilePanel">
+                        <div>
+                            <h2>MANUAL ALKALMAZÁS!</h2>
+                            <button type="button"></button>
+                            <p>↑ K A T T I N T S ↑</p>
+                            </div>
                 </div>
+
                 <div class="row m-2 mb-3">
-                    <div class="col-lg-7 col-sm-12" id="thirdBlock">
+                    <div class="col-xl-7 col-lg-12" id="thirdBlock">
                         <div class="me-1 ms-1 rounded jatekrol">
                             <div class="container-fluid featureHeader">
                                 <div class="featureTitle">
@@ -128,11 +120,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-5 col-sm-12" id="mobilePanel">
-                        <div class="col me-1 ms-1 rounded" id="mobile">
 
-                        </div>
-                    </div>
                 </div>
             </div>
 

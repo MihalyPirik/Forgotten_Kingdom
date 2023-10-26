@@ -23,15 +23,8 @@ nav {
   background-size: 90px;
 }
 
-.fbLogo {
-  float: right;
-  padding: 2.5px 10px 2.5px 10px;
-  opacity: 1;
-}
-
-.igLogo {
-  float: right;
-  padding: 2.5px 10px 2.5px 10px;
+nav a{
+  padding: 3px 0 3px 0
 }
 
 #gameLogo {
@@ -63,37 +56,31 @@ nav {
 #buttonPanel {
   border-bottom: 10px solid transparent;
   border-image: url(./assets/border2.png) 70 repeat;
-  margin-left: 12px;
-  margin-right: 12px;
 }
 
-.menuBox {
-  min-height: 40px;
-  min-width: 130px;
-  padding: 0px;
-}
 
-.menuItem {
+#buttonPanel *{
+  color: gold;
+  text-decoration: none;
+}
+#buttonPanel>* {
   background-image: url(./assets/buttons/button1.png);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   transition-duration: 0.4s;
-  margin: 10px 0px 10px 0px;
-  min-height: 60px;
-  min-width: 165px;
-  color: gold;
   font-size: 25px;
   border-radius: 1rem;
   font-weight: bold;
+  max-width: 300px;
 }
 
-.menuItem:hover {
+#buttonPanel>*:hover {
   background-image: url(./assets/buttons/button1H.png);
   color: yellow;
 }
 
-.loginBtn {
+#logRegMenu button {
   background-image: url(./assets/buttons/button3.png);
   background-color: transparent;
   border-style: none;
@@ -101,21 +88,47 @@ nav {
   background-position: center;
   background-repeat: no-repeat;
   transition-duration: 0.4s;
-  margin: 10px 0px 10px 0px;
   min-height: 80%;
   min-width: 100%;
   color: white;
   font-size: 25px;
 }
 
-.loginBtn:hover {
+#logRegMenu button:hover {
   background-image: url(./assets/buttons/button3H.png);
   color: rgb(255, 255, 162);
 }
 
-.apkDownload {
-  background-image: url(./assets/android.png);
+
+#mobilePanel{
+  color: gold;
+  font-size: 30px;
+}
+
+#mobilePanel button:hover {
+  background-image: url(./assets/android.gif);
+}
+
+#mobilePanel *{margin: 0;padding: 0;}
+
+#mobilePanel>*:first-child{
   background-color: rgb(0, 0, 0, 0.4);
+}
+
+#mobilePanel>*:first-child>*:first-child{
+  border-bottom: 10px solid;
+  border-top: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+}
+
+#mobilePanel>*:first-child>*:last-child{
+  border-bottom: 10px solid;
+  border-top: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+}
+
+#mobilePanel button {
+  background-image: url(./assets/android.png);
   background-size: 90% 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -123,33 +136,8 @@ nav {
   border-style: none;
   min-height: 70%;
   min-width: 90%;
-  margin-bottom: 0PX;
-}
-
-.apkDownload:hover {
-  background-color: rgb(0, 0, 0, 0.4);
-  background-image: url(./assets/android.gif);
-}
-
-.apkManual {
-  font-size: 30px;
-  color: gold;
-  background-color: rgb(0, 0, 0, 0.4);
-  border-bottom: 10px solid;
-  border-image: url(./assets/border2.png) 70;
-  margin-bottom: 0px;
-  margin: 0;
-  padding: 0;
-}
-
-.arrow {
-  color: gold;
-  font-size: 30PX;
-  background-color: rgb(0, 0, 0, 0.4);
-  border-bottom: 10px solid;
-  border-image: url(./assets/border2.png) 70;
-  margin: 0;
-  padding: 0;
+  height: 350px;
+  background-color: transparent
 }
 
 #firstBlock {
@@ -215,10 +203,10 @@ nav {
 }
 
 #logRegMenu {
-  padding: 0px;
-  overflow: hidden;
   color: gold;
 }
+#logRegMenu h3{font-size: 150%;
+margin-bottom: 0;}
 
 #log {
   margin-top: 20px;
@@ -237,28 +225,8 @@ nav {
   margin-bottom: 10px;
 }
 
-#bejelentkezes {
-  text-align: center;
-  margin: 30px 0px 10px 0px;
-}
-
-.input {
-  width: 170px;
-}
-
-#kerdes {
-  padding-top: 20px;
-  margin: 0px;
-}
-
-#mobile {
-  height: 450px;
-}
-
-#mobilePanel {
-  padding: 0px;
-  overflow: hidden;
-  color: white;
+#logRegMenu input {
+  width: 60%;
 }
 
 .androidPanel {
@@ -311,7 +279,7 @@ nav {
   font-size: 20px;
 }
 
-@media only screen and (max-width: 950px) {
+/* @media only screen and (max-width: 950px) {
   body {
     font-size: 13px;
   }
@@ -377,4 +345,4 @@ nav {
   .featureTitle {
     padding-top: 10px;
   }
-}
+} */
