@@ -15,28 +15,15 @@
 
 <body>
     <header>
-        <!-- <nav class="container-fluid bg-light">
-            <div class="row">
-                <div class="nb_trp">
-                    <a id="name" class="navbar-brand content" href="./index.html"></a>
-                    <a class="fbLogo content" href="#"><img src="./assets/fb_logo.png" alt="" width="25"
-                            height="25"></a>
-                    <a class="igLogo content" href="#"><img src="./assets/ig_logo.png" alt="" width="25"
-                            height="25"></a>
-                </div>
-            </div>
-        </nav> -->
         <nav class="navbar-brand d-flex flex-row-reverse">
             <a class="me-3" href=""><img src="./assets/ig_logo.png" alt="" width="25" height="25"></a>
                 <a class="me-3" href=""><img src="./assets/fb_logo.png" alt="" width="25" height="25"></a>
           </nav>
     </header>
 
-
-
-        <img id="gameLogo" src="./assets/LOGOv6.png" alt="Logo">
-
+    <img id="gameLogo" src="./assets/LOGOv6.png" alt="Logo">
     <main>
+        
         <div class="container w-50 p-0 text-center" id="border">
             <div id="mainPanel">
                 <div class="row p-2" id="buttonPanel">
@@ -53,83 +40,58 @@
                     <div class="col-xl col-md-6 col-sm-12"><button type="button"><a href="">REPORT</a></button></div>
            
                 </div>
-                <div class="row m-2 mb-3">
-                    <div class="col-xl-7 col-lg-12" id="firstBlock">
-                        <div class="me-1 ms-1 rounded jatekrol">
-                            <div class="container-fluid featureHeader">
-                                <div class="featureTitle">
-                                    <span class="feature">A JÁTÉKRÓL</span>
-                                </div>
-                            </div>
-                            <p class="feature">A Forgotten Kingdom egy középkorban játszódó szerepjáték, stratégiai
-                                elemekkel vegyítve.
-                                A játékos saját kiválasztott karakterével fedezhet fel
-                                egy rég elfeledett királyságot ...</p>
-                            <a href="" class="feature">Bővebben ></a>
-                        </div>
+                <div class="row m-2">
+                    <div class="col-xl-7 col-lg-12 p-4 paper">
+                        <h4 class="text-danger">A JÁTÉKRÓL</h4>
+                        <p>A Forgotten Kingdom egy középkorban játszódó szerepjáték, stratégiai
+                            elemekkel vegyítve.
+                            A játékos saját kiválasztott karakterével fedezhet fel
+                            egy rég elfeledett királyságot ...</p>
+                            <a href="">Bővebben</a>
                     </div>
-
-                    <div class="col-xl-5 col-lg-12" id="logRegMenu">
-                        <div class="d-flex flex-column justify-content-evenly align-items-center" id="log">
-                            <h3>BEJELENTKEZÉS</h3>
-                            <input type="email" placeholder="name@example.com">
-                            <input type="password" placeholder="Password">
-                            <a href="" class="btn"><button type="button">BELÉPÉS</button></a>
+                    <div class="col-xl-5 col-lg-12 pt-4" id="forms">
+                        <div class="d-flex flex-column justify-content-evenly align-items-center">
+                        <h3>BEJELENTKEZÉS</h3>
+                        <form class="d-flex flex-column justify-content-evenly align-items-center">
+                            <label for="InputEmail" class="form-label">Email cím</label>
+                              <input placeholder="name@example.com" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+                            <label for="InputPassword" class="form-label">Jelszó</label>
+                              <input placeholder="Password" type="password" class="form-control" id="InputPassword" aria-describedby="passwordHelp">
+                            <button class="px-1" type="submit" class="btn">BELÉPÉS</button>
+                          </form>
                             <a style="color: gold;" href="">Elfelejtett jelszó</a>
-                        </div>
-
-                        <div class="d-flex flex-column justify-content-center align-items-center" id="reg">
+                            <div id="borderLine"></div>
                             <p>NINCS MÉG FIÓKOD?</p>
                             <a class="btn" href="./regisztracio.html"><button type="button">REGISZTRÁCIÓ</button></a>
                         </div>
-
                     </div>
                 </div>
-
-                <div class="row m-2 mb-3">
-                    <div class="col-xl-7 col-lg-12" id="secondBlock">
-                        <div class="me-1 ms-1 rounded jatekrol">
-                            <div class="container-fluid featureHeader">
-                                <div class="featureTitle">
-                                    <span class="feature">MOBIL ALKALMAZÁS</span>
-                                </div>
-                            </div>
-                            <p class="feature">Töltsd le mobil alkalmazásunlat, és nézd meg, hogy más játékosok hogyan haladnak királyságuk felépítésével.</p>
-                            <a href="" class="feature">Bővebben ></a>
-                        </div>
+                <div class="row m-2">
+                    <div class="col-xl-7 col-lg-12 p-4 paper">
+                        <h4 class="text-danger">MOBIL ALKALMAZÁS</h4>
+                        <p>Töltsd le mobil alkalmazásunlat, és nézd meg, hogy más játékosok hogyan haladnak királyságuk felépítésével.</p>
+                            <a href="">Bővebben</a>
                     </div>
-
-                    <div class="col-xl-5 col-lg-12 pe-3 ps-3" id="mobilePanel">
+                    <div class="col-xl-5 col-lg-12 pt-4" id="mobilePanel">
                         <div>
-                            <h2>MANUAL ALKALMAZÁS!</h2>
-                            <button type="button"></button>
-                            <p>↑ K A T T I N T S ↑</p>
-                            </div>
-                </div>
-
-                <div class="row m-2 mb-3">
-                    <div class="col-xl-7 col-lg-12" id="thirdBlock">
-                        <div class="me-1 ms-1 rounded jatekrol">
-                            <div class="container-fluid featureHeader">
-                                <div class="featureTitle">
-                                    <span class="feature">A TE KIRÁLYSÁGOD</span>
-                                </div>
-                            </div>
-                            <p class="feature">Te leszel a király, a saját stílusod, saját királyságod!<p>
-                            <a href="" class="feature">Bővebben ></a>
-                        </div>
+                        <h3>MANUAL ALKALMAZÁS!</h3>
+                        <img width="100%" src="assets/android.png"></img>
+                        <p>↑ K A T T I N T S ↑</p>
                     </div>
-
-
+                    </div>
                 </div>
-            </div>
+<div class="row m-2">
+    <div class="col-xl-7 col-lg-12 p-4 paper">
+        <h4 class="text-danger">A TE KIRÁLYSÁGOD</h4>
+        <p>Te leszel a király, a saját stílusod, saját királyságod!</p>
+        <a href="">Bővebben</a>
+    </div>
+</div>
 
         </div>
     </main>
 
-    <div class="w-50" id="lanc">
-
-    </div>
+    <div class="w-50" id="lanc"></div>
 
     <footer>
         <div class="container w-50" id="footer">

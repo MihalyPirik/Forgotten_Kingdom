@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./bootstrap-5.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/font/font.woff2">
-    <link rel="stylesheet" href="./regisztracio.css" type="text/css">
+    <link rel="stylesheet" href="style.css">
 
     <title>Forgotten Kingdom</title>
 </head>
@@ -14,58 +14,48 @@
 <body>
 
     <header>
-        <nav class="container-fluid bg-light">
-            <div class="row">
-                <div class="nb_trp">
-                    <a id="name" class="navbar-brand content" href="./index.html"></a>
-                    <a class="fbLogo content" href="#"><img src="./assets/fb_logo.png" alt="" width="25"
-                            height="25"></a>
-                    <a class="igLogo content" href="#"><img src="./assets/ig_logo.png" alt="" width="25"
-                            height="25"></a>
-                </div>
-            </div>
-        </nav>
+        <nav class="navbar-brand d-flex flex-row-reverse">
+            <a class="me-3" href=""><img src="./assets/ig_logo.png" alt="" width="25" height="25"></a>
+                <a class="me-3" href=""><img src="./assets/fb_logo.png" alt="" width="25" height="25"></a>
+          </nav>
     </header>
 
 
-    <div class="container text-center">
         <img id="gameLogo" src="./assets/LOGOv6.png" alt="Logo">
-    </div>
 
     <main>
         <div class="container w-50 p-0 text-center" id="border">
             <div id="mainPanel">
-                <div class="row mt-3 mb-3" id="buttonPanel">
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <a href="./index.html"><button class="menuItem" type="button"></button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <a href="./regisztracio.html"><button class="menuItem" type="button"></button></a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <button class="menuItem" type="button"></button>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 menuBox">
-                        <button class="menuItem" type="button"></button>
-                    </div>
+                <div class="row p-2" id="buttonPanel">
+
+                    <div class="col-xl col-md-6 col-sm-12"><button type="button"><a href="./index.html">HOME</a></button></div>
+              
+                 
+                    <div class="col-xl col-md-6 col-sm-12"><button type="button"><a href="./regisztracio.html">RÓLUNK</a></button></div>
+              
+           
+                    <div class="col-xl col-md-6 col-sm-12"><button type="button"><a href="">GALÉRIA</a></button></div>
+                
+                  
+                    <div class="col-xl col-md-6 col-sm-12"><button type="button"><a href="">REPORT</a></button></div>
+           
                 </div>
 
 
-                <div class="col" id="logRegMenu">
-                    <div class="me-1 ms-1 rounded" id="log">
-
-                        <h3 id="bejelentkezes">Regisztráció</h3>
-
-                        <div class="form-floating">
-                            <input type="email" class="mb-2 input" placeholder="name@example.com">
-                        </div>
-                        <div class="form-floating">
-                            <input type="password" class="input" placeholder="Password">
-                        </div>
-
-                        <button type="button" class="btn btn-secondary mt-2 customBtn"
-                            data-bs-toggle="button">Mentés</button>
-                    </div>
+                <div class="col">
+                        
+                        <form class="d-flex flex-column justify-content-evenly align-items-center" id="regisztracioForm">
+                         
+                            <h3 >Regisztráció</h3>
+                            <label for="InputEmail" class="form-label">Email cím</label>
+                              <input placeholder="name@example.com" type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
+                            
+                            <label for="InputPassword" class="form-label">Jelszó</label>
+                              <input placeholder="Password" type="password" class="form-control" id="InputPassword" aria-describedby="passwordHelp">
+                            
+                            <button type="submit" class="btn btn-primary">REGISZTRÁCIÓ</button>
+                          </form>
+                   
                 </div>
             </div>
 
@@ -78,7 +68,9 @@
 
     <footer>
         <div class="container w-50" id="footer">
-
+            <h1>KAPCSOLAT</h1>
+            <p>info@forgottenkingdom.hu</p>
+            <p>Győr, Szent István út 7.</p>
         </div>
     </footer>
 
