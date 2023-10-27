@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `forgottenkingdom` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `forgottenkingdom`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: forgottenkingdom
@@ -16,103 +18,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `buildings`
+-- Table structure for table `enemies`
 --
-CREATE DATABASE `forgottenkingdom`;
-USE forgottenkingdom;
-DROP TABLE IF EXISTS `buildings`;
+
+DROP TABLE IF EXISTS `enemies`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `buildings` (
-  `building_id` int NOT NULL,
-  `building_name` varchar(45) NOT NULL,
+CREATE TABLE `enemies` (
+  `enemy_id` int NOT NULL,
+  `enemy_name` varchar(45) DEFAULT NULL,
+  `HP` int NOT NULL,
+  `attack` int NOT NULL,
   `level` int NOT NULL,
-  `type` varchar(45) NOT NULL,
-  `city_id` int NOT NULL,
-  PRIMARY KEY (`building_id`),
-  KEY `building-city_idx` (`city_id`),
-  CONSTRAINT `building-city` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`)
+  `world_id` int NOT NULL,
+  PRIMARY KEY (`enemy_id`),
+  KEY `enemy-world_idx` (`world_id`),
+  CONSTRAINT `enemy-world` FOREIGN KEY (`world_id`) REFERENCES `players` (`world_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `buildings`
+-- Dumping data for table `enemies`
 --
 
-LOCK TABLES `buildings` WRITE;
-/*!40000 ALTER TABLE `buildings` DISABLE KEYS */;
-/*!40000 ALTER TABLE `buildings` ENABLE KEYS */;
-UNLOCK TABLES;
---
--- Table structure for table `cities`
---
-
-DROP TABLE IF EXISTS `cities`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cities` (
-  `city_id` int NOT NULL,
-  `city_name` varchar(45) NOT NULL,
-  PRIMARY KEY (`city_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cities`
---
-
-LOCK TABLES `cities` WRITE;
-/*!40000 ALTER TABLE `cities` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cities` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `item`
---
-
-DROP TABLE IF EXISTS `item`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `item` (
-  `item_id` int NOT NULL,
-  `itemLevel_id` int NOT NULL,
-  PRIMARY KEY (`item_id`),
-  KEY `item-itemlevel_idx` (`itemLevel_id`),
-  CONSTRAINT `item-itemlevel` FOREIGN KEY (`itemLevel_id`) REFERENCES `itemlevel` (`itemLevel_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `item`
---
-
-LOCK TABLES `item` WRITE;
-/*!40000 ALTER TABLE `item` DISABLE KEYS */;
-/*!40000 ALTER TABLE `item` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `itemlevel`
---
-
-DROP TABLE IF EXISTS `itemlevel`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `itemlevel` (
-  `itemLevel_id` int NOT NULL,
-  `item_level` int NOT NULL,
-  `item_attack` int NOT NULL,
-  PRIMARY KEY (`itemLevel_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `itemlevel`
---
-
-LOCK TABLES `itemlevel` WRITE;
-/*!40000 ALTER TABLE `itemlevel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `itemlevel` ENABLE KEYS */;
+LOCK TABLES `enemies` WRITE;
+/*!40000 ALTER TABLE `enemies` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enemies` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -127,8 +58,8 @@ CREATE TABLE `players` (
   `player_name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `city_id` int NOT NULL,
-  `item_id` int NOT NULL,
+  `world_id` int NOT NULL,
+  `tool_id` int DEFAULT NULL,
   `HP` int NOT NULL DEFAULT '0',
   `stone_count` int NOT NULL DEFAULT '0',
   `wood_count` int NOT NULL DEFAULT '0',
@@ -137,11 +68,11 @@ CREATE TABLE `players` (
   `wheat_count` int NOT NULL DEFAULT '0',
   `fish_count` int NOT NULL DEFAULT '0',
   `money_count` int NOT NULL DEFAULT '0',
+  `world_name` varchar(45) NOT NULL,
   PRIMARY KEY (`player_id`),
-  KEY `city-name_idx` (`city_id`),
-  KEY `player-item_idx` (`item_id`),
-  CONSTRAINT `player-city` FOREIGN KEY (`city_id`) REFERENCES `cities` (`city_id`),
-  CONSTRAINT `player-item` FOREIGN KEY (`item_id`) REFERENCES `item` (`item_id`)
+  UNIQUE KEY `world_id_UNIQUE` (`world_id`),
+  KEY `player-tool` (`tool_id`),
+  CONSTRAINT `player-tool` FOREIGN KEY (`tool_id`) REFERENCES `tools` (`tool_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -165,7 +96,7 @@ CREATE TABLE `questimprovement` (
   `quest_id` int NOT NULL,
   `player_id` int NOT NULL,
   `IsCompleted` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`quest_id`),
+  PRIMARY KEY (`quest_id`,`player_id`),
   KEY `improvement-player_idx` (`player_id`),
   CONSTRAINT `improvement-player` FOREIGN KEY (`player_id`) REFERENCES `players` (`player_id`),
   CONSTRAINT `improvement-quest` FOREIGN KEY (`quest_id`) REFERENCES `quests` (`quest_id`)
@@ -192,6 +123,7 @@ CREATE TABLE `quests` (
   `quest_id` int NOT NULL,
   `quest_name` varchar(45) NOT NULL,
   `description` varchar(45) DEFAULT NULL,
+  `IsMainStory` tinyint NOT NULL,
   PRIMARY KEY (`quest_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -218,10 +150,13 @@ CREATE TABLE `residents` (
   `buidling_id` int NOT NULL,
   `job_name` varchar(45) NOT NULL,
   `quest_id` int DEFAULT NULL,
+  `building_name` varchar(45) NOT NULL,
+  `building_type` varchar(45) NOT NULL,
+  `building_level` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`npc_id`),
-  KEY `resident-building_idx` (`buidling_id`),
   KEY `resident-quest_idx` (`quest_id`),
-  CONSTRAINT `resident-building` FOREIGN KEY (`buidling_id`) REFERENCES `buildings` (`building_id`),
+  KEY `building-world_idx` (`buidling_id`),
+  CONSTRAINT `building-world` FOREIGN KEY (`buidling_id`) REFERENCES `players` (`world_id`),
   CONSTRAINT `resident-quest` FOREIGN KEY (`quest_id`) REFERENCES `quests` (`quest_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -236,12 +171,28 @@ LOCK TABLES `residents` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'forgottenkingdom'
+-- Table structure for table `tools`
 --
 
+DROP TABLE IF EXISTS `tools`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tools` (
+  `tool_id` int NOT NULL,
+  `tool_attack` int NOT NULL,
+  `tool_level` varchar(45) NOT NULL,
+  PRIMARY KEY (`tool_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 --
--- Dumping routines for database 'forgottenkingdom'
+-- Dumping data for table `tools`
 --
+
+LOCK TABLES `tools` WRITE;
+/*!40000 ALTER TABLE `tools` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tools` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -252,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-17 16:23:02
+-- Dump completed on 2023-10-27 16:41:50
