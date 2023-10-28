@@ -2,9 +2,21 @@
   font-family: 'OwnFont';
   src: url('./assets/font/font.woff2') format('woff2');
 }
+
+
+
 *{
   font-family: 'OwnFont', sans-serif;
 }
+
+:root{
+  --mainPanelminwidth:300px;
+  --inputminwidth:200px;
+  --buttonminwidth:150px;
+  --buttonfontsize:20px
+}
+
+
 body {
   padding: 0px;
   background-image: url(./assets/main_bg.png);
@@ -13,12 +25,18 @@ body {
   background-size: 100% 100%;
 }
 
+
+
+
 #regisztracioForm{
-  color:gold
+  color:gold;
+  min-height: 300px;
 }
 
 #regisztracioForm input{
   width: 50%;
+  max-width: 250px;
+  min-width: var(--inputminwidth);
 }
 
 #regisztracioForm button {
@@ -30,7 +48,6 @@ body {
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   color: white;
-  font-size: 25px;
 }
 
 #regisztracioForm button:hover {
@@ -42,24 +59,37 @@ body {
 }
 
 
+
+
+
 nav {
   background-image: url(./assets/navbar_piece.png);
   background-repeat: repeat;
   background-size: 90px;
+  min-width: var(--mainPanelminwidth);
 }
 
 nav a{
   padding: 3px 0 3px 0
 }
 
+
+
+
+
 .paper{
   background-image: url(assets/paper.png);
   background-size: 100% 100%;
   min-height: 300px;
   font-weight: bold;
-  font-size: 1.2em;
+  padding: 60px 15px 30px 15px;
 }
-.paper h4{font-weight: bold;}
+.paper h4{
+  font-weight: inherit;}
+
+
+
+
 
 #gameLogo {
   display: block;
@@ -71,10 +101,18 @@ nav a{
   z-index: 1;
 }
 
+
+
+
+
 #border {
   border: 20px solid transparent;
   border-image: url(./assets/border.png) 70;
+  min-width: var(--mainPanelminwidth);
 }
+
+
+
 
 #mainPanel {
   position: relative;
@@ -82,11 +120,14 @@ nav a{
   overflow: hidden;
 }
 
+
+
+
+
 #buttonPanel {
   border-bottom: 10px solid transparent;
   border-image: url(./assets/border2.png) 70 repeat;
 }
-
 
 #buttonPanel *{
   color: gold;
@@ -98,10 +139,12 @@ nav a{
   background-position: center;
   background-repeat: no-repeat;
   transition-duration: 0.4s;
-  font-size: 25px;
   border-radius: 1rem;
   font-weight: bold;
   width: 100%;
+  padding: 5px;
+  margin-block: 2.5px;
+  font-size: 120%;
 }
 
 #buttonPanel>*>*:hover {
@@ -109,6 +152,13 @@ nav a{
   color: yellow;
 }
 
+
+
+
+
+form{
+  min-height: 200px;
+}
 #forms button {
   background-image: url(./assets/buttons/button3.png);
   background-color: transparent;
@@ -118,7 +168,8 @@ nav a{
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   color: white;
-  font-size: 25px;
+  min-width: var(--buttonminwidth);
+  font-size: var(--buttonfontsize);
 }
 
 #forms button:hover {
@@ -126,10 +177,31 @@ nav a{
   color: rgb(255, 255, 162);
 }
 
+#forms>*:first-child{
+  color: gold;
+  background-color: rgb(0, 0, 0, 0.4);
+  border-bottom: 10px solid;
+  border-top: 10px solid;
+  border-image: url(./assets/border2.png) 70;
+
+  
+}
+
+#forms>*:first-child *{
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+#forms input {
+  width: 60%;
+  min-width: var(--inputminwidth);
+}
+
+
+
 
 #mobilePanel{
   color: gold;
-  font-size: 30px;
 }
 
 #mobilePanel img:hover {
@@ -152,6 +224,7 @@ nav a{
   border-bottom: 10px solid;
   border-top: 10px solid;
   border-image: url(./assets/border2.png) 70;
+  font-size: 150%
 }
 
 #mobilePanel img {
@@ -161,15 +234,7 @@ nav a{
 
 
 
-#forms>*:first-child{
-  color: gold;
-  background-color: rgb(0, 0, 0, 0.4);
-  border-bottom: 10px solid;
-  border-top: 10px solid;
-  border-image: url(./assets/border2.png) 70;
 
-  
-}
 
 #borderLine{
   border-top:10px solid;
@@ -177,14 +242,7 @@ nav a{
   width: 100%;
 }
 
-#forms>*:first-child *{
-  margin: 0;
-  margin-bottom: 5px;
-}
 
-#forms input {
-  width: 60%;
-}
 
 #lanc {
   margin: auto;
@@ -192,7 +250,7 @@ nav a{
   border-right: 30px solid;
   border-left: 30px solid;
   border-image: url(./assets/chain.png) 150 repeat;
-  min-width: 300px;
+  min-width: var(--mainPanelminwidth);
 }
 
 #footer {
@@ -201,18 +259,16 @@ nav a{
   color: white;
   height: 200px;
   background-color: rgb(0, 0, 0,0.5);
-  min-width: 300px;
   border: 10px solid;
   border-image: url(./assets/border2.png) 70;
+  min-width: var(--mainPanelminwidth);
 }
 
 #footer h1 {
-  font-size: 30px;
 }
 
 #footer p {
   color: gold;
-  font-size: 20px;
 }
 
 /* @media only screen and (max-width: 950px) {
