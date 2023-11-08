@@ -1,22 +1,23 @@
-<script setup>
-import axios from 'axios'
-const Formregistration=(event)=>{
-  let errorMessage;
-  axios.post('/api/regisztracio',()=>{
-    name:event.target.InputName;
-    email:event.target.InputEmail;
-    password:event.target.InputPassword
-  }).then((response)=>{
-    errorMessage=response.data
-  }).catch((error)=>{
-    errorMessage=error.message
-  })
-}
-</script>
+<!-- <script setup>
+// import axios from 'axios'
+// const Formregistration=(event)=>{
+  // let errorMessage;
+//   axios.post('/api/regisztracio',()=>{
+//     name:event.target.InputName;
+//     email:event.target.InputEmail;
+//     password:event.target.InputPassword
+//   }).then((response)=>{
+//     errorMessage=response.data
+//   }).catch((error)=>{
+//     errorMessage=error.message
+//   })
+// }
+
+</script> -->
 <template>
   <div class="col">
 
-    <form @submit.prevent="Formregistration" class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
+    <form class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
 
       <h3>Regisztráció</h3>
       <div class="w-100">
@@ -26,7 +27,7 @@ const Formregistration=(event)=>{
           aria-describedby="emailHelp">
         <input placeholder="Password" type="password" class="form-control mx-auto" name="InputPassword"
           aria-describedby="passwordHelp">
-          <p style="color: red" v-show="{errorMessage!=null}">{{ errorMessage }}</p>
+          <!-- <p style="color: red" v-show="{errorMessage!=null}">{{ errorMessage }}</p> -->
       </div>
 
       <button type="submit" class="btn btn-primary">REGISZTRÁCIÓ</button>

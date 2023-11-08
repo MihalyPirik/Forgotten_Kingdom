@@ -3,7 +3,7 @@
 ### Legelőszöri indítás
 A VueJs projekt mappába:
 ```
-npm build
+npm run build
 ```
 A generált dist mappát át kell húzni a NodeJS gyökér könyvtárába
 
