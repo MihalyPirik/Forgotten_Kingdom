@@ -16,3 +16,13 @@ npm start
 ```
 node index
 ```
+### Indítás
+A NodeJS gyökér könyvtárba:
+- Nodemonnal
+```
+npm start
+```
+- Nodemon nélkül
+```
+node index
+```
