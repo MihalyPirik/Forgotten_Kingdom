@@ -1,9 +1,7 @@
 @font-face {
   font-family: 'OwnFont';
-  src: url('./assets/font/font.woff2') format('woff2');
+  src: url('assets/font/font.woff2') format('woff2');
 }
-
-
 
 *{
   font-family: 'OwnFont', sans-serif;
@@ -16,60 +14,17 @@
   --buttonfontsize:20px
 }
 
-
 body {
   padding: 0px;
-  background-image: url(./assets/main_bg.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+  background: url(assets/main_bg.png) fixed no-repeat 0/100% 100%;
 }
-
-
-
-
-#regisztracioForm{
-  color:gold;
-  min-height: 300px;
-}
-
-#regisztracioForm input{
-  width: 50%;
-  max-width: 250px;
-  min-width: var(--inputminwidth);
-}
-
-#regisztracioForm button {
-  background-image: url(./assets/buttons/button3.png);
-  background-color: transparent;
-  border-style: none;
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition-duration: 0.4s;
-  color: white;
-}
-
-#regisztracioForm button:hover {
-  background-image: url(./assets/buttons/button3H.png);
-  color: rgb(255, 255, 162);
-}
-#regisztracioForm *{
-  margin: 0;margin-bottom: 5px;
-}
-
-
-
-
 
 nav {
-  background-image: url(./assets/navbar_piece.png);
-  background-repeat: repeat;
-  background-size: 90px;
+  background: url(assets/navbar_piece.png) repeat 0/90px;
   min-width: var(--mainPanelminwidth);
 }
 
-nav a{
+nav>*{
   padding: 3px 0 3px 0
 }
 
@@ -87,10 +42,6 @@ nav a{
 .paper h4{
   font-weight: inherit;}
 
-
-
-
-
 #gameLogo {
   display: block;
   height: 260px;
@@ -107,48 +58,36 @@ nav a{
 
 #border {
   border: 20px solid transparent;
-  border-image: url(./assets/border.png) 70;
+  border-image: url(assets/border.png) 70;
   min-width: var(--mainPanelminwidth);
+  background: transparent url(assets/table_bg.png) repeat content-box;
 }
-
-
-
-
-#mainPanel {
-  position: relative;
-  background: transparent url(./assets/table_bg.png) repeat;
-  overflow: hidden;
-}
-
-
 
 
 
 #buttonPanel {
   border-bottom: 10px solid transparent;
-  border-image: url(./assets/border2.png) 70 repeat;
+  border-image: url(assets/border2.png) 70 repeat;
 }
 
-#buttonPanel *{
-  color: gold;
-  text-decoration: none;
-}
+
 #buttonPanel>*>* {
-  background-image: url(./assets/buttons/button1.png);
+  background: url(assets/buttons/button1.png) center no-repeat;
+  display: block;
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
   transition-duration: 0.4s;
   border-radius: 1rem;
   font-weight: bold;
   width: 100%;
   padding: 5px;
-  margin-block: 2.5px;
+  margin: 2.5px;
   font-size: 120%;
+  color: gold;
+  text-decoration: none;
 }
 
 #buttonPanel>*>*:hover {
-  background-image: url(./assets/buttons/button1H.png);
+  background-image: url(assets/buttons/button1H.png);
   color: yellow;
 }
 
@@ -159,30 +98,30 @@ nav a{
 form{
   min-height: 200px;
 }
-#forms button {
-  background-image: url(./assets/buttons/button3.png);
-  background-color: transparent;
+
+a{
+  color: gold;
+}
+#forms button,.button {
+  background-image: url(assets/buttons/button3.png);
   border-style: none;
   background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
   transition-duration: 0.4s;
   color: white;
   min-width: var(--buttonminwidth);
   font-size: var(--buttonfontsize);
 }
 
-#forms button:hover {
-  background-image: url(./assets/buttons/button3H.png);
+#forms button:hover,.button:hover {
+  background-image: url(assets/buttons/button3H.png);
   color: rgb(255, 255, 162);
 }
 
 #forms>*:first-child{
   color: gold;
   background-color: rgb(0, 0, 0, 0.4);
-  border-bottom: 10px solid;
-  border-top: 10px solid;
-  border-image: url(./assets/border2.png) 70;
+  border-block: 10px solid;
+  border-image: url(assets/border2.png) 70;
 
   
 }
@@ -215,15 +154,13 @@ form{
 }
 
 #mobilePanel>*:first-child>*:first-child{
-  border-bottom: 10px solid;
-  border-top: 10px solid;
-  border-image: url(./assets/border2.png) 70;
+  border-block: 10px solid;
+  border-image: url(assets/border2.png) 70;
 }
 
 #mobilePanel>*:first-child>*:last-child{
-  border-bottom: 10px solid;
-  border-top: 10px solid;
-  border-image: url(./assets/border2.png) 70;
+  border-block: 10px solid;
+  border-image: url(assets/border2.png) 70;
   font-size: 150%
 }
 
@@ -238,7 +175,7 @@ form{
 
 #borderLine{
   border-top:10px solid;
-  border-image: url(./assets/border2.png) 70;
+  border-image: url(assets/border2.png) 70;
   width: 100%;
 }
 
@@ -247,9 +184,8 @@ form{
 #lanc {
   margin: auto;
   height: 200px;
-  border-right: 30px solid;
-  border-left: 30px solid;
-  border-image: url(./assets/chain.png) 150 repeat;
+  border-inline: 30px solid;
+  border-image: url(assets/chain.png) 150 repeat;
   min-width: var(--mainPanelminwidth);
 }
 
@@ -260,81 +196,12 @@ form{
   height: 200px;
   background-color: rgb(0, 0, 0,0.5);
   border: 10px solid;
-  border-image: url(./assets/border2.png) 70;
+  border-image: url(assets/border2.png) 70;
   min-width: var(--mainPanelminwidth);
 }
 
-#footer h1 {
-}
+
 
 #footer p {
   color: gold;
 }
-
-/* @media only screen and (max-width: 950px) {
-  body {
-    font-size: 13px;
-  }
-
-  .input {
-    width: 130px;
-  }
-
-  .menuBox {
-    min-width: 100px;
-  }
-
-  .menuItem {
-    min-width: 140px;
-    min-height: 40px;
-    padding: 0px;
-  }
-
-  #border {
-    margin-top: 220px;
-  }
-
-  .jatekrol a {
-    padding: 0px 20px 30px 0px;
-  }
-}
-
-@media only screen and (min-width: 950px) and (max-width: 1100px) {
-  #border {
-    margin-top: 210px;
-  }
-
-  .menuBox {
-    min-width: 70px;
-  }
-
-  .menuItem {
-    min-width: 95px;
-    min-height: 40px;
-    padding: 0px;
-  }
-
-  .jatekrol a {
-    padding: 0px 20px 30px 0px;
-  }
-}
-
-@media only screen and (min-width: 1100px) and (max-width: 1500px) {
-  .menuBox {
-    min-width: 100px;
-  }
-
-  .menuItem {
-    min-height: 40px;
-    min-width: 105px;
-    padding: 0px;
-  }
-
-  .jatekrol a {
-    padding: 0px 20px 30px 0px;
-  }
-
-  .featureTitle {
-    padding-top: 10px;
-  }
-} */
