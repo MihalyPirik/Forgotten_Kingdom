@@ -4,15 +4,14 @@ const validator=require('express-validator')
 
 
 router.post('/regisztracio',(req,res)=>{
+    console.log('a')
     const email=req.body.email
     const password=req.body.password
     const name=req.body.name
-    if(
-    validator.body(email).isEmail()){
-        db.registration(email,password,name)
-        res.send('Sikeres regisztráció!')
-    }
-    
+
+    console.log(email)
+    console.log(password)
+    console.log(name)
 })
 
 module.exports=router
