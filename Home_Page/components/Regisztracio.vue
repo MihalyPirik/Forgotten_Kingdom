@@ -1,35 +1,41 @@
 <script setup>
-import axios from '../node_modules/axios/index'
-let errorMessage=null;
+import {ref,computed} from 'vue'
+import DataService from '../DataService/DataService';
+
+let errorMessage=ref()
+let color=ref()
+
 let name,email,password;
-const FormRegistration=()=>{
-  axios.post('/api/regisztracio',{
-    name:name,
-    email:email,
-    password:password
-})
-.then((response)=>{
-  errorMessage=response.data
-}).catch((error)=>{
-  errorMessage=error.message
+
+
+
+const submitForm=()=>{
+DataService.FormRegistration(name,email,password,(error,response)=>{
+  if(error){
+    errorMessage.value=error.message
+    color.value='red'
+  }
+  else{
+    errorMessage.value=response
+    color.value='green'
+  }
 })
 
 }
-
 
 
 </script>
 <template>
   <div class="col">
 
-    <form @submit.prevent="FormRegistration" class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
+    <form @submit.prevent="submitForm" class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
 
       <h3>Regisztráció</h3>
       <div class="w-100">
         <input v-model="name" placeholder="name" type="text" class="form-control mx-auto" aria-describedby="nameHelp">
         <input v-model="password" placeholder="name@example.com" type="email" class="form-control mx-auto" aria-describedby="emailHelp">
         <input v-model="email" placeholder="Password" type="password" class="form-control mx-auto" aria-describedby="passwordHelp">
-          <p style="color: red" v-show="errorMessage!=null">{{ errorMessage }}</p>
+          <p :style="{color:color}">{{ errorMessage }}</p>
       </div>
 
       <button type="submit" class="btn btn-primary">REGISZTRÁCIÓ</button>
@@ -62,6 +68,7 @@ button {
 
 button:hover {
   background-image: url(../assets/buttons/button3H.png);
+  background-color: transparent;
   color: rgb(255, 255, 162);
 }
 
