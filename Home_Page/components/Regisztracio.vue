@@ -1,5 +1,5 @@
 <script setup>
-import {ref,computed} from 'vue'
+import {ref} from 'vue'
 import DataService from '../DataService/DataService';
 
 let errorMessage=ref()
@@ -16,7 +16,7 @@ DataService.FormRegistration(name,email,password,(error,response)=>{
     color.value='red'
   }
   else{
-    errorMessage.value=response
+    errorMessage.value=response.data
     color.value='green'
   }
 })
@@ -33,8 +33,8 @@ DataService.FormRegistration(name,email,password,(error,response)=>{
       <h3>Regisztráció</h3>
       <div class="w-100">
         <input v-model="name" placeholder="name" type="text" class="form-control mx-auto" aria-describedby="nameHelp">
-        <input v-model="password" placeholder="name@example.com" type="email" class="form-control mx-auto" aria-describedby="emailHelp">
-        <input v-model="email" placeholder="Password" type="password" class="form-control mx-auto" aria-describedby="passwordHelp">
+        <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto" aria-describedby="emailHelp">
+        <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto" aria-describedby="passwordHelp">
           <p :style="{color:color}">{{ errorMessage }}</p>
       </div>
 

@@ -17,7 +17,7 @@ const router = createRouter({
       component: Regisztracio
     },
     {
-      path:'/',
+      path:'/:pathMatch(.*)*',
       name: 'Not found',
       component: Not_Found_Page
     }
