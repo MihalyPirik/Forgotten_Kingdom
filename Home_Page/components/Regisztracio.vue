@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue'
-import DataService from '../DataService/DataService';
+import {FormRegistration} from '../DataService/DataService'
 
 let errorMessage=ref()
 let color=ref()
@@ -10,7 +10,7 @@ let name,email,password;
 
 
 const submitForm=()=>{
-DataService.FormRegistration(name,email,password,(error,response)=>{
+FormRegistration(name,email,password,(error,response)=>{
   if(error){
     errorMessage.value=error.message
     color.value='red'

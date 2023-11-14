@@ -4,9 +4,10 @@ const hostData = {
   user: "root",
   password: "admin",
   port: 3306,
-  database: "forgottenkingdom"
+  database: "forgottenkingdom",
+  connectionLimit:50
 }
-const c = mysql.createConnection(hostData)
+const pool = mysql.createPool(hostData)
 
 
 
@@ -14,18 +15,22 @@ const c = mysql.createConnection(hostData)
 
 const registration = (email, password, name, callback) => {
 
-      c.query(`INSERT INTO players (HP,player_name,email,password,world_name) VALUES ('100','${name}','${email}','${password}','valami')`
-      ,(error)=>{callback(error)})
-   
-  
+  pool.getConnection((error,conn)=>{
+    if(error){callback(error)}
+    else{conn.query(`INSERT INTO players (HP,player_name,email,password,world_name) VALUES ('100','${name}','${email}','${password}','valami')`
+    ,(error)=>{callback(error)})}
+    conn.release()
+  })
+      
+
 }
 
-const getAllEmail=(callback)=>{
-  c.query('SELECT email FROM players',
+const getEmail=(email,callback)=>{
+  pool.query(`SELECT email FROM players WHERE email="${email}"`,
   (error,result)=>{callback(error,result)})
 }
 
 module.exports={
   registration,
-  getAllEmail
+  getEmail
 }

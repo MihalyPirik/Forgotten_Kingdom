@@ -1,1 +1,0 @@
-insert into forgottenkingdom.players (player_id,player_name,email,password,world_id,world_name) values (1,"dsf","sdf@example.com","fds",1,"valami")
