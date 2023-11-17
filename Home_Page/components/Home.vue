@@ -1,3 +1,20 @@
+<script setup>
+import { ref } from 'vue';
+import {FormLogin} from '../DataService/DataService'
+
+let email,password;
+
+let errorMessage=ref()
+const Login=()=>{
+    FormLogin(email,password,(err,response)=>
+    {
+        if(err){errorMessage.value=err.response.data}
+        else{errorMessage.value=response.data}
+        console.log(errorMessage.value)
+    })
+}
+
+</script>
 <template>
     <div class="row m-2">
         <div class="col-xl-7 col-lg-12 paper">
@@ -11,12 +28,14 @@
         <div class="col-xl-5 col-lg-12 pt-4" id="forms">
             <div class="d-flex flex-column justify-content-evenly align-items-center pt-3">
                 <h3>BEJELENTKEZÉS</h3>
-                <form class="d-flex flex-column justify-content-evenly align-items-center">
+                <form class="d-flex flex-column justify-content-evenly align-items-center" @submit.prevent="Login">
                     <div class="w-100">
-                        <input placeholder="name@example.com" type="email" class="form-control mx-auto" id="InputEmail"
+                        <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto" id="InputEmail"
                             aria-describedby="emailHelp">
-                        <input placeholder="Password" type="password" class="form-control mx-auto" id="InputPassword"
+                        <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto" id="InputPassword"
                             aria-describedby="passwordHelp">
+                            <p v-if="typeof errorMessage=='object'" v-for="msg in errorMessage">{{ msg.msg }}</p>
+                            <p v-else>{{ errorMessage }}</p>
                     </div>
                     <button class="px-1 btn button" type="submit">BELÉPÉS</button>
                 </form>

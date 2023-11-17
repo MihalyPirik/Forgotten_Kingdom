@@ -11,26 +11,16 @@ const pool = mysql.createPool(hostData)
 
 
 
+const Query= (query,callback)=>
+{
+  pool.getConnection((serverError,conn)=>
+  {
+    if(serverError){callback(serverError)}
 
-
-const registration = (email, password, name, callback) => {
-
-  pool.getConnection((error,conn)=>{
-    if(error){callback(error)}
-    else{conn.query(`INSERT INTO players (HP,player_name,email,password,world_name) VALUES ('100','${name}','${email}','${password}','valami')`
-    ,(error)=>{callback(error)})}
-    conn.release()
-  })
-      
-
+      conn.query(query,(err,result)=>{if(err){callback(null,err,null)}callback(null,null,result)})
+      conn.release()
+    }
+  )
 }
 
-const getEmail=(email,callback)=>{
-  pool.query(`SELECT email FROM players WHERE email="${email}"`,
-  (error,result)=>{callback(error,result)})
-}
-
-module.exports={
-  registration,
-  getEmail
-}
+module.exports=Query

@@ -9,13 +9,15 @@ let name,email,password;
 
 
 
-const submitForm=()=>{
+const Regisztracio=()=>{
 FormRegistration(name,email,password,(error,response)=>{
   if(error){
-    errorMessage.value=error.message
+  console.log(error)
+    errorMessage.value=error.response.data
     color.value='red'
   }
   else{
+    console.log(response)
     errorMessage.value=response.data
     color.value='green'
   }
@@ -28,14 +30,15 @@ FormRegistration(name,email,password,(error,response)=>{
 <template>
   <div class="col">
 
-    <form @submit.prevent="submitForm" class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
+    <form @submit.prevent="Regisztracio" class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
 
       <h3>Regisztráció</h3>
       <div class="w-100">
         <input v-model="name" placeholder="name" type="text" class="form-control mx-auto" aria-describedby="nameHelp">
         <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto" aria-describedby="emailHelp">
         <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto" aria-describedby="passwordHelp">
-          <p :style="{color:color}">{{ errorMessage }}</p>
+        <p v-if="typeof errorMessage=='object'" :style="{color:color}" v-for="err in errorMessage">{{ err.msg }}</p>
+        <p v-else :style="{color:color}">{{ errorMessage }}</p>
       </div>
 
       <button type="submit" class="btn btn-primary">REGISZTRÁCIÓ</button>

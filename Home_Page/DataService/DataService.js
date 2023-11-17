@@ -2,12 +2,15 @@ import axios from 'axios'
 
 
 const FormRegistration = (name, email, password, callback) => {
-  if (name == undefined) { name = null }
-  else if (email == undefined) { email = null }
-  else if (password == undefined) { password = null }
   axios.post('/api/regisztracio', ({ "name": name, "email": email, "password": password }))
     .then(response => { callback(null, response) })
-    .catch(error => { callback(error, null) })
+    .catch(error => {callback(error, null) })
 }
 
-export { FormRegistration }
+const FormLogin=(email,password,callback)=>{
+  axios.post('/api/login',({"email":email,"password":password}))
+  .then(response=>{callback(null,response)})
+  .catch(error=>{callback(error,null)})
+}
+
+export { FormRegistration,FormLogin }

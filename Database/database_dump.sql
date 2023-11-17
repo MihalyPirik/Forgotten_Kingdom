@@ -34,7 +34,7 @@ CREATE TABLE `enemies` (
   PRIMARY KEY (`enemy_id`),
   UNIQUE KEY `enemy_id_UNIQUE` (`enemy_id`),
   KEY `enemy-player_idx` (`world_id`),
-  CONSTRAINT `enemy-player` FOREIGN KEY (`world_id`) REFERENCES `players` (`world_id`)
+  CONSTRAINT `enemy-player` FOREIGN KEY (`world_id`) REFERENCES `players` (`player_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,6 +45,32 @@ CREATE TABLE `enemies` (
 LOCK TABLES `enemies` WRITE;
 /*!40000 ALTER TABLE `enemies` DISABLE KEYS */;
 /*!40000 ALTER TABLE `enemies` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enemy_types`
+--
+
+DROP TABLE IF EXISTS `enemy_types`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enemy_types` (
+  `enemy_type_id` varchar(45) NOT NULL,
+  `enemy_name` varchar(45) DEFAULT NULL,
+  `HP` int NOT NULL,
+  `attack` int NOT NULL,
+  `level` int NOT NULL,
+  PRIMARY KEY (`enemy_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enemy_types`
+--
+
+LOCK TABLES `enemy_types` WRITE;
+/*!40000 ALTER TABLE `enemy_types` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enemy_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -61,7 +87,6 @@ CREATE TABLE `players` (
   `password` varchar(45) NOT NULL,
   `HP` int NOT NULL,
   `money` int NOT NULL DEFAULT '0',
-  `world_id` int NOT NULL,
   `world_name` varchar(45) NOT NULL,
   `tool_id` int DEFAULT NULL,
   `stone_count` int NOT NULL DEFAULT '0',
@@ -72,10 +97,9 @@ CREATE TABLE `players` (
   `fish_count` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`player_id`),
   UNIQUE KEY `player_id_UNIQUE` (`player_id`),
-  UNIQUE KEY `world_id_UNIQUE` (`world_id`),
   KEY `player-tool_idx` (`tool_id`),
   CONSTRAINT `player-tool` FOREIGN KEY (`tool_id`) REFERENCES `tools` (`tool_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,6 +108,7 @@ CREATE TABLE `players` (
 
 LOCK TABLES `players` WRITE;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
+INSERT INTO `players` VALUES (38,'Arminka','example@example.com','name',100,0,'valami',NULL,0,0,0,0,0,0),(39,'Arminka','example@example.com','name',100,0,'valami',NULL,0,0,0,0,0,0),(40,'Arminka','example@example.com','name',100,0,'valami',NULL,0,0,0,0,0,0),(41,'Arminka','example@example.com','name',100,0,'valami',NULL,0,0,0,0,0,0),(42,'Arminka','example@example.com','name',100,0,'valami',NULL,0,0,0,0,0,0),(43,'Arminka','example@example.com','password',100,0,'valami',NULL,0,0,0,0,0,0),(44,'Roland','roland@roland.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(45,'Roland','roland@roland.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(46,'Roland','roland@roland.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(47,'Roland','roland@roland.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(48,'Roland','roland@roland.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(49,'Roland','roland@roland.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(50,'Roland','roland@rolad.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(51,'Roland','roland@rola.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(52,'Roland','roland@rola.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(53,'Roland','roland@rola.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(54,'Roland','roland@rol.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(55,'Roland','roland@rl.com','valami01',100,0,'valami',NULL,0,0,0,0,0,0),(56,'null','undefined','undefined',100,0,'valami',NULL,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,8 +183,10 @@ CREATE TABLE `residents` (
   `quest_id` int DEFAULT NULL,
   PRIMARY KEY (`resident_id`),
   UNIQUE KEY `resident_id_UNIQUE` (`resident_id`),
-  KEY `resident-player` (`world_id`),
-  CONSTRAINT `resident-player` FOREIGN KEY (`world_id`) REFERENCES `players` (`world_id`)
+  KEY `resident-player_idx` (`world_id`),
+  KEY `resident-quest_idx` (`quest_id`),
+  CONSTRAINT `resident-player` FOREIGN KEY (`world_id`) REFERENCES `players` (`player_id`),
+  CONSTRAINT `resident-quest` FOREIGN KEY (`quest_id`) REFERENCES `quests` (`quest_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -206,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-08 21:13:43
+-- Dump completed on 2023-11-15 14:31:01
