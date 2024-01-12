@@ -45,10 +45,11 @@ check('password','A jelszó megadása kötelező').not().isEmpty()
         }
         const email=req.body.email
         const password=req.body.password
-        Query(`SELECT player_id FROM players WHERE email=${email} AND password=${password}`,(serverError,error)=>
+        Query(`SELECT player_id FROM players WHERE email='${email}' AND password='${password}'`,(serverError,error,result)=>
         {
             if(serverError){res.status(500).send('Hálózati hiba!')}
-            if(error){res.status(400).send('Nem található a megadott felhasználó!')}
+            if(error){res.status(400).send(error)}
+            if(result){res.status(200).send(result)}
         })
     } catch (e) {
         res.status(400).send(e.message)

@@ -7,13 +7,12 @@ let email,password;
 let errorMessage=ref()
 const Login=()=>{
     FormLogin(email,password,(err,response)=>
-    {console.log(response)
-        if(err){
-            errorMessage.value=err.response.data
-            
+    {
+        console.log(response)
+        if(response){
+            window.location.href='http://127.0.0.1:5500/Frontend/components/Game_Page/Game.html'
         }
-        else{errorMessage.value=response.data;window.location.href='http://127.0.0.1:5500/Frontend/components/Game_Page/Game.html'}
-        console.log(errorMessage.value)
+        if(err){console.log(err)}
     })
 }
 

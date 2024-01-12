@@ -15,9 +15,12 @@ const Query= (query,callback)=>
 {
   pool.getConnection((serverError,conn)=>
   {
-    if(serverError){callback(serverError)}
+    if(serverError){callback(serverError,null,null)}
 
-      conn.query(query,(err,result)=>{if(err){callback(null,err,null)}callback(null,null,result)})
+      conn.query(query,(err,result)=>{
+        if(err)
+        {callback(null,err,null)}
+        callback(null,null,result)})
       conn.release()
     }
   )
