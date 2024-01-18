@@ -13,9 +13,7 @@ app.use(express.static('dist'))
 
 
 app.use('/api', router)
-app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/dist/index.html')
-})
+
 
 
 
