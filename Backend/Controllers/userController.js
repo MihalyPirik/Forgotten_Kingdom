@@ -1,22 +1,33 @@
 
 const { validationResult } = require("express-validator")
-const Query = require("./dbConnection")
+const { postUser, getUserByEmail } = require("./dbService")
 
 
-const registration = (req, res) => {
+
+const registration = async (req, res, next) => {
 
     try {
+
+        // const data=await getUserByEmail(req.body.email)
+        // console.log(data);
+        validationResult(req).throw()
         const email = req.body.email
         const password = req.body.password
         const name = req.body.name
-        const validation=validationResult(req)
-        validation.throw()
-        Query("INSERT INTO players (HP,player_name,email,password,world_name) VALUES ('100',?,?,?,'valami')", [name, email, password])
+
+        await postUser(name, email, password)
+
         res.status(201).json({ "message": "Sikeres regisztráció!" })
+
     } catch (error) {
-        res.status(400).json({"message":error.errors[0].msg})
+        next(error)
     }
 
+
+}
+
+const login=async(req,res)=>
+{
 
 }
 
