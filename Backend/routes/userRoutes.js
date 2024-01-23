@@ -11,7 +11,7 @@ userRouter.post('/registration',
     body('email',"Az email cím megadása kötelező!").not().isEmpty().escape(),
     body('email','Nem megfelelő email cím!').isEmail().escape(),
     body('password','Jelszó megadása kötelező!').not().isEmpty().escape(),
-    body('password','A jelszónak 8 és 20 karakter között kell lennie!').isLength({min:8,max:20}).escape()
+    body('password',`A jelszónak ${8} és ${20} karakter között kell lennie!`).isLength({min:8,max:20}).escape()
 ],
 registration)
 

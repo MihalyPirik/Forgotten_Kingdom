@@ -1,6 +1,5 @@
 const errorHandler=(err,req,res,next)=>
 {
-    console.log('error handler');
     if(err.errno==1062)
         {
             res.status(400).json({"message":"Ez az email cím már foglalt!"})

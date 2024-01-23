@@ -1,19 +1,14 @@
 <script setup>
 import { ref } from 'vue';
-import {FormLogin} from '../DataService/DataService'
+import { FormLogin } from '../services/apiService';
+
 
 let email,password;
 
-let errorMessage=ref()
-const Login=()=>{
-    FormLogin(email,password,(err,response)=>
-    {
-        console.log(response)
-        if(response){
-            window.location.href='http://127.0.0.1:5500/Frontend/components/Game_Page/Game.html'
-        }
-        if(err){console.log(err)}
-    })
+let mess=ref()
+const Login= async ()=>{
+    mess.value=await FormLogin(email,password)
+
 }
 
 </script>
@@ -36,11 +31,10 @@ const Login=()=>{
                             aria-describedby="emailHelp">
                         <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto" id="InputPassword"
                             aria-describedby="passwordHelp">
-                            <p v-if="typeof errorMessage=='object'" v-for="msg in errorMessage">{{ msg.msg }}</p>
-                            <p v-else>{{ errorMessage }}</p>
                     </div>
                     <button class="px-1 btn button" type="submit">BELÉPÉS</button>
                 </form>
+                <p>{{ mess }}</p>
                 <RouterLink to="/home">Elfelejtett jelszó</RouterLink>
                 <div id="borderLine"></div>
                 <p>NINCS MÉG FIÓKOD?</p>

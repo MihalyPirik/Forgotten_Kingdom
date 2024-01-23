@@ -1,6 +1,7 @@
 require('dotenv').config()
 const cookie=require('cookie-parser')
 const express = require('express')
+const cors=require('cors')
 const app = express()
 
 const { errorHandler } = require('./Controllers/errorController')
@@ -12,6 +13,7 @@ const gameRouter = require('./routes/gameRoutes')
 app.use(cookie())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(cors({origin:'http://localhost:5173'}))
 
 
 

@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from 'vue'
-import {FormRegistration} from '../DataService/DataService'
+import { FormRegistration } from '../services/apiService';
+
 
 let errorMessage=ref()
 let color=ref()
@@ -8,21 +9,10 @@ let color=ref()
 let name,email,password;
 
 
-
-const Regisztracio=()=>{
-FormRegistration(name,email,password,(error,response)=>{
-  if(error){
-  console.log(error)
-    errorMessage.value=error.response.data
-    color.value='red'
-  }
-  else{
-    console.log(response)
-    errorMessage.value=response.data
-    color.value='green'
-  }
-})
-
+let mess=ref()
+const Regisztracio=async()=>{
+  mess.value=await FormRegistration(name,email,password)
+  
 }
 
 
@@ -37,8 +27,7 @@ FormRegistration(name,email,password,(error,response)=>{
         <input v-model="name" placeholder="name" type="text" class="form-control mx-auto" aria-describedby="nameHelp">
         <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto" aria-describedby="emailHelp">
         <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto" aria-describedby="passwordHelp">
-        <p v-if="typeof errorMessage=='object'" :style="{color:color}" v-for="err in errorMessage">{{ err.msg }}</p>
-        <p v-else :style="{color:color}">{{ errorMessage }}</p>
+        <p>{{ mess }}</p>
       </div>
 
       <button type="submit" class="btn btn-primary">REGISZTRÁCIÓ</button>
