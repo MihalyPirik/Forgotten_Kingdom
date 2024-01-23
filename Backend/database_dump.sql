@@ -84,7 +84,7 @@ CREATE TABLE `players` (
   `player_id` int NOT NULL AUTO_INCREMENT,
   `player_name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(120) NOT NULL,
   `HP` int NOT NULL,
   `money` int NOT NULL DEFAULT '0',
   `world_name` varchar(45) NOT NULL,
@@ -99,7 +99,7 @@ CREATE TABLE `players` (
   UNIQUE KEY `player_id_UNIQUE` (`player_id`),
   KEY `player-tool_idx` (`tool_id`),
   CONSTRAINT `player-tool` FOREIGN KEY (`tool_id`) REFERENCES `tools` (`tool_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
