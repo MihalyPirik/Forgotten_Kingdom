@@ -1,7 +1,6 @@
 require('dotenv').config()
 const cookie=require('cookie-parser')
 const express = require('express')
-const cors=require('cors')
 const app = express()
 
 const { errorHandler } = require('./Controllers/errorController')
@@ -13,7 +12,12 @@ const gameRouter = require('./routes/gameRoutes')
 app.use(cookie())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(cors({origin:'http://localhost:5173'}))
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173')
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+    next()
+})
 
 
 

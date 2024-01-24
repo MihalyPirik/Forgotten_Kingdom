@@ -40,8 +40,8 @@ try {
         {
             const token=jwt.sign({id:user.player_id},process.env.SECRET_KEY,{expiresIn:"1h"})
             res.cookie('Authorization', token, { httpOnly: true, secure: true })
-            res.redirect('localhost:5173/regisztracio')
-            res.status(200).json({'message':'Sik'})
+            console.log(res.headers.cookie);
+            res.status(200).json({"message":"Sikeres bejelentkezés!"})
         }
         else
         {

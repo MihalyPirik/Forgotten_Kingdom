@@ -3,7 +3,7 @@ import { Line } from "./Line.js"
 import { Player } from "./Player.js"
 import { Point } from "./Point.js"
 const gameCanvas = document.querySelector('canvas')
-
+console.log(document.cookie);
 const panel = document.querySelector('template').content.querySelector('div#gamePanel')
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
