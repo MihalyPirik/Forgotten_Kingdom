@@ -39,9 +39,10 @@ try {
         if(match)
         {
             const token=jwt.sign({id:user.player_id},process.env.SECRET_KEY,{expiresIn:"1h"})
-            res.cookie('Authorization', token, { httpOnly: true, secure: true })
-            console.log(res.headers.cookie);
+            res.setHeader("Authorization",`Bearer ${token}`)
+            // res.cookie('Authorization', token, { httpOnly: true, secure: true })
             res.status(200).json({"message":"Sikeres bejelentkezés!"})
+            console.log(res.getHeaders().authorization);
         }
         else
         {
@@ -53,6 +54,7 @@ try {
         res.status(401).json({"message":"Hibás email cím!"})
     }
 } catch (error) {
+    console.log(error);
     next(error)
 }
     

@@ -3,12 +3,17 @@ import { Line } from "./Line.js"
 import { Player } from "./Player.js"
 import { Point } from "./Point.js"
 const gameCanvas = document.querySelector('canvas')
-console.log(document.cookie);
+
+
+
+const urlparams=new URLSearchParams(window.location.search)
+const token=urlparams.get("token")
 const panel = document.querySelector('template').content.querySelector('div#gamePanel')
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
-
+ const parsedToken=JSON.parse(atob(token.split('.')[1]))
+ console.log(parsedToken.id);
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
 window.addEventListener('resize', () => {
