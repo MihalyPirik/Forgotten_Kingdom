@@ -35,10 +35,10 @@ export class Game {
         // this.context.lineTo(this.player.objX,this.player.objY)
         // this.context.stroke()
 
-        this.context.lineWidth=2
-        this.context.moveTo(this.canvas.width*0.2,this.canvas.height*0.775)
-        this.context.lineTo(this.canvas.width*0.5,this.canvas.height*0.94)
-        this.context.stroke()
+        // this.context.lineWidth=2
+        // this.context.moveTo(this.canvas.width*0.2,this.canvas.height*0.775)
+        // this.context.lineTo(this.canvas.width*0.5,this.canvas.height*0.94)
+        // this.context.stroke()
 
 
         // this.context.moveTo(this.canvas.width*0.2,this.canvas.height*0.775)

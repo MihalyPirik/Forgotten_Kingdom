@@ -127,18 +127,45 @@ export class Player extends GameObject {
       })
 
       
-      const barrier=this.game.barriers[this.game.currentBlock][0]
-        const [collison,x,y]=barrier.CheckCollision(this)
+      this.game.barriers[this.game.currentBlock].forEach(barrier=>{
+      const [collison,x,y,distance]=barrier.CheckCollision(this)
+
 if(collison)
 {
 
+const dx=this.objX-x
+const dy=this.objY-y
 
+const unitX = dx / distance
+const unitY = dy / distance
+newX = this.objX + (distance + 1) * unitX
+newY = this.objY + (distance + 1) * unitY
 
 }
-this.game.context.lineWidth=2
-this.game.context.moveTo(x,y)
-this.game.context.lineTo(this.objX,this.objY)
-this.game.context.stroke()
+})
+// this.game.context.lineWidth=2
+// this.game.context.moveTo(x,y)
+// this.game.context.lineTo(this.objX,this.objY)
+// this.game.context.stroke()
+      // const BA=Math.hypot(barrier.endPoint.x-barrier.startPoint.x,barrier.endPoint.y-barrier.startPoint.y)
+      //   const BP=Math.hypot(barrier.endPoint.x-this.objX,barrier.endPoint.y-this.objY)
+      //   const AP=Math.hypot(barrier.startPoint.x-this.objX,barrier.startPoint.y-this.objY)
+      //   const AQ=AP*(Math.pow(BP,2)-Math.pow(AP,2)-Math.pow(BA,2))/(-2*AP*BA)
+      //   const t=AQ/BA
+      //   const q1=(1-t)*barrier.startPoint.x+t*barrier.endPoint.x
+      //   const q2=(1-t)*barrier.startPoint.y+t*barrier.endPoint.y
+
+      //   const dx=q1-this.objX
+      //   const dy=q2-this.objY
+      //   const distance=Math.hypot(dx,dy)
+
+      //   if(distance<10){
+      //   const unitX = dx / distance
+      //   const unitY = dy / distance
+      //   console.log(Math.ceil(unitX))
+      //   newX = this.objX + (distance + 1) * unitX
+      //   newY = this.objY + (distance + 1) * unitY
+      //   }
         // const BA=Math.hypot(barrier.endPoint.x-barrier.startPoint.x,barrier.endPoint.y-barrier.startPoint.y)
         //   const BP=Math.hypot(barrier.endPoint.x-this.objX,barrier.endPoint.y-this.objY)
         //   const AP=Math.hypot(barrier.startPoint.x-this.objX,barrier.startPoint.y-this.objY)
