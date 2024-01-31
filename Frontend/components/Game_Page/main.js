@@ -1,8 +1,8 @@
-import { Game } from "./Game.js"
-import { Line } from "./Line.js"
-import { Player } from "./Player.js"
-import { Point } from "./Point.js"
+import { Game } from './classes/Game.js'
+import { Line } from "./classes/Line.js"
+import { Point } from "./classes/Point.js"
 const gameCanvas = document.querySelector('canvas')
+
 
 
 
@@ -12,8 +12,8 @@ const panel = document.querySelector('template').content.querySelector('div#game
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
- const parsedToken=JSON.parse(atob(token.split('.')[1]))
- console.log(parsedToken.id);
+//  const parsedToken=JSON.parse(atob(token.split('.')[1]))
+//  console.log(parsedToken.id);
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
 window.addEventListener('resize', () => {
@@ -27,7 +27,7 @@ mill.src='./assets/blocks/Mill.png'
 
 window.addEventListener('load', () => {
 
-  
+
 
 
   const game = new Game(gameCanvas,[[mill]])
@@ -64,7 +64,7 @@ game.barriers[0]=[
       new Point(game.canvas.width * 0.5, game.canvas.height * 0.938)
     )
   ]
-  
+
 
 arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
@@ -72,7 +72,6 @@ arrow1.style.top=game.height*0.86+'px'
 
 arrow2.style.left=game.width/3*2+game.width/3/2-50+'px'
 arrow2.style.top=game.height*0.86+'px'
-
 
 
 

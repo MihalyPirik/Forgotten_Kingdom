@@ -19,7 +19,8 @@ export class Player extends GameObject {
       let previousY = this.objY
       let newX = previousX
       let newY = previousY
-      
+      let vectorY=0
+      let vectorX=0
     //   if (IsOnLine(this.game.canvas.width * 0.2, this.game.canvas.height * 0.775, this.game.canvas.width * 0.5, this.game.canvas.height * 0.94, this.objX, this.objY) ||
     //     IsOnLine(this.game.canvas.width * 0.2, this.game.canvas.height * 0.775, this.game.canvas.width * 0.5, this.game.canvas.height * 0.67, this.objX, this.objY)
     //     || IsOnLine(this.game.canvas.width * 0.5, this.game.canvas.height * 0.67, this.game.canvas.width * 0.78, this.game.canvas.height * 0.78, this.objX, this.objY)
@@ -62,6 +63,7 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 6
+          vectorX=1
         }
       }
       if (this.move.event.key == 'a') {
@@ -77,6 +79,7 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 7
+          vectorX=-1
         }
       }
       if (this.move.event.key == 'w') {
@@ -92,6 +95,7 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 5
+          vectorY=-1
         }
       }
       if (this.move.event.key == 's') {
@@ -107,6 +111,7 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 4
+          vectorY=1
         }
       }
       this.move.timer++
@@ -121,22 +126,39 @@ export class Player extends GameObject {
         }
       })
 
-      this.game.barriers[this.game.currentBlock].forEach(barrier=>{
-
       
-                const distance = Math.abs((barrier.endPoint.x-barrier.startPoint.x)*(barrier.startPoint.y-this.objY)-(barrier.startPoint.x-this.objX)*(barrier.endPoint.y-barrier.startPoint.y))/Math.hypot(barrier.endPoint.x-barrier.startPoint.x,barrier.endPoint.y-barrier.startPoint.y)
-                if(distance<4){
-                const dx=distance/Math.sqrt(1+Math.pow((barrier.startPoint.y-barrier.endPoint.y)/(barrier.startPoint.x-barrier.endPoint.x),2))
-                const dy=distance*(barrier.startPoint.y-barrier.endPoint.y)/(barrier.startPoint.x-barrier.endPoint.x)/Math.sqrt(1+Math.pow((barrier.startPoint.y-barrier.endPoint.y)/(barrier.startPoint.x-barrier.endPoint.x),2))
-                const unitX = dx / distance
-          const unitY = dy / distance
- 
-          newX = this.objX + (10-distance + 1) * Math.ceil(unitX)
-          newY = this.objY + (10-distance + 1) * Math.ceil(unitY)
- 
-                return
-            }
-          })
+      const barrier=this.game.barriers[this.game.currentBlock][0]
+        const [collison,x,y]=barrier.CheckCollision(this)
+if(collison)
+{
+
+
+
+}
+this.game.context.lineWidth=2
+this.game.context.moveTo(x,y)
+this.game.context.lineTo(this.objX,this.objY)
+this.game.context.stroke()
+        // const BA=Math.hypot(barrier.endPoint.x-barrier.startPoint.x,barrier.endPoint.y-barrier.startPoint.y)
+        //   const BP=Math.hypot(barrier.endPoint.x-this.objX,barrier.endPoint.y-this.objY)
+        //   const AP=Math.hypot(barrier.startPoint.x-this.objX,barrier.startPoint.y-this.objY)
+        //   const AQ=AP*(Math.pow(BP,2)-Math.pow(AP,2)-Math.pow(BA,2))/(-2*AP*BA)
+        //   const t=AQ/BA
+        //   const q1=(1-t)*barrier.startPoint.x+t*barrier.endPoint.x
+        //   const q2=(1-t)*barrier.startPoint.y+t*barrier.endPoint.y
+
+        //   const dx=q1-this.objX
+        //   const dy=q2-this.objY
+        //   const distance=Math.hypot(dx,dy)
+
+        //   if(distance<10){
+        //   const unitX = dx / distance
+        //   const unitY = dy / distance
+        //   console.log(Math.ceil(unitX))
+        //   newX = this.objX + (distance + 1) * unitX
+        //   newY = this.objY + (distance + 1) * unitY
+        //   }
+
                 
 this.interactions[this.game.currentBlock].forEach(interaction=>
   {

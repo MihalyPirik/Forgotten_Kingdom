@@ -20,13 +20,25 @@ export class Game {
     Render(deltaTime) {
 
       if (this.timer > this.interval) {
-        this.context.clearRect(0, 0, this.width, this.height)
+        // this.context.clearRect(0, 0, this.width, this.height)
 
-       
+        this.context.clearRect(0,0,this.width,this.height)
+        const barrier=this.barriers[this.currentBlock][0]
+
         // this.context.lineWidth=2
-        // this.context.moveTo(this.canvas.width*0.2,this.canvas.height*0.775)
-        // this.context.lineTo(this.canvas.width*0.5,this.canvas.height*0.94)
+        // this.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
+        // this.context.lineTo(this.player.objX,this.player.objY)
         // this.context.stroke()
+
+        // this.context.lineWidth=2
+        // this.context.moveTo(barrier.endPoint.x,barrier.endPoint.y)
+        // this.context.lineTo(this.player.objX,this.player.objY)
+        // this.context.stroke()
+
+        this.context.lineWidth=2
+        this.context.moveTo(this.canvas.width*0.2,this.canvas.height*0.775)
+        this.context.lineTo(this.canvas.width*0.5,this.canvas.height*0.94)
+        this.context.stroke()
 
 
         // this.context.moveTo(this.canvas.width*0.2,this.canvas.height*0.775)
