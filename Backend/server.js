@@ -5,7 +5,7 @@ const app = express()
 
 const { errorHandler } = require('./Controllers/errorController')
 const userRouter = require('./routes/userRoutes')
-const gameRouter = require('./routes/gameRoutes')
+const playerRouter = require('./routes/gameRoutes/playerRoutes')
 
 
 
@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 
 
 app.use('/user',userRouter)
-app.use('/game',gameRouter)
+app.use('/game',playerRouter)
 
 app.use(errorHandler)
 

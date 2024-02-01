@@ -26,4 +26,7 @@ const getUser=async(email)=>
   return data[0][0]
 }
 
-module.exports={postUser,getUser}
+
+
+
+module.exports={postUser,getUser,pool}
