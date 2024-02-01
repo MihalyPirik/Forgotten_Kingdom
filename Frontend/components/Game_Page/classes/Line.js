@@ -50,12 +50,11 @@ const distance=Math.hypot(p1-x,p2-y)
 
 
 
-
           return [distance<this.width &&
             (
                 (x>this.startPoint.x && x<this.endPoint.x)
                 ||
-                (x>this.endPoint.x && x<this.endPoint.x)
+                (x>this.endPoint.x && x<this.startPoint.x)
             ) 
             &&
             (

@@ -25,7 +25,7 @@ export class Game {
         this.context.clearRect(0,0,this.width,this.height)
         const barrier=this.barriers[this.currentBlock][0]
 
-        // this.context.lineWidth=2
+        this.context.lineWidth=2
         // this.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
         // this.context.lineTo(this.player.objX,this.player.objY)
         // this.context.stroke()

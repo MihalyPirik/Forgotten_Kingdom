@@ -127,8 +127,10 @@ export class Player extends GameObject {
       })
 
       
-      this.game.barriers[this.game.currentBlock].forEach(barrier=>{
+this.game.barriers[this.game.currentBlock].forEach(barrier=>{
       const [collison,x,y,distance]=barrier.CheckCollision(this)
+
+
 
 if(collison)
 {
@@ -138,15 +140,20 @@ const dy=this.objY-y
 
 const unitX = dx / distance
 const unitY = dy / distance
-newX = this.objX + (distance + 1) * unitX
-newY = this.objY + (distance + 1) * unitY
+this.objX = this.objX + 0.5 * unitX
+this.objY = this.objY + 0.5 * unitY
+newX=this.objX
+newY=this.objY
 
 }
-})
+
 // this.game.context.lineWidth=2
-// this.game.context.moveTo(x,y)
+// this.game.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
+// this.game.context.lineTo(this.objX,this.objY)
+// this.game.context.moveTo(barrier.endPoint.x,barrier.endPoint.y)
 // this.game.context.lineTo(this.objX,this.objY)
 // this.game.context.stroke()
+})
       // const BA=Math.hypot(barrier.endPoint.x-barrier.startPoint.x,barrier.endPoint.y-barrier.startPoint.y)
       //   const BP=Math.hypot(barrier.endPoint.x-this.objX,barrier.endPoint.y-this.objY)
       //   const AP=Math.hypot(barrier.startPoint.x-this.objX,barrier.startPoint.y-this.objY)
@@ -187,15 +194,15 @@ newY = this.objY + (distance + 1) * unitY
         //   }
 
                 
-this.interactions[this.game.currentBlock].forEach(interaction=>
-  {
-    const distance=Math.hypot(this.objX-interaction.x,this.objY,interaction.y)
-    if(distance<interaction.radius)
-    {
-      interaction.execute()
-      return
-    }
-  })
+// this.interactions[this.game.currentBlock].forEach(interaction=>
+//   {
+//     const distance=Math.hypot(this.objX-interaction.x,this.objY,interaction.y)
+//     if(distance<interaction.radius)
+//     {
+//       interaction.execute()
+//       return
+//     }
+//   })
 
 
 
