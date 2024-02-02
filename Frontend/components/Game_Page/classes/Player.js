@@ -107,7 +107,8 @@ export class Player extends GameObject {
         }
       }
       this.move.timer++
-      this.game.objects[this.game.currentBlock].forEach(object => {
+      
+      this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].objects.forEach(object => {
         const [collision, distance, sumOfRadius, dx, dy] = this.game.CheckCollision(this, object)
 
         if (collision) {
@@ -119,7 +120,7 @@ export class Player extends GameObject {
       })
 
       
-this.game.barriers[this.game.currentBlock].forEach(barrier=>{
+      this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].barriers.forEach(barrier=>{
       const [collison,x,y,distance]=barrier.CheckCollision(this)
 
 
@@ -195,7 +196,8 @@ newY=this.objY
 //       return
 //     }
 //   })
-this.game.panels[this.game.currentBlock].forEach(panel=>{
+
+this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].panels.forEach(panel=>{
 
   if(Math.hypot(this.objX-panel.x,this.objY-panel.y)<panel.radius)
   {
@@ -206,14 +208,9 @@ this.game.panels[this.game.currentBlock].forEach(panel=>{
     panel.element.dispatchEvent(panel.hide)
   }
 })
-
-
       this.objX = newX
       this.objY = newY
       this.spriteX = this.objX - this.width * 0.5
       this.spriteY = this.objY - this.height * 0.5 - this.radius
-
-
-
     }
   }

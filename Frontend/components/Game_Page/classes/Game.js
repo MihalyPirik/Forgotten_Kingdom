@@ -1,32 +1,29 @@
 import { Player } from "./Player.js"
 export class Game {
-    constructor(canvas,isometricBlocks=[],objects=[[]],barriers=[]) {
+    constructor(canvas,isometricBlocks=[[]]) {
       this.isometricBlocks = isometricBlocks
       this.canvas = canvas
-      this.currentBlock = 0
+      this.currentBlockX = 0
+      this.currentBlockY = 0
       this.context = canvas.getContext('2d')
       this.width = canvas.width
       this.height = canvas.height
-      this.objects = objects
-      this.barriers=barriers
       this.fps = 60
       this.timer = 0
       this.interval = 1000 / this.fps
       this.debug = false
       this.player = new Player(this)
-      this.panels=[[]]
       // Csak teszt jellegű jellemzők
       this.valami="Okee"
       this.name="Malom:"
     }
-
     Render(deltaTime) {
 
       if (this.timer > this.interval) {
         // this.context.clearRect(0, 0, this.width, this.height)
 
         this.context.clearRect(0,0,this.width,this.height)
-        const barrier=this.barriers[this.currentBlock][0]
+
 
         this.context.lineWidth=2
         // this.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
@@ -57,7 +54,7 @@ export class Game {
         // this.context.lineTo(this.canvas.width*0.5,this.canvas.height*0.938)
         // this.context.stroke()
         
-        this.objects[this.currentBlock].forEach(object => {
+        this.isometricBlocks[this.currentBlockX][this.currentBlockY].objects.forEach(object => {
           object.Update()
           object.Draw()
         })

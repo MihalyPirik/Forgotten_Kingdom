@@ -2,6 +2,7 @@ import { Game } from './classes/Game.js'
 import { Line } from "./classes/Line.js"
 import { Panel } from './classes/Panel.js'
 import { Point } from "./classes/Point.js"
+import {isometricBlock} from './classes/isometricBlock.js'
 const gameCanvas = document.querySelector('canvas')
 
 
@@ -31,11 +32,11 @@ window.addEventListener('load', () => {
 
 
 
-  const game = new Game(gameCanvas,[[mill]])
+  const game = new Game(gameCanvas,[[new isometricBlock(mill)]])
 
 
 
-game.canvas.style.backgroundImage=`url(${game.isometricBlocks[0][0].src})`
+game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`
 
   window.addEventListener('keydown', (e) => { game.player.move.event = e; game.debug = e })
       window.addEventListener('keyup', () => { game.player.move.event = null; game.debug = false })
@@ -47,7 +48,7 @@ game.canvas.style.backgroundImage=`url(${game.isometricBlocks[0][0].src})`
 
 
 
-game.barriers[0]=[
+game.isometricBlocks[game.currentBlockX][game.currentBlockY].barriers.push(
   new Line(
     new Point(game.canvas.width * 0.2,game.canvas.height * 0.775),
     new Point(game.canvas.width * 0.5, game.canvas.height * 0.94)
@@ -64,8 +65,8 @@ game.barriers[0]=[
       new Point(game.canvas.width * 0.78, game.canvas.height * 0.78),
       new Point(game.canvas.width * 0.5, game.canvas.height * 0.938)
     )
-  ]
-game.panels[game.currentBlock].push(new Panel(game.width*0.3,game.height*0.66,70,document.querySelector('template'),'pop-up',game))
+  )
+  game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push(new Panel(game.width*0.3,game.height*0.66,70,document.querySelector('template'),'pop-up',game))
 
 
 
@@ -85,10 +86,6 @@ arrow2.style.top=game.height*0.86+'px'
     const distance = (Math.abs((b2 - a2) * x - (b1 - a1) * y + b1 * a2 - b2 * a1)) / (Math.pow((Math.pow(b2 - a2, 2) + Math.pow(b1 - a1, 2)), 0.5))
     return distance < 20
   }
-
-
-
-
 
   let previousTime = 0
   const animate = (timeStamp) => {

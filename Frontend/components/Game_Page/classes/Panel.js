@@ -27,6 +27,11 @@ export class Panel {
         this.element.removeEventListener(this.hide.type, this.#HidePanel)
     }
     #getMatches = (str, regex, context) => {
+        const matches = []
+        let match
+        while ((match = regex.exec(str)) !== null) {
+            matches.push(match[1])
+        }
         return str.replace(regex, (match, variable) => {
             return context[variable] || match
         })
