@@ -14,7 +14,10 @@ export class Game {
       this.interval = 1000 / this.fps
       this.debug = false
       this.player = new Player(this)
-      
+      this.panels=[[]]
+      // Csak teszt jellegű jellemzők
+      this.valami="Okee"
+      this.name="Malom:"
     }
 
     Render(deltaTime) {

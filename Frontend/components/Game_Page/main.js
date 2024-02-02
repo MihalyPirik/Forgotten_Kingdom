@@ -1,5 +1,6 @@
 import { Game } from './classes/Game.js'
 import { Line } from "./classes/Line.js"
+import { Panel } from './classes/Panel.js'
 import { Point } from "./classes/Point.js"
 const gameCanvas = document.querySelector('canvas')
 
@@ -64,6 +65,8 @@ game.barriers[0]=[
       new Point(game.canvas.width * 0.5, game.canvas.height * 0.938)
     )
   ]
+game.panels[game.currentBlock].push(new Panel(game.width*0.3,game.height*0.66,70,document.querySelector('template'),'pop-up',game))
+
 
 
 arrow1.style.left=game.width/3/2-50+'px'
@@ -82,6 +85,9 @@ arrow2.style.top=game.height*0.86+'px'
     const distance = (Math.abs((b2 - a2) * x - (b1 - a1) * y + b1 * a2 - b2 * a1)) / (Math.pow((Math.pow(b2 - a2, 2) + Math.pow(b1 - a1, 2)), 0.5))
     return distance < 20
   }
+
+
+
 
 
   let previousTime = 0

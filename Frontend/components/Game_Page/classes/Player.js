@@ -4,8 +4,6 @@ export class Player extends GameObject {
     constructor(game,speed=4) {
 
       super(game, document.getElementById('character'), game.width * 0.35, game.height * 0.6, 180, 180)
-
-      this.interactions=[[]]
       this.speed = speed
       this.move = { event: null, timer: 0, interval: 2 }
 
@@ -19,8 +17,6 @@ export class Player extends GameObject {
       let previousY = this.objY
       let newX = previousX
       let newY = previousY
-      let vectorY=0
-      let vectorX=0
     //   if (IsOnLine(this.game.canvas.width * 0.2, this.game.canvas.height * 0.775, this.game.canvas.width * 0.5, this.game.canvas.height * 0.94, this.objX, this.objY) ||
     //     IsOnLine(this.game.canvas.width * 0.2, this.game.canvas.height * 0.775, this.game.canvas.width * 0.5, this.game.canvas.height * 0.67, this.objX, this.objY)
     //     || IsOnLine(this.game.canvas.width * 0.5, this.game.canvas.height * 0.67, this.game.canvas.width * 0.78, this.game.canvas.height * 0.78, this.objX, this.objY)
@@ -63,7 +59,6 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 6
-          vectorX=1
         }
       }
       if (this.move.event.key == 'a') {
@@ -79,7 +74,6 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 7
-          vectorX=-1
         }
       }
       if (this.move.event.key == 'w') {
@@ -95,7 +89,6 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 5
-          vectorY=-1
         }
       }
       if (this.move.event.key == 's') {
@@ -111,7 +104,6 @@ export class Player extends GameObject {
             this.move.timer = 0
           }
           this.frameY = 4
-          vectorY=1
         }
       }
       this.move.timer++
@@ -203,7 +195,17 @@ newY=this.objY
 //       return
 //     }
 //   })
+this.game.panels[this.game.currentBlock].forEach(panel=>{
 
+  if(Math.hypot(this.objX-panel.x,this.objY-panel.y)<panel.radius)
+  {
+    panel.element.dispatchEvent(panel.show)
+  }
+  else
+  {
+    panel.element.dispatchEvent(panel.hide)
+  }
+})
 
 
       this.objX = newX
