@@ -74,4 +74,14 @@ export class Game {
       const sumOfRadius = objectOne.radius + objectTwo.radius
       return [distance < sumOfRadius, distance, sumOfRadius, dx, dy]
     }
+    ChangeCurrentIsometricBlock(blockX,blockY)
+    {
+      this.isometricBlocks[this.currentBlockX][this.currentBlockY].panels.forEach(panel=>
+        {
+          panel.element.dispatchEvent(panel.hide)
+        })
+        this.currentBlockX=blockX
+        this.currentBlockY=blockY
+        this.canvas.style.backgroundImage=`url(${this.isometricBlocks[this.currentBlockX][this.currentBlockY].backGround.src})`
+    }
   }

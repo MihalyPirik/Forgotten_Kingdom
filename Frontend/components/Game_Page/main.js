@@ -25,7 +25,8 @@ window.addEventListener('resize', () => {
 
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
-
+const farm=new Image()
+farm.src='./assets/blocks/Farm.png'
 
 window.addEventListener('load', () => {
 
@@ -77,6 +78,33 @@ arrow1.style.top=game.height*0.86+'px'
 arrow2.style.left=game.width/3*2+game.width/3/2-50+'px'
 arrow2.style.top=game.height*0.86+'px'
 
+
+game.isometricBlocks[game.currentBlockX].push(new isometricBlock(farm))
+
+
+arrow1.addEventListener('click',()=>
+{
+  if(game.currentBlockY==game.isometricBlocks[game.currentBlockX].length-1)
+  {
+    game.ChangeCurrentIsometricBlock(game.currentBlockX,0)
+  }
+  else
+  {
+    game.ChangeCurrentIsometricBlock(game.currentBlockX,game.currentBlockY+1)
+  }
+})
+
+arrow2.addEventListener('click',()=>
+{
+  if(game.currentBlockX==game.isometricBlocks.length-1)
+  {
+    game.ChangeCurrentIsometricBlock(0,game.currentBlockY)
+  }
+  else
+  {
+    game.ChangeCurrentIsometricBlock(game.currentBlockX+1,game.currentBlockY)
+  }
+})
 
 
   /**

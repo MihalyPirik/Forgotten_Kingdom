@@ -11,7 +11,6 @@ export class Panel {
     }
     #ShowPanel = (e) => {
         this.element.innerHTML = this.#getMatches(this.element.innerHTML, /{{(.*?)}}/g, this.context)
-        console.log(this.element.innerHTML);
         let panel = e.target.content.cloneNode(true).querySelector('*')
         document.querySelector('body').append(panel)
         panel = document.getElementById(panel.id)
