@@ -1,25 +1,22 @@
 require('dotenv').config()
 const jwt=require('jsonwebtoken')
-const bcrypt=require('bcrypt')
-const { validationResult } = require("express-validator")
-const { postUser, getUser } = require("../services/dbService")
-
+const Player = require('../models/player')
+const uuid=require('uuid')
 
 
 const registration = async (req, res, next) => {
 
     try {
-        validationResult(req).throw()
         const email = req.body.email
         const password = req.body.password
         const name = req.body.name
+        await Player.create({player_id:uuid.v1(),email:email,password:password,name:name})
 
-        const hashPassword=await bcrypt.hash(password,await bcrypt.genSalt(10))
-        await postUser(name, email, hashPassword)
 
         res.status(201).json({ "message": "Sikeres regisztráció!" })
 
     } catch (error) {
+        console.log(error);
         next(error)
     }
 
@@ -29,20 +26,15 @@ const registration = async (req, res, next) => {
 const login=async(req,res,next)=>
 {
 try {
-    validationResult(req).throw()
     const {email,password}=req.body
-    const user=await getUser(email)
-    if(user)
-    {
-        
-        const match=await bcrypt.compare(password,user.password)
-        if(match)
+const user=await Player.findOne({where:{email:email}})
+if(user)
+{
+        if(user.comparePassword(password))
         {
             const token=jwt.sign({id:user.player_id},process.env.SECRET_KEY,{expiresIn:"1h"})
             res.setHeader("Authorization",`Bearer ${token}`)
-            // res.cookie('Authorization', token, { httpOnly: true, secure: true })
             res.status(200).json({"message":"Sikeres bejelentkezés!"})
-            console.log(res.getHeaders().authorization);
         }
         else
         {
