@@ -15,11 +15,28 @@
     <input type="button" class="arrow" id="arrow1">
     <input type="button" class="arrow" id="arrow2">
     <template>
-    <div id="gamePanel">
+
         <p>{{name}}</p>
         <input type="button" value="Belépés a házba">
         {{valami}}
-    </div>
+
+</template>
+
+<template id="blockChange">
+
+        <input type="button" value="Ugrás a {{name}} - re">
+
+</template>
+<template id="navigationPanel">
+<input type="button" id="forward" value="Ugrás {{name}}">
+<input type="button" id="backward" value="Ugrás {{name}}">
+<ul>
+    <li><ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ul></li>
+</ul>
 </template>
 <p id="mouseCoordinates">
 </p>

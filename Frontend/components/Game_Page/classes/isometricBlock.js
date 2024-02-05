@@ -1,7 +1,9 @@
 export class isometricBlock
 {
-    constructor(backGround,objects=[],barriers=[],panels=[])
+
+    constructor(name,backGround,objects=[],barriers=[],panels=[])
     {
+        this.name=name
         this.objects=objects
         this.barriers=barriers
         this.panels=panels
