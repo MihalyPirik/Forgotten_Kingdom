@@ -64,13 +64,18 @@ const dbConnection = require("../services/dbService")
             {
                 type:DataTypes.DOUBLE,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100,
+                validate:
+                {
+                    min:0,
+                    max:100
+                }
             },
             money:
             {
                 type:DataTypes.DOUBLE,
                 allowNull:false,
-                defaultValue:0,
+                defaultValue:100,
                 validate:
                 {
                     min:0
@@ -84,37 +89,37 @@ const dbConnection = require("../services/dbService")
             {
                 type:DataTypes.INTEGER,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100
             },
             wood:
             {
                 type:DataTypes.INTEGER,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100
             },
             coal:
             {
                 type:DataTypes.INTEGER,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100
             },
             iron:
             {
                 type:DataTypes.INTEGER,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100
             },
             wheat:
             {
                 type:DataTypes.INTEGER,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100
             },
             fish:
             {
                 type:DataTypes.INTEGER,
                 allowNull:false,
-                defaultValue:0
+                defaultValue:100
             },
             objX:
             {

@@ -21,7 +21,12 @@ const dbConnection = require("../services/dbService")
             HP:
             {
                 type:DataTypes.DOUBLE,
-                allowNull:false
+                allowNull:false,
+                validate:
+                {
+                    min:0,
+                    max:100
+                }
             },
             attack:
             {
@@ -35,7 +40,7 @@ const dbConnection = require("../services/dbService")
                 validate:
                 {
                     min:1,
-                    max:5
+                    max:3
                 }
             }
         },
