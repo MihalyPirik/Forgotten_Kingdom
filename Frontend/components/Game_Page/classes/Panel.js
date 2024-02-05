@@ -6,21 +6,23 @@ export class Panel {
         this.radius = radius
         this.show = new Event(eventName + '_show')
         this.hide = new Event(eventName + '_hide')
-        this.element = template
+        const div=document.createElement('div')
+        div.className='gamePanel'
+        div.innerHTML=template.innerHTML
+        this.element = div
         this.element.addEventListener(this.show.type, this.#ShowPanel)
     }
     #ShowPanel = (e) => {
         this.element.innerHTML = this.#getMatches(this.element.innerHTML, /{{(.*?)}}/g, this.context)
-        let panel = e.target.content.cloneNode(true).querySelector('*')
+        const panel = e.target
         document.querySelector('body').append(panel)
-        panel = document.getElementById(panel.id)
         panel.style.top = this.y - panel.offsetHeight + 'px'
         panel.style.left = this.x + 'px'
         this.element.removeEventListener(this.show.type, this.#ShowPanel)
         this.element.addEventListener(this.hide.type, this.#HidePanel)
     }
     #HidePanel = (e) => {
-        const element = document.getElementById(e.target.content.cloneNode(true).querySelector('*').id)
+        const element = e.target
         element.remove()
         this.element.addEventListener(this.show.type, this.#ShowPanel)
         this.element.removeEventListener(this.hide.type, this.#HidePanel)
