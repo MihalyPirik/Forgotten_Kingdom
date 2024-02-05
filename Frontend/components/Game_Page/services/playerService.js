@@ -1,5 +1,5 @@
-import axios from "axios";
-axios.defaults.baseURL = "localhost:8100/player";
+
+axios.defaults.baseURL = "http://localhost:3000/player";
 
 const getAllData = (playerId) => {
   return axios
@@ -8,7 +8,7 @@ const getAllData = (playerId) => {
       return await res.data;
     })
     .catch(async (err) => {
-      return await err.response.data.message;
+      return await err;
     });
 };
 
@@ -21,40 +21,11 @@ const getInventory = (playerId) => {
     .catch(async (err) => {
       return await err.response.data.message;
     });
-};
+}
 
-const getHP = (playerId) => {
-  return axios
-    .get("/" + playerId + "/HP")
-    .then(async (res) => {
-      return await res.data;
-    })
-    .catch(async (err) => {
-      return await err.response.data.message;
-    });
-};
 
-const getMoney = (playerId) => {
-  return axios
-    .get("/" + playerId + "/money")
-    .then(async (res) => {
-      return await res.data;
-    })
-    .catch(async (err) => {
-      return await err.response.data.message;
-    });
-};
 
-const getPosition = (playerId) => {
-  return axios
-    .get("/" + playerId + "/position")
-    .then(async (res) => {
-      return await res.data;
-    })
-    .catch(async (err) => {
-      return await err.response.data.message;
-    });
-};
+
 
 
 // PUT
@@ -105,4 +76,4 @@ const putInventory = (playerId,data) => {
 
 
 
-export { getAllData, getInventory, getHP, getMoney,getPosition,putHP,putInventory,putMoney,putPosition};
+export { getAllData, getInventory,putHP,putInventory,putMoney,putPosition};

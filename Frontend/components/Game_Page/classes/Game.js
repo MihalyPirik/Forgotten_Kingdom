@@ -14,7 +14,7 @@ export class Game {
       this.debug = false
       this.player = new Player(this)
       // Csak teszt jellegű jellemzők
-      this.valami="Okee"
+      this.valami="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       this.name="Malom:"
     }
     Render(deltaTime) {

@@ -3,6 +3,7 @@ import { Line } from "./classes/Line.js"
 import { Panel } from './classes/Panel.js'
 import { Point } from "./classes/Point.js"
 import {isometricBlock} from './classes/isometricBlock.js'
+import { getAllData } from './services/playerService.js'
 const gameCanvas = document.querySelector('canvas')
 
 
@@ -14,7 +15,7 @@ const panel = document.querySelector('template').content.querySelector('div#game
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
-//  const parsedToken=JSON.parse(atob(token.split('.')[1]))
+ const parsedToken=JSON.parse(atob(token.split('.')[1]))
 //  console.log(parsedToken.id);
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
@@ -67,7 +68,7 @@ game.isometricBlocks[game.currentBlockX][game.currentBlockY].barriers.push(
       new Point(game.canvas.width * 0.5, game.canvas.height * 0.938)
     )
   )
-  game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push(new Panel(game.width*0.3,game.height*0.66,70,document.querySelector('template'),'pop-up',game))
+  game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push(new Panel(game.width*0.3,game.height*0.66,100,document.querySelector('template'),'pop-up',game))
 
 
 
@@ -105,8 +106,11 @@ arrow2.addEventListener('click',()=>
     game.ChangeCurrentIsometricBlock(game.currentBlockX+1,game.currentBlockY)
   }
 })
+const s=async()=>{
 
-
+console.log(await getAllData(parsedToken.id))
+}
+s()
   /**
        * @param x Az objektum x koordinátája.
        */
