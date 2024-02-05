@@ -1,19 +1,19 @@
 export class Panel {
-    constructor(x, y, radius, template, eventName, context) {
+    constructor(x, y, radius, template, eventName, context = null) {
         this.x = x
         this.y = y
         this.context = context
         this.radius = radius
         this.show = new Event(eventName + '_show')
         this.hide = new Event(eventName + '_hide')
-        const div=document.createElement('div')
-        div.className='gamePanel'
-        div.innerHTML=template.innerHTML
+        const div = document.createElement('div')
+        div.className = 'gamePanel'
+        div.innerHTML = template.innerHTML
         this.element = div
         this.element.addEventListener(this.show.type, this.#ShowPanel)
     }
     #ShowPanel = (e) => {
-        this.element.innerHTML = this.#getMatches(this.element.innerHTML, /{{(.*?)}}/g, this.context)
+        this.#processElement(this.element)
         const panel = e.target
         document.querySelector('body').append(panel)
         panel.style.top = this.y - panel.offsetHeight + 'px'
@@ -28,13 +28,28 @@ export class Panel {
         this.element.removeEventListener(this.hide.type, this.#HidePanel)
     }
     #getMatches = (str, regex, context) => {
-        const matches = []
-        let match
-        while ((match = regex.exec(str)) !== null) {
-            matches.push(match[1])
+        if (context != null) {
+            const matches = []
+            let match
+            while ((match = regex.exec(str)) !== null) {
+                matches.push(match[1])
+            }
+            return str.replace(regex, (match, variable) => {
+                return context[variable] || match
+            })
         }
-        return str.replace(regex, (match, variable) => {
-            return context[variable] || match
-        })
+    }
+    #processElement(element) {
+        if (element.nodeType === Node.TEXT_NODE) {
+            element.nodeValue = this.#getMatches(element.nodeValue, /{{(.*?)}}/g, this.context);
+        } else if (element.nodeType === Node.ELEMENT_NODE) {
+            for (const attr of element.attributes) {
+                const attrValue = this.#getMatches(attr.value, /{{(.*?)}}/g, this.context);
+                element.setAttribute(attr.name, attrValue);
+            }
+            for (const child of element.childNodes) {
+                this.#processElement(child);
+            }
+        }
     }
 }
