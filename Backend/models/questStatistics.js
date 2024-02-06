@@ -17,4 +17,9 @@ const dbConnection = require("../services/dbService")
             timestamps:false
         }
     )
+    QuestStatistics.associate=(models)=>
+    {
+        QuestStatistics.belongsTo(models.Quest,{foreignKey:'quest_id'})
+        QuestStatistics.belongsTo(models.Player,{foreignKey:'player_id'})
+    }
     module.exports=QuestStatistics

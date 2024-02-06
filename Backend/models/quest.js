@@ -36,6 +36,7 @@ const dbConnection = require("../services/dbService")
     {
         Quest.belongsToMany(models.Player,{through:models.QuestStatistics,foreignKey:"quest_id"})
         Quest.hasMany(models.Resident,{foreignKey:"quest_id"})
+        Quest.hasMany(models.QuestStatistics,{foreignKey:'quest_id',as:'quest'})
     }
 
 module.exports=Quest

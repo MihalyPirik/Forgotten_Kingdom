@@ -39,6 +39,7 @@ const dbConnection = require("../services/dbService")
     )
 ToolType.associate=(models)=>
 {
-    ToolType.belongsToMany(models.Player,{through:"tools",timestamps:false,foreignKey:"tool_type_id"})
+    ToolType.belongsToMany(models.Player,{through:models.Tool,foreignKey:"tool_type_id"})
+    ToolType.hasMany(models.Tool,{foreignKey:'tool_type_id'})
 }
 module.exports=ToolType

@@ -1,4 +1,4 @@
-const { DataTypes, Model } = require("sequelize")
+const { DataTypes } = require("sequelize")
 const bcrypt=require('bcrypt')
 const dbConnection = require("../services/dbService")
 
@@ -161,10 +161,13 @@ const dbConnection = require("../services/dbService")
     )
     Player.associate=(models)=>
     {
-Player.belongsToMany(models.ToolType,{through:"tools",timestamps:false,foreignKey:"player_id"})
+Player.belongsToMany(models.ToolType,{through:models.Tool,foreignKey:"player_id"})
 Player.belongsToMany(models.Quest,{through:models.QuestStatistics,foreignKey:"player_id"})
 Player.belongsToMany(models.EnemyType,{through:models.Enemy,foreignKey:"world_id"})
 Player.hasMany(models.Resident,{foreignKey:"world_id"})
+Player.hasMany(models.Tool,{foreignKey:'player_id',as:'tool'})
+Player.hasMany(models.Enemy,{foreignKey:'world_id',as:'world'})
+Player.hasMany(models.QuestStatistics,{foreignKey:'player_id',as:'playerQuest'})
     }
 
 Player.prototype.comparePassword=async function(password)

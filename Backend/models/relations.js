@@ -19,7 +19,8 @@ const models=
     Quest:require("./quest"),
     QuestStatistics:require("./questStatistics"),
     Resident:require("./resident"),
-    ToolType:require("./toolType")
+    ToolType:require("./toolType"),
+    Tool:require("./tool")
 }
 
 Object.keys(models).forEach(key => {
