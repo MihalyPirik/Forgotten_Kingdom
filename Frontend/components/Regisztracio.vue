@@ -2,19 +2,13 @@
 import {ref} from 'vue'
 import { FormRegistration } from '../services/apiService';
 
-
-let errorMessage=ref()
-let color=ref()
-
 let name,email,password;
 
 
 let mess=ref()
 const Regisztracio=async()=>{
   mess.value=await FormRegistration(name,email,password)
-  
 }
-
 
 </script>
 <template>
@@ -24,9 +18,9 @@ const Regisztracio=async()=>{
 
       <h3>Regisztráció</h3>
       <div class="w-100">
-        <input v-model="name" placeholder="name" type="text" class="form-control mx-auto" aria-describedby="nameHelp">
-        <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto" aria-describedby="emailHelp">
-        <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto" aria-describedby="passwordHelp">
+        <input v-model="name" placeholder="name" type="text" class="registrationForm form-control mx-auto" aria-describedby="nameHelp">
+        <input v-model="email" placeholder="name@example.com" type="email" class="registrationForm form-control mx-auto" aria-describedby="emailHelp">
+        <input v-model="password" placeholder="Password" type="password" class="registrationForm form-control mx-auto" aria-describedby="passwordHelp">
         <p>{{ mess }}</p>
       </div>
 

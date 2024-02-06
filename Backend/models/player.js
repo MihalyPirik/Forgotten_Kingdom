@@ -22,7 +22,7 @@ const dbConnection = require("../services/dbService")
             {
                 type:DataTypes.STRING,
                 allowNull:false,
-                unique:true,
+                unique:{msg: "Ez az email cím már foglalt"},
                 validate:
                 {
                     isEmail:

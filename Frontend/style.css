@@ -135,6 +135,10 @@ a{
   min-width: var(--inputminwidth);
 }
 
+.registrationForm {
+  font-size: 12px;
+}
+
 #mobilePanel{
   color: gold;
 }
@@ -163,18 +167,11 @@ a{
   transition-duration: 0.4s;
 }
 
-
-
-
-
-
 #borderLine{
   border-top:10px solid;
   border-image: url(assets/border2.png) 70;
   width: 100%;
 }
-
-
 
 #lanc {
   margin: auto;

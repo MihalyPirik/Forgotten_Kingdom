@@ -2,6 +2,7 @@ require('dotenv').config()
 const jwt=require('jsonwebtoken')
 const Player = require('../models/player')
 const uuid=require('uuid')
+const { ValidationError, UniqueConstraintError } = require('sequelize')
 
 
 const registration = async (req, res, next) => {
@@ -12,15 +13,21 @@ const registration = async (req, res, next) => {
         const name = req.body.name
         await Player.create({player_id:uuid.v1(),email:email,password:password,player_name:name})
 
-
         res.status(201).json({ "message": "Sikeres regisztráció!" })
-
     } catch (error) {
         console.log(error);
-        next(error)
+        if (error instanceof ValidationError) {
+            res.status(400).json({"message": error.errors[0].message})
+            console.log(error.errors[0].message);
+        }
+        else if (error instanceof UniqueConstraintError) {
+            res.status(400).json({"message": error.message})
+        }
+        else
+        {
+            next(error)
+        }
     }
-
-
 }
 
 const login=async(req,res,next)=>
