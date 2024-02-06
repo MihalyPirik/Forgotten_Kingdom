@@ -84,6 +84,7 @@ const dbConnection = require("../services/dbService")
             world_name:
             {
                 type:DataTypes.STRING,
+                defaultValue:'New World'
             },
             stone:
             {

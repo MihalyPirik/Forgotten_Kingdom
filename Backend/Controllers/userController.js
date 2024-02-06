@@ -10,7 +10,7 @@ const registration = async (req, res, next) => {
         const email = req.body.email
         const password = req.body.password
         const name = req.body.name
-        await Player.create({player_id:uuid.v1(),email:email,password:password,name:name})
+        await Player.create({player_id:uuid.v1(),email:email,password:password,player_name:name})
 
 
         res.status(201).json({ "message": "Sikeres regisztráció!" })
@@ -32,6 +32,7 @@ if(user)
 {
         if(user.comparePassword(password))
         {
+            console.log(user);
             const token=jwt.sign({id:user.player_id},process.env.SECRET_KEY,{expiresIn:"1h"})
             res.setHeader("Authorization",`Bearer ${token}`)
             res.status(200).json({"message":"Sikeres bejelentkezés!"})
