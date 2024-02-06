@@ -107,7 +107,6 @@ export class Player extends GameObject {
         }
       }
       this.move.timer++
-      
       this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].objects.forEach(object => {
         const [collision, distance, sumOfRadius, dx, dy] = this.game.CheckCollision(this, object)
 
