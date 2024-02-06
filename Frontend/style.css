@@ -28,10 +28,6 @@ nav>*{
   padding: 3px 0 3px 0
 }
 
-
-
-
-
 .paper{
   background-image: url(assets/paper.png);
   background-size: 100% 100%;
@@ -41,6 +37,22 @@ nav>*{
 }
 .paper h4{
   font-weight: inherit;}
+
+#login {
+  font-size: 22px;
+}
+
+#InputEmail {
+  font-size:  12px;
+}
+
+#InputPassword {
+  font-size: 12px;
+}
+
+#forgetPass {
+  font-size: 16px;
+}
 
 #gameLogo {
   display: block;
@@ -52,10 +64,6 @@ nav>*{
   z-index: 1;
 }
 
-
-
-
-
 #border {
   border: 20px solid transparent;
   border-image: url(assets/border.png) 70;
@@ -63,13 +71,10 @@ nav>*{
   background: transparent url(assets/table_bg.png) repeat content-box;
 }
 
-
-
 #buttonPanel {
   border-bottom: 10px solid transparent;
   border-image: url(assets/border2.png) 70 repeat;
 }
-
 
 #buttonPanel>*>* {
   background: url(assets/buttons/button1.png) center no-repeat;
@@ -90,10 +95,6 @@ nav>*{
   background-image: url(assets/buttons/button1H.png);
   color: yellow;
 }
-
-
-
-
 
 form{
   min-height: 200px;
@@ -122,8 +123,6 @@ a{
   background-color: rgb(0, 0, 0, 0.4);
   border-block: 10px solid;
   border-image: url(assets/border2.png) 70;
-
-  
 }
 
 #forms>*:first-child *{
@@ -136,9 +135,6 @@ a{
   min-width: var(--inputminwidth);
 }
 
-
-
-
 #mobilePanel{
   color: gold;
 }
@@ -147,7 +143,6 @@ a{
   content: url(assets/android.gif);
   cursor: pointer;
 }
-
 
 #mobilePanel>*:first-child{
   background-color: rgb(0, 0, 0, 0.4);

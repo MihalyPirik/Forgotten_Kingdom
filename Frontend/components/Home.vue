@@ -24,7 +24,7 @@ const Login= async ()=>{
         </div>
         <div class="col-xl-5 col-lg-12 pt-4" id="forms">
             <div class="d-flex flex-column justify-content-evenly align-items-center pt-3">
-                <h3>BEJELENTKEZÉS</h3>
+                <h3 id="login">BEJELENTKEZÉS</h3>
                 <form class="d-flex flex-column justify-content-evenly align-items-center" @submit.prevent="Login">
                     <div class="w-100">
                         <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto" id="InputEmail"
@@ -35,7 +35,7 @@ const Login= async ()=>{
                     <button class="px-1 btn button" type="submit">BELÉPÉS</button>
                 </form>
                 <p>{{ mess }}</p>
-                <RouterLink to="/home">Elfelejtett jelszó</RouterLink>
+                <RouterLink id="forgetPass" to="/home">Elfelejtett jelszó</RouterLink>
                 <div id="borderLine"></div>
                 <p>NINCS MÉG FIÓKOD?</p>
                 <RouterLink class="button btn" to="/regisztracio">REGISZTRÁCIÓ</RouterLink>
@@ -53,7 +53,6 @@ const Login= async ()=>{
             <div>
                 <h3>MANUAL ALKALMAZÁS!</h3>
                 <img width="100%" src="../assets/android.png"/>
-                <p>↑ K A T T I N T S ↑</p>
             </div>
         </div>
     </div>
