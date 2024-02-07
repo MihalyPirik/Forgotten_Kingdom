@@ -1,6 +1,5 @@
-import { Player } from "./Player.js"
 export class Game {
-    constructor(canvas,isometricBlocks=[[]]) {
+    constructor(canvas,isometricBlocks=[[]],player) {
       this.isometricBlocks = isometricBlocks
       this.canvas = canvas
       this.currentBlockX = 0
@@ -12,7 +11,7 @@ export class Game {
       this.timer = 0
       this.interval = 1000 / this.fps
       this.debug = false
-      this.player = new Player(this)
+      this.player = player
       // Csak teszt jellegű jellemzők
       this.valami="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       this.name="Malom:"

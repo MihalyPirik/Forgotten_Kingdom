@@ -2,22 +2,23 @@ import { Game } from './classes/Game.js'
 import { Line } from "./classes/Line.js"
 import { NavigationPanel } from './classes/NavigationPanel.js'
 import { Panel } from './classes/Panel.js'
+import { Player } from './classes/Player.js'
 import { Point } from "./classes/Point.js"
 import {isometricBlock} from './classes/isometricBlock.js'
-import { getAllData } from './services/playerService.js'
+import { getAllData, getInventory } from './services/playerService.js'
 const gameCanvas = document.querySelector('canvas')
 
 
 
 
-// const urlparams=new URLSearchParams(window.location.search)
-// const token=urlparams.get("token")
+const urlparams=new URLSearchParams(window.location.search)
+const token=urlparams.get("token")
 
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
-//  const parsedToken=JSON.parse(atob(token.split('.')[1]))
-//  console.log(parsedToken.id);
+ const parsedToken=JSON.parse(atob(token.split('.')[1]))
+ console.log(parsedToken.id);
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
 window.addEventListener('resize', () => {
@@ -40,9 +41,10 @@ window.addEventListener('load', () => {
 // ['szörny4']]
 
   const game = new Game(gameCanvas,[['',new isometricBlock('Mill',mill),'[]','[]'],['[]','[]','[]','[]'],[[new isometricBlock('Farm',farm)],'[]','[]'],['[]']])
+  const player=new Player()
 game.currentBlockX=0
 game.currentBlockY=1
-console.log(game.isometricBlocks[game.currentBlockX][game.currentBlockY]);
+
 game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`
 
   window.addEventListener('keydown', (e) => { game.player.move.event = e; game.debug = e })
@@ -51,6 +53,13 @@ game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
 })
 
+
+const init=async()=>
+{
+  const player=await getAllData(parsedToken)
+  const game=new Game()
+  
+}
 
 
 
@@ -119,12 +128,11 @@ game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push
 game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push(
 new NavigationPanel(0.7*game.width,0.91*game.height,100,document.getElementById('navigationPanel'),'navigationY',game,'y','forward','backward')
 )
-console.log(game.isometricBlocks);
+
 const s=async()=>{
-
-console.log(await getAllData(parsedToken.id))
+console.log(await getInventory(parsedToken.id))
 }
-
+s()
 
 
   let previousTime = 0

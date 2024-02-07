@@ -1,6 +1,6 @@
 export class GameObject {
     constructor(game, image, spriteX = 0, spriteY = 0, width = 255, height = 255, spriteWidth = 64, spriteHeight = 64) {
-      this.game = game
+      this.game = game,
       this.spriteX = spriteX
       this.spriteY = spriteY
       this.radius = spriteWidth / 2

@@ -16,6 +16,7 @@ const getInventory = (playerId) => {
   return axios
     .get("/" + playerId + "/inventory")
     .then(async (res) => {
+      console.log(res.data);
       return await res.data;
     })
     .catch(async (err) => {
