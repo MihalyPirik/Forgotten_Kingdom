@@ -51,8 +51,9 @@ const getInventory=async(req,res,next)=>
 {
     try {
         const data=await Player.findByPk(req.params.playerId)
+        res.status(200).json({"data":data})
     } catch (error) {
-        
+        next(error)
     }
 }
 module.exports={getAllData,getEnemies,getResidents,getQuests,getInventory}
