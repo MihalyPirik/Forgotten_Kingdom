@@ -10,6 +10,12 @@ const dbConnection = require("../services/dbService")
                 type:DataTypes.BOOLEAN,
                 defaultValue:false,
                 allowNull:false
+            },
+            is_active:
+            {
+                type:DataTypes.BOOLEAN,
+                defaultValue:false,
+                allowNull:false
             }
         },
         {
