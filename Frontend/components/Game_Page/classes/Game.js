@@ -1,4 +1,5 @@
 export class Game {
+  #currentBlock;
     constructor(canvas,isometricBlocks=[[]],player,currentBlock) {
       this.isometricBlocks = isometricBlocks
       this.canvas = canvas
@@ -12,10 +13,23 @@ export class Game {
       this.interval = 1000 / this.fps
       this.debug = false
       this.player = player
+      this.currentBlock=currentBlock
+      this.#currentBlock=currentBlock
+
       // Csak teszt jellegű jellemzők
       this.valami="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
       this.name="Malom:"
     }
+    set currentBlock(value)
+    {
+      console.log(value);
+      if(value){
+      this.canvas.style.backgroundImage='url('+value.backGround.src+')'
+      this.#currentBlock=value
+      }
+    }
+    get currentBlock(){return this.#currentBlock}
+
     Render(deltaTime) {
 
       if (this.timer > this.interval) {
@@ -52,8 +66,8 @@ export class Game {
         // this.context.moveTo(this.canvas.width*0.78,this.canvas.height*0.78)
         // this.context.lineTo(this.canvas.width*0.5,this.canvas.height*0.938)
         // this.context.stroke()
-        
-        this.isometricBlocks[this.currentBlockX][this.currentBlockY].objects.forEach(object => {
+
+        this.currentBlock.objects.forEach(object => {
           object.Update()
           object.Draw()
         })
@@ -75,12 +89,11 @@ export class Game {
     }
     ChangeCurrentIsometricBlock(blockX,blockY)
     {
-      this.isometricBlocks[this.currentBlockX][this.currentBlockY].panels.forEach(panel=>
+      this.currentBlock.panels.forEach(panel=>
         {
           panel.element.dispatchEvent(panel.hide)
         })
         this.currentBlockX=blockX
         this.currentBlockY=blockY
-        this.canvas.style.backgroundImage=`url(${this.isometricBlocks[this.currentBlockX][this.currentBlockY].backGround.src})`
     }
   }

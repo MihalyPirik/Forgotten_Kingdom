@@ -112,7 +112,7 @@ export class Player extends GameObject {
         }
       }
       this.move.timer++
-      this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].objects.forEach(object => {
+      this.game.currentBlock.objects.forEach(object => {
         const [collision, distance, sumOfRadius, dx, dy] = this.game.CheckCollision(this, object)
 
         if (collision) {
@@ -120,11 +120,13 @@ export class Player extends GameObject {
           const unitY = dy / distance
           newX = object.objX + (sumOfRadius + 1) * unitX
           newY = object.objY + (sumOfRadius + 1) * unitY
+          this.objX=newX
+          this.objY=newX
         }
       })
 
       
-      this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].barriers.forEach(barrier=>{
+      this.game.currentBlock.barriers.forEach(barrier=>{
       const [collison,x,y,distance]=barrier.CheckCollision(this)
 
 
@@ -201,7 +203,7 @@ newY=this.objY
 //     }
 //   })
 
-this.game.isometricBlocks[this.game.currentBlockX][this.game.currentBlockY].panels.forEach(panel=>{
+this.game.currentBlock.panels.forEach(panel=>{
 
   if(Math.hypot(this.objX-panel.x,this.objY-panel.y)<panel.radius)
   {
