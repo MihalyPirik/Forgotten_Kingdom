@@ -9,4 +9,5 @@ playerRouter.get('/', getAllData)
 playerRouter.get('/residents/:blockX/:blockY', getResidents)
 playerRouter.get('/quests', getQuests)
 playerRouter.get('/inventory', getInventory)
+
 module.exports = playerRouter

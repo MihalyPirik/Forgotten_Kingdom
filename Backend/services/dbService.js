@@ -59,3 +59,5 @@ module.exports=dbConnection
 //   const data=await pool.query("SELECT * FROM players WHERE email=?",[email])
 //   return data[0][0]
 // }
+
+// dbConnection.sync({alter: true})

@@ -2,44 +2,43 @@ const { DataTypes } = require("sequelize")
 const dbConnection = require("../services/dbService")
 
 
-    const ToolType=dbConnection.define
+const ToolType = dbConnection.define
     (
         'ToolType',
         {
             tool_type_id:
             {
-                type:DataTypes.UUID,
-                primaryKey:true
+                type: DataTypes.UUID,
+                primaryKey: true
             },
             tool_name:
             {
-                type:DataTypes.STRING,
-                allowNull:false
+                type: DataTypes.STRING,
+                allowNull: false
             },
             level:
             {
-                type:DataTypes.INTEGER,
-                allowNull:false,
+                type: DataTypes.INTEGER,
+                allowNull: false,
                 validate:
                 {
-                    min:1,
-                    max:3
+                    min: 1,
+                    max: 3
                 }
             },
             attack:
             {
-                type:DataTypes.INTEGER,
-                allowNull:false,
+                type: DataTypes.INTEGER,
+                allowNull: false,
             }
         },
         {
-            tableName:'tool_types',
-            timestamps:false
+            tableName: 'tool_types',
+            timestamps: false
         }
     )
-ToolType.associate=(models)=>
-{
-    ToolType.belongsToMany(models.Player,{through:models.Tool,foreignKey:"tool_type_id"})
-    ToolType.hasMany(models.Tool,{foreignKey:'tool_type_id'})
+ToolType.associate = (models) => {
+    ToolType.belongsToMany(models.Player, { through: models.Tool, foreignKey: "tool_type_id" })
+    ToolType.hasMany(models.Tool, { foreignKey: 'tool_type_id' })
 }
-module.exports=ToolType
+module.exports = ToolType

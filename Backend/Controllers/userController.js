@@ -15,10 +15,8 @@ const registration = async (req, res, next) => {
 
         res.status(201).json({ "message": "Sikeres regisztráció!" })
     } catch (error) {
-        console.log(error);
         if (error instanceof ValidationError) {
             res.status(400).json({ "message": error.errors[0].message })
-            console.log(error.errors[0].message);
         }
         else if (error instanceof UniqueConstraintError) {
             res.status(400).json({ "message": error.message })

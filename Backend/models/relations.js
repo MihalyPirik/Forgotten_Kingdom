@@ -11,22 +11,21 @@
 // Resident.belongsTo(Quest,{foreignKey:"quest_id"})
 
 
-const models=
+const models =
 {
-    Enemy:require("./enemy"),
-    EnemyType:require("./enemyType"),
-    Player:require("./player"),
-    Quest:require("./quest"),
-    QuestStatistics:require("./questStatistics"),
-    Resident:require("./resident"),
-    ToolType:require("./toolType"),
-    Tool:require("./tool")
+    Enemy: require("./enemy"),
+    EnemyType: require("./enemyType"),
+    Player: require("./player"),
+    Quest: require("./quest"),
+    QuestStatistics: require("./questStatistics"),
+    Resident: require("./resident"),
+    ToolType: require("./toolType"),
+    Tool: require("./tool")
 }
 
 Object.keys(models).forEach(key => {
 
-    if(models[key].hasOwnProperty('associate'))
-    {
+    if (models[key].hasOwnProperty('associate')) {
         models[key].associate(models)
     }
 })
