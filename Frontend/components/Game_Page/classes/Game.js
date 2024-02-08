@@ -1,5 +1,5 @@
 export class Game {
-    constructor(canvas,isometricBlocks=[[]],player) {
+    constructor(canvas,isometricBlocks=[[]],player,currentBlock) {
       this.isometricBlocks = isometricBlocks
       this.canvas = canvas
       this.currentBlockX = 0

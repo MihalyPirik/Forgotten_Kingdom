@@ -5,7 +5,7 @@ const getAllData = (playerId) => {
   return axios
     .get("/" + playerId)
     .then(async (res) => {
-      return await res.data;
+      return await res.data.data;
     })
     .catch(async (err) => {
       return await err;
@@ -16,8 +16,7 @@ const getInventory = (playerId) => {
   return axios
     .get("/" + playerId + "/inventory")
     .then(async (res) => {
-      console.log(res.data);
-      return await res.data;
+      return await res.data.data;
     })
     .catch(async (err) => {
       return await err.response.data.message;

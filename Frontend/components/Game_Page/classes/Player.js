@@ -1,16 +1,16 @@
 import { GameObject } from "./GameObject.js"
 
 export class Player extends GameObject {
-    constructor(name,HP,money,inventory,game,speed=4) {
+    constructor(name,HP,money,inventory,game,tools=[],speed=4) {
 
       super(game, document.getElementById('character') ,game.width * 0.35, game.height * 0.6, 180, 180)
       this.speed = speed
+      this.tools=tools
       this.name=name
       this.money=money
       this.inventory=inventory
       this.HP=HP
       this.move = { event: null, timer: 0, interval: 2 }
-      game.Player=this
 
     }
     Update() {
