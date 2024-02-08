@@ -5,6 +5,7 @@ import { Panel } from './classes/Panel.js'
 import { Player } from './classes/Player.js'
 import { Point } from "./classes/Point.js"
 import {isometricBlock} from './classes/isometricBlock.js'
+import { createFarm } from './isometricBlocks/mill.js'
 import { getAllData, getInventory } from './services/playerService.js'
 const gameCanvas = document.querySelector('canvas')
 
@@ -25,15 +26,18 @@ window.addEventListener('resize', () => {
   gameCanvas.height = innerHeight
 })
 
-const mill=new Image()
-mill.src='./assets/blocks/Mill.png'
+
+
 const farm=new Image()
 farm.src='./assets/blocks/Farm.png'
-
 window.addEventListener('load', () => {
-  const game = new Game(gameCanvas,[['',new isometricBlock('Mill',mill),'[]','[]'],['[]','[]','[]','[]'],[[new isometricBlock('Farm',farm)],'[]','[]'],['[]']])
+  const game = new Game(gameCanvas,[
+    ['Kastély','Malom','Bánya','Szörny1'],
+    ['Kovács','Piac','Erdő','Szörny2'],
+    ['Farm','Horgásztó','Szörny3'],
+    ['Szörny4']
+  ])
 init(game)
-  console.log(game);
 // [['kastely','malom','banya','szörny1'],
 // ['kovács','piac','erdo','szörny2'],
 // ['farm','horgásztó','szörny3'],
@@ -61,28 +65,11 @@ window.addEventListener('keydown', (e) => { game.player.move.event = e; game.deb
 
 game.currentBlockX=0
 game.currentBlockY=1
-
-game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`
+createFarm(game)
+// game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`
   
 
-game.isometricBlocks[game.currentBlockX][game.currentBlockY].barriers.push(
-  new Line(
-    new Point(game.canvas.width * 0.2,game.canvas.height * 0.775),
-    new Point(game.canvas.width * 0.5, game.canvas.height * 0.94)
-    ),
-  new Line(
-    new Point(game.canvas.width * 0.2, game.canvas.height * 0.775),
-    new Point(game.canvas.width * 0.5, game.canvas.height * 0.67)
-    ),
-    new Line(
-      new Point(game.canvas.width * 0.5, game.canvas.height * 0.67),
-      new Point(game.canvas.width * 0.78, game.canvas.height * 0.78)
-    ),
-    new Line(
-      new Point(game.canvas.width * 0.78, game.canvas.height * 0.78),
-      new Point(game.canvas.width * 0.5, game.canvas.height * 0.938)
-    )
-  )
+
 
   arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
@@ -92,14 +79,6 @@ arrow2.style.left=game.width/3*2+game.width/3/2-50+'px'
 arrow2.style.top=game.height*0.86+'px'
 
 
-game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push(new Panel(game.width*0.3,game.height*0.66,100,document.querySelector('template'),'pop-up',game))
-game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push
-(
-  new NavigationPanel(0.32*game.width,0.82*game.height,50,document.getElementById('navigationPanel'),'navigationX',game,'x','forward','backward')
-)
-game.isometricBlocks[game.currentBlockX][game.currentBlockY].panels.push(
-new NavigationPanel(0.7*game.width,0.91*game.height,100,document.getElementById('navigationPanel'),'navigationY',game,'y','forward','backward')
-)
 
 
 let previousTime = 0
