@@ -1,14 +1,19 @@
 import { Line } from "../classes/Line.js"
-import { NavigationPanel } from "../classes/NavigationPanel.js"
 import { Panel } from "../classes/Panel.js"
 import { Point } from "../classes/Point.js"
 import { isometricBlock } from "../classes/isometricBlock.js"
+import { SetButtons } from "./navigations.js"
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
-export const createFarm=(game)=>
+
+export const createMill=(game)=>
 {
+  const navigationPanelX=new Panel(0.7*game.width,0.91*game.height,100,document.getElementById('navigationPanel'),'navigationX')
+  const navigationPanelY=new Panel(0.32*game.width,0.82*game.height,50,document.getElementById('navigationPanel'),'navigationY')
+  SetButtons(game,'x',navigationPanelX,'forward','backward')
+  SetButtons(game,'y',navigationPanelY,'forward','backward')
     game.currentBlock=new isometricBlock(
-        'mill',
+        'Malom',
         mill,
         [],
         [
@@ -31,8 +36,8 @@ export const createFarm=(game)=>
         ],
         [
             new Panel(game.width*0.3,game.height*0.66,100,document.querySelector('template'),'pop-up',game),
-            new NavigationPanel(0.32*game.width,0.82*game.height,50,document.getElementById('navigationPanel'),'navigationX',game,'x','forward','backward'),
-            new NavigationPanel(0.7*game.width,0.91*game.height,100,document.getElementById('navigationPanel'),'navigationY',game,'y','forward','backward')
+            navigationPanelX,
+            navigationPanelY
         ],
         )
 }

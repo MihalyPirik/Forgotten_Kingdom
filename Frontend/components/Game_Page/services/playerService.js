@@ -1,9 +1,10 @@
 
-axios.defaults.baseURL = "http://localhost:3000/player";
+axios.defaults.baseURL = "http://localhost:3000/";
+
 
 const getAllData = (playerId) => {
   return axios
-    .get("/" + playerId)
+    .get("/" + playerId+'/player')
     .then(async (res) => {
       return await res.data.data;
     })
@@ -14,7 +15,7 @@ const getAllData = (playerId) => {
 
 const getInventory = (playerId) => {
   return axios
-    .get("/" + playerId + "/inventory")
+    .get("/" + playerId + '/player' + "/inventory")
     .then(async (res) => {
       return await res.data.data;
     })

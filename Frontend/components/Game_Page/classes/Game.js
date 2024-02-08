@@ -22,10 +22,20 @@ export class Game {
     }
     set currentBlock(value)
     {
-      console.log(value);
       if(value){
-      this.canvas.style.backgroundImage='url('+value.backGround.src+')'
-      this.#currentBlock=value
+        for (let i = 0; i < this.isometricBlocks.length; i++) {
+          for (let j = 0; j < this.isometricBlocks[i].length; j++) {
+            if(this.isometricBlocks[i][j]==value.name)
+            {
+              this.canvas.style.backgroundImage='url('+value.backGround.src+')'
+              this.currentBlockX=i
+              this.currentBlockY=j
+              this.#currentBlock=value
+              return
+            }
+          }
+        }
+        throw new ReferenceError('The isometricBlock is not registered in the matrix!')
       }
     }
     get currentBlock(){return this.#currentBlock}
@@ -86,14 +96,5 @@ export class Game {
       const distance = Math.hypot(dx, dy)
       const sumOfRadius = objectOne.radius + objectTwo.radius
       return [distance < sumOfRadius, distance, sumOfRadius, dx, dy]
-    }
-    ChangeCurrentIsometricBlock(blockX,blockY)
-    {
-      this.currentBlock.panels.forEach(panel=>
-        {
-          panel.element.dispatchEvent(panel.hide)
-        })
-        this.currentBlockX=blockX
-        this.currentBlockY=blockY
     }
   }

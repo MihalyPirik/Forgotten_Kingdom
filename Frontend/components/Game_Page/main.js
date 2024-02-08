@@ -1,11 +1,10 @@
 import { Game } from './classes/Game.js'
 import { Line } from "./classes/Line.js"
-import { NavigationPanel } from './classes/NavigationPanel.js'
 import { Panel } from './classes/Panel.js'
 import { Player } from './classes/Player.js'
 import { Point } from "./classes/Point.js"
 import {isometricBlock} from './classes/isometricBlock.js'
-import { createFarm } from './isometricBlocks/mill.js'
+import { createMill } from './isometricBlocks/mill.js'
 import { getAllData, getInventory } from './services/playerService.js'
 const gameCanvas = document.querySelector('canvas')
 
@@ -18,7 +17,7 @@ const token=urlparams.get("token")
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
- const parsedToken=JSON.parse(atob(token.split('.')[1]))
+ const parsedToken=token?JSON.parse(atob(token.split('.')[1])):'e8c92350-c59c-11ee-aab5-e980bbd7a2f9'
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
 window.addEventListener('resize', () => {
@@ -44,16 +43,16 @@ init(game)
 // ['szörny4']]
 
   
-
+console.log(game);
 
 
   
 
-
+/** @type {function (Game)} */
 async function init(game)
 {
-  const playerD=await getAllData(parsedToken.id)
-  const inventory=await getInventory(parsedToken.id)
+  const playerD=await getAllData(parsedToken)
+  const inventory=await getInventory(parsedToken)
 game.player=new Player(playerD.player_name,playerD.HP,playerD.money,inventory,game)
 
 
@@ -65,7 +64,8 @@ window.addEventListener('keydown', (e) => { game.player.move.event = e; game.deb
 
 game.currentBlockX=0
 game.currentBlockY=1
-createFarm(game)
+createMill(game)
+
 // game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`
   
 

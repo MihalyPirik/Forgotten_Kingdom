@@ -8,7 +8,7 @@ export class Panel {
         this.hide = new Event(eventName + '_hide')
         const div = document.createElement('div')
         div.className = 'gamePanel'
-        div.innerHTML = template.innerHTML
+        div.append(template.content.cloneNode(true))
         this.element = div
         this.element.addEventListener(this.show.type, this.#ShowPanel)
     }
@@ -28,7 +28,7 @@ export class Panel {
         this.element.removeEventListener(this.hide.type, this.#HidePanel)
     }
     #getMatches = (str, regex, context) => {
-        if (context != null) {
+        if (context) {
             const matches = []
             let match
             while ((match = regex.exec(str)) !== null) {
@@ -40,6 +40,8 @@ export class Panel {
         }
     }
     #processElement(element) {
+        if(this.context)
+        {
         if (element.nodeType === Node.TEXT_NODE) {
             element.nodeValue = this.#getMatches(element.nodeValue, /{{(.*?)}}/g, this.context);
         } else if (element.nodeType === Node.ELEMENT_NODE) {
@@ -51,5 +53,6 @@ export class Panel {
                 this.#processElement(child);
             }
         }
+    }
     }
 }
