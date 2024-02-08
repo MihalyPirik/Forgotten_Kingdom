@@ -6,8 +6,8 @@ const playerRouter=require('express').Router({mergeParams:true})
 // playerRouter.use(userAuth)
 
 playerRouter.get('/',getAllData)
-playerRouter.get('/enemies',getEnemies)
-playerRouter.get('/residents',getResidents)
+playerRouter.get('/enemies/:blockX/:blockY',getEnemies)
+playerRouter.get('/residents/:blockX/:blockY',getResidents)
 playerRouter.get('/quests',getQuests)
 playerRouter.get('/inventory',getInventory)
 module.exports=playerRouter
