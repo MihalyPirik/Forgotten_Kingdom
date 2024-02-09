@@ -62,8 +62,6 @@ window.addEventListener('keydown', (e) => { game.player.move.event = e; game.deb
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
 })
 
-game.currentBlockX=0
-game.currentBlockY=1
 createMill(game)
 
 // game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`

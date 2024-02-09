@@ -10,8 +10,6 @@ export const createMill=(game)=>
 {
   const navigationPanelX=new Panel(0.7*game.width,0.91*game.height,100,document.getElementById('navigationPanel'),'navigationX')
   const navigationPanelY=new Panel(0.32*game.width,0.82*game.height,50,document.getElementById('navigationPanel'),'navigationY')
-  SetButtons(game,'x',navigationPanelX,'forward','backward')
-  SetButtons(game,'y',navigationPanelY,'forward','backward')
     game.currentBlock=new isometricBlock(
         'Malom',
         mill,
@@ -40,4 +38,6 @@ export const createMill=(game)=>
             navigationPanelY
         ],
         )
+        SetButtons(game,'x',navigationPanelX,'forward','backward')
+        SetButtons(game,'y',navigationPanelY,'forward','backward')
 }
