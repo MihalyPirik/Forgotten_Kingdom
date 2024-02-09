@@ -3,9 +3,10 @@ const jwt = require('jsonwebtoken')
 const Player = require('../models/player')
 const uuid = require('uuid')
 const { ValidationError, UniqueConstraintError } = require('sequelize')
+const bcrypt = require('bcrypt')
 
 
-const registration = async (req, res, next) => {
+const postRegistration = async (req, res, next) => {
 
     try {
         const email = req.body.email
@@ -27,7 +28,7 @@ const registration = async (req, res, next) => {
     }
 }
 
-const login = async (req, res, next) => {
+const postLogin = async (req, res, next) => {
     const { email, password } = req.body
     if (email == undefined) {
         return res.status(401).json({ "message": "Kérjük adja meg az email címét." })
@@ -54,7 +55,30 @@ const login = async (req, res, next) => {
         console.log(error);
         next(error)
     }
-
 }
 
-module.exports = { registration, login }
+const putUser = async (req, res, next) => {
+    try {
+      const email = req.body.email;
+      const password = req.body.password;
+      const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10))
+
+      await Player.update(
+        {
+          email: email,
+          password: hashPassword
+        },
+        {
+          where: {
+            player_id: req.params.player_id,
+          }
+        }
+      );
+  
+      res.status(201).json({ message: "Sikeres módosítás!" });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+module.exports = { postRegistration, postLogin, putUser }

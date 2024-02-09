@@ -69,8 +69,8 @@ const Player = dbConnection.define
                     },
                     len:
                     {
-                        args: [8, 20],
-                        msg: "A jelszónak 8 és 20 karakter között kell lennie!"
+                        args: [8],
+                        msg: "A jelszónak minimum 8 karakteresnek kell lennie!!"
                     }
                 }
             },

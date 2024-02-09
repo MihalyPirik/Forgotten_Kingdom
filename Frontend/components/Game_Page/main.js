@@ -47,8 +47,8 @@ init(game)
  */
 async function init(game)
 {
-  const playerD=await getAllData(parsedToken)
-  const inventory=await getInventory(parsedToken)
+  const playerD=await getAllData(parsedToken.id)
+  const inventory=await getInventory(parsedToken.id)
 game.player=new Player(playerD.player_name,playerD.HP,playerD.money,inventory,game)
 
 
