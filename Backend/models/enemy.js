@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize")
 const dbConnection = require("../services/dbService")
+const EnemyType = require("./enemyType")
 
 
 const Enemy = dbConnection.define
@@ -34,11 +35,25 @@ const Enemy = dbConnection.define
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 defaultValue: 0
+            },
+            HP:
+            {
+                type: DataTypes.INTEGER,
+                allowNull: false
             }
         },
         {
             tableName: 'enemies',
             timestamps: false,
+            hooks:
+            {
+                beforeCreate: async (enemy) => {
+                    const enemy_type = EnemyType.findOne({where: {enemy_type_id: enemy_type_id}});
+                    if (enemy_type) {
+                        enemy.HP = enemy_type.HP
+                    }
+                }
+            },
         }
     )
 Enemy.associate = (models) => {
