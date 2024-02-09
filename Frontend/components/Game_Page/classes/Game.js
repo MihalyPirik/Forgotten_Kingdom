@@ -25,7 +25,7 @@ export class Game {
       if(value){
         for (let i = 0; i < this.isometricBlocks.length; i++) {
           for (let j = 0; j < this.isometricBlocks[i].length; j++) {
-            if(this.isometricBlocks[i][j]==value.name)
+            if(this.isometricBlocks[i][j].name==value.name)
             {
               this.canvas.style.backgroundImage='url('+value.backGround.src+')'
               this.currentBlockX=i

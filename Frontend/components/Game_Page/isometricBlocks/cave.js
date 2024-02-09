@@ -1,0 +1,1 @@
+export const Bánya=()=>{console.log('Bánya');}

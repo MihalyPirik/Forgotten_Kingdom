@@ -6,7 +6,7 @@ import { SetButtons } from "./navigations.js"
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
 
-export const createMill=(game)=>
+export const Malom=(game)=>
 {
   const navigationPanelX=new Panel(0.7*game.width,0.91*game.height,100,document.getElementById('navigationPanel'),'navigationX')
   const navigationPanelY=new Panel(0.32*game.width,0.82*game.height,50,document.getElementById('navigationPanel'),'navigationY')

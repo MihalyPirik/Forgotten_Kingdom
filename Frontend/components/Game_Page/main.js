@@ -1,10 +1,17 @@
 import { Game } from './classes/Game.js'
-import { Line } from "./classes/Line.js"
-import { Panel } from './classes/Panel.js'
 import { Player } from './classes/Player.js'
-import { Point } from "./classes/Point.js"
-import {isometricBlock} from './classes/isometricBlock.js'
-import { createMill } from './isometricBlocks/mill.js'
+import { Malom } from './isometricBlocks/mill.js'
+import {Kastély} from './isometricBlocks/castle.js'
+import {Bánya} from './isometricBlocks/cave.js'
+import {Kovács} from './isometricBlocks/blacksmith.js'
+import {Farm} from './isometricBlocks/farm.js'
+import {Horgásztó} from './isometricBlocks/fishingPond.js'
+import {Erdő} from './isometricBlocks/forest.js'
+import {Piac} from './isometricBlocks/market.js'
+import {Szörny1} from './isometricBlocks/monsterOne.js'
+import {Szörny2} from './isometricBlocks/monsterTwo.js'
+import {Szörny3} from './isometricBlocks/monsterThree.js'
+import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from './services/playerService.js'
 const gameCanvas = document.querySelector('canvas')
 
@@ -31,10 +38,10 @@ const farm=new Image()
 farm.src='./assets/blocks/Farm.png'
 window.addEventListener('load', () => {
   const game = new Game(gameCanvas,[
-    ['Kastély','Malom','Bánya','Szörny1'],
-    ['Kovács','Piac','Erdő','Szörny2'],
-    ['Farm','Horgásztó','Szörny3'],
-    ['Szörny4']
+    [Kastély,Malom,Bánya,Szörny1],
+    [Kovács,Piac,Erdő,Szörny2],
+    [Farm,Horgásztó,Szörny3],
+    [Szörny4]
   ])
 init(game)
 // [['kastely','malom','banya','szörny1'],
@@ -58,7 +65,8 @@ window.addEventListener('keydown', (e) => { game.player.move.event = e; game.deb
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
 })
 
-createMill(game)
+game.isometricBlocks[game.currentBlockX][1](game)
+
   arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
 

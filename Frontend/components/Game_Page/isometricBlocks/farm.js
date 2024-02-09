@@ -1,0 +1,1 @@
+export const Farm=()=>{console.log('Farm');}

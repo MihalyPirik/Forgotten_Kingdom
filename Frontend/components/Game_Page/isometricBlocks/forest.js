@@ -1,0 +1,1 @@
+export const Erdő=()=>{console.log('Erdő');}

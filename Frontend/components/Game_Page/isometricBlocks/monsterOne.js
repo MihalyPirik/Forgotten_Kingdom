@@ -1,0 +1,1 @@
+export const Szörny1=()=>{console.log('Szörny2');}
