@@ -41,18 +41,14 @@ init(game)
 // ['kovács','piac','erdo','szörny2'],
 // ['farm','horgásztó','szörny3'],
 // ['szörny4']]
-
-  
-console.log(game);
-
-
-  
-
-/** @type {function (Game)} */
+/**
+ * 
+ * @param {Game} game
+ */
 async function init(game)
 {
-  const playerD=await getAllData(parsedToken.id)
-  const inventory=await getInventory(parsedToken.id)
+  const playerD=await getAllData(parsedToken)
+  const inventory=await getInventory(parsedToken)
 game.player=new Player(playerD.player_name,playerD.HP,playerD.money,inventory,game)
 
 
@@ -63,12 +59,6 @@ window.addEventListener('keydown', (e) => { game.player.move.event = e; game.deb
 })
 
 createMill(game)
-
-// game.canvas.style.backgroundImage=`url(${game.isometricBlocks[game.currentBlockX][game.currentBlockY].backGround.src})`
-  
-
-
-
   arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
 

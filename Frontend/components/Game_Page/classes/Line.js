@@ -1,6 +1,13 @@
+import { Point } from "./Point.js";
 
 export class Line
 {
+    /**
+     * 
+     * @param {Point} startPoint 
+     * @param {Point} endPoint 
+     * @param {number} width 
+     */
     constructor(startPoint,endPoint,width=5)
     {
         this.startPoint=startPoint
