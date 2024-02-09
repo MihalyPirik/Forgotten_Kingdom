@@ -43,7 +43,7 @@ const postEnemy = async (req, res, next) => {
       blockX: blockX,
       blockY: blockY,
       world_id: world_id,
-      enemy_type_id: enemy_type_id,
+      enemy_type_id: enemy_type_id
     });
 
     res.status(201).json({ message: "Sikeres felvétel!" });

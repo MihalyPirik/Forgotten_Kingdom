@@ -39,7 +39,7 @@ const Enemy = dbConnection.define
             HP:
             {
                 type: DataTypes.INTEGER,
-                allowNull: false
+                allowNull: true,
             }
         },
         {
@@ -48,7 +48,9 @@ const Enemy = dbConnection.define
             hooks:
             {
                 beforeCreate: async (enemy) => {
-                    const enemy_type = EnemyType.findOne({where: {enemy_type_id: enemy_type_id}});
+                    console.log("enemy", enemy);
+                    const enemy_type = await EnemyType.findOne({where: {enemy_type_id: enemy.enemy_type_id}});
+                    console.log("enemy_type", enemy_type);
                     if (enemy_type) {
                         enemy.HP = enemy_type.HP
                     }

@@ -46,7 +46,7 @@ const getQuests = async (req, res, next) => {
 
 const getInventory = async (req, res, next) => {
   try {
-    const data = await Player.findByPk(req.params.playerID, {
+    const data = await Player.findByPk(req.params.player_id, {
       attributes: ["stone", "wood", "coal", "iron", "wheat", "fish"],
       raw: true,
     });
