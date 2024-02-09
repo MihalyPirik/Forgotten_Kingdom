@@ -26,8 +26,8 @@ app.use((req, res, next) => {
 
 
 app.use('/user', userRouter)
-app.use('/:playerID/player', playerRouter)
-app.use('/:playerID/enemies', enemyRouter)
+app.use('/:player_id/player', playerRouter)
+app.use('/:player_id/enemies', enemyRouter)
 
 app.use(errorHandler)
 

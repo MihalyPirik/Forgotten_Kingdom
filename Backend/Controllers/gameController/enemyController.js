@@ -59,8 +59,6 @@ const putEnemy = async (req, res, next) => {
     const blockX = req.body.blockX;
     const blockY = req.body.blockY;
     const HP = req.body.HP;
-    const attack = req.body.attack;
-    const level = req.body.level;
     await Enemy.update(
       {
         objX: objX,
