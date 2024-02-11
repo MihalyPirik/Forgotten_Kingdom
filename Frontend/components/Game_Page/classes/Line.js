@@ -16,12 +16,16 @@ export class Line
     }
     CheckCollision(object)
     {
-
-
+let x=object.objX
+let y=object.objY
 let a1 = this.startPoint.x;
 let a2 = this.startPoint.y;
 let b1 = this.endPoint.x;
 let b2 = this.endPoint.y;
+if(
+
+((x>a1 && x<b1) || (x>b1 && x<a1)) && ((y>a2 && y<b2) || (y>b2 && y<a2)))
+{
 let p1 = object.objX;
 let p2 = object.objY;
 let n1=b1-a1
@@ -31,11 +35,15 @@ let n2=b2-a2
 
 
 
-const x=((n2*n1*(p2-a2)+n2*n2*a1+n1*n1*p1)/(n2*n2+n1*n1))
-const y = (n2*(x-a1)/n1)+a2
+x=((n2*n1*(p2-a2)+n2*n2*a1+n1*n1*p1)/(n2*n2+n1*n1))
+y = (n2*(x-a1)/n1)+a2
 
 const distance=Math.hypot(p1-x,p2-y)
-
+return [distance<this.width,x,y,distance]
+}
+else{
+    return [false]
+}
 
 
 // if(object.objX<this.startPoint.x){
@@ -57,19 +65,7 @@ const distance=Math.hypot(p1-x,p2-y)
 
 
 
-          return [distance<this.width &&
-            (
-                (x>this.startPoint.x && x<this.endPoint.x)
-                ||
-                (x>this.endPoint.x && x<this.startPoint.x)
-            ) 
-            &&
-            (
-                (y>this.startPoint.y && y<this.endPoint.y)
-                ||
-                (y>this.endPoint.y && y<this.startPoint.y)
-            )
-            ,x,y,distance]
+          
           // BP+AP>=BA-this.width/2 && BP+AP<=BA+this.width/2
     }
 }

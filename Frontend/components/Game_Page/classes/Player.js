@@ -2,8 +2,7 @@ import { GameObject } from "./GameObject.js"
 
 export class Player extends GameObject {
     constructor(name,HP,money,inventory,game,tools=[],speed=4) {
-
-      super(game, document.getElementById('character') ,game.width * 0.35, game.height * 0.6, 180, 180)
+      super(game, document.getElementById('character') ,game.width * 0.35, game.height * 0.6, game.width*0.2, game.height*0.2)
       this.speed = speed
       this.tools=tools
       this.name=name
@@ -11,7 +10,6 @@ export class Player extends GameObject {
       this.inventory=inventory
       this.HP=HP
       this.move = { event: null, timer: 0, interval: 2 }
-
     }
     Update() {
       if (!this.move.event) {
@@ -126,33 +124,33 @@ export class Player extends GameObject {
       })
 
       
-      this.game.currentBlock.barriers.forEach(barrier=>{
-      const [collison,x,y,distance]=barrier.CheckCollision(this)
 
+      for (const barrier of this.game.currentBlock.barriers)
+      {
+        const [collison,x,y,distance]=barrier.CheckCollision(this)
 
-
-if(collison)
-{
-
-const dx=this.objX-x
-const dy=this.objY-y
-
-const unitX = dx / distance
-const unitY = dy / distance
-this.objX = this.objX + 0.5 * unitX
-this.objY = this.objY + 0.5 * unitY
-newX=this.objX
-newY=this.objY
-
-}
-
+        if(collison)
+        {
+        
+        const dx=this.objX-x
+        const dy=this.objY-y
+        
+        const unitX = dx / distance
+        const unitY = dy / distance
+        this.objX = this.objX + 0.5 * unitX
+        this.objY = this.objY + 0.5 * unitY
+        newX=this.objX
+        newY=this.objY
+        break
+        }
+      }
+      
 // this.game.context.lineWidth=2
 // this.game.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
 // this.game.context.lineTo(this.objX,this.objY)
 // this.game.context.moveTo(barrier.endPoint.x,barrier.endPoint.y)
 // this.game.context.lineTo(this.objX,this.objY)
 // this.game.context.stroke()
-})
       // const BA=Math.hypot(barrier.endPoint.x-barrier.startPoint.x,barrier.endPoint.y-barrier.startPoint.y)
       //   const BP=Math.hypot(barrier.endPoint.x-this.objX,barrier.endPoint.y-this.objY)
       //   const AP=Math.hypot(barrier.startPoint.x-this.objX,barrier.startPoint.y-this.objY)
@@ -204,8 +202,10 @@ newY=this.objY
 //   })
 
 this.game.currentBlock.panels.forEach(panel=>{
-
-  if(Math.hypot(this.objX-panel.x,this.objY-panel.y)<panel.radius)
+  if(Math.abs(this.objX-panel.x)<panel.radius
+  && 
+  Math.abs(this.objY-panel.y)<panel.radius
+  )
   {
     panel.element.dispatchEvent(panel.show)
   }
