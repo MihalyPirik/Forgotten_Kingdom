@@ -10,7 +10,6 @@ const getAllEnemies = async (req, res, next) => {
     });
     res.status(200).json({ data: data });
   } catch (error) {
-    console.log("err:", error);
     next(error);
   }
 };
@@ -48,7 +47,7 @@ const postEnemy = async (req, res, next) => {
 
     res.status(201).json({ message: "Sikeres felvétel!" });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
@@ -77,7 +76,7 @@ const putEnemy = async (req, res, next) => {
 
     res.status(201).json({ message: "Sikeres módosítás!" });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
@@ -87,7 +86,7 @@ const deleteEnemy = async (req, res, next) => {
 
     res.status(201).json({ message: "Sikeres törlés!" });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
