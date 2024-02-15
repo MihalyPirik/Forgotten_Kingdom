@@ -1,5 +1,5 @@
-import { Game } from './classes/Game.js'
-import { Player } from './classes/Player.js'
+import { GameController } from './controllers/Game.js'
+import { Player } from './models/Player.js'
 import { Malom } from './isometricBlocks/mill.js'
 import {Kastély} from './isometricBlocks/castle.js'
 import {Bánya} from './isometricBlocks/cave.js'
@@ -13,6 +13,7 @@ import {Szörny2} from './isometricBlocks/monsterTwo.js'
 import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from './services/playerService.js'
+import { GameView } from './views/view.js'
 const gameCanvas = document.querySelector('canvas')
 
 
@@ -37,12 +38,17 @@ window.addEventListener('resize', () => {
 const farm=new Image()
 farm.src='./assets/blocks/Farm.png'
 window.addEventListener('load', () => {
-  const game = new Game(gameCanvas,[
+  const gameView=new GameView(gameCanvas)
+
+  const game= new GameController([
     [Kastély,Malom,Bánya,Szörny1],
     [Kovács,Piac,Erdő,Szörny2],
     [Farm,Horgásztó,Szörny3],
     [Szörny4]
-  ])
+  ],gameView)
+
+
+  
 init(game)
 // [['kastely','malom','banya','szörny1'],
 // ['kovács','piac','erdo','szörny2'],
@@ -50,23 +56,25 @@ init(game)
 // ['szörny4']]
 /**
  * 
- * @param {Game} game
+ * @param {GameController} game
  */
 async function init(game)
 {
-  const playerD=await getAllData(parsedToken.id)
-  const inventory=await getInventory(parsedToken.id)
+  const playerD=await getAllData(parsedToken)
+  const inventory=await getInventory(parsedToken)
+
 game.player=new Player(playerD.player_name,playerD.HP,playerD.money,inventory,game)
 
 
 window.addEventListener('keydown', (e) => { game.player.move.event = e; game.debug = e })
       window.addEventListener('keyup', () => { game.player.move.event = null; game.debug = false })
-  game.canvas.addEventListener('click',(e)=>{
+  gameView.canvas.addEventListener('click',(e)=>{
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
 })
 
 game.isometricBlocks[game.currentBlockX][1](game)
 
+gameView.SetBackGround(game.currentBlock.backGround.src)
   arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
 
@@ -81,7 +89,7 @@ let previousTime = 0
   const animate = (timeStamp) => {
     const deltaTime = timeStamp - previousTime
     previousTime = timeStamp
-    game.Render(deltaTime)
+    game.gameLoop(deltaTime)
     requestAnimationFrame(animate)
   }
   animate(0)
