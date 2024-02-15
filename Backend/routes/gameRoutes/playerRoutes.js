@@ -8,6 +8,7 @@ const playerRouter = require('express').Router({ mergeParams: true });
 playerRouter.get('/', getAllData);
 playerRouter.get('/residents/:blockX/:blockY', getResidents);
 playerRouter.get('/quests', getQuests);
+playerRouter.get('/quests/:is_active', getQuests);
 playerRouter.get('/inventory', getInventory);
 
 playerRouter.put('/', putPlayer);

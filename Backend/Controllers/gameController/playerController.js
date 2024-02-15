@@ -34,10 +34,26 @@ const getResidents = async (req, res, next) => {
 
 const getQuests = async (req, res, next) => {
   try {
-    const data = await QuestStatistics.findAll({
-      where: { player_id: req.params.player_id },
-      include: { model: Quest },
-    });
+    let data = null;
+    if (req.params.is_active != undefined) {
+      const is_active = req.params.is_active == `true`? 1:0
+      data = await QuestStatistics.findAll({
+        where: { 
+          player_id: req.params.player_id,
+          is_active: is_active
+         },
+        include: { model: Quest },
+      });
+    }
+    else {
+      data = await QuestStatistics.findAll({
+        where: { 
+          player_id: req.params.player_id
+         },
+        include: { model: Quest },
+      });
+    };
+    
     res.status(200).json({ data: data });
   } catch (error) {
     next(error);
@@ -87,7 +103,7 @@ const putPlayer = async (req, res, next) => {
         objX: objX,
         objY: objY,
         blockX: blockX,
-        blockY: blockY
+        blockY: blockY,
       },
       {
         where: {
@@ -112,12 +128,12 @@ const putUser = async (req, res, next) => {
     await Player.update(
       {
         email: email,
-        password: hashPassword
+        password: hashPassword,
       },
       {
         where: {
           player_id: req.params.player_id,
-        }
+        },
       }
     );
 
