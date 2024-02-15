@@ -6,7 +6,7 @@ const { Sequelize,DataTypes } = require('sequelize');
 // const QuestStatistics=require('../models/questStatistics')
 // const Resident=require('../models/resident')
 // const ToolType=require('../models/toolType')
-require('dotenv').config()
+require('dotenv').config();
 
 
 const dbConnection=new Sequelize
@@ -24,9 +24,9 @@ const Test=async()=>
 {
 try {
   await dbConnection.authenticate()
-  console.log("Database connected at port "+process.env.DB_PORT)
+  console.log("Database connected at port "+process.env.DB_PORT);
 } catch (error) {
-  console.log("Unable to connect to database!\n"+error)
+  console.log("Unable to connect to database!\n"+error);
 }
 }
 
@@ -47,7 +47,7 @@ Test()
 // }
 // }
 
-module.exports=dbConnection
+module.exports=dbConnection;
 // dbConnection.sync({force:true})
 // const postUser=async(name,email,password)=>
 // {

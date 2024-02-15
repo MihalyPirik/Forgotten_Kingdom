@@ -34,10 +34,26 @@ const getResidents = async (req, res, next) => {
 
 const getQuests = async (req, res, next) => {
   try {
-    const data = await QuestStatistics.findAll({
-      where: { player_id: req.params.player_id },
-      include: { model: Quest },
-    });
+    let data = null;
+    if (req.params.is_active != undefined) {
+      const is_active = req.params.is_active == `true`? 1:0
+      data = await QuestStatistics.findAll({
+        where: { 
+          player_id: req.params.player_id,
+          is_active: is_active
+         },
+        include: { model: Quest },
+      });
+    }
+    else {
+      data = await QuestStatistics.findAll({
+        where: { 
+          player_id: req.params.player_id
+         },
+        include: { model: Quest },
+      });
+    };
+    
     res.status(200).json({ data: data });
   } catch (error) {
     next(error);
@@ -83,11 +99,11 @@ const putPlayer = async (req, res, next) => {
         coal: coal,
         iron: iron,
         wheat: wheat,
-        fish:fish,
+        fish: fish,
         objX: objX,
         objY: objY,
         blockX: blockX,
-        blockY: blockY
+        blockY: blockY,
       },
       {
         where: {
@@ -99,7 +115,31 @@ const putPlayer = async (req, res, next) => {
 
     res.status(201).json({ message: "Sikeres módosítás!" });
   } catch (error) {
-    console.log(error);
+    next(error);
+  }
+};
+
+const putUser = async (req, res, next) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+    const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
+
+    await Player.update(
+      {
+        email: email,
+        password: hashPassword,
+      },
+      {
+        where: {
+          player_id: req.params.player_id,
+        },
+      }
+    );
+
+    res.status(201).json({ message: "Sikeres módosítás!" });
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -109,7 +149,7 @@ const deletePlayer = async (req, res, next) => {
 
     res.status(201).json({ message: "Sikeres törlés!" });
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 module.exports = {
@@ -118,5 +158,6 @@ module.exports = {
   getQuests,
   getInventory,
   putPlayer,
+  putUser,
   deletePlayer,
 };

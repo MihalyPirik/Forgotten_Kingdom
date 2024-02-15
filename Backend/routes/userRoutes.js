@@ -1,11 +1,9 @@
-const { postRegistration, postLogin, putUser } = require('../Controllers/userController')
+const { postRegistration, postLogin } = require('../Controllers/userController');
 
-const userRouter = require('express').Router()
+const userRouter = require('express').Router();
 
-userRouter.put('/:player_id', putUser)
-
-userRouter.post('/registration', postRegistration)
-userRouter.post('/login', postLogin)
+userRouter.post('/registration', postRegistration);
+userRouter.post('/login', postLogin);
 
 
-module.exports = userRouter
+module.exports = userRouter;
