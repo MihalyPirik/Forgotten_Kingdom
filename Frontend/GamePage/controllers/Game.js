@@ -6,7 +6,7 @@ import { EntityController } from "./entity.js";
 
 export class GameController {
   #currentBlock;
-    constructor(isometricBlocks=[[]],gameView,panelController,player=null,currentBlock=null,panels=[]) {
+    constructor(isometricBlocks=[[]],gameView,player=null,currentBlock=null,panels=[]) {
       /**
        * @type {Array<Array<Function>>}
        */
@@ -24,10 +24,6 @@ export class GameController {
       this.timer = 0
       this.interval = 1000 / this.fps
       this.debug = false
-      /**
-       * @type {PanelController}
-       */
-      this.panelController=panelController
       /**
        * @type {Player}
        */
@@ -127,7 +123,7 @@ if(this.player.move.event)
     {
       if(!panel.isVisible)
       {
-        PanelView.ShowPanel(panel)
+        PanelView.ShowPanel(panel,this)
         panel.isVisible=true
       }
     }

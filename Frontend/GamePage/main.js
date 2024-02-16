@@ -13,7 +13,7 @@ import {Szörny2} from './isometricBlocks/monsterTwo.js'
 import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from './services/playerService.js'
-import { GameView } from './views/view.js'
+import { GameView, PanelView } from './views/view.js'
 const gameCanvas = document.querySelector('canvas')
 
 
@@ -39,7 +39,6 @@ const farm=new Image()
 farm.src='./assets/blocks/Farm.png'
 window.addEventListener('load', () => {
   const gameView=new GameView(gameCanvas)
-
   const game= new GameController([
     [Kastély,Malom,Bánya,Szörny1],
     [Kovács,Piac,Erdő,Szörny2],

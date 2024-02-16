@@ -64,14 +64,28 @@ SetBackGround=(imageUrl)=>
 
 export class PanelView {
 
-
-  static ShowPanel(panelInstance) {
-    const div = document.createElement('div')
-        div.id = panelInstance.id
-        div.className = "gamePanel"
-        div.append(this.GetOwnTemplate(panelInstance).content.cloneNode(true))
-    PanelView.#processElement(div, panelInstance.context)
-      document.querySelector('body').append(div);
+  constructor()
+  {
+  }
+static #CreatePanelElement(panelInstance)
+{
+  const div = document.createElement('div')
+  div.id = panelInstance.id
+  div.className = "gamePanel"
+  div.append(PanelView.GetOwnTemplate(panelInstance).content.cloneNode(true))
+  return div
+}
+  static ShowPanel(panelInstance, game) {
+    const div=PanelView.#CreatePanelElement(panelInstance)
+    console.log(panelInstance.isNavigationPanel);
+    if(panelInstance.isNavigationPanel)
+    {
+      const {direction, forwardId, backwardId}=panelInstance.isNavigationPanel
+      PanelView.#SetButtons(game, direction,div,forwardId,backwardId)
+    }
+        PanelView.#processElement(div, panelInstance.context)
+      
+        document.querySelector('body').append(div);
       div.style.top = panelInstance.y - div.offsetHeight + 'px';
       div.style.left = panelInstance.x + 'px';
   }
@@ -110,5 +124,69 @@ export class PanelView {
             return context[variable] || match
         })
     }
+}
+static #SetButtons = (game, direction, element, forwardId, backwardId) => {
+  const forwardButton = element.querySelector('#' + forwardId)
+  const backwardButton = element.querySelector('#' + backwardId)
+  let nextX
+  let nextY
+  let previousX
+  let previousY
+  if (direction == 'x') {
+      if (game.currentBlockY == game.isometricBlocks[game.currentBlockX].length - 1) {
+          nextY = 0
+      }
+      else {
+          nextY = game.currentBlockY + 1
+      }
+      if (game.currentBlockY == 0) {
+          previousY = game.isometricBlocks[game.currentBlockX].length - 1
+      }
+      else {
+          previousY = game.currentBlockY - 1
+      }
+      forwardButton.value=game.isometricBlocks[game.currentBlockX][nextY].name
+      backwardButton.value=game.isometricBlocks[game.currentBlockX][previousY].name
+      if (backwardButton.value == 'undefined') {
+          backwardButton.remove()
+      }
+      else {
+          forwardButton.addEventListener('click',game.isometricBlocks[game.currentBlockX][nextY].bind())
+      }
+      if (forwardButton.value == 'undefined') {
+          forwardButton.remove()
+      }
+      else {
+          backwardButton.addEventListener('click',game.isometricBlocks[game.currentBlockX][previousY].bind())
+      }
+  }
+  if (direction == 'y') {
+      if (game.currentBlockX == game.isometricBlocks.length - 1) {
+          nextX = 0
+      }
+      else {
+          nextX = game.currentBlockX + 1
+      }
+      if (game.currentBlockX == 0) {
+          previousX = game.isometricBlocks.length - 1
+      }
+      else {
+          previousX = game.currentBlockX - 1
+      }
+      forwardButton.value=game.isometricBlocks[nextX][game.currentBlockY]?game.isometricBlocks[nextX][game.currentBlockY].name:undefined
+      backwardButton.value=game.isometricBlocks[previousX][game.currentBlockY]?game.isometricBlocks[previousX][game.currentBlockY].name:undefined
+      if (backwardButton.value == 'undefined') {
+          backwardButton.remove()
+      }
+      else {
+          backwardButton.addEventListener('click',game.isometricBlocks[previousX][game.currentBlockY].bind())
+      }
+      if (forwardButton.value == 'undefined') {
+          forwardButton.remove()
+      }
+      else {
+          forwardButton.addEventListener('click',game.isometricBlocks[nextX][game.currentBlockY].bind())
+      }
+  }
 }
 }

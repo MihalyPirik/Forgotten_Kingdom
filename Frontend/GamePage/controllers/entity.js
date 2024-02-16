@@ -4,11 +4,6 @@ import { Line } from '../models/Line.js'
 import { Point } from "../models/Point.js"
 export class EntityController
 {
-  /**
-   * 
-   * @param {Line} barrier 
-   * @param {GameObject} entity 
-   */
  static BarrierCollision=(barrier,entity)=>
   {
       const [collison,x,y,distance]=barrier.CheckCollision(entity)
