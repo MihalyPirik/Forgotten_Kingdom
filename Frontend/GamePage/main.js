@@ -28,15 +28,10 @@ const arrow2=document.getElementById('arrow2')
  const parsedToken=token?JSON.parse(atob(token.split('.')[1])):'e8c92350-c59c-11ee-aab5-e980bbd7a2f9'
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
-window.addEventListener('resize', () => {
-  gameCanvas.width = innerWidth * 0.5
-  gameCanvas.height = innerHeight
-})
 
 
 
-const farm=new Image()
-farm.src='./assets/blocks/Farm.png'
+
 window.addEventListener('load', () => {
   const gameView=new GameView(gameCanvas)
   const game= new GameController([
@@ -45,18 +40,11 @@ window.addEventListener('load', () => {
     [Farm,Horgásztó,Szörny3],
     [Szörny4]
   ],gameView)
-
+gameView.game=game
 
   
 init(game)
-// [['kastely','malom','banya','szörny1'],
-// ['kovács','piac','erdo','szörny2'],
-// ['farm','horgásztó','szörny3'],
-// ['szörny4']]
-/**
- * 
- * @param {GameController} game
- */
+
 async function init(game)
 {
   const playerD=await getAllData(parsedToken)
