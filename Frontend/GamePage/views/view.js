@@ -1,8 +1,7 @@
-import { GameObject } from '../models/GameObject.js'
 import {GameController} from '../controllers/Game.js'
 export class GameView
 {
-  constructor(canvas)
+  constructor(canvas,game)
   {
     /**
      * @type {HTMLCanvasElement}
@@ -12,10 +11,10 @@ export class GameView
      * @type {CanvasRenderingContext2D}
      */
     this.context=canvas.getContext('2d')
+    this.game=game
   }
   /**
  * 
- * @param {GameObject} entity 
  * @param {GameController} game 
  */
 RenderEntity=(entity)=>
@@ -33,22 +32,22 @@ RenderEntity=(entity)=>
         entity.width,
         entity.height
       )
-      // if (this.debug.key == 'f') {
-      //   this.context.beginPath()
-      //   this.context.arc(
-      //     entity.objX,
-      //     entity.objY,
-      //     entity.radius,
-      //     0,
-      //     Math.PI * 2
-      //   )
-      //   this.context.save()
-      //   this.context.globalAlpha = 0.5
-      //   this.context.fill()
-      //   this.context.restore()
-      //   this.context.stroke()
-      //   this.context.strokeRect(entity.spriteX, entity.spriteY, entity.width, entity.height)
-      // }
+      if (this.game.debug.key == 'f') {
+        this.context.beginPath()
+        this.context.arc(
+          entity.objX,
+          entity.objY,
+          entity.radius,
+          0,
+          Math.PI * 2
+        )
+        this.context.save()
+        this.context.globalAlpha = 0.5
+        this.context.fill()
+        this.context.restore()
+        this.context.stroke()
+        this.context.strokeRect(entity.spriteX, entity.spriteY, entity.width, entity.height)
+      }
 }
 ClearContext=()=>
 {
@@ -77,7 +76,6 @@ static #CreatePanelElement(panelInstance)
 }
   static ShowPanel(panelInstance, game) {
     const div=PanelView.#CreatePanelElement(panelInstance)
-    console.log(panelInstance.isNavigationPanel);
     if(panelInstance.isNavigationPanel)
     {
       const {direction, forwardId, backwardId}=panelInstance.isNavigationPanel
