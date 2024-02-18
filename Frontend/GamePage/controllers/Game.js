@@ -1,3 +1,5 @@
+import { Monster } from "../models/Monster.js";
+import { NPC } from "../models/NPC.js";
 import { Player } from "../models/Player.js";
 import { Point } from "../models/Point.js";
 import { IsometricBlock } from "../models/isometricBlock.js";
@@ -92,31 +94,28 @@ this.gameView.ClearContext()
         // this.gameView.context.moveTo(this.width*0.78,this.height*0.78)
         // this.gameView.context.lineTo(this.width*0.5,this.height*0.938)
         // this.gameView.context.stroke()
-if(this.player.move.event)
-{
-  let newPos=new Point(this.player.objX,this.player.objY)
-  newPos=EntityController.MovePlayer(this.player)
+let newPos=new Point(this.player.objX,this.player.objY)
+        newPos=EntityController.MovePlayer(this.player)?EntityController.MovePlayer(this.player):newPos
+  for (const entity of this.currentBlock.entities)
+  {
+    const _newPos=EntityController.EntityCollision(this.player,entity)
+    if(_newPos)
+    {
+      newPos=_newPos[1]
+     entity.objX=_newPos[0].x
+     entity.objY=_newPos[0].y
+      break
+    }
+  }
   for (const barrier of this.currentBlock.barriers)
   {
     const _newPos=EntityController.BarrierCollision(barrier,this.player)
     if(_newPos)
     {
       newPos=_newPos
-      this.player.objX=newPos.x
-      this.player.objY=newPos.y
       break
     }
   }
-  for (const entity of this.currentBlock.entities)
-  {
-    const _newPos=EntityController.EntityCollision(this.player,entity)
-    if(_newPos)
-    {
-      newPos=_newPos[0]
-      break
-    }
-  }
-
   for (const panel of this.currentBlock.panels)
   {
     if(panel.IsVisible(this.player))
@@ -135,16 +134,27 @@ if(this.player.move.event)
         panel.isVisible=false
       }
     }
+    
   }
-  this.player.objX=newPos.x
-  this.player.objY=newPos.y
   
-}
-this.gameView.RenderEntity(this.player)
+
+
 for (const entity of this.currentBlock.entities)
 {
-  if(entity.move.event)
-  {
+  
+    if(entity instanceof NPC)
+    {
+
+    }
+    if(entity instanceof Monster)
+    {
+      const _newPos=EntityController.MoveMonster(entity)
+      if(_newPos)
+      {
+        entity.objX=_newPos.x
+        entity.objY=_newPos.y
+      }
+    }
   for (const barrier of this.currentBlock.barriers)
   {
     const newPos=EntityController.BarrierCollision(barrier,entity)
@@ -155,7 +165,6 @@ for (const entity of this.currentBlock.entities)
       break
     }
   }
-}
 }
 
 
@@ -170,22 +179,25 @@ for (let i = 0; i < this.currentBlock.entities.length-1; i++) {
     )
     if(newPos)
     {
-      this.currentBlock.entities[i].objX=newPos[0].x
-      this.currentBlock.entities[i].objY=newPos[0].y
-      this.currentBlock.entities[j].objX=newPos[1].x
-      this.currentBlock.entities[j].objY=newPos[1].y
+      this.currentBlock.entities[i].objX=newPos[1].x
+      this.currentBlock.entities[i].objY=newPos[1].y
+      this.currentBlock.entities[j].objX=newPos[0].x
+      this.currentBlock.entities[j].objY=newPos[0].y
       break
     }
-    
   }
 }
-
-
-
-
-
 }
 
+this.player.objX=newPos.x
+  this.player.objY=newPos.y
+const s=[...this.currentBlock.entities]
+s.push(this.player)
+s.sort((a,b)=>a.objY-b.objY)
+for (const entity of s)
+{
+  this.gameView.RenderEntity(entity)
+}
 
         this.timer = 0
       }
