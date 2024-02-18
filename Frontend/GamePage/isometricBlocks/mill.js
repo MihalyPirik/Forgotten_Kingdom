@@ -1,10 +1,12 @@
 import { Line } from "../models/Line.js"
+import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
-
+const monster=new Image()
+monster.src='./assets/Werewolf.png'
 export const Malom=(game)=>
 {
 
@@ -16,7 +18,9 @@ export const Malom=(game)=>
   game.currentBlock=new IsometricBlock(
         'Malom',
         mill,
-        [],
+        new Point(0,0),
+        null,
+        [new Monster('1','Werewolf',game,monster,game.width*0.6,game.height*0.77,100,3,2,2)],
         [
             new Line(
                 new Point(game.width * 0.2,game.height * 0.775),
