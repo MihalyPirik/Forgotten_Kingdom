@@ -4,6 +4,7 @@ import { Player } from "../models/Player.js";
 import { Point } from "../models/Point.js";
 import { IsometricBlock } from "../models/isometricBlock.js";
 import { GameView, PanelView } from "../views/view.js";
+import { SpriteController } from "./Sprite.js";
 import { EntityController } from "./entity.js";
 
 export class GameController {
@@ -95,7 +96,7 @@ this.gameView.ClearContext()
         // this.gameView.context.lineTo(this.width*0.5,this.height*0.938)
         // this.gameView.context.stroke()
 let newPos=new Point(this.player.objX,this.player.objY)
-        newPos=EntityController.MovePlayer(this.player)?EntityController.MovePlayer(this.player):newPos
+        newPos=SpriteController.MovePlayer(this.player)?SpriteController.MovePlayer(this.player):newPos
   for (const entity of this.currentBlock.entities)
   {
     const _newPos=EntityController.EntityCollision(this.player,entity)
