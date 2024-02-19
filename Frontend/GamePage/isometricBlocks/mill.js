@@ -6,7 +6,7 @@ import { IsometricBlock } from "../models/isometricBlock.js"
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
 const monster=new Image()
-monster.src='./assets/Werewolf.png'
+monster.src='./assets/monsterSprite.jfif'
 export const Malom=(game)=>
 {
 
@@ -20,7 +20,10 @@ export const Malom=(game)=>
         mill,
         new Point(0,0),
         null,
-        [new Monster('1','Werewolf',game,monster,game.width*0.6,game.height*0.77,100,3,2,2)],
+        [new Monster('1','Werewolf',game,monster,game.width*0.6,game.height*0.77,100,3,3,2),
+        new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
+        new Monster('1','Werewolf',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
+      ],
         [
             new Line(
                 new Point(game.width * 0.2,game.height * 0.775),

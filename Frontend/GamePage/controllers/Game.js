@@ -101,7 +101,6 @@ let newPos=new Point(this.player.objX,this.player.objY)
     const _newPos=EntityController.EntityCollision(this.player,entity)
     if(_newPos)
     {
-      newPos=_newPos[1]
      entity.objX=_newPos[0].x
      entity.objY=_newPos[0].y
       break
@@ -170,7 +169,7 @@ for (const entity of this.currentBlock.entities)
 
 
 for (let i = 0; i < this.currentBlock.entities.length-1; i++) {
-  if(this.currentBlock.entities[i].move.event){
+
   for (let j = this.currentBlock.entities.length-1; j > i; j--) {
     const newPos=EntityController.EntityCollision
     (
@@ -187,8 +186,6 @@ for (let i = 0; i < this.currentBlock.entities.length-1; i++) {
     }
   }
 }
-}
-
 this.player.objX=newPos.x
   this.player.objY=newPos.y
 const s=[...this.currentBlock.entities]

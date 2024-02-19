@@ -41,7 +41,7 @@ const collision=Entity.CheckCollision(entityOne,entityTwo)
       const dy = entityTwo.objY - entityOne.objY
       const distance = Math.hypot(dx, dy)
       const sumOfRadius = entityTwo.radius + entityOne.radius
-      if(distance<sumOfRadius){
+      if(distance<=sumOfRadius){
         const unitX = dx / distance
         const unitY = dy / distance
         
@@ -131,8 +131,12 @@ const collision=Entity.CheckCollision(entityOne,entityTwo)
  */
 static MoveMonster(monsterInstance)
 {
+  
   if(monsterInstance.NoticePlayer())
   {
+    const previousX=monsterInstance.objX
+    const previousY=monsterInstance.objY
+    
     const dx=monsterInstance.game.player.objX-monsterInstance.objX
     const dy=monsterInstance.game.player.objY-monsterInstance.objY
     const distance=Math.hypot(dx,dy)
@@ -140,7 +144,44 @@ static MoveMonster(monsterInstance)
         const unitY = dy / distance
         const newX=monsterInstance.objX+monsterInstance.speed*unitX
         const newY=monsterInstance.objY+monsterInstance.speed*unitY
+        const dx1=newX-previousX
+        const dy2=newY-previousY
+        const angle=Math.atan2(dx1,dy2)
+        console.log(angle);
+        this.MoveSprite(monsterInstance,angle)
         return new Point(newX,newY)
   }
 }
+/**
+ * 
+ * @param {Entity} entity
+ */
+static MoveSprite(entity,angle)
+{
+  // 2.35 - 0.78 - előre
+  // 0.78 - -1.57 - jobbra
+  // -1.57 - -2.35 - lefele
+  // -2.35 - 2.35 - balra
+
+  if (angle >= 0.78 && angle <=2.35) {entity.frameY = 2} // előre
+  else if(angle>=2.35 || angle<=-2.35){entity.frameY=3} // jobbra
+  else if(angle>=-2.35 && angle<=-1.25){entity.frameY=1} // balra
+  else if(angle>=-1.57 && angle<=0.78){entity.frameY=0} // lefele
+
+
+
+    if (entity.move.timer > entity.move.interval) {
+      if (entity.frameX < 3) {
+        entity.frameX += 1
+      }
+      else {
+        entity.frameX = 0
+      }
+      entity.move.timer = 0
+    }
+    entity.move.timer++
+
 }
+}
+
+

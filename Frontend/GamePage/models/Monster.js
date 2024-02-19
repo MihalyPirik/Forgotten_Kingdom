@@ -4,7 +4,7 @@ export class Monster extends Entity
 {
     constructor(id,name,game,sprite,objX,objY,HP,attack,level,speed)
     {
-        super(game,sprite,objX,objY,game.width*0.15, game.height*0.15,1024,1024)
+        super(game,sprite,objX,objY,game.width*0.1, game.height*0.1)
 this.name=name
 this.radius=game.width*0.03
 this.speed=speed
