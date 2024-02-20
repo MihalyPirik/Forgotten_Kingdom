@@ -29,7 +29,8 @@ const arrow2=document.getElementById('arrow2')
 gameCanvas.width = innerWidth * 0.5
 gameCanvas.height = innerHeight
 
-
+const character=new Image()
+character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
 
 window.addEventListener('load', () => {
@@ -47,11 +48,11 @@ init(game)
 
 async function init(game)
 {
-  const playerD=await getAllData(parsedToken)
-  const inventory=await getInventory(parsedToken)
+//   const playerD=await getAllData(parsedToken)
+//   const inventory=await getInventory(parsedToken)
 
-game.player=new Player(playerD.player_name,playerD.HP,playerD.money,inventory,game)
-
+// game.player=new Player(playerD.player_name,playerD.HP,playerD.money,inventory,game)
+game.player=new Player('valami',character,100,100,{},game)
 
 window.addEventListener('keydown', (e) => { game.player.move.event = e; game.debug = e })
       window.addEventListener('keyup', () => { game.player.move.event = null; game.debug = false })

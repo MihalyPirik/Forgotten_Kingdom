@@ -52,12 +52,13 @@ RenderEntity=(entity)=>
 BindPlayerHealth=(player)=>
 {
 
-  if(player.HP>0)
+  if(player.HP>=0)
   {
     const bar = document.querySelector(".bar");
 
 
   bar.style.width=player.HP+'%'
+  bar.innerHTML=player.HP+'/100'
 
   }
   

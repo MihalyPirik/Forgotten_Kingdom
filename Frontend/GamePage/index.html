@@ -9,18 +9,11 @@
 <body>
     <!-- <img src="bull.png" id="bull">
     <img src="lime2.jpg" id="lime2"> -->
-    <img src="./assets/maincharacters/char_a_p1_0bas_humn_v01.png" id="character">
-    <img id="mill" src="./assets/blocks/Mill.png">
+    
     <canvas id="game"></canvas>
-    <input type="button" class="arrow" id="arrow1">
-    <input type="button" class="arrow" id="arrow2">
-    <template id="somePanel">
+    <img src="./assets/directionSigns.png" class="relative" id="arrow1">
+    <img src="./assets/directionSigns.png" class="relative" id="arrow2">
 
-        <p>{{name}}</p>
-        <input type="button" value="Belépés a házba">
-        {{valami}}
-
-</template>
 
 <template id="blockChange">
 
@@ -38,10 +31,33 @@
     </ul></li>
 </ul>
 </template>
+<template id="quest">
+
+</template>
+<div id="charStats">
+<div>
+    <img id="pfp" src="./assets/pfpBorder.png">
 <div class="progress">
-    <div class="bar"></div>
+    <div class="bar">100/100</div>
   </div>
-<p id="mouseCoordinates">
+</div>
+
+    
+    <span data-title="Inventory"><img src="./assets/bagIcon.png"></span>
+
+
+
+
+
+    <span data-title="Mini térkép"><img src="./assets/mapIcon.png"></span>
+
+    <span data-title="Pénz"><img src="./assets/coinIcon.png">12345</span>
+ 
+    <span style="margin-top:auto" data-title="Kilépés" id="logout"><img src="./assets/logout.png"></span>
+
+
+</div>
+<p id="mouseCoordinates" class="relative">
 </p>
 
     <script type="module" src="main.js"></script>
