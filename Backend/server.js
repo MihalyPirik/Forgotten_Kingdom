@@ -8,6 +8,7 @@ const { errorHandler } = require("./Controllers/errorController");
 const userRouter = require("./routes/userRoutes");
 const playerRouter = require("./routes/gameRoutes/playerRoutes");
 const enemyRouter = require("./routes/gameRoutes/enemyRoutes");
+const residentRouter = require("./routes/gameRoutes/residentRoutes");
 
 app.use(cookie());
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 app.use("/user", userRouter);
 app.use("/:player_id/player", playerRouter);
 app.use("/:player_id/enemies", enemyRouter);
+app.use("/:player_id/residents", residentRouter);
 
 app.use(errorHandler);
 
