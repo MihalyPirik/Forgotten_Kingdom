@@ -13,7 +13,7 @@ this.attack=attack
 this.level=level
 this.id=id
 this.noticeRadius=100
-this.attackRadius=4
+this.attackRadius=50
     }
     NoticePlayer()
     {

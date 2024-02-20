@@ -5,7 +5,8 @@ import { Point } from "../models/Point.js";
 import { IsometricBlock } from "../models/isometricBlock.js";
 import { GameView, PanelView } from "../views/view.js";
 import { SpriteController } from "./Sprite.js";
-import { EntityController } from "./entity.js";
+import { EntityController } from "./Collison.js";
+import { CombatController } from "./Combat.js";
 
 export class GameController {
   #currentBlock;
@@ -99,6 +100,14 @@ let newPos=new Point(this.player.objX,this.player.objY)
         newPos=SpriteController.MovePlayer(this.player)?SpriteController.MovePlayer(this.player):newPos
   for (const entity of this.currentBlock.entities)
   {
+    if(entity instanceof Monster){
+    const attack=CombatController.MonsterAttack(entity,this.player)
+    if(attack)
+    {
+      newPos=attack
+      this.player.HP-=entity.attack
+    }
+  }
     const _newPos=EntityController.EntityCollision(this.player,entity)
     if(_newPos)
     {
