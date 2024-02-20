@@ -104,8 +104,16 @@ let newPos=new Point(this.player.objX,this.player.objY)
     const attack=CombatController.MonsterAttack(entity,this.player)
     if(attack)
     {
-      newPos=attack
-      this.player.HP-=entity.attack
+      if(entity.attack.timer>entity.attack.interval)
+      {
+        console.log('attack');
+        this.player.HP-=entity.attack.attack
+        this.gameView.BindPlayerHealth(this.player)
+        entity.attack.timer=0
+        console.log(this.player.HP);
+      }
+      entity.attack.timer++
+
     }
   }
     const _newPos=EntityController.EntityCollision(this.player,entity)

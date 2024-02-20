@@ -49,6 +49,20 @@ RenderEntity=(entity)=>
         this.context.strokeRect(entity.spriteX, entity.spriteY, entity.width, entity.height)
       }
 }
+BindPlayerHealth=(player)=>
+{
+
+  if(player.HP>0)
+  {
+    const bar = document.querySelector(".bar");
+
+
+  bar.style.width=player.HP+'%'
+
+  }
+  
+
+}
 ClearContext=()=>
 {
   this.context.clearRect(0,0,this.canvas.width,this.canvas.height)

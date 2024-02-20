@@ -45,3 +45,35 @@ canvas {
     border-radius: 100px;
     background-color: rgba(16, 213, 160, 0.442);
 }
+
+.progress {
+  width: 400px;
+  height: 50px;
+  margin-top:30px;
+  border: 1px solid #fff;
+  padding: 10px;
+  box-shadow: 0 0 10px #aaa;
+}
+
+.progress .bar {
+  height: 100%;
+  background: linear-gradient(red, rgb(255, 118, 118), red);
+  background-repeat: repeat;
+  box-shadow: 0 0 10px 0px red;
+  animation: 
+    shine 1s ease-in infinite,
+    end 1s ease-out;
+  transition: width 1s ease;
+}
+
+
+
+@keyframes shine {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 50px; }
+}
+
+@keyframes end {
+  0%, 100% { box-shadow: 0 0 10px 0px red; }
+  50% { box-shadow: 0 0 15px 5px red; }
+}
