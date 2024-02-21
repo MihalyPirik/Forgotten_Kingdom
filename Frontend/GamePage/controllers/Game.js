@@ -96,43 +96,54 @@ this.gameView.ClearContext()
         // this.gameView.context.moveTo(this.width*0.78,this.height*0.78)
         // this.gameView.context.lineTo(this.width*0.5,this.height*0.938)
         // this.gameView.context.stroke()
-let newPos=new Point(this.player.objX,this.player.objY)
-        newPos=SpriteController.MovePlayer(this.player)?SpriteController.MovePlayer(this.player):newPos
-  for (const entity of this.currentBlock.entities)
+        let newPlayerPos=SpriteController.MovePlayer(this.player)
+for (const entity of this.currentBlock.entities)
+{
+  let newPos=EntityController.MoveMonster(entity)
+const playerCollision=EntityController.EntityCollision(this.player,entity)
+if(playerCollision)
+{
+  if(entity instanceof Monster)
   {
-    if(entity instanceof Monster){
-    const attack=CombatController.MonsterAttack(entity,this.player)
-    if(attack)
-    {
-      if(entity.attack.timer>entity.attack.interval)
-      {
-        console.log('attack');
-        this.player.HP-=entity.attack.attack
-        this.gameView.BindPlayerHealth(this.player)
-        entity.attack.timer=0
-        console.log(this.player.HP);
-      }
-      entity.attack.timer++
+    newPos=playerCollision[0]
+  }
+  else
+  {
+    newPos=playerCollision[0]
+    newPlayerPos=playerCollision[1]
+  }
+}
 
-    }
-  }
-    const _newPos=EntityController.EntityCollision(this.player,entity)
-    if(_newPos)
-    {
-     entity.objX=_newPos[0].x
-     entity.objY=_newPos[0].y
-      break
-    }
-  }
-  for (const barrier of this.currentBlock.barriers)
+  const isAttack=CombatController.MonsterAttack(entity,this.player)
+  if(isAttack)
   {
-    const _newPos=EntityController.BarrierCollision(barrier,this.player)
-    if(_newPos)
-    {
-      newPos=_newPos
-      break
-    }
+    this.player.HP-=entity.attack.attack
+    this.gameView.BindPlayerHealth(this.player)
   }
+
+
+for (const barrier of this.currentBlock.barriers)
+{
+  const Iscollison=EntityController.BarrierCollision(barrier,entity)
+  if(Iscollison)
+  {
+    newPos=Iscollison
+    break
+  }
+}
+entity.objX=newPos.x
+entity.objY=newPos.y
+}
+
+for (const barrier of this.currentBlock.barriers)
+{
+  const Iscollison=EntityController.BarrierCollision(barrier,this.player)
+  if(Iscollison)
+  {
+    newPlayerPos=Iscollison
+    break
+  }
+}
   for (const panel of this.currentBlock.panels)
   {
     if(panel.IsVisible(this.player))
@@ -151,38 +162,8 @@ let newPos=new Point(this.player.objX,this.player.objY)
         panel.isVisible=false
       }
     }
-    
   }
-  
 
-
-for (const entity of this.currentBlock.entities)
-{
-  
-    if(entity instanceof NPC)
-    {
-
-    }
-    if(entity instanceof Monster)
-    {
-      const _newPos=EntityController.MoveMonster(entity)
-      if(_newPos)
-      {
-        entity.objX=_newPos.x
-        entity.objY=_newPos.y
-      }
-    }
-  for (const barrier of this.currentBlock.barriers)
-  {
-    const newPos=EntityController.BarrierCollision(barrier,entity)
-    if(newPos)
-    {
-      entity.objX=newPos.x
-      entity.objY=newPos.y
-      break
-    }
-  }
-}
 
 
 
@@ -204,8 +185,11 @@ for (let i = 0; i < this.currentBlock.entities.length-1; i++) {
     }
   }
 }
-this.player.objX=newPos.x
-  this.player.objY=newPos.y
+
+
+
+this.player.objX=newPlayerPos.x
+this.player.objY=newPlayerPos.y
 const s=[...this.currentBlock.entities]
 s.push(this.player)
 s.sort((a,b)=>a.objY-b.objY)

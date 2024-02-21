@@ -1,11 +1,10 @@
-import { Player } from "../models/Player.js"
 import {Monster} from '../models/Monster.js'
 import { Point } from "../models/Point.js"
 import { Entity } from "../models/Entity.js"
 import { SpriteController } from "./Sprite.js"
 export class EntityController
 {
- static BarrierCollision=(barrier,entity)=>
+ static BarrierCollision(barrier,entity)
   {
       const collison=barrier.CheckCollision(entity)
       if(collison)
@@ -33,16 +32,16 @@ if(distance<barrier.width){
 
 
 
-static EntityCollision=(entityOne,entityTwo)=>
+static EntityCollision(entityOne,entityTwo)
   {
-const collision=Entity.CheckCollision(entityOne,entityTwo)
 
-      if (collision) {
+
+      if (Entity.CheckCollision(entityOne,entityTwo)) {
         const dx = entityTwo.objX - entityOne.objX
       const dy = entityTwo.objY - entityOne.objY
       const distance = Math.hypot(dx, dy)
       const sumOfRadius = entityTwo.radius + entityOne.radius
-      if(distance<=sumOfRadius){
+      if(distance<sumOfRadius){
         const unitX = dx / distance
         const unitY = dy / distance
         
@@ -63,9 +62,9 @@ const collision=Entity.CheckCollision(entityOne,entityTwo)
  */
 static MoveMonster(monsterInstance)
 {
-  
-  if(monsterInstance.NoticePlayer())
-  {
+  if(monsterInstance instanceof Monster && monsterInstance.NoticePlayer()){
+
+
     const previousX=monsterInstance.objX
     const previousY=monsterInstance.objY
     
@@ -81,7 +80,9 @@ static MoveMonster(monsterInstance)
         const angle=Math.atan2(dx1,dy2)
         SpriteController.MoveSprite(monsterInstance,angle)
         return new Point(newX,newY)
-  }
+
+}
+return new Point(monsterInstance.objX,monsterInstance.objY)
 }
 
 }

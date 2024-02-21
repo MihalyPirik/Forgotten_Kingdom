@@ -34,10 +34,7 @@ static MoveSprite(entity,angle)
 }
 
 
-  /**
-   * 
-   * @param {Player} player 
-   */
+
   static MovePlayer=(player)=>
   {
       if (player.move.event) {
@@ -103,6 +100,7 @@ static MoveSprite(entity,angle)
         player.move.timer++
         return new Point(newX,newY)
   }
+  return new Point(player.objX,player.objY)
 }
 
 
