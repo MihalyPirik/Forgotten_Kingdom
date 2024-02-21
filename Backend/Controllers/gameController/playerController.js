@@ -96,7 +96,7 @@ const putPlayer = async (req, res, next) => {
       }
     );
 
-    res.status(201).json({ message: "Sikeres módosítás!" });
+    res.status(200).json({ message: "Sikeres módosítás!" });
   } catch (error) {
     next(error);
   }
@@ -104,9 +104,11 @@ const putPlayer = async (req, res, next) => {
 
 const deletePlayer = async (req, res, next) => {
   try {
-    await Player.destroy({ where: { player_id: req.params.player_id } });
-
-    res.status(201).json({ message: "Sikeres törlés!" });
+    const isDeleted = await Player.destroy({ where: { player_id: req.params.player_id } });
+    if (isDeleted == 0) {
+      return res.status(404).json({message: "Ilyen játékos nem létezik!"})
+    }
+    res.status(200).json({ message: "Sikeres törlés!" });
   } catch (error) {
     next(error);
   }

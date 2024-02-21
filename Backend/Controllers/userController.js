@@ -60,7 +60,6 @@ const putUser = async (req, res, next) => {
     try {
       const email = req.body.email;
       const password = req.body.password;
-      console.log(123);
       const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
   
       console.log("pass", password);
@@ -76,7 +75,7 @@ const putUser = async (req, res, next) => {
         }
       );
   
-      res.status(201).json({ message: "Sikeres módosítás!" });
+      res.status(200).json({ message: "Sikeres módosítás!" });
     } catch (error) {
       next(error);
     }

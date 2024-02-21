@@ -5,8 +5,8 @@ const uuid = require("uuid");
 const getAllEnemies = async (req, res, next) => {
   try {
     const data = await Enemy.findAll({
-      attributes: { exclude: ["world_id"] },
-      include: { model: EnemyType },
+      attributes: { exclude: ["world_id", "enemy_type_id"] },
+      include: { model: EnemyType, attributes: { exclude: ["enemy_type_id"] } },
     });
     res.status(200).json({ data: data });
   } catch (error) {
@@ -18,8 +18,8 @@ const getBlockEnemies = async (req, res, next) => {
   try {
     const data = await Enemy.findAll({
       where: { blockX: req.params.blockX, blockY: req.params.blockY },
-      attributes: { exclude: ["world_id"] },
-      include: { model: EnemyType },
+      attributes: { exclude: ["world_id", "enemy_type_id"] },
+      include: { model: EnemyType, attributes: { exclude: ["enemy_type_id"] } },
     });
     res.status(200).json({ data: data });
   } catch (error) {
@@ -74,7 +74,7 @@ const putEnemy = async (req, res, next) => {
       }
     );
 
-    res.status(201).json({ message: "Sikeres módosítás!" });
+    res.status(200).json({ message: "Sikeres módosítás!" });
   } catch (error) {
     next(error);
   }
@@ -82,9 +82,12 @@ const putEnemy = async (req, res, next) => {
 
 const deleteEnemy = async (req, res, next) => {
   try {
-    await Enemy.destroy({ where: { enemy_id: req.params.enemy_id } });
+    const isDeleted = await Enemy.destroy({ where: { enemy_id: req.params.enemy_id } });
 
-    res.status(201).json({ message: "Sikeres törlés!" });
+    if (isDeleted == 0) {
+      return res.status(404).json({ message: "Ilyen ellenség nem létezik!" })
+    }
+    res.status(200).json({ message: "Sikeres törlés!" });
   } catch (error) {
     next(error);
   }
