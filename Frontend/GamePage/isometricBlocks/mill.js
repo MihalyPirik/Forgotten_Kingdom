@@ -1,3 +1,4 @@
+import { Circle } from "../models/Circle.js"
 import { Line } from "../models/Line.js"
 import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
@@ -39,7 +40,8 @@ export const Malom=(game)=>
                 new Line(
                   new Point(game.width * 0.78, game.height * 0.78),
                   new Point(game.width * 0.5, game.height * 0.938)
-                )
+                ),
+                new Circle(game.width * 0.2,game.height * 0.775,game.width*0.02)
         ],
         [
             navigationPanelX,

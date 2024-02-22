@@ -2,11 +2,16 @@ import {Monster} from '../models/Monster.js'
 import { Point } from "../models/Point.js"
 import { Entity } from "../models/Entity.js"
 import { SpriteController } from "./Sprite.js"
+import {Line} from '../models/Line.js'
+import { Circle } from '../models/Circle.js'
 export class EntityController
 {
  static BarrierCollision(barrier,entity)
   {
-      const collison=barrier.CheckCollision(entity)
+    const collison=barrier.CheckCollision(entity)
+    if(barrier instanceof Line)
+    {
+      
       if(collison)
       {
 const a1 = barrier.startPoint.x;
@@ -28,6 +33,25 @@ if(distance<barrier.width){
       return new Point(p1 + 0.5 * unitX,p2 + 0.5 * unitY)
       }
     }
+  }
+  if(barrier instanceof Circle)
+  {
+    if(collison)
+    {
+      console.log(barrier);
+      const dx = barrier.x - entity.objX
+      const dy = barrier.y - entity.objY
+      const distance = Math.hypot(dx, dy)
+      const sumOfRadius = barrier.radius + entity.radius
+      if(distance<sumOfRadius)
+      {
+        const unitX = dx / distance
+        const unitY = dy / distance
+        return new Point(entity.objX - 0.5 * unitX,entity.objY - 0.5 * unitY)
+      }
+    }
+    
+  }
   }
 
 
