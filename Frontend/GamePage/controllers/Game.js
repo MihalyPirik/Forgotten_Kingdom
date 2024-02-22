@@ -201,5 +201,5 @@ for (const entity of s)
         this.timer = 0
       }
       this.timer += deltaTime
-    }
+     }
   }

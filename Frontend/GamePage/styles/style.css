@@ -4,6 +4,7 @@
 body {
     background-color: rgb(112, 203, 239);
     margin: 0;
+    font-size: 150%;
 }
 
 body>* {
@@ -24,6 +25,7 @@ img
 {
     width: 4vw;
     height: 4vw;
+    vertical-align: middle
 }
 
 
@@ -51,6 +53,20 @@ img
   border-radius: 10px;
 }
 
+
+span:hover:after
+{
+    color: white;
+  font-weight: bold;
+  position: relative;
+    top: -25px;
+    content: attr(data-title);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
 .progress .bar {
   text-align: center;
   border-radius: 10px;
@@ -65,23 +81,16 @@ img
 
 #charStats
 {
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    row-gap: 15px;
     color: white;
   font-weight: bold;
   margin: 20px;
-  font-size: 150%;
-  height: 100%;
 }
-#charStats img
+.navIMG
 {
     display: inline-block;
-    vertical-align: middle;
     transition: 0.5s ease;
 }
-#charStats img:hover
+.navIMG:hover
 {
     width: 4.5vw;
     height: 4.5vw;
@@ -89,18 +98,61 @@ img
 }
 #charStats #pfp
 {
-    display: inline-block;
     margin-left: 25%;
     height: 10vw;
     width: 10vw;
 }
-#charStats span:hover:after {
-    position: relative;
-    top: -25px;
-    left: -5px;
-    content: attr(data-title);
+#charStats>span
+{
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 5px;
+    margin-block: 15px;
+}
+
+#logout
+{
+left:calc(100% - 4.5vw);
+top:calc(100% - 4.5vw);
+}
+#logout:hover:after
+{
+    position: absolute;
+    left: -70px;
+    top: -25px;
+}
+#clock
+{
+    left:calc(100% - 4.5vw);
+bottom:calc(100% - 4.5vw);
+}
+#clock:hover:after
+{
+    position: absolute;
+    left: -40px;
+    top: 60px;
+}
+#map
+{
+    position: absolute;
+    top:calc(100% - 4.5vw);
+}
+.globalPanel
+{
+    top:50%;
+    margin-left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+}
+
+.closeButton
+{
+    --width:30px;
+    --height:30px;
+    position: absolute;
+    top: calc(-1 * var(--width));
+    right: calc(-1 * var(--height));
+    width: var(--width);
+    height: var(--height);
+    background-color: red;
+
 }
