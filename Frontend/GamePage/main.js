@@ -14,7 +14,7 @@ import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from './services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
-import { Events } from './controllers/UI.js'
+import { InitEvents } from './controllers/UI.js'
 const gameCanvas = document.querySelector('canvas')
 
 
@@ -53,7 +53,7 @@ async function init(game)
   const inventory=await getInventory(parsedToken)
 
 game.player=new Player(playerD.player_name,character,playerD.HP,playerD.money,inventory,game)
-Events(game)
+InitEvents(game)
 // game.player=new Player('valami',character,100,100,{},game)
 
 window.addEventListener('keydown', (e) => { game.player.move.event = e; game.debug = e })

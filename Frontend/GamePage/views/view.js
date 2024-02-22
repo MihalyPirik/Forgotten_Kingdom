@@ -73,23 +73,32 @@ SetBackGround=(imageUrl)=>
   this.canvas.style.backgroundImage=`url(${imageUrl})`
 }
 
-static Inventory(game)
+
+static #createTemplate()
 {
+
+  const div=document.createElement('div')
+  div.classList.add('globalPanel')
+  
+  const closeElement=document.createElement('button')
+closeElement.classList.add('closeButton')
+
+div.append(closeElement)
+return div
+}
+static InventoryPanel=(game)=>
+{ 
+  const div=this.#createTemplate()
+  
   const player=game.player
   const element=document.getElementById('inventoryTemplate').content.cloneNode(true)
-const div=document.createElement('div')
-div.classList.add('globalPanel')
+
 for (const item in player.inventory)
 {
   const span=document.createElement('div')
   span.innerText=`${item} - ${player.inventory[item]}`
   div.append(span)
 }
-const closeElement=document.createElement('button')
-closeElement.classList.add('closeButton')
-
-div.append(closeElement)
-div.draggable=true
 element.append(div)
   document.querySelector('body').append(element)
 
