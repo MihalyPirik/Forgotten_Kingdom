@@ -1,4 +1,6 @@
 import {GameController} from '../controllers/Game.js'
+import { Circle } from '../models/Circle.js'
+import { Line } from '../models/Line.js'
 export class GameView
 {
   constructor(canvas,game)
@@ -47,6 +49,31 @@ RenderEntity=(entity)=>
         this.context.restore()
         this.context.stroke()
         this.context.strokeRect(entity.spriteX, entity.spriteY, entity.width, entity.height)
+        for (const barrier of this.game.currentBlock.barriers)
+        {
+          if(barrier instanceof Circle)
+          {
+            this.context.beginPath()
+        this.context.arc(
+          barrier.x,
+          barrier.y,
+          barrier.radius,
+          0,
+          Math.PI * 2
+        )
+        this.context.save()
+        this.context.globalAlpha = 0.5
+        this.context.fill()
+        this.context.restore()
+        this.context.stroke()
+          }
+          if(barrier instanceof Line)
+          {
+            this.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
+        this.context.lineTo(barrier.endPoint.x,barrier.endPoint.y)
+        this.context.stroke()
+          }
+        }
       }
 }
 BindPlayerHealth=(player)=>

@@ -56,8 +56,7 @@ game.player=new Player(playerD.player_name,character,playerD.HP,playerD.money,in
 InitEvents(game)
 // game.player=new Player('valami',character,100,100,{},game)
 
-window.addEventListener('keydown', (e) => { game.player.move.event = e; game.debug = e })
-      window.addEventListener('keyup', () => { game.player.move.event = null; game.debug = false })
+window.addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = false}else{game.debug=e}} })
   gameView.canvas.addEventListener('click',(e)=>{
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
 })
