@@ -2,9 +2,6 @@ const { DataTypes } = require("sequelize")
 const bcrypt = require('bcrypt')
 const dbConnection = require("../services/dbService")
 
-
-
-
 const Player = dbConnection.define
     (
         'Player',
@@ -180,6 +177,7 @@ Player.associate = (models) => {
     Player.hasMany(models.Tool, { foreignKey: 'player_id', as: 'tool' })
     Player.hasMany(models.Enemy, { foreignKey: 'world_id', as: 'world' })
     Player.hasMany(models.QuestStatistics, { foreignKey: 'player_id', as: 'playerQuest' })
+    Player.hasMany(models.Market, { foreignKey: 'player_id' })
 }
 
 Player.prototype.comparePassword = async function (password) {

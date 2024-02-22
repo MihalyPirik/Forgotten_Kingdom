@@ -15,6 +15,7 @@ const models =
 {
     Enemy: require("./enemy"),
     EnemyType: require("./enemyType"),
+    Market: require("./market"),
     Player: require("./player"),
     Quest: require("./quest"),
     QuestStatistics: require("./questStatistics"),
