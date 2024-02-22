@@ -1,0 +1,624 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ForgottenKingdom",
+    "dateExported": "2024-02-22T09:49:57.124Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "908f8031-11fb-454e-9859-735fad20f3c3",
+            "name": "User",
+            "containerId": "",
+            "created": "2024-02-22T09:13:36.312Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "Player",
+            "containerId": "",
+            "created": "2024-02-22T09:24:16.657Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "4db94d91-c069-4d6a-9a99-4dc7ee95ba7c",
+            "name": "Enemy",
+            "containerId": "",
+            "created": "2024-02-22T09:34:58.917Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "91947ae1-fedb-4a3f-92c3-71e40c6d533b",
+            "name": "Resident",
+            "containerId": "",
+            "created": "2024-02-22T09:41:06.553Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "aee06d3e-51ae-473f-ae51-497f2e5bc511",
+            "name": "Market",
+            "containerId": "",
+            "created": "2024-02-22T09:45:46.836Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "abe37a2d-3b2d-4cbb-af9c-2f1aa7390935",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "getAllData",
+            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-22T09:24:36.901Z",
+            "modified": "2024-02-22T09:25:30.061Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1e65629b-0b9d-458c-944c-e34c46731af2",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "4db94d91-c069-4d6a-9a99-4dc7ee95ba7c",
+            "name": "getAllEnemies",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-22T09:35:15.176Z",
+            "modified": "2024-02-22T09:35:57.787Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8a3a971a-8ede-4e5b-a563-30b11f1045b6",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "91947ae1-fedb-4a3f-92c3-71e40c6d533b",
+            "name": "getAllResidents",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-22T09:41:12.206Z",
+            "modified": "2024-02-22T09:41:40.731Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "00dff338-90ef-4990-b78e-cf8da54c700a",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "aee06d3e-51ae-473f-ae51-497f2e5bc511",
+            "name": "getAllOffer",
+            "url": "http://localhost:3000/market",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-02-22T09:45:49.874Z",
+            "modified": "2024-02-22T09:46:17.314Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "614fa2df-14ba-4aab-a423-110b9423df4a",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "908f8031-11fb-454e-9859-735fad20f3c3",
+            "name": "Login",
+            "url": "http://localhost:3000/user/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-02-22T09:14:00.387Z",
+            "modified": "2024-02-22T09:17:21.216Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"teszt@teszt.hu\",\n  \"password\": \"123456789\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5f538b2c-eca2-4e0d-a763-70111b879c7f",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "getQuests",
+            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player/quests",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-22T09:25:54.705Z",
+            "modified": "2024-02-22T09:26:13.277Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e85a8046-98cd-4fac-9f0c-ac75387cd382",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "4db94d91-c069-4d6a-9a99-4dc7ee95ba7c",
+            "name": "getBlockEnemies",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/1/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-22T09:36:18.275Z",
+            "modified": "2024-02-22T09:36:31.373Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d5520181-7219-4410-8ae9-962235476c9b",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "91947ae1-fedb-4a3f-92c3-71e40c6d533b",
+            "name": "getResidents",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents/0/0",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-22T09:41:51.951Z",
+            "modified": "2024-02-22T09:42:16.950Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "59ccec7e-85bc-456f-94b1-cc077c29fa58",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "aee06d3e-51ae-473f-ae51-497f2e5bc511",
+            "name": "getAllPlayerOffer",
+            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-22T09:46:26.564Z",
+            "modified": "2024-02-22T09:46:45.025Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "edce390b-9e54-4f3a-949d-f30304d51585",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "908f8031-11fb-454e-9859-735fad20f3c3",
+            "name": "Registration",
+            "url": "http://localhost:3000/user/registration",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-22T09:15:30.790Z",
+            "modified": "2024-02-22T09:16:58.400Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"teszt\",\n  \"email\": \"teszt@teszt.hu\",\n  \"password\": \"123456789\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3895a9b5-90f9-4cfd-84c7-2180400ae399",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "getQuestsIsActive",
+            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player/quests/true",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-02-22T09:26:24.858Z",
+            "modified": "2024-02-22T09:27:02.575Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4f1939c9-71d3-4f2e-8ba8-12113bc00ba2",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "4db94d91-c069-4d6a-9a99-4dc7ee95ba7c",
+            "name": "postEnemy",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-22T09:36:40.267Z",
+            "modified": "2024-02-22T09:38:49.085Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"objX\": 1,\n  \"objY\": 1,\n  \"blockX\": 1,\n  \"blockY\": 1,\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"enemy_type_id\": \"e880a06c-c59c-11ee-b1e4-00155ddb1e0d\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "476b190c-bbb3-4dd4-865f-b1ea0512ce18",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "91947ae1-fedb-4a3f-92c3-71e40c6d533b",
+            "name": "postResident",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-22T09:42:31.689Z",
+            "modified": "2024-02-22T09:44:15.037Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"resident_name\": \"Long Boo\",\n  \"profession\": \"asd\",\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"quest_id\": \"9d1d2943-c695-11ee-b1e4-00155ddb1e0d\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "5c81e592-e6c0-4fbc-b588-bb34993a579a",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "aee06d3e-51ae-473f-ae51-497f2e5bc511",
+            "name": "postOffer",
+            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-02-22T09:47:14.694Z",
+            "modified": "2024-02-22T09:48:10.217Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"offeredType\": \"fa\",\n  \"offeredAmount\": 200,\n  \"soughtType\": \"kő\",\n  \"soughtAmount\": 100,\n  \"player_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a37019f3-c325-4658-a34c-f62468d4f327",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "908f8031-11fb-454e-9859-735fad20f3c3",
+            "name": "PutUser",
+            "url": "http://localhost:3000/user/22078630-d163-11ee-a5af-5f436c65ebb1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-22T09:17:55.155Z",
+            "modified": "2024-02-22T09:23:35.936Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"player_name\": \"teszt1\",\n  \"email\": \"teszt1@teszt.hu\",\n  \"password\": \"0123456789\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9a051312-0710-46aa-8d99-f442ad145f8d",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "getInventory",
+            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player/inventory",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-02-22T09:27:10.218Z",
+            "modified": "2024-02-22T09:27:26.373Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8c8b989b-0448-4b41-803a-9ac1fb1b9c0b",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "4db94d91-c069-4d6a-9a99-4dc7ee95ba7c",
+            "name": "putEnemy",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/4c71da90-c738-11ee-be7e-e56422465cc7",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-22T09:39:16.280Z",
+            "modified": "2024-02-22T09:39:52.465Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"enemy_type_id\": \"e880a06c-c59c-11ee-b1e4-00155ddb1e0d\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "556cfcb4-a267-4f8e-88b3-17ceaf0fb050",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "91947ae1-fedb-4a3f-92c3-71e40c6d533b",
+            "name": "putResident",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents/f3a59ad0-d166-11ee-bd96-8fe2447f8a0c",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-22T09:44:45.223Z",
+            "modified": "2024-02-22T09:45:15.787Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"objX\": 3,\n  \"objY\": 3,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"resident_name\": \"Long Boo\",\n  \"profession\": \"asd\",\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"quest_id\": \"9d1d2943-c695-11ee-b1e4-00155ddb1e0d\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a452ec45-6773-4930-a70f-b8bda54795b4",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "aee06d3e-51ae-473f-ae51-497f2e5bc511",
+            "name": "putOffer",
+            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c/7d990100-d167-11ee-bd96-8fe2447f8a0c",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-02-22T09:48:31.864Z",
+            "modified": "2024-02-22T09:49:11.574Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"offeredType\": \"fa\",\n  \"offeredAmount\": 5000,\n  \"soughtType\": \"kő\",\n  \"soughtAmount\": 5000\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "965679b4-5459-40c3-8998-a3b65b4a9c6a",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "putPlayer",
+            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-02-22T09:27:37.949Z",
+            "modified": "2024-02-22T09:30:37.332Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"player_name\": \"Mihaly\",\n  \"HP\": 10,\n  \"money\": 1000,\n  \"world_name\": \"First\",\n  \"stone\": 500,\n  \"wood\": 200,\n  \"coal\": 200,\n  \"iron\": 200,\n  \"wheat\": 200,\n  \"fish\": 200,\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "15dcfbca-6a1c-42e9-bbdf-07ea4c033a92",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "4db94d91-c069-4d6a-9a99-4dc7ee95ba7c",
+            "name": "deleteEnemy",
+            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/4c71da90-c738-11ee-be7e-e56422465cc7",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-22T09:40:04.763Z",
+            "modified": "2024-02-22T09:40:33.319Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "546beb4d-85c3-4bbf-b21c-2836f430ea0e",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "aee06d3e-51ae-473f-ae51-497f2e5bc511",
+            "name": "deleteOffer",
+            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c/7d990100-d167-11ee-bd96-8fe2447f8a0c",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-02-22T09:49:26.162Z",
+            "modified": "2024-02-22T09:49:36.050Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fc6d2015-d21c-4024-9b6d-091b6dbb3d73",
+            "colId": "bde9c2f2-61f2-4c67-bbd4-9c45b90e8d06",
+            "containerId": "f2e01029-3be1-4774-b517-e437601987a3",
+            "name": "deletePlayer",
+            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-02-22T09:30:16.595Z",
+            "modified": "2024-02-22T09:30:45.046Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
