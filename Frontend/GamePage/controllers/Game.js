@@ -122,15 +122,7 @@ if(playerCollision)
   }
 
 
-for (const barrier of this.currentBlock.barriers)
-{
-  const Iscollison=EntityController.BarrierCollision(barrier,entity)
-  if(Iscollison)
-  {
-    newPos=Iscollison
-    break
-  }
-}
+
 entity.objX=newPos.x
 entity.objY=newPos.y
 }
@@ -185,7 +177,6 @@ for (let i = 0; i < this.currentBlock.entities.length-1; i++) {
     }
   }
 }
-
 
 
 this.player.objX=newPlayerPos.x

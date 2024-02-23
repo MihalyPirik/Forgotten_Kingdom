@@ -54,7 +54,7 @@ img
 }
 
 
-span:hover:after
+span:has(>img):hover:after
 {
     color: white;
   font-weight: bold;
@@ -154,5 +154,16 @@ bottom:calc(100% - 4.5vw);
     width: var(--width);
     height: var(--height);
     background-color: red;
+}
 
+#inventory>div
+{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+#inventory span:hover:after
+{
+position: absolute;
+    left:10px;
 }

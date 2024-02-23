@@ -88,9 +88,20 @@ BindPlayerHealth=(player)=>
   bar.innerHTML=player.HP+'/100'
 
   }
-  
+
 
 }
+
+
+
+BindMoney(player)
+  {
+    document.querySelector('#money span').innerHTML=' '+player.money
+  }
+
+
+
+
 ClearContext=()=>
 {
   this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
@@ -116,15 +127,30 @@ return div
 static InventoryPanel=(game)=>
 { 
   const div=this.#createTemplate()
-  
+  div.id='inventory'
   const player=game.player
   const element=document.getElementById('inventoryTemplate').content.cloneNode(true)
-
+let counter=0
 for (const item in player.inventory)
 {
-  const span=document.createElement('div')
-  span.innerText=`${item} - ${player.inventory[item]}`
-  div.append(span)
+  const img=document.createElement('img')
+  img.src=`./assets/icons/${item}.png`
+  img.classList.add('navIMG')
+  const span=document.createElement('span')
+  span.setAttribute('data-title',item)
+  span.append(img)
+  const div1=document.createElement('div')
+  div1.append(span)
+  div1.append(document.createElement('br'))
+  div1.append(player.inventory[item])
+  if(counter==3)
+  {
+    div.append(document.createElement('br'))
+  }
+  const div2=document.createElement('div')
+  div2.append(div1)
+  div.append(div2)
+  counter++
 }
 element.append(div)
   document.querySelector('body').append(element)
