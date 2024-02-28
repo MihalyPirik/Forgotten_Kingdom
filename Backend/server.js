@@ -10,6 +10,15 @@ const playerRouter = require("./routes/gameRoutes/playerRoutes");
 const enemyRouter = require("./routes/gameRoutes/enemyRoutes");
 const residentRouter = require("./routes/gameRoutes/residentRoutes");
 const marketRouter = require("./routes/gameRoutes/marketRoutes");
+const swaggerFile = require("./swagger_output.json")
+const swaggerUi = require("swagger-ui-express")
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerFile)
+);
+
 
 app.use(cookie());
 app.use(express.urlencoded({ extended: true }));

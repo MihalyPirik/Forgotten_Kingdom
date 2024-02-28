@@ -3,7 +3,7 @@ const { userAuth } = require('../../middlewares/auth');
 
 const enemyRouter = require('express').Router({ mergeParams: true });
 
-// playerRouter.use(userAuth)
+// enemyRouter.use(userAuth)
 
 enemyRouter.get('/', getAllEnemies);
 enemyRouter.get('/:blockX/:blockY', getBlockEnemies);
