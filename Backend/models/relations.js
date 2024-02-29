@@ -20,8 +20,10 @@ const models =
     Quest: require("./quest"),
     QuestStatistics: require("./questStatistics"),
     Resident: require("./resident"),
+    Tool: require("./tool"),
     ToolType: require("./toolType"),
-    Tool: require("./tool")
+    Building: require("./building"),
+    BuildingType: require("./buildingType"),
 }
 
 Object.keys(models).forEach(key => {
