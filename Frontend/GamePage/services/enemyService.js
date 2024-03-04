@@ -2,9 +2,9 @@ axios.defaults.baseURL = "http://localhost:3000/";
 
 // GET
 
-export const getAllData = (playerId) => {
+export const getAllEnemies = (playerId) => {
   return axios
-    .get("/" + playerId + "/player")
+    .get("/" + playerId + "/enemies")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -13,44 +13,35 @@ export const getAllData = (playerId) => {
     });
 };
 
-export const getInventory = (playerId) => {
+export const getBlockEnemies = (playerId, blockX, blockY) => {
   return axios
-    .get("/" + playerId + "/player" + "/inventory")
+    .get("/" + playerId + "/enemies/" + blockX + "/" + blockY)
     .then(async (res) => {
       return await res.data.data;
     })
     .catch(async (err) => {
-      return await err.response.data.message;
+      return await err;
     });
 };
 
-export const getQuests = (playerId) => {
-  return axios
-    .get("/" + playerId + "/player" + "/quests")
-    .then(async (res) => {
-      return await res.data.data;
-    })
-    .catch(async (err) => {
-      return await err.response.data.message;
-    });
-};
+// POST
 
-export const getQuestsIsActive = (playerId, boolean) => {
-  return axios
-    .get("/" + playerId + "/player" + "/quests/" + boolean)
+export const postEnemy = (playerId, data) => {
+    return axios
+    .post("/" + playerId + "/enemies", data)
     .then(async (res) => {
       return await res.data.data;
     })
     .catch(async (err) => {
       return await err.response.data.message;
     });
-};
+}
 
 // PUT
 
-export const putPlayer = (playerId, data) => {
+export const putEnemy = (playerId, enemyId, data) => {
   return axios
-    .put("/" + playerId + "/player", data)
+    .put("/" + playerId + "/enemies/" + enemyId, data)
     .then(async (res) => {
       return await res.data;
     })
@@ -61,9 +52,9 @@ export const putPlayer = (playerId, data) => {
 
 // DELETE
 
-export const deletePlayer = (playerId) => {
+export const deleteEnemy = (playerId, enemyId) => {
   return axios
-    .delete("/" + playerId + "/player")
+    .delete("/" + playerId + "/enemies/" + enemyId)
     .then(async (res) => {
       return await res.data.data;
     })
