@@ -7,10 +7,10 @@ export class Line {
      * @param {Point} endPoint 
      * @param {number} width 
      */
-    constructor(startPoint, endPoint, width = 5) {
+    constructor(startPoint, endPoint, width = 10) {
         this.startPoint = startPoint
         this.endPoint = endPoint
-        this.width = width < 5 ? 5 : width
+        this.width = width
     }
     CheckCollision(entity)
     {

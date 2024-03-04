@@ -21,6 +21,7 @@ export class GameView
  */
 RenderEntity=(entity)=>
 {
+  this.context.lineWidth=4
   entity.spriteX = entity.objX - entity.width * 0.5
       entity.spriteY = entity.objY - entity.height * 0.5 - entity.radius
     this.context.drawImage(
@@ -255,13 +256,13 @@ static #SetButtons = (game, direction, element, forwardId, backwardId) => {
           backwardButton.remove()
       }
       else {
-          forwardButton.addEventListener('click',game.isometricBlocks[game.currentBlockX][nextY].bind())
+          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][nextY](game)})
       }
       if (forwardButton.value == 'undefined') {
           forwardButton.remove()
       }
       else {
-          backwardButton.addEventListener('click',game.isometricBlocks[game.currentBlockX][previousY].bind())
+          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][previousY](game)})
       }
   }
   if (direction == 'y') {
@@ -283,13 +284,13 @@ static #SetButtons = (game, direction, element, forwardId, backwardId) => {
           backwardButton.remove()
       }
       else {
-          backwardButton.addEventListener('click',game.isometricBlocks[previousX][game.currentBlockY].bind())
+          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[previousX][game.currentBlockY](game)})
       }
       if (forwardButton.value == 'undefined') {
           forwardButton.remove()
       }
       else {
-          forwardButton.addEventListener('click',game.isometricBlocks[nextX][game.currentBlockY].bind())
+          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[nextX][game.currentBlockY](game)})
       }
   }
 }

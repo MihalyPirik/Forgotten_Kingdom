@@ -1,7 +1,7 @@
 export class IsometricBlock
 {
 
-    constructor(name,backGround,spawnPoint,interior,entities=[],barriers=[],panels=[])
+    constructor(name,backGround,interior,entities=[],barriers=[],panels=[])
     {
         this.name=name
         this.interior=interior
@@ -9,6 +9,5 @@ export class IsometricBlock
         this.barriers=barriers
         this.panels=panels
         this.backGround=backGround
-        this.spawnPoint=spawnPoint
     }
 }

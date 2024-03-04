@@ -36,6 +36,8 @@ character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
 window.addEventListener('load', () => {
   const gameView=new GameView(gameCanvas)
+  gameView.context.fillStyle='white'
+  gameView.context.strokeStyle='white'
   const game= new GameController([
     [Kastély,Malom,Bánya,Szörny1],
     [Kovács,Piac,Erdő,Szörny2],
@@ -49,20 +51,20 @@ init(game)
 
 async function init(game)
 {
-  const playerD=await getAllData(parsedToken)
-  const inventory=await getInventory(parsedToken)
 
-game.player=new Player(playerD.player_name,character,playerD.HP,playerD.money,inventory,game)
+
+  game.player=new Player('valami',character,100,100,{},game)
 InitEvents(game)
-// game.player=new Player('valami',character,100,100,{},game)
+
 
 window.addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = false}else{game.debug=e}} })
   gameView.canvas.addEventListener('click',(e)=>{
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
 })
 
-game.isometricBlocks[game.currentBlockX][1](game)
-
+game.isometricBlocks[0][3](game)
+game.player.objX=game.width*0.488
+game.player.objY=game.height*0.541
 gameView.SetBackGround(game.currentBlock.backGround.src)
   arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
