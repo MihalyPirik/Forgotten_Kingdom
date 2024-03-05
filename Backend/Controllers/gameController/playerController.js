@@ -1,7 +1,4 @@
 const Player = require("../../models/player");
-const QuestStatistics = require("../../models/questStatistics");
-const Quest = require("../../models/quest");
-const bcrypt = require('bcrypt');
 
 const getAllData = async (req, res, next) => {
   try {
@@ -9,34 +6,6 @@ const getAllData = async (req, res, next) => {
       where: { player_id: req.params.player_id },
       attributes: { exclude: ["player_id", "password", "email"] },
     });
-    res.status(200).json({ data: data });
-  } catch (error) {
-    next(error);
-  }
-};
-
-const getQuests = async (req, res, next) => {
-  try {
-    let data = null;
-    if (req.params.is_active != undefined) {
-      const is_active = req.params.is_active == `true`? 1:0
-      data = await QuestStatistics.findAll({
-        where: { 
-          player_id: req.params.player_id,
-          is_active: is_active
-         },
-        include: { model: Quest },
-      });
-    }
-    else {
-      data = await QuestStatistics.findAll({
-        where: { 
-          player_id: req.params.player_id
-         },
-        include: { model: Quest },
-      });
-    };
-    
     res.status(200).json({ data: data });
   } catch (error) {
     next(error);
@@ -92,7 +61,6 @@ const putPlayer = async (req, res, next) => {
         where: {
           player_id: req.params.player_id,
         },
-        include: { model: Quest },
       }
     );
 
@@ -115,7 +83,6 @@ const deletePlayer = async (req, res, next) => {
 };
 module.exports = {
   getAllData,
-  getQuests,
   getInventory,
   putPlayer,
   deletePlayer,

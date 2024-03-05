@@ -25,6 +25,16 @@ const Quest = dbConnection.define
             {
                 type: DataTypes.BOOLEAN,
                 allowNull: false
+            },
+            currentProgress:
+            {
+                type: DataTypes.INTEGER,
+                allowNull: false
+            },
+            targetProgress:
+            {
+                type: DataTypes.INTEGER,
+                allowNull: false
             }
         },
         {
@@ -34,7 +44,7 @@ const Quest = dbConnection.define
 Quest.associate = (models) => {
     Quest.belongsToMany(models.Player, { through: models.QuestStatistics, foreignKey: "quest_id" })
     Quest.hasMany(models.Resident, { foreignKey: "quest_id" })
-    Quest.hasMany(models.QuestStatistics, { foreignKey: 'quest_id', as: 'quest' })
+    Quest.hasMany(models.QuestStatistics, { foreignKey: 'quest_id' })
 }
 
 module.exports = Quest
