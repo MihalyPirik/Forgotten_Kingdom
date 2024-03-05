@@ -6,7 +6,7 @@ import { IsometricBlock } from '../models/isometricBlock.js'
 import { Panel } from '../models/Panel.js'
 /**
  * 
- * x: 0.51, 0.7
+ * x: 0.339, 0.423
  * @param {GameController} game 
  */
 const backGround=new Image()

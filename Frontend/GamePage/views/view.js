@@ -35,7 +35,7 @@ RenderEntity=(entity)=>
         entity.width,
         entity.height
       )
-      if (this.game.debug.key == 'f') {
+      if (this.game.debug.key == 'f' || true) {
         this.context.beginPath()
         this.context.arc(
           entity.objX,

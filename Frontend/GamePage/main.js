@@ -59,10 +59,10 @@ InitEvents(game)
 
 window.addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = false}else{game.debug=e}} })
   gameView.canvas.addEventListener('click',(e)=>{
-    p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.width
+    p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[0][3](game)
+game.isometricBlocks[2][1](game)
 game.player.objX=game.width*0.488
 game.player.objY=game.height*0.541
 gameView.SetBackGround(game.currentBlock.backGround.src)

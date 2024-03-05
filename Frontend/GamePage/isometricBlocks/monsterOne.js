@@ -16,8 +16,8 @@ export const Szörny1=(game)=>
         null,
         [
         //  x: 0.846 y: 0.484  new Monster('1','Werewolf',game,monster,game.width*0.6,game.height*0.77,100,3,3,2),
-        // new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
-        // new Monster('1','Werewolf',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
+        new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
+        new Monster('1','Werewolf',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
         ],
         [
             new Line(new Point(game.width*0.506,game.height*0.82),
@@ -33,10 +33,11 @@ export const Szörny1=(game)=>
             new Circle(game.width*0.7,game.height*0.432 ,game.width*0.05),
             new Circle(game.width*0.8,game.height*0.487 ,game.width*0.057),
             new Line(new Point(game.width*0.506,game.height*0.82),new Point(game.width*0.967,game.height*0.548)),
-            new Line(new Point(game.width*0.967,game.height*0.548),new Point(game.width*0.846,game.height*0.484))
+            new Line(new Point(game.width*0.967,game.height*0.548),new Point(game.width*0.846,game.height*0.484)),
+            new Circle(game.width*0.339,game.height*0.365,game.width*0.02)
         ],
         [
-            new Panel('navugationX','navigationPanel',game.width*0.79,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:'x'}),
+            new Panel('navigationX','navigationPanel',game.width*0.735,game.height*0.848,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:'x'}),
         new Panel('navigationY','navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:'y'})
         ]
         )
