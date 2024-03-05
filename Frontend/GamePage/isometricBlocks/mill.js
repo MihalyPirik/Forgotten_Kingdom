@@ -11,8 +11,8 @@ export const Malom=(game)=>
 {
 
 
-  const navigationPanelX=new Panel('navigationX','navigationPanel',0.7*game.width,0.91*game.height,100,{forwardId:'forward',backwardId:'backward',direction:'x'},game)
-  const navigationPanelY=new Panel('navigationY','navigationPanel',0.32*game.width,0.82*game.height,50,{forwardId:'forward',backwardId:'backward',direction:'y'},game)
+  const navigationPanelX=new Panel('navigationX','navigationPanel',0.7*game.width,0.91*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game)
+  const navigationPanelY=new Panel('navigationY','navigationPanel',0.32*game.width,0.82*game.height,50,{forwardId:'forward',backwardId:'backward',direction:1},game)
 
   game.currentBlock=new IsometricBlock(
         'Malom',

@@ -35,7 +35,7 @@ RenderEntity=(entity)=>
         entity.width,
         entity.height
       )
-      if (this.game.debug.key == 'f' || true) {
+      if (this.game.debug.key == 'f') {
         this.context.beginPath()
         this.context.arc(
           entity.objX,
@@ -233,64 +233,64 @@ static #CreatePanelElement(panelInstance)
 static #SetButtons = (game, direction, element, forwardId, backwardId) => {
   const forwardButton = element.querySelector('#' + forwardId)
   const backwardButton = element.querySelector('#' + backwardId)
-  let nextX
-  let nextY
-  let previousX
-  let previousY
-  if (direction == 'x') {
-      if (game.currentBlockY == game.isometricBlocks[game.currentBlockX].length - 1) {
-          nextY = 0
-      }
-      else {
-          nextY = game.currentBlockY + 1
-      }
-      if (game.currentBlockY == 0) {
-          previousY = game.isometricBlocks[game.currentBlockX].length - 1
-      }
-      else {
-          previousY = game.currentBlockY - 1
-      }
-      forwardButton.value=game.isometricBlocks[game.currentBlockX][nextY].name
-      backwardButton.value=game.isometricBlocks[game.currentBlockX][previousY].name
+  let nextX = game.currentBlockX + 1
+  let nextY = game.currentBlockY + 1
+  let previousX = game.currentBlockX - 1
+  let previousY = game.currentBlockY - 1 
+
+
+  
+  
+
+
+
+  if (direction == -1) {
+      
+    if (game.currentBlockY == 0) {
+      previousY = null
+  }
+  
+    if (game.currentBlockX == game.isometricBlocks.length - 1) {
+        nextX = null
+    }
+      
+      forwardButton.value=game.isometricBlocks[game.currentBlockX][previousY]?game.isometricBlocks[game.currentBlockX][previousY].name:undefined
+      backwardButton.value=game.isometricBlocks[nextX][game.currentBlockY]?game.isometricBlocks[nextX][game.currentBlockY].name:undefined
       if (backwardButton.value == 'undefined') {
           backwardButton.remove()
       }
       else {
-          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][nextY](game)})
+          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][previousY](game)})
       }
       if (forwardButton.value == 'undefined') {
           forwardButton.remove()
       }
       else {
-          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][previousY](game)})
+          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[nextX][game.currentBlockY](game)})
       }
   }
-  if (direction == 'y') {
-      if (game.currentBlockX == game.isometricBlocks.length - 1) {
-          nextX = 0
-      }
-      else {
-          nextX = game.currentBlockX + 1
-      }
-      if (game.currentBlockX == 0) {
-          previousX = game.isometricBlocks.length - 1
-      }
-      else {
-          previousX = game.currentBlockX - 1
-      }
-      forwardButton.value=game.isometricBlocks[nextX][game.currentBlockY]?game.isometricBlocks[nextX][game.currentBlockY].name:undefined
-      backwardButton.value=game.isometricBlocks[previousX][game.currentBlockY]?game.isometricBlocks[previousX][game.currentBlockY].name:undefined
+  if (direction == 1) {
+
+    if (game.currentBlockX == 0) {
+      previousX = null
+  }
+  if (game.currentBlockY == game.isometricBlocks[game.currentBlockX].length - 1) {
+    nextY = null
+}
+      
+      forwardButton.value=game.isometricBlocks[previousX][game.currentBlockY]?game.isometricBlocks[previousX][game.currentBlockY].name:undefined
+      backwardButton.value=game.isometricBlocks[game.currentBlockX][nextY]?game.isometricBlocks[game.currentBlockX][nextY].name:undefined
       if (backwardButton.value == 'undefined') {
           backwardButton.remove()
       }
       else {
-          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[previousX][game.currentBlockY](game)})
+          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][nextY](game)})
       }
       if (forwardButton.value == 'undefined') {
           forwardButton.remove()
       }
       else {
-          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[nextX][game.currentBlockY](game)})
+          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[previousX][game.currentBlockY](game)})
       }
   }
 }
