@@ -160,7 +160,6 @@ const Player = dbConnection.define
         },
         {
             tableName: 'players',
-            timestamps: false,
             hooks:
             {
                 beforeCreate: async (user) => {
@@ -175,9 +174,9 @@ Player.associate = (models) => {
     Player.belongsToMany(models.EnemyType, { through: models.Enemy, foreignKey: "world_id" })
     Player.belongsToMany(models.BuildingType, { through: models.Building, foreignKey: "world_id" })
     Player.hasMany(models.Resident, { foreignKey: "world_id" })
-    Player.hasMany(models.Tool, { foreignKey: 'player_id', as: 'tool' })
-    Player.hasMany(models.Enemy, { foreignKey: 'world_id', as: 'worldEnemy' })
-    Player.hasMany(models.Building, { foreignKey: 'world_id', as: 'worldBuilding' })
+    Player.hasMany(models.Tool, { foreignKey: 'player_id' })
+    Player.hasMany(models.Enemy, { foreignKey: 'world_id' })
+    Player.hasMany(models.Building, { foreignKey: 'world_id' })
     Player.hasMany(models.QuestStatistics, { foreignKey: 'player_id', as: 'playerQuest' })
     Player.hasMany(models.Market, { foreignKey: 'player_id' })
 }

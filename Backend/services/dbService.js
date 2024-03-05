@@ -17,7 +17,10 @@ const dbConnection=new Sequelize
     password:process.env.DB_PASSWORD,
     database:process.env.DB_DATABASE,
     port:process.env.DB_PORT,
-    dialect:'mariadb'
+    dialect:'mariadb',
+    define: {
+      timestamps: false
+    }
   }
 )
 const Test=async()=>

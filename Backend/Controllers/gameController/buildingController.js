@@ -31,7 +31,6 @@ const putBuilding = async (req, res, next) => {
     res.status(200).json({ message: "Sikeres módosítás!" });
   } catch (error) {
     next(error);
-    console.log(error);
   }
 };
 

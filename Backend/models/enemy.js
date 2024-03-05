@@ -44,7 +44,6 @@ const Enemy = dbConnection.define
         },
         {
             tableName: 'enemies',
-            timestamps: false,
             hooks:
             {
                 beforeCreate: async (enemy) => {

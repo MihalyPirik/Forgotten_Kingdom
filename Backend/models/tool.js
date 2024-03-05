@@ -1,11 +1,17 @@
-const dbConnection = require("../services/dbService")
+const { DataTypes } = require("sequelize");
+const dbConnection = require("../services/dbService");
 
 const Tool = dbConnection.define
     (
-        'Tool', {},
+        'Tool',
+        {
+            tool_id: {
+                type: DataTypes.UUID,
+                primaryKey: true,
+            }
+        },
         {
             tableName: 'tools',
-            timestamps: false
         }
     )
 Tool.associate = (models) => {
