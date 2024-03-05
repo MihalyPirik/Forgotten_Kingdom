@@ -34,7 +34,6 @@ const ToolType = dbConnection.define
         },
         {
             tableName: 'tool_types',
-            timestamps: false
         }
     )
 ToolType.associate = (models) => {

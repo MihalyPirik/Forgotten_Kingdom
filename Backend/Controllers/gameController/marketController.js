@@ -34,7 +34,7 @@ const postOffer = async (req, res, next) => {
     const offeredType = req.body.offeredType;
     const offeredAmount = req.body.offeredAmount;
     const soughtType = req.body.soughtType;
-    const soughtAmount = req.body.soughtAmount;;
+    const soughtAmount = req.body.soughtAmount;
     const player_id = req.body.player_id;
     await Market.create({
       offer_id: uuid.v1(),

@@ -43,7 +43,6 @@ const EnemyType = dbConnection.define
         },
         {
             tableName: 'enemy_types',
-            timestamps: false
         }
     )
 EnemyType.associate = (models) => {

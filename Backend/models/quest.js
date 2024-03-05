@@ -29,7 +29,6 @@ const Quest = dbConnection.define
         },
         {
             tableName: 'quests',
-            timestamps: false
         }
     )
 Quest.associate = (models) => {

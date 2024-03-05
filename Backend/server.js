@@ -11,6 +11,7 @@ const enemyRouter = require("./routes/gameRoutes/enemyRoutes");
 const residentRouter = require("./routes/gameRoutes/residentRoutes");
 const marketRouter = require("./routes/gameRoutes/marketRoutes");
 const buildingRouter = require("./routes/gameRoutes/buildingRoutes");
+const toolRouter = require("./routes/gameRoutes/toolRoutes");
 const swaggerFile = require("./swagger_output.json")
 const swaggerUi = require("swagger-ui-express")
 
@@ -40,6 +41,7 @@ app.use("/:player_id/player", playerRouter);
 app.use("/:player_id/enemies", enemyRouter);
 app.use("/:player_id/residents", residentRouter);
 app.use("/:player_id/buildings", buildingRouter);
+app.use("/:player_id/tool", toolRouter);
 app.use("/market", marketRouter);
 
 app.use(errorHandler);

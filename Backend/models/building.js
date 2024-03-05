@@ -19,7 +19,6 @@ const Building = dbConnection.define(
   },
   {
     tableName: "buildings",
-    timestamps: false,
   }
 );
 Building.associate = (models) => {

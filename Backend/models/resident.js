@@ -48,7 +48,6 @@ const Resident = dbConnection.define
         },
         {
             tableName: 'residents',
-            timestamps: false
         }
     )
 Resident.associate = (models) => {

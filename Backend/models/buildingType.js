@@ -15,7 +15,6 @@ const BuildingType = dbConnection.define(
   },
   {
     tableName: "building_types",
-    timestamps: false,
   }
 );
 BuildingType.associate = (models) => {
