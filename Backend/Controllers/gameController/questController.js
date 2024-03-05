@@ -10,6 +10,7 @@ const getQuests = async (req, res, next) => {
             data = await QuestStatistics.findAll({
                 where: {
                     player_id: req.params.player_id,
+                    is_active: is_active
                 },
                 attributes: { exclude: ["player_id", "quest_id"] },
                 include: { model: Quest, attributes: { exclude: ["currentProgress", "targetProgress"] } },
@@ -33,11 +34,11 @@ const getQuests = async (req, res, next) => {
 
 const postQuest = async (req, res, next) => {
     try {
-        const player_id = req.body.player_id;
+        const world_id = req.body.world_id;
         const quest_id = req.body.quest_id;
         await Quest.create({
             enemy_id: uuid.v1(),
-            player_id: player_id,
+            world_id: world_id,
             quest_id: quest_id
         });
 
@@ -64,7 +65,7 @@ const putQuest = async (req, res, next) => {
             },
             {
                 where: {
-                    enemy_id: req.params.enemy_id,
+                    player_id: req.params.player_id,
                 },
                 include: { model: EnemyType },
             }

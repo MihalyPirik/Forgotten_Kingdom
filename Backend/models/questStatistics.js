@@ -45,7 +45,8 @@ const QuestStatistics = dbConnection.define
         }
     )
 QuestStatistics.associate = (models) => {
+    QuestStatistics.belongsTo(models.Player, { foreignKey: 'world_id' })
     QuestStatistics.belongsTo(models.Quest, { foreignKey: 'quest_id' })
-    QuestStatistics.belongsTo(models.Player, { foreignKey: 'player_id' })
 }
+
 module.exports = QuestStatistics
