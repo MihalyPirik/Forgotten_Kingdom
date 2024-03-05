@@ -104,4 +104,30 @@ static MoveSprite(entity,angle)
 }
 
 
+static MoveMonster(monsterInstance)
+{
+  if(monsterInstance instanceof Monster && monsterInstance.NoticePlayer()){
+
+
+    const previousX=monsterInstance.objX
+    const previousY=monsterInstance.objY
+    
+    const dx=monsterInstance.game.player.objX-monsterInstance.objX
+    const dy=monsterInstance.game.player.objY-monsterInstance.objY
+    const distance=Math.hypot(dx,dy)
+    const unitX = dx / distance
+        const unitY = dy / distance
+        const newX=monsterInstance.objX+monsterInstance.speed*unitX
+        const newY=monsterInstance.objY+monsterInstance.speed*unitY
+        const dx1=newX-previousX
+        const dy2=newY-previousY
+        const angle=Math.atan2(dx1,dy2)
+        SpriteController.MoveSprite(monsterInstance,angle)
+        return new Point(newX,newY)
+
+}
+return new Point(monsterInstance.objX,monsterInstance.objY)
+}
+
+
 }

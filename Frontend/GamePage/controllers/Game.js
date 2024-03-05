@@ -5,8 +5,8 @@ import { Point } from "../models/Point.js";
 import { IsometricBlock } from "../models/isometricBlock.js";
 import { GameView, PanelView } from "../views/view.js";
 import { SpriteController } from "./Sprite.js";
-import { EntityController } from "./Collison.js";
 import { CombatController } from "./Combat.js";
+import { Entity } from "../models/Entity.js";
 
 export class GameController {
   #currentBlock;
@@ -66,41 +66,11 @@ export class GameController {
       if (this.timer > this.interval) {
 this.gameView.ClearContext()
 
-
-
-        // this.context.moveTo(barrier.startPoint.x,barrier.startPoint.y)
-        // this.context.lineTo(this.player.objX,this.player.objY)
-        // this.context.stroke()
-
-        // this.context.lineWidth=2
-        // this.context.moveTo(barrier.endPoint.x,barrier.endPoint.y)
-        // this.context.lineTo(this.player.objX,this.player.objY)
-        // this.context.stroke()
-
-        // this.gameView.context.lineWidth=2
-        // this.gameView.context.moveTo(this.width*0.2,this.height*0.775)
-        // this.gameView.context.lineTo(this.width*0.5,this.height*0.94)
-        // this.gameView.context.stroke()
-
-
-        // this.gameView.context.moveTo(this.width*0.2,this.height*0.775)
-        // this.gameView.context.lineTo(this.width*0.5,this.height*0.67)
-        // this.gameView.context.stroke()
-
-
-        // this.gameView.context.moveTo(this.width*0.5,this.height*0.67)
-        // this.gameView.context.lineTo(this.width*0.78,this.height*0.78)
-        // this.gameView.context.stroke()
-        
-
-        // this.gameView.context.moveTo(this.width*0.78,this.height*0.78)
-        // this.gameView.context.lineTo(this.width*0.5,this.height*0.938)
-        // this.gameView.context.stroke()
         let newPlayerPos=SpriteController.MovePlayer(this.player)
 for (const entity of this.currentBlock.entities)
 {
-  let newPos=EntityController.MoveMonster(entity)
-const playerCollision=EntityController.EntityCollision(this.player,entity)
+  let newPos=SpriteController.MoveMonster(entity)
+const playerCollision=Entity.CheckCollision(this.player,entity)
 if(playerCollision)
 {
   if(entity instanceof Monster)
@@ -129,7 +99,7 @@ entity.objY=newPos.y
 
 for (const barrier of this.currentBlock.barriers)
 {
-  const Iscollison=EntityController.BarrierCollision(barrier,this.player)
+  const Iscollison=barrier.CheckCollision(this.player)
   if(Iscollison)
   {
     newPlayerPos=Iscollison
@@ -162,7 +132,7 @@ for (const barrier of this.currentBlock.barriers)
 for (let i = 0; i < this.currentBlock.entities.length-1; i++) {
 
   for (let j = this.currentBlock.entities.length-1; j > i; j--) {
-    const newPos=EntityController.EntityCollision
+    const newPos=Entity.CheckCollision
     (
       this.currentBlock.entities[i],
       this.currentBlock.entities[j]
@@ -192,5 +162,34 @@ for (const entity of s)
         this.timer = 0
       }
       this.timer += deltaTime
+     }
+     SetNavigationPanelValues(direction)
+     {
+  let nextX = this.currentBlockX + 1
+  let nextY = this.currentBlockY + 1
+  let previousX = this.currentBlockX - 1
+  let previousY = this.currentBlockY - 1
+
+  if (direction == -1) {
+      
+    if (this.currentBlockY == 0) {
+      previousY = null
+  }
+  
+    if (this.currentBlockX == this.isometricBlocks.length - 1) {
+        nextX = null
+    }
+    return [previousY,nextX]
+  }
+  if (direction == 1) {
+
+    if (this.currentBlockX == 0) {
+      previousX = null
+  }
+  if (this.currentBlockY == this.isometricBlocks[this.currentBlockX].length - 1) {
+    nextY = null
+}
+return [nextY,previousX]
+  }
      }
   }

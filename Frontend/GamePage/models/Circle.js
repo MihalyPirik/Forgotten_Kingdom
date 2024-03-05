@@ -1,3 +1,5 @@
+import { Point } from "./Point.js"
+
 export class Circle
 {
     constructor(x,y,radius)
@@ -19,7 +21,18 @@ export class Circle
             entity.objX<this.c && entity.objX>this.d
         )
         {
-            return true
-        }
+      const dx = this.x - entity.objX
+      const dy = this.y - entity.objY
+      const distance = Math.hypot(dx, dy)
+      const sumOfRadius = this.radius + entity.radius
+      if(distance<sumOfRadius)
+      {
+        const unitX = dx / distance
+        const unitY = dy / distance
+        return new Point(entity.objX - 0.5 * unitX,entity.objY - 0.5 * unitY)
+    }
+}
+            return false
+
     }
 }

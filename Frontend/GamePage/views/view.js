@@ -170,9 +170,6 @@ element.append(div)
 
 export class PanelView {
 
-  constructor()
-  {
-  }
 static #CreatePanelElement(panelInstance)
 {
   const div = document.createElement('div')
@@ -186,7 +183,7 @@ static #CreatePanelElement(panelInstance)
     if(panelInstance.isNavigationPanel)
     {
       const {direction, forwardId, backwardId}=panelInstance.isNavigationPanel
-      PanelView.#SetButtons(game, direction,div,forwardId,backwardId)
+      PanelView.#SetButtons(game, direction, forwardId, backwardId, div)
     }
         PanelView.#processElement(div, panelInstance.context)
       
@@ -230,68 +227,26 @@ static #CreatePanelElement(panelInstance)
         })
     }
 }
-static #SetButtons = (game, direction, element, forwardId, backwardId) => {
+static #SetButtons = (game, direction, forwardId,backwardId, element) => {
+  const [y,x]=game.SetNavigationPanelValues(direction)
   const forwardButton = element.querySelector('#' + forwardId)
   const backwardButton = element.querySelector('#' + backwardId)
-  let nextX = game.currentBlockX + 1
-  let nextY = game.currentBlockY + 1
-  let previousX = game.currentBlockX - 1
-  let previousY = game.currentBlockY - 1 
-
-
-  
-  
-
-
-
-  if (direction == -1) {
-      
-    if (game.currentBlockY == 0) {
-      previousY = null
-  }
-  
-    if (game.currentBlockX == game.isometricBlocks.length - 1) {
-        nextX = null
-    }
-      
-      forwardButton.value=game.isometricBlocks[game.currentBlockX][previousY]?game.isometricBlocks[game.currentBlockX][previousY].name:undefined
-      backwardButton.value=game.isometricBlocks[nextX][game.currentBlockY]?game.isometricBlocks[nextX][game.currentBlockY].name:undefined
-      if (backwardButton.value == 'undefined') {
+const funcOne=game.isometricBlocks[game.currentBlockX][y]
+const funcTwo=game.isometricBlocks[x][game.currentBlockY]
+      if (funcTwo == undefined) {
           backwardButton.remove()
       }
       else {
-          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][previousY](game)})
+        backwardButton.value=funcTwo.name
+        backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();funcTwo(game)})
+          
       }
-      if (forwardButton.value == 'undefined') {
+      if (funcOne == undefined) {
           forwardButton.remove()
       }
       else {
-          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[nextX][game.currentBlockY](game)})
+        forwardButton.value=funcOne.name
+        forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();funcOne(game)})
       }
   }
-  if (direction == 1) {
-
-    if (game.currentBlockX == 0) {
-      previousX = null
-  }
-  if (game.currentBlockY == game.isometricBlocks[game.currentBlockX].length - 1) {
-    nextY = null
-}
-      
-      forwardButton.value=game.isometricBlocks[previousX][game.currentBlockY]?game.isometricBlocks[previousX][game.currentBlockY].name:undefined
-      backwardButton.value=game.isometricBlocks[game.currentBlockX][nextY]?game.isometricBlocks[game.currentBlockX][nextY].name:undefined
-      if (backwardButton.value == 'undefined') {
-          backwardButton.remove()
-      }
-      else {
-          backwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[game.currentBlockX][nextY](game)})
-      }
-      if (forwardButton.value == 'undefined') {
-          forwardButton.remove()
-      }
-      else {
-          forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();game.isometricBlocks[previousX][game.currentBlockY](game)})
-      }
-  }
-}
 }

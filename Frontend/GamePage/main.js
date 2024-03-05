@@ -14,7 +14,8 @@ import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from './services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
-import { InitEvents } from './controllers/UI.js'
+import { InitEvents } from './views/Events.js'
+
 const gameCanvas = document.querySelector('canvas')
 
 

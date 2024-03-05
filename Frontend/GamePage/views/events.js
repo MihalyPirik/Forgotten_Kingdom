@@ -1,9 +1,8 @@
-import { GameView } from "../views/view.js";
+import { GameView } from "./view.js";
 
 
 export const InitEvents=(game)=>
 {
-
 
     const ShowPanel=(id,handler)=>
     {
@@ -18,11 +17,8 @@ export const InitEvents=(game)=>
         panel.parentElement.remove()
         document.getElementById(id).addEventListener('click',()=>{ShowPanel(id,handler)},{once:true})
     }
-    
-    
     document.getElementById('inventory').addEventListener('click',()=>{ShowPanel('inventory',GameView.InventoryPanel)},{once:true})
 
     window.addEventListener('keydown',(e)=>{game.player.move.event=e})
     window.addEventListener('keyup',(e)=>{game.player.move.event=null})
 }
-
