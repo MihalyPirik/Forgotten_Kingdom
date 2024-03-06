@@ -33,8 +33,8 @@ export const Szörny2=(game)=>{
             new Circle(game.width*0.98,game.height*0.45,game.width*0.035)
         ],
         [
-            new Panel('navigationX','navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1}),
-        new Panel('navigationY','navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1})
+            new Panel('navigationX','navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
+        new Panel('navigationY','navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1})
         ]
 
     )

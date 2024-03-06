@@ -63,7 +63,7 @@ window.addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.de
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[2][0](game)
+game.isometricBlocks[0][3](game)
 game.player.objX=game.width*0.488
 game.player.objY=game.height*0.541
 gameView.SetBackGround(game.currentBlock.backGround.src)

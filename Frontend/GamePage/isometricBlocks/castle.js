@@ -31,8 +31,8 @@ new Line(new Point(game.width*0.246,game.height*0.712),new Point(game.width*0.17
 new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,game.height*0.79))
     ],
     [
-        new Panel('navugationX','navigationPanel',game.width*0.79,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1}),
-        new Panel('navigationY','navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1})
+        new Panel('navugationX','navigationPanel',game.width*0.79,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1}),
+        new Panel('navigationY','navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1})
     ]
    )
    game.player.width=game.width*0.08
