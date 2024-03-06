@@ -48,8 +48,8 @@ new Circle(game.width*0.289,game.height*0.568,game.width*0.01),
 new Circle(game.width*0.337,game.height*0.523,game.width*0.01)
         ],
         [
-            new Panel('navigationX','navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1}),
-            new Panel('navigationY','navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1})
+            new Panel('navigationX','navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
+            new Panel('navigationY','navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1})
         ]
     )
 }

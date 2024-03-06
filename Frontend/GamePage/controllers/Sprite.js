@@ -1,3 +1,4 @@
+import { Monster } from "../models/Monster.js"
 import { Point } from "../models/Point.js"
 
 export class SpriteController

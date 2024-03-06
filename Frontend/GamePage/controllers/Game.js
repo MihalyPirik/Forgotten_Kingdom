@@ -5,7 +5,6 @@ import { Point } from "../models/Point.js";
 import { IsometricBlock } from "../models/isometricBlock.js";
 import { GameView, PanelView } from "../views/view.js";
 import { SpriteController } from "./Sprite.js";
-import { CombatController } from "./Combat.js";
 import { Entity } from "../models/Entity.js";
 
 export class GameController {
@@ -84,7 +83,7 @@ if(playerCollision)
   }
 }
 
-  const isAttack=CombatController.MonsterAttack(entity,this.player)
+  const isAttack=entity.Attack(this.player)
   if(isAttack)
   {
     this.player.HP-=entity.attack.attack

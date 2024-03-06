@@ -9,7 +9,7 @@ this.name=name
 this.radius=game.width*0.03
 this.speed=speed
 this.HP=HP
-this.attack={timer:0,attack:5,interval:60}
+this.attack={timer:0,attack:attack,interval:60}
 this.level=level
 this.id=id
 this.noticeRadius=100
@@ -23,5 +23,20 @@ return true
         }
         return false
 
+    }
+
+    Attack(player)
+    {
+        if(this.NoticePlayer()){
+        if(Math.abs(player.objX-this.objX)<this.attackRadius && Math.abs(player.objY-this.objY)<this.attackRadius)
+        {
+            if(this.attack.timer>this.attack.interval){
+                this.attack.timer=0
+            return true
+            }
+            this.attack.timer++
+        }
+    }
+    return false
     }
 }

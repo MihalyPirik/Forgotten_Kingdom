@@ -232,7 +232,7 @@ static #SetButtons = (game, direction, forwardId,backwardId, element) => {
   const forwardButton = element.querySelector('#' + forwardId)
   const backwardButton = element.querySelector('#' + backwardId)
 const funcOne=game.isometricBlocks[game.currentBlockX][y]
-const funcTwo=game.isometricBlocks[x][game.currentBlockY]
+const funcTwo=game.isometricBlocks[x]?game.isometricBlocks[x][game.currentBlockY]:undefined
       if (funcTwo == undefined) {
           backwardButton.remove()
       }

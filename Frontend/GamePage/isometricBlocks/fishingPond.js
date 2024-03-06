@@ -76,8 +76,8 @@ export const Horgásztó=(game)=>{
             new Line(new Point(game.width*0.488,game.height*0.596),new Point(game.width*0.524,game.height*0.578))
         ],
         [
-            new Panel('navigationX','navigationPanel',0.786*game.width,0.758*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game),
-            new Panel('navigationY','navigationPanel',0.267*game.width,0.794*game.height,100,{forwardId:'forward',backwardId:'backward',direction:1},game)
+            new Panel('navigationX','navigationPanel',0.786*game.width,0.758*game.height,100,{forwardId:'forward',backwardId:'backward',direction:1},game),
+            new Panel('navigationY','navigationPanel',0.267*game.width,0.794*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game)
         ]
 
     )
