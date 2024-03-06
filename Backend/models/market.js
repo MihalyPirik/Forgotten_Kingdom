@@ -31,7 +31,7 @@ const Market = dbConnection.define(
   }
 );
 Market.associate = (models) => {
-  Market.belongsTo(models.Player, { foreignKey: "player_id" })
+  Market.belongsTo(models.Player, { foreignKey: "player_id", onDelete: "CASCADE" });
 };
 
 module.exports = Market;

@@ -17,7 +17,7 @@ const postRegistration = async (req, res, next) => {
       player_name: name,
     });
 
-    res.status(201).json({ message: "Sikeres regisztráció!" });
+    res.status(201).json({ data: {message: "Sikeres regisztráció!"} });
   } catch (error) {
     if (error instanceof ValidationError) {
       res.status(400).json({ message: error.errors[0].message });
@@ -45,7 +45,7 @@ const postLogin = async (req, res, next) => {
           expiresIn: "1h",
         });
         res.setHeader("Authorization", `Bearer ${token}`);
-        res.status(200).json({ message: "Sikeres bejelentkezés!" });
+        res.status(200).json({ data: {message: "Sikeres bejelentkezés!"} });
       } else {
         res.status(401).json({ message: "Hibás jelszó!" });
       }
@@ -77,7 +77,7 @@ const putUser = async (req, res, next) => {
       }
     );
     
-    res.status(200).json({ message: "Sikeres módosítás!" });
+    res.status(200).json({ data: {message: "Sikeres módosítás!"} });
   } catch (error) {
     next(error);
   }

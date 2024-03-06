@@ -41,7 +41,7 @@ const postQuest = async (req, res, next) => {
             quest_id: quest_id
         });
 
-        res.status(201).json({ message: "Sikeres felvétel!" });
+        res.status(201).json({data: { message: "Sikeres felvétel!"} });
     } catch (error) {
         next(error);
     }
@@ -69,7 +69,7 @@ const putQuest = async (req, res, next) => {
             }
         );
 
-        res.status(200).json({ message: "Sikeres módosítás!" });
+        res.status(200).json({ data: {message: "Sikeres módosítás!"} });
     } catch (error) {
         next(error);
     }
@@ -82,7 +82,7 @@ const deleteQuest = async (req, res, next) => {
         if (isDeleted == 0) {
             return res.status(404).json({ message: "Ilyen küldetés nem létezik!" })
         }
-        res.status(200).json({ message: "Sikeres törlés!" });
+        res.status(200).json({ data: { message: "Sikeres törlés!"} });
     } catch (error) {
         next(error);
     }

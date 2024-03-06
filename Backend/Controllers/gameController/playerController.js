@@ -64,7 +64,7 @@ const putPlayer = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ message: "Sikeres módosítás!" });
+    res.status(200).json({ data: {message: "Sikeres módosítás!"} });
   } catch (error) {
     next(error);
   }
@@ -76,7 +76,7 @@ const deletePlayer = async (req, res, next) => {
     if (isDeleted == 0) {
       return res.status(404).json({message: "Ilyen játékos nem létezik!"})
     }
-    res.status(200).json({ message: "Sikeres törlés!" });
+    res.status(200).json({ data: {message: "Sikeres törlés!"} });
   } catch (error) {
     next(error);
   }

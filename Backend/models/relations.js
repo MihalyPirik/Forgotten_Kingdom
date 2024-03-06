@@ -16,7 +16,6 @@ const models =
     Enemy: require("./enemy"),
     EnemyType: require("./enemyType"),
     Market: require("./market"),
-    Player: require("./player"),
     Quest: require("./quest"),
     QuestType: require("./questType"),
     Resident: require("./resident"),
@@ -24,6 +23,7 @@ const models =
     ToolType: require("./toolType"),
     Building: require("./building"),
     BuildingType: require("./buildingType"),
+    Player: require("./player"),
 }
 
 Object.keys(models).forEach(key => {
