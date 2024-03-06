@@ -1,5 +1,5 @@
 const Resident = require("../../models/resident");
-const Quest = require("../../models/quest");
+const QuestType = require("../../models/questType");
 const uuid = require("uuid");
 
 const getAllResidents = async (req, res, next) => {
@@ -9,7 +9,7 @@ const getAllResidents = async (req, res, next) => {
                 world_id: req.params.player_id
             },
             attributes: { exclude: ["world_id"] },
-            include: { model: Quest },
+            include: { model: QuestType },
         });
         res.status(200).json({ data: data });
     } catch (error) {
@@ -26,7 +26,7 @@ const getResidents = async (req, res, next) => {
                 blockY: req.params.blockY,
             },
             attributes: { exclude: ["world_id"] },
-            include: { model: Quest },
+            include: { model: QuestType },
         });
         res.status(200).json({ data: data });
     } catch (error) {
@@ -83,7 +83,7 @@ const putResident = async (req, res, next) => {
                 where: {
                     resident_id: req.params.resident_id,
                 },
-                include: { model: Quest },
+                include: { model: QuestType },
             }
         );
 

@@ -1,5 +1,5 @@
-const QuestStatistics = require("../../models/questStatistics");
 const Quest = require("../../models/quest");
+const QuestType = require("../../models/questType");
 const uuid = require("uuid");
 
 const getQuests = async (req, res, next) => {
@@ -7,22 +7,22 @@ const getQuests = async (req, res, next) => {
         let data = null;
         if (req.params.is_active != undefined) {
             const is_active = req.params.is_active == `true` ? 1 : 0
-            data = await QuestStatistics.findAll({
+            data = await Quest.findAll({
                 where: {
                     player_id: req.params.player_id,
                     is_active: is_active
                 },
                 attributes: { exclude: ["player_id", "quest_id"] },
-                include: { model: Quest, attributes: { exclude: ["currentProgress", "targetProgress"] } },
+                include: { model: QuestType, attributes: { exclude: ["currentProgress", "targetProgress"] } },
             });
         }
         else {
-            data = await QuestStatistics.findAll({
+            data = await Quest.findAll({
                 where: {
                     player_id: req.params.player_id,
                 },
                 attributes: { exclude: ["player_id", "quest_id"] },
-                include: { model: Quest, attributes: { exclude: ["currentProgress", "targetProgress"] } },
+                include: { model: QuestType, attributes: { exclude: ["currentProgress", "targetProgress"] } },
             });
         };
 
@@ -34,11 +34,10 @@ const getQuests = async (req, res, next) => {
 
 const postQuest = async (req, res, next) => {
     try {
-        const world_id = req.body.world_id;
+        const player_id = req.body.player_id;
         const quest_id = req.body.quest_id;
         await Quest.create({
-            enemy_id: uuid.v1(),
-            world_id: world_id,
+            player_id: player_id,
             quest_id: quest_id
         });
 
@@ -50,24 +49,23 @@ const postQuest = async (req, res, next) => {
 
 const putQuest = async (req, res, next) => {
     try {
-        const objX = req.body.objX;
-        const objY = req.body.objY;
-        const blockX = req.body.blockX;
-        const blockY = req.body.blockY;
-        const HP = req.body.HP;
-        await Enemy.update(
+        const is_completed = req.body.is_completed;
+        const is_active = req.body.is_active;
+        const currentProgress = req.body.currentProgress;
+        const targetProgress = req.body.targetProgress;
+        await Quest.update(
             {
-                objX: objX,
-                objY: objY,
-                blockX: blockX,
-                blockY: blockY,
-                HP: HP
+                is_completed: is_completed,
+                is_active: is_active,
+                currentProgress: currentProgress,
+                targetProgress: targetProgress
             },
             {
                 where: {
                     player_id: req.params.player_id,
+                    quest_id: req.params.quest_id
                 },
-                include: { model: EnemyType },
+                include: { model: QuestType },
             }
         );
 
@@ -79,10 +77,10 @@ const putQuest = async (req, res, next) => {
 
 const deleteQuest = async (req, res, next) => {
     try {
-        const isDeleted = await Enemy.destroy({ where: { enemy_id: req.params.enemy_id } });
+        const isDeleted = await Quest.destroy({ where: { quest_id: req.params.quest_id, player_id: req.params.player_id } });
 
         if (isDeleted == 0) {
-            return res.status(404).json({ message: "Ilyen ellenség nem létezik!" })
+            return res.status(404).json({ message: "Ilyen küldetés nem létezik!" })
         }
         res.status(200).json({ message: "Sikeres törlés!" });
     } catch (error) {

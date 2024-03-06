@@ -170,14 +170,14 @@ const Player = dbConnection.define
     )
 Player.associate = (models) => {
     Player.belongsToMany(models.ToolType, { through: models.Tool, foreignKey: "player_id" })
-    Player.belongsToMany(models.Quest, { through: models.QuestStatistics, foreignKey: "player_id" })
+    Player.belongsToMany(models.QuestType, { through: models.Quest, foreignKey: "player_id" })
     Player.belongsToMany(models.EnemyType, { through: models.Enemy, foreignKey: "world_id" })
     Player.belongsToMany(models.BuildingType, { through: models.Building, foreignKey: "world_id" })
     Player.hasMany(models.Resident, { foreignKey: "world_id" })
     Player.hasMany(models.Tool, { foreignKey: 'player_id' })
     Player.hasMany(models.Enemy, { foreignKey: 'world_id' })
     Player.hasMany(models.Building, { foreignKey: 'world_id' })
-    Player.hasMany(models.QuestStatistics, { foreignKey: 'player_id', as: 'playerQuest' })
+    Player.hasMany(models.Quest, { foreignKey: 'player_id', as: 'playerQuest' })
     Player.hasMany(models.Market, { foreignKey: 'player_id' })
 }
 
