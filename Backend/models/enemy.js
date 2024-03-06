@@ -56,7 +56,7 @@ const Enemy = dbConnection.define
         }
     )
 Enemy.associate = (models) => {
-    Enemy.belongsTo(models.Player, { foreignKey: 'world_id' })
-    Enemy.belongsTo(models.EnemyType, { foreignKey: 'enemy_type_id' })
+    Enemy.belongsTo(models.Player, { foreignKey: {name: 'world_id', unique: false} })
+    Enemy.belongsTo(models.EnemyType, { foreignKey: {name: 'enemy_type_id', unique: false} })
 }
 module.exports = Enemy

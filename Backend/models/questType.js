@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize")
 const dbConnection = require("../services/dbService")
-const Quest = require("./quest")
 
 
 const QuestType = dbConnection.define
@@ -27,11 +26,6 @@ const QuestType = dbConnection.define
                 type: DataTypes.BOOLEAN,
                 defaultValue: false,
                 allowNull: false
-            },
-            currentProgress:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: true
             },
             targetProgress:
             {

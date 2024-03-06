@@ -13,7 +13,7 @@ const getQuests = async (req, res, next) => {
                     is_active: is_active
                 },
                 attributes: { exclude: ["player_id", "quest_id"] },
-                include: { model: QuestType, attributes: { exclude: ["currentProgress", "targetProgress"] } },
+                include: { model: QuestType, attributes: { exclude: ["targetProgress"] } },
             });
         }
         else {

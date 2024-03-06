@@ -21,6 +21,7 @@ const Quest = dbConnection.define
             currentProgress:
             {
                 type: DataTypes.INTEGER,
+                defaultValue: 0,
                 allowNull: true
             },
             targetProgress:
@@ -36,7 +37,6 @@ const Quest = dbConnection.define
                 beforeCreate: async (quest) => {
                     const quest_type = await QuestType.findOne({where: {quest_id: quest.quest_id}});
                     if (quest_type) {
-                        quest.currentProgress = quest_type.currentProgress,
                         quest.targetProgress = quest_type.targetProgress,
                         quest.is_completed = quest_type.is_completed
                     }

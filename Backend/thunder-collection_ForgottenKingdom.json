@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "ForgottenKingdom",
-    "dateExported": "2024-03-05T16:27:37.747Z",
+    "dateExported": "2024-03-06T15:05:23.829Z",
     "version": "1.1",
     "folders": [
         {
@@ -67,11 +67,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "a9cd4219-7469-4aa3-b65c-55237d375f3e",
             "name": "getAllData",
-            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/player",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-03-05T15:52:50.496Z",
-            "modified": "2024-03-05T15:52:50.496Z",
+            "modified": "2024-03-06T12:45:00.120Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -83,6 +83,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -90,11 +91,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "6f84c382-c67c-4557-8e20-78d3f499cd8f",
             "name": "getQuests",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/quest",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/quest",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-03-05T15:52:50.497Z",
-            "modified": "2024-03-05T15:54:35.043Z",
+            "modified": "2024-03-06T14:29:41.139Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -114,11 +115,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "3d178156-07e5-47b4-8f7c-a8f15bb70357",
             "name": "getAllEnemies",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/enemies",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-03-05T15:52:50.502Z",
-            "modified": "2024-03-05T15:52:50.502Z",
+            "modified": "2024-03-06T12:47:24.828Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -130,6 +131,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -137,11 +139,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "c6fa3611-6f4c-43fd-b43f-a088419f8e5e",
             "name": "getAllResidents",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/residents",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-03-05T15:52:50.507Z",
-            "modified": "2024-03-05T15:52:50.507Z",
+            "modified": "2024-03-06T14:13:12.251Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -153,6 +155,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -183,11 +186,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "7fc96c5f-396e-4b13-88a8-cf819a4f25ba",
             "name": "getAllBuildings",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/buildings",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/buildings",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-03-05T15:52:50.516Z",
-            "modified": "2024-03-05T15:52:50.516Z",
+            "modified": "2024-03-06T14:54:29.142Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -199,6 +202,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -206,11 +210,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "8d4b3b2c-8f2e-406c-871d-12472177e775",
             "name": "getTool",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/tool",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/tool",
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-03-05T15:52:50.518Z",
-            "modified": "2024-03-05T15:52:50.518Z",
+            "modified": "2024-03-06T15:00:04.133Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -222,6 +226,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -281,11 +286,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "3d178156-07e5-47b4-8f7c-a8f15bb70357",
             "name": "getBlockEnemies",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/1/1",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/enemies/10/1",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-05T15:52:50.503Z",
-            "modified": "2024-03-05T15:52:50.503Z",
+            "modified": "2024-03-06T13:00:06.346Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -297,6 +302,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -304,11 +310,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "c6fa3611-6f4c-43fd-b43f-a088419f8e5e",
             "name": "getResidents",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents/0/0",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/residents/10/10",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-05T15:52:50.508Z",
-            "modified": "2024-03-05T15:52:50.508Z",
+            "modified": "2024-03-06T14:47:41.583Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -320,6 +326,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -327,11 +334,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "9ebaeff7-85b1-42e2-a4b2-5d8e0d255fbe",
             "name": "getAllPlayerOffer",
-            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c",
+            "url": "http://localhost:3000/market/2aaa3540-dbb7-11ee-970f-f53b853f2d6d",
             "method": "GET",
             "sortNum": 20000,
             "created": "2024-03-05T15:52:50.512Z",
-            "modified": "2024-03-05T15:52:50.512Z",
+            "modified": "2024-03-06T14:50:12.074Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -343,6 +350,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -350,11 +358,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "7fc96c5f-396e-4b13-88a8-cf819a4f25ba",
             "name": "putBuilding",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/buildings/15c2c1f6-d6d4-11ee-b1e4-00155ddb1e0d",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/buildings/3e20ae44-dbba-11ee-b1e4-00155ddb1e0d",
             "method": "PUT",
             "sortNum": 20000,
             "created": "2024-03-05T15:52:50.517Z",
-            "modified": "2024-03-05T15:52:50.517Z",
+            "modified": "2024-03-06T14:56:51.223Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -368,9 +376,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"level\": 1\n}",
+                "raw": "{\n  \"level\": 5\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -378,11 +387,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "8d4b3b2c-8f2e-406c-871d-12472177e775",
             "name": "putTool",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/tool/03e0d3d4-dac5-11ee-b1e4-00155ddb1e0d",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/tool/293722a0-dbca-11ee-bf2b-4b1c58a4971e",
             "method": "PUT",
             "sortNum": 20000,
             "created": "2024-03-05T15:52:50.519Z",
-            "modified": "2024-03-05T15:52:50.519Z",
+            "modified": "2024-03-06T15:00:53.731Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -396,9 +405,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"tool_type_id\": \"fa972fd0-dac4-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"tool_type_id\": \"f035e679-dbba-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -434,11 +444,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "3d178156-07e5-47b4-8f7c-a8f15bb70357",
             "name": "postEnemy",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/enemies",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/enemies",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-05T15:52:50.504Z",
-            "modified": "2024-03-05T16:16:24.129Z",
+            "modified": "2024-03-06T12:48:33.385Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -452,7 +462,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"objX\": 1,\n  \"objY\": 1,\n  \"blockX\": 10,\n  \"blockY\": 1,\n  \"world_id\": \"9acd3892-d9ff-11ee-b1e4-00155ddb1e0d\",\n  \"enemy_type_id\": \"e880a06c-c59c-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"objX\": 1,\n  \"objY\": 1,\n  \"blockX\": 10,\n  \"blockY\": 1,\n  \"world_id\": \"2aaa3540-dbb7-11ee-970f-f53b853f2d6d\",\n  \"enemy_type_id\": \"93f97947-dba8-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
             "reqType": "post",
@@ -463,11 +473,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "c6fa3611-6f4c-43fd-b43f-a088419f8e5e",
             "name": "postResident",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/residents",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-05T15:52:50.509Z",
-            "modified": "2024-03-05T15:52:50.509Z",
+            "modified": "2024-03-06T14:42:47.595Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -481,9 +491,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"resident_name\": \"Long Boo\",\n  \"profession\": \"asd\",\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"quest_id\": \"9d1d2943-c695-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"resident_name\": \"Long Boo1\",\n  \"profession\": \"asd\",\n  \"world_id\": \"2aaa3540-dbb7-11ee-970f-f53b853f2d6d\",\n  \"quest_id\": \"ac819e4d-dbb6-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
@@ -491,11 +502,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "9ebaeff7-85b1-42e2-a4b2-5d8e0d255fbe",
             "name": "postOffer",
-            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c",
+            "url": "http://localhost:3000/market/2aaa3540-dbb7-11ee-970f-f53b853f2d6d",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-05T15:52:50.513Z",
-            "modified": "2024-03-05T15:52:50.513Z",
+            "modified": "2024-03-06T14:49:27.602Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -509,9 +520,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"offeredType\": \"fa\",\n  \"offeredAmount\": 200,\n  \"soughtType\": \"kő\",\n  \"soughtAmount\": 100,\n  \"player_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\"\n}",
+                "raw": "{\n  \"offeredType\": \"fa\",\n  \"offeredAmount\": 2000,\n  \"soughtType\": \"kő\",\n  \"soughtAmount\": 1000,\n  \"player_id\": \"2aaa3540-dbb7-11ee-970f-f53b853f2d6d\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
@@ -519,11 +531,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "8d4b3b2c-8f2e-406c-871d-12472177e775",
             "name": "deleteTool",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/tool/03e0d3d4-dac5-11ee-b1e4-00155ddb1e0d",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/tool/9ec52120-dbca-11ee-bf2b-4b1c58a4971e",
             "method": "DELETE",
             "sortNum": 30000,
             "created": "2024-03-05T15:52:50.520Z",
-            "modified": "2024-03-05T15:52:50.520Z",
+            "modified": "2024-03-06T15:04:33.932Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -535,6 +547,7 @@
                 }
             ],
             "params": [],
+            "reqType": "del",
             "tests": []
         },
         {
@@ -542,11 +555,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "6f84c382-c67c-4557-8e20-78d3f499cd8f",
             "name": "postQuest",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/quest",
+            "url": "http://localhost:3000/73ae7efe-dbaf-11ee-b1e4-00155ddb1e0d/quest",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-05T15:59:05.936Z",
-            "modified": "2024-03-05T16:06:30.589Z",
+            "modified": "2024-03-06T14:39:35.148Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -560,7 +573,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"world_id\": \"9acd3892-d9ff-11ee-b1e4-00155ddb1e0d\",\n  \"quest_id\": \"9d1d2943-c695-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"player_id\": \"73ae7efe-dbaf-11ee-b1e4-00155ddb1e0d\",\n  \"quest_id\": \"ac81a232-dbb6-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
             "reqType": "post",
@@ -571,11 +584,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "a4f7d62c-c0ce-4741-aefb-843ab1cdb991",
             "name": "PutUser",
-            "url": "http://localhost:3000/user/22078630-d163-11ee-a5af-5f436c65ebb1",
+            "url": "http://localhost:3000/user/2aaa3540-dbb7-11ee-970f-f53b853f2d6d",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-05T15:52:50.495Z",
-            "modified": "2024-03-05T15:52:50.495Z",
+            "modified": "2024-03-06T12:44:33.947Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -589,9 +602,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"player_name\": \"teszt1\",\n  \"email\": \"teszt1@teszt.hu\",\n  \"password\": \"0123456789\"\n}",
+                "raw": "{\n  \"player_name\": \"teszt1\",\n  \"email\": \"teszt1@teszt.hu\",\n  \"password\": \"123456789\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -599,11 +613,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "a9cd4219-7469-4aa3-b65c-55237d375f3e",
             "name": "getInventory",
-            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player/inventory",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/player/inventory",
             "method": "GET",
             "sortNum": 40000,
             "created": "2024-03-05T15:52:50.499Z",
-            "modified": "2024-03-05T15:52:50.499Z",
+            "modified": "2024-03-06T12:45:07.854Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -615,6 +629,7 @@
                 }
             ],
             "params": [],
+            "reqType": "get",
             "tests": []
         },
         {
@@ -622,11 +637,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "3d178156-07e5-47b4-8f7c-a8f15bb70357",
             "name": "putEnemy",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/4c71da90-c738-11ee-be7e-e56422465cc7",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/enemies/a0496a70-dbba-11ee-8971-8391abc89522",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-05T15:52:50.505Z",
-            "modified": "2024-03-05T15:52:50.505Z",
+            "modified": "2024-03-06T13:12:35.893Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -640,9 +655,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"enemy_type_id\": \"e880a06c-c59c-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"HP\": 99\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -650,11 +666,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "c6fa3611-6f4c-43fd-b43f-a088419f8e5e",
             "name": "putResident",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/residents/f3a59ad0-d166-11ee-bd96-8fe2447f8a0c",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/residents/ab5c6cc0-dbc7-11ee-8ba2-edee320a1df5",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-05T15:52:50.510Z",
-            "modified": "2024-03-05T15:52:50.510Z",
+            "modified": "2024-03-06T14:44:03.317Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -668,9 +684,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"objX\": 3,\n  \"objY\": 3,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"resident_name\": \"Long Boo\",\n  \"profession\": \"asd\",\n  \"world_id\": \"22f13800-d165-11ee-bd96-8fe2447f8a0c\",\n  \"quest_id\": \"9d1d2943-c695-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"objX\": 3,\n  \"objY\": 3,\n  \"blockX\": 10,\n  \"blockY\": 10,\n  \"resident_name\": \"Long Boo2\",\n  \"profession\": \"asddsa\",\n  \"quest_id\": \"ac81a232-dbb6-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -678,11 +695,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "9ebaeff7-85b1-42e2-a4b2-5d8e0d255fbe",
             "name": "putOffer",
-            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c/7d990100-d167-11ee-bd96-8fe2447f8a0c",
+            "url": "http://localhost:3000/market/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/b890bee0-dbc8-11ee-b6ee-cb5263dca145",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-05T15:52:50.514Z",
-            "modified": "2024-03-05T15:52:50.514Z",
+            "modified": "2024-03-06T14:51:34.046Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -699,6 +716,7 @@
                 "raw": "{\n  \"offeredType\": \"fa\",\n  \"offeredAmount\": 5000,\n  \"soughtType\": \"kő\",\n  \"soughtAmount\": 5000\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -706,11 +724,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "8d4b3b2c-8f2e-406c-871d-12472177e775",
             "name": "postTool",
-            "url": "http://localhost:3000/9acd3892-d9ff-11ee-b1e4-00155ddb1e0d/tool",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/tool",
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-03-05T15:52:50.521Z",
-            "modified": "2024-03-05T15:52:50.521Z",
+            "modified": "2024-03-06T15:02:58.228Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -724,9 +742,10 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"player_id\": \"9acd3892-d9ff-11ee-b1e4-00155ddb1e0d\", \n  \"tool_type_id\": \"f58e58ba-dac4-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"player_id\": \"2aaa3540-dbb7-11ee-970f-f53b853f2d6d\", \n  \"tool_type_id\": \"6c20b405-dbbb-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
@@ -734,11 +753,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "6f84c382-c67c-4557-8e20-78d3f499cd8f",
             "name": "putQuest",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/4c71da90-c738-11ee-be7e-e56422465cc7",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/quest/ac819e4d-dbb6-11ee-b1e4-00155ddb1e0d",
             "method": "PUT",
             "sortNum": 40000,
             "created": "2024-03-05T15:59:11.337Z",
-            "modified": "2024-03-05T16:27:15.003Z",
+            "modified": "2024-03-06T14:40:37.012Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -750,6 +769,11 @@
                 }
             ],
             "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"is_completed\": 1,\n  \"is_active\": 1,\n  \"currentProgress\": 2000,\n  \"targetProgress\": 2000\n}",
+                "form": []
+            },
             "reqType": "put",
             "tests": []
         },
@@ -758,11 +782,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "a9cd4219-7469-4aa3-b65c-55237d375f3e",
             "name": "putPlayer",
-            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/player",
             "method": "PUT",
             "sortNum": 50000,
             "created": "2024-03-05T15:52:50.500Z",
-            "modified": "2024-03-05T15:52:50.500Z",
+            "modified": "2024-03-06T12:45:18.043Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -779,6 +803,7 @@
                 "raw": "{\n  \"player_name\": \"Mihaly\",\n  \"HP\": 10,\n  \"money\": 1000,\n  \"world_name\": \"First\",\n  \"stone\": 500,\n  \"wood\": 200,\n  \"coal\": 200,\n  \"iron\": 200,\n  \"wheat\": 200,\n  \"fish\": 200,\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10\n}",
                 "form": []
             },
+            "reqType": "put",
             "tests": []
         },
         {
@@ -786,11 +811,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "3d178156-07e5-47b4-8f7c-a8f15bb70357",
             "name": "deleteEnemy",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/enemies/4c71da90-c738-11ee-be7e-e56422465cc7",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/enemies/a0496a70-dbba-11ee-8971-8391abc89522",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-03-05T15:52:50.506Z",
-            "modified": "2024-03-05T15:52:50.506Z",
+            "modified": "2024-03-06T13:13:49.946Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -802,6 +827,7 @@
                 }
             ],
             "params": [],
+            "reqType": "del",
             "tests": []
         },
         {
@@ -809,11 +835,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "9ebaeff7-85b1-42e2-a4b2-5d8e0d255fbe",
             "name": "deleteOffer",
-            "url": "http://localhost:3000/market/22f13800-d165-11ee-bd96-8fe2447f8a0c/7d990100-d167-11ee-bd96-8fe2447f8a0c",
+            "url": "http://localhost:3000/market/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/b890bee0-dbc8-11ee-b6ee-cb5263dca145",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-03-05T15:52:50.515Z",
-            "modified": "2024-03-05T15:52:50.515Z",
+            "modified": "2024-03-06T14:53:03.965Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -825,6 +851,7 @@
                 }
             ],
             "params": [],
+            "reqType": "del",
             "tests": []
         },
         {
@@ -832,11 +859,35 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "6f84c382-c67c-4557-8e20-78d3f499cd8f",
             "name": "deleteQuest",
-            "url": "http://localhost:3000/22f13800-d165-11ee-bd96-8fe2447f8a0c/quest",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/quest/767176fb-dbac-11ee-b1e4-00155ddb1e0d",
             "method": "DELETE",
             "sortNum": 50000,
             "created": "2024-03-05T15:59:14.905Z",
-            "modified": "2024-03-05T16:27:28.640Z",
+            "modified": "2024-03-06T13:59:08.212Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "reqType": "del",
+            "tests": []
+        },
+        {
+            "_id": "c84465b3-029a-4b14-b03a-95b3595225f2",
+            "colId": "ad810542-42c5-468b-81f5-509a509a60de",
+            "containerId": "c6fa3611-6f4c-43fd-b43f-a088419f8e5e",
+            "name": "deleteResident",
+            "url": "http://localhost:3000/2aaa3540-dbb7-11ee-970f-f53b853f2d6d/residents/ccc82e30-dbc7-11ee-8ba2-edee320a1df5",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-03-06T14:44:45.587Z",
+            "modified": "2024-03-06T14:46:50.496Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -856,11 +907,11 @@
             "colId": "ad810542-42c5-468b-81f5-509a509a60de",
             "containerId": "a9cd4219-7469-4aa3-b65c-55237d375f3e",
             "name": "deletePlayer",
-            "url": "http://localhost:3000/da8fea31-c732-11ee-b1e4-00155ddb1e0d/player",
+            "url": "http://localhost:3000/6223e9b0-dba8-11ee-b1e4-00155ddb1e0d/player",
             "method": "DELETE",
             "sortNum": 60000,
             "created": "2024-03-05T15:52:50.501Z",
-            "modified": "2024-03-05T15:52:50.501Z",
+            "modified": "2024-03-06T12:46:29.307Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -872,6 +923,7 @@
                 }
             ],
             "params": [],
+            "reqType": "del",
             "tests": []
         }
     ]
