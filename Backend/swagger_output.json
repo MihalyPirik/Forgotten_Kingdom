@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
+    "title": "Forgotten Kingdom",
     "version": "1.0.0",
-    "title": "REST API",
     "description": ""
   },
   "host": "localhost:3000",
@@ -13,6 +13,9 @@
   "paths": {
     "/user/registration": {
       "post": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -46,6 +49,9 @@
     },
     "/user/login": {
       "post": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -76,6 +82,9 @@
     },
     "/user/{player_id}": {
       "put": {
+        "tags": [
+          "User"
+        ],
         "description": "",
         "parameters": [
           {
@@ -112,6 +121,9 @@
     },
     "/{player_id}/player/": {
       "get": {
+        "tags": [
+          "Player"
+        ],
         "description": "",
         "parameters": [
           {
@@ -128,6 +140,9 @@
         }
       },
       "put": {
+        "tags": [
+          "Player"
+        ],
         "description": "",
         "parameters": [
           {
@@ -195,6 +210,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Player"
+        ],
         "description": "",
         "parameters": [
           {
@@ -216,6 +234,9 @@
     },
     "/{player_id}/player/inventory": {
       "get": {
+        "tags": [
+          "Player"
+        ],
         "description": "",
         "parameters": [
           {
@@ -234,6 +255,9 @@
     },
     "/{player_id}/enemies/": {
       "get": {
+        "tags": [
+          "Enemy"
+        ],
         "description": "",
         "parameters": [
           {
@@ -250,6 +274,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Enemy"
+        ],
         "description": "",
         "parameters": [
           {
@@ -295,6 +322,9 @@
     },
     "/{player_id}/enemies/{blockX}/{blockY}": {
       "get": {
+        "tags": [
+          "Enemy"
+        ],
         "description": "",
         "parameters": [
           {
@@ -325,6 +355,9 @@
     },
     "/{player_id}/enemies/{enemy_id}": {
       "put": {
+        "tags": [
+          "Enemy"
+        ],
         "description": "",
         "parameters": [
           {
@@ -371,6 +404,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Enemy"
+        ],
         "description": "",
         "parameters": [
           {
@@ -398,6 +434,9 @@
     },
     "/{player_id}/residents/": {
       "get": {
+        "tags": [
+          "Resident"
+        ],
         "description": "",
         "parameters": [
           {
@@ -414,6 +453,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Resident"
+        ],
         "description": "",
         "parameters": [
           {
@@ -465,6 +507,9 @@
     },
     "/{player_id}/residents/{blockX}/{blockY}": {
       "get": {
+        "tags": [
+          "Resident"
+        ],
         "description": "",
         "parameters": [
           {
@@ -495,6 +540,9 @@
     },
     "/{player_id}/residents/{resident_id}": {
       "put": {
+        "tags": [
+          "Resident"
+        ],
         "description": "",
         "parameters": [
           {
@@ -532,6 +580,9 @@
                 },
                 "profession": {
                   "example": "any"
+                },
+                "quest_id": {
+                  "example": "any"
                 }
               }
             }
@@ -542,10 +593,41 @@
             "description": "OK"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Resident"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "player_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resident_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
       }
     },
     "/{player_id}/buildings/": {
       "get": {
+        "tags": [
+          "Building"
+        ],
         "description": "",
         "parameters": [
           {
@@ -564,6 +646,9 @@
     },
     "/{player_id}/buildings/{building_id}": {
       "put": {
+        "tags": [
+          "Building"
+        ],
         "description": "",
         "parameters": [
           {
@@ -600,6 +685,9 @@
     },
     "/{player_id}/tool/": {
       "get": {
+        "tags": [
+          "Tool"
+        ],
         "description": "",
         "parameters": [
           {
@@ -616,6 +704,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Tool"
+        ],
         "description": "",
         "parameters": [
           {
@@ -649,6 +740,9 @@
     },
     "/{player_id}/tool/{tool_id}": {
       "put": {
+        "tags": [
+          "Tool"
+        ],
         "description": "",
         "parameters": [
           {
@@ -683,6 +777,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Tool"
+        ],
         "description": "",
         "parameters": [
           {
@@ -710,6 +807,9 @@
     },
     "/{player_id}/quest/": {
       "get": {
+        "tags": [
+          "Quest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -726,6 +826,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Quest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -759,6 +862,9 @@
     },
     "/{player_id}/quest/{is_active}": {
       "get": {
+        "tags": [
+          "Quest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -783,6 +889,9 @@
     },
     "/{player_id}/quest/{quest_id}": {
       "put": {
+        "tags": [
+          "Quest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -826,6 +935,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Quest"
+        ],
         "description": "",
         "parameters": [
           {
@@ -853,6 +965,9 @@
     },
     "/market/": {
       "get": {
+        "tags": [
+          "Market"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -863,6 +978,9 @@
     },
     "/market/{player_id}": {
       "get": {
+        "tags": [
+          "Market"
+        ],
         "description": "",
         "parameters": [
           {
@@ -879,6 +997,9 @@
         }
       },
       "post": {
+        "tags": [
+          "Market"
+        ],
         "description": "",
         "parameters": [
           {
@@ -921,6 +1042,9 @@
     },
     "/market/{player_id}/{offer_id}": {
       "put": {
+        "tags": [
+          "Market"
+        ],
         "description": "",
         "parameters": [
           {
@@ -964,6 +1088,9 @@
         }
       },
       "delete": {
+        "tags": [
+          "Market"
+        ],
         "description": "",
         "parameters": [
           {

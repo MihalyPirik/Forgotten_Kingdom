@@ -37,14 +37,30 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/user", userRouter);
-app.use("/:player_id/player", playerRouter);
-app.use("/:player_id/enemies", enemyRouter);
-app.use("/:player_id/residents", residentRouter);
-app.use("/:player_id/buildings", buildingRouter);
-app.use("/:player_id/tool", toolRouter);
-app.use("/:player_id/quest", questRouter);
-app.use("/market", marketRouter);
+app.use("/user", userRouter
+// #swagger.tags = ['User']
+);
+app.use("/:player_id/player", playerRouter
+// #swagger.tags = ['Player']
+);
+app.use("/:player_id/enemies", enemyRouter
+// #swagger.tags = ['Enemy']
+);
+app.use("/:player_id/residents", residentRouter
+// #swagger.tags = ['Resident']
+);
+app.use("/:player_id/buildings", buildingRouter
+// #swagger.tags = ['Building']
+);
+app.use("/:player_id/tool", toolRouter
+// #swagger.tags = ['Tool']
+);
+app.use("/:player_id/quest", questRouter
+// #swagger.tags = ['Quest']
+);
+app.use("/market", marketRouter
+// #swagger.tags = ['Market']
+);
 
 app.use(errorHandler);
 
