@@ -1,4 +1,5 @@
 import {GameController} from '../controllers/Game.js'
+import { PanelController } from '../controllers/Panel.js'
 import { Circle } from '../models/Circle.js'
 import { Line } from '../models/Line.js'
 export class GameView
@@ -130,7 +131,6 @@ static InventoryPanel=(game)=>
   const div=this.#createTemplate()
   div.id='inventory'
   const player=game.player
-  const element=document.getElementById('inventoryTemplate').content.cloneNode(true)
 let counter=0
 for (const item in player.inventory)
 {
@@ -153,12 +153,18 @@ for (const item in player.inventory)
   div.append(div2)
   counter++
 }
-element.append(div)
-  document.querySelector('body').append(element)
+
+  document.querySelector('body').append(div)
 
 }
 
-
+static BindMonsterHP(monster)
+{
+  const el=document.getElementById(monster.id)
+  if(el){
+  document.getElementById(monster.id).querySelector('div#HP div').style.width=monster.HP+'%'
+}
+}
 
 
 }
@@ -173,7 +179,7 @@ export class PanelView {
 static #CreatePanelElement(panelInstance)
 {
   const div = document.createElement('div')
-  div.id = panelInstance.id
+  div.id = panelInstance.id || panelInstance
   div.className = "gamePanel"
   div.append(PanelView.GetOwnTemplate(panelInstance).content.cloneNode(true))
   return div
@@ -197,7 +203,10 @@ static #CreatePanelElement(panelInstance)
   }
   static GetOwnTemplate(panelInstance)
   {
+    if(panelInstance.id){
     return document.querySelector('template#'+panelInstance.id)
+  }
+  return document.querySelector('template#'+panelInstance)
   }
   static #processElement(element,context) {
     if(context)
@@ -228,7 +237,7 @@ static #CreatePanelElement(panelInstance)
     }
 }
 static #SetButtons = (game, direction, forwardId,backwardId, element) => {
-  const [y,x]=game.SetNavigationPanelValues(direction)
+  const [y,x]=PanelController.SetNavigationPanelValues(direction,game)
   const forwardButton = element.querySelector('#' + forwardId)
   const backwardButton = element.querySelector('#' + backwardId)
 const funcOne=game.isometricBlocks[game.currentBlockX][y]
@@ -249,4 +258,53 @@ const funcTwo=game.isometricBlocks[x]?game.isometricBlocks[x][game.currentBlockY
         forwardButton.addEventListener('click',()=>{document.querySelector('div.gamePanel').remove();funcOne(game)})
       }
   }
+
+  static ShowHighlight(context)
+  {
+    if(document.getElementById(context.id))
+    {
+      return
+    }
+    const div=this.#CreatePanelElement("HighlightEntities")
+    div.id=context.id
+    this.#processElement(div,context)
+    div.querySelector('div#HP div').style.width=context.HP+'%'
+    document.querySelector('body').append(div)
+  }
+  static HideHighlight(id)
+  {
+    const el=document.getElementById(id)
+if(el){
+    el.remove()
+}
+  }
+
+
+  static ShowDeathDialog(player)
+  {
+    if(document.querySelector("div#dead"))
+    {
+      return
+    }
+
+const div=this.#CreatePanelElement("dead")
+console.log(div);
+const button=div.querySelector('input[type="button"]')
+console.log(button);
+button.addEventListener('click',player.Respawn,{once:true})
+button.addEventListener('click',this.HideDeathDialog,{once:true})
+document.querySelector('body').append(div)
+
+  }
+  static HideDeathDialog()
+  {
+    const el=document.querySelector("div#dead")
+    if(el)
+    {
+      el.remove()
+    }
+  }
+
+
+
 }

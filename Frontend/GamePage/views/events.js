@@ -1,3 +1,4 @@
+import { PanelController } from "../controllers/Panel.js";
 import { GameView } from "./view.js";
 
 
@@ -20,5 +21,7 @@ export const InitEvents=(game)=>
     document.getElementById('inventory').addEventListener('click',()=>{ShowPanel('inventory',GameView.InventoryPanel)},{once:true})
 
     window.addEventListener('keydown',(e)=>{game.player.move.event=e})
-    window.addEventListener('keyup',(e)=>{game.player.move.event=null})
+    window.addEventListener('keyup',()=>{game.player.move.event=null})
+    document.getElementById('game').addEventListener('mousemove',(e)=>{PanelController.GetEntityOnMouse(e,game.currentBlock.entities)})
+    document.getElementById('game').addEventListener('click',(e)=>{game.player.Attack(e)})
 }

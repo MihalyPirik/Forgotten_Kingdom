@@ -17,7 +17,7 @@ export const Szörny1=(game)=>
         [
         //  x: 0.846 y: 0.484  new Monster('1','Werewolf',game,monster,game.width*0.6,game.height*0.77,100,3,3,2),
         new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
-        new Monster('1','Werewolf',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
+        new Monster('2','Skeleton',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
         ],
         [
             new Line(new Point(game.width*0.506,game.height*0.82),

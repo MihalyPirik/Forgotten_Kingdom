@@ -1,7 +1,9 @@
+import { GameView } from "../views/view.js"
 import { Entity } from "./Entity.js"
 
 export class Monster extends Entity
 {
+    #hp=null
     constructor(id,name,game,sprite,objX,objY,HP,attack,level,speed)
     {
         super(game,sprite,objX,objY,game.width*0.1, game.height*0.1)
@@ -9,11 +11,24 @@ this.name=name
 this.radius=game.width*0.03
 this.speed=speed
 this.HP=HP
+this.#hp=HP
 this.attack={timer:0,attack:attack,interval:60}
 this.level=level
 this.id=id
 this.noticeRadius=100
 this.attackRadius=50
+    }
+
+
+
+    set HP(value)
+    {
+      this.#hp=value
+      GameView.BindMonsterHP(this)
+    }
+    get HP()
+    {
+      return this.#hp
     }
     NoticePlayer()
     {

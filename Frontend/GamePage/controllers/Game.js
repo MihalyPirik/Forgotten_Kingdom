@@ -63,6 +63,10 @@ export class GameController {
     gameLoop(deltaTime) {
 
       if (this.timer > this.interval) {
+        if(this.player.isDead)
+        {
+          return
+        }
 this.gameView.ClearContext()
 
         let newPlayerPos=SpriteController.MovePlayer(this.player)
@@ -162,33 +166,5 @@ for (const entity of s)
       }
       this.timer += deltaTime
      }
-     SetNavigationPanelValues(direction)
-     {
-  let nextX = this.currentBlockX + 1
-  let nextY = this.currentBlockY + 1
-  let previousX = this.currentBlockX - 1
-  let previousY = this.currentBlockY - 1
-
-  if (direction == -1) {
-      
-    if (this.currentBlockY == 0) {
-      previousY = null
-  }
-  
-    if (this.currentBlockX == this.isometricBlocks.length - 1) {
-        nextX = null
-    }
-    return [previousY,nextX]
-  }
-  if (direction == 1) {
-
-    if (this.currentBlockX == 0) {
-      previousX = null
-  }
-  if (this.currentBlockY == this.isometricBlocks[this.currentBlockX].length - 1) {
-    nextY = null
-}
-return [nextY,previousX]
-  }
-     }
+     
   }
