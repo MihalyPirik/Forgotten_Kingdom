@@ -80,7 +80,7 @@
         }
       }
     },
-    "/user/{player_id}": {
+    "/user/": {
       "put": {
         "tags": [
           "User"
@@ -88,9 +88,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -115,11 +114,17 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/player/": {
+    "/player/": {
       "get": {
         "tags": [
           "Player"
@@ -127,15 +132,20 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -146,9 +156,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -206,6 +215,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -216,9 +231,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
@@ -226,13 +240,19 @@
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not Found"
           }
         }
       }
     },
-    "/{player_id}/player/inventory": {
+    "/player/inventory": {
       "get": {
         "tags": [
           "Player"
@@ -240,20 +260,25 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/enemies/": {
+    "/enemies/": {
       "get": {
         "tags": [
           "Enemy"
@@ -261,15 +286,20 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -280,9 +310,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -303,9 +332,6 @@
                 "blockY": {
                   "example": "any"
                 },
-                "world_id": {
-                  "example": "any"
-                },
                 "enemy_type_id": {
                   "example": "any"
                 }
@@ -316,23 +342,23 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/enemies/{blockX}/{blockY}": {
+    "/enemies/{blockX}/{blockY}": {
       "get": {
         "tags": [
           "Enemy"
         ],
         "description": "",
         "parameters": [
-          {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "blockX",
             "in": "path",
@@ -344,16 +370,27 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/enemies/{enemy_id}": {
+    "/enemies/{enemy_id}": {
       "put": {
         "tags": [
           "Enemy"
@@ -361,15 +398,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "enemy_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "enemy_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -400,6 +436,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -410,21 +452,26 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "enemy_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "enemy_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -432,7 +479,7 @@
         }
       }
     },
-    "/{player_id}/residents/": {
+    "/residents/": {
       "get": {
         "tags": [
           "Resident"
@@ -440,15 +487,20 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -459,9 +511,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -486,9 +537,6 @@
                   "example": "any"
                 },
                 "profession": {
-                  "example": "any"
-                },
-                "world_id": {
                   "example": "any"
                 },
                 "quest_id": {
@@ -501,23 +549,23 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/residents/{blockX}/{blockY}": {
+    "/residents/{blockX}/{blockY}": {
       "get": {
         "tags": [
           "Resident"
         ],
         "description": "",
         "parameters": [
-          {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
           {
             "name": "blockX",
             "in": "path",
@@ -529,16 +577,27 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/residents/{resident_id}": {
+    "/residents/{resident_id}": {
       "put": {
         "tags": [
           "Resident"
@@ -546,15 +605,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "resident_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "resident_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -591,6 +649,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -601,21 +665,26 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "resident_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "resident_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -623,7 +692,7 @@
         }
       }
     },
-    "/{player_id}/buildings/": {
+    "/buildings/": {
       "get": {
         "tags": [
           "Building"
@@ -631,20 +700,25 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/buildings/{building_id}": {
+    "/buildings/{building_id}": {
       "put": {
         "tags": [
           "Building"
@@ -652,15 +726,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "building_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "building_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -679,11 +752,50 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Building"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "building_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
     },
-    "/{player_id}/tool/": {
+    "/tool/": {
       "get": {
         "tags": [
           "Tool"
@@ -691,15 +803,20 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -710,9 +827,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -721,9 +837,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "player_id": {
-                  "example": "any"
-                },
                 "tool_type_id": {
                   "example": "any"
                 }
@@ -734,11 +847,17 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/tool/{tool_id}": {
+    "/tool/{tool_id}": {
       "put": {
         "tags": [
           "Tool"
@@ -746,15 +865,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "tool_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tool_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -773,6 +891,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -783,21 +907,26 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "tool_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "tool_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -805,7 +934,7 @@
         }
       }
     },
-    "/{player_id}/quest/": {
+    "/quest/": {
       "get": {
         "tags": [
           "Quest"
@@ -813,15 +942,20 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -832,9 +966,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -843,9 +976,6 @@
             "schema": {
               "type": "object",
               "properties": {
-                "player_id": {
-                  "example": "any"
-                },
                 "quest_id": {
                   "example": "any"
                 }
@@ -856,11 +986,17 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/quest/{is_active}": {
+    "/quest/{is_active}": {
       "get": {
         "tags": [
           "Quest"
@@ -868,26 +1004,31 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "is_active",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "is_active",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/{player_id}/quest/{quest_id}": {
+    "/quest/{quest_id}": {
       "put": {
         "tags": [
           "Quest"
@@ -895,15 +1036,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "quest_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "quest_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -931,6 +1071,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -941,21 +1087,26 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "quest_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "quest_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -969,30 +1120,22 @@
           "Market"
         ],
         "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/market/{player_id}": {
-      "get": {
-        "tags": [
-          "Market"
-        ],
-        "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -1003,9 +1146,8 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -1025,9 +1167,6 @@
                 },
                 "soughtAmount": {
                   "example": "any"
-                },
-                "player_id": {
-                  "example": "any"
                 }
               }
             }
@@ -1036,11 +1175,17 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
     },
-    "/market/{player_id}/{offer_id}": {
+    "/market/{offer_id}": {
       "put": {
         "tags": [
           "Market"
@@ -1048,15 +1193,14 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "offer_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "offer_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           },
           {
@@ -1084,6 +1228,12 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -1094,21 +1244,26 @@
         "description": "",
         "parameters": [
           {
-            "name": "player_id",
+            "name": "offer_id",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
-            "name": "offer_id",
-            "in": "path",
-            "required": true,
+            "name": "authorization",
+            "in": "header",
             "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
