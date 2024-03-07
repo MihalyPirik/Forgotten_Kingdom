@@ -4,11 +4,13 @@ const uuid = require("uuid");
 
 const getTool = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const data = await Tool.findAll({
       attributes: { exclude: ["player_id", "tool_type_id"] },
       include: { model: ToolType, attributes: { exclude: ["tool_type_id"] } },
       where: {
-        player_id: req.params.player_id,
+        player_id: player_id,
       }
     });
     res.status(200).json({ data: data });
@@ -19,7 +21,8 @@ const getTool = async (req, res, next) => {
 
 const postTool = async (req, res, next) => {
   try {
-    const player_id = req.body.player_id;
+    const player_id = req.token.id;
+    
     const tool_type_id = req.body.tool_type_id;
     await Tool.create({
       tool_id: uuid.v1(),

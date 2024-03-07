@@ -10,6 +10,7 @@ const Building = dbConnection.define(
     },
     level: {
       type: DataTypes.INTEGER,
+      defaultValue: 1,
       allowNull: false,
       validate: {
         min: 1,

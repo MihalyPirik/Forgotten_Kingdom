@@ -2,8 +2,10 @@ const Player = require("../../models/player");
 
 const getAllData = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const data = await Player.findOne({
-      where: { player_id: req.params.player_id },
+      where: { player_id: player_id },
       attributes: { exclude: ["player_id", "password", "email"] },
     });
     res.status(200).json({ data: data });
@@ -14,7 +16,9 @@ const getAllData = async (req, res, next) => {
 
 const getInventory = async (req, res, next) => {
   try {
-    const data = await Player.findByPk(req.params.player_id, {
+    const player_id = req.token.id;
+
+    const data = await Player.findByPk(player_id, {
       attributes: ["stone", "wood", "coal", "iron", "wheat", "fish"],
       raw: true,
     });
@@ -26,6 +30,8 @@ const getInventory = async (req, res, next) => {
 
 const putPlayer = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const player_name = req.body.player_name;
     const HP = req.body.HP;
     const money = req.body.money;
@@ -59,7 +65,7 @@ const putPlayer = async (req, res, next) => {
       },
       {
         where: {
-          player_id: req.params.player_id,
+          player_id: player_id,
         },
       }
     );
@@ -72,7 +78,9 @@ const putPlayer = async (req, res, next) => {
 
 const deletePlayer = async (req, res, next) => {
   try {
-    const isDeleted = await Player.destroy({ where: { player_id: req.params.player_id } });
+    const player_id = req.token.id;
+
+    const isDeleted = await Player.destroy({ where: { player_id: player_id } });
     if (isDeleted == 0) {
       return res.status(404).json({message: "Ilyen játékos nem létezik!"})
     }

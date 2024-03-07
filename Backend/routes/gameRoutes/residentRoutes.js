@@ -3,7 +3,7 @@ const { userAuth } = require('../../middlewares/auth');
 
 const residentRouter = require('express').Router({ mergeParams: true });
 
-// residentRouter.use(userAuth)
+residentRouter.use(userAuth)
 
 residentRouter.get('/', getAllResidents);
 residentRouter.get('/:blockX/:blockY', getResidents);

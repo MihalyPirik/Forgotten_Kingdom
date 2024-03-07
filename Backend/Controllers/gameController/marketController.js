@@ -16,9 +16,11 @@ const getAllOffer = async (req, res, next) => {
 
 const getAllPlayerOffer = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const data = await Market.findAll({
       where: {
-        player_id: req.params.player_id,
+        player_id: player_id,
       },
       attributes: { exclude: ["player_id"] },
       include: { model: Player, attributes: ["player_name"] },
@@ -31,11 +33,12 @@ const getAllPlayerOffer = async (req, res, next) => {
 
 const postOffer = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const offeredType = req.body.offeredType;
     const offeredAmount = req.body.offeredAmount;
     const soughtType = req.body.soughtType;
     const soughtAmount = req.body.soughtAmount;
-    const player_id = req.body.player_id;
     await Market.create({
       offer_id: uuid.v1(),
       offeredType: offeredType,
@@ -53,6 +56,8 @@ const postOffer = async (req, res, next) => {
 
 const putOffer = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const offeredType = req.body.offeredType;
     const offeredAmount = req.body.offeredAmount;
     const soughtType = req.body.soughtType;
@@ -68,7 +73,7 @@ const putOffer = async (req, res, next) => {
       },
       {
         where: {
-          player_id: req.params.player_id,
+          player_id: player_id,
           offer_id: req.params.offer_id
         },
       }

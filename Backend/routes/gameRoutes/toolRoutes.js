@@ -3,7 +3,7 @@ const { userAuth } = require('../../middlewares/auth');
 
 const toolRouter = require('express').Router({ mergeParams: true });
 
-// toolRouter.use(userAuth)
+toolRouter.use(userAuth)
 
 toolRouter.get('/', getTool);
 

@@ -6,8 +6,8 @@ const userRouter = require('express').Router();
 userRouter.post('/registration', postRegistration);
 userRouter.post('/login', postLogin);
 
-userRouter.put('/:player_id', putUser);
-// userRouter.put('/:player_id', userAuth, putUser);
+// userRouter.put('/:player_id', putUser);
+userRouter.put('/', userAuth, putUser);
 
 
 module.exports = userRouter;

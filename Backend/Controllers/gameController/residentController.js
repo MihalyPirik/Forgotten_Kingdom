@@ -4,9 +4,11 @@ const uuid = require("uuid");
 
 const getAllResidents = async (req, res, next) => {
     try {
+        const player_id = req.token.id;
+
         const data = await Resident.findAll({
             where: {
-                world_id: req.params.player_id
+                world_id: player_id
             },
             attributes: { exclude: ["world_id", "quest_id"] },
             include: { model: QuestType },
@@ -19,9 +21,11 @@ const getAllResidents = async (req, res, next) => {
 
 const getResidents = async (req, res, next) => {
     try {
+        const player_id = req.token.id;
+
         const data = await Resident.findAll({
             where: {
-                world_id: req.params.player_id,
+                world_id: player_id,
                 blockX: req.params.blockX,
                 blockY: req.params.blockY,
             },
@@ -36,13 +40,14 @@ const getResidents = async (req, res, next) => {
 
 const postResident = async (req, res, next) => {
     try {
+        const world_id = req.token.id;
+
         const objX = req.body.objX;
         const objY = req.body.objY;
         const blockX = req.body.blockX;
         const blockY = req.body.blockY;
         const resident_name = req.body.resident_name;
         const profession = req.body.profession;
-        const world_id = req.body.world_id;
         const quest_id = req.body.quest_id;
         await Resident.create({
             resident_id: uuid.v1(),

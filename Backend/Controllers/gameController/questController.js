@@ -4,12 +4,13 @@ const uuid = require("uuid");
 
 const getQuests = async (req, res, next) => {
     try {
+        const player_id = req.token.id;
         let data = null;
         if (req.params.is_active != undefined) {
             const is_active = req.params.is_active == `true` ? 1 : 0
             data = await Quest.findAll({
                 where: {
-                    player_id: req.params.player_id,
+                    player_id: player_id,
                     is_active: is_active
                 },
                 attributes: { exclude: ["player_id", "quest_id"] },
@@ -19,7 +20,7 @@ const getQuests = async (req, res, next) => {
         else {
             data = await Quest.findAll({
                 where: {
-                    player_id: req.params.player_id,
+                    player_id: player_id,
                 },
                 attributes: { exclude: ["player_id", "quest_id"] },
                 include: { model: QuestType, attributes: { exclude: ["currentProgress", "targetProgress"] } },
@@ -34,7 +35,8 @@ const getQuests = async (req, res, next) => {
 
 const postQuest = async (req, res, next) => {
     try {
-        const player_id = req.body.player_id;
+        const player_id = req.token.id;
+        
         const quest_id = req.body.quest_id;
         await Quest.create({
             player_id: player_id,
@@ -49,6 +51,8 @@ const postQuest = async (req, res, next) => {
 
 const putQuest = async (req, res, next) => {
     try {
+        const player_id = req.token.id;
+
         const is_completed = req.body.is_completed;
         const is_active = req.body.is_active;
         const currentProgress = req.body.currentProgress;
@@ -62,7 +66,7 @@ const putQuest = async (req, res, next) => {
             },
             {
                 where: {
-                    player_id: req.params.player_id,
+                    player_id: player_id,
                     quest_id: req.params.quest_id
                 },
                 include: { model: QuestType },
@@ -77,7 +81,8 @@ const putQuest = async (req, res, next) => {
 
 const deleteQuest = async (req, res, next) => {
     try {
-        const isDeleted = await Quest.destroy({ where: { quest_id: req.params.quest_id, player_id: req.params.player_id } });
+        const player_id = req.token.id;
+        const isDeleted = await Quest.destroy({ where: { quest_id: req.params.quest_id, player_id: player_id } });
 
         if (isDeleted == 0) {
             return res.status(404).json({ message: "Ilyen küldetés nem létezik!" })

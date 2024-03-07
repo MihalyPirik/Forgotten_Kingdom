@@ -29,11 +29,12 @@ const getBlockEnemies = async (req, res, next) => {
 
 const postEnemy = async (req, res, next) => {
   try {
+    const world_id = req.token.id;
+
     const objX = req.body.objX;
     const objY = req.body.objY;
     const blockX = req.body.blockX;
     const blockY = req.body.blockY;
-    const world_id = req.body.world_id;
     const enemy_type_id = req.body.enemy_type_id;
     await Enemy.create({
       enemy_id: uuid.v1(),

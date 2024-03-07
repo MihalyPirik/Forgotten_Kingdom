@@ -40,22 +40,22 @@ app.use((req, res, next) => {
 app.use("/user", userRouter
 // #swagger.tags = ['User']
 );
-app.use("/:player_id/player", playerRouter
+app.use("/player", playerRouter
 // #swagger.tags = ['Player']
 );
-app.use("/:player_id/enemies", enemyRouter
+app.use("/enemies", enemyRouter
 // #swagger.tags = ['Enemy']
 );
-app.use("/:player_id/residents", residentRouter
+app.use("/residents", residentRouter
 // #swagger.tags = ['Resident']
 );
-app.use("/:player_id/buildings", buildingRouter
+app.use("/buildings", buildingRouter
 // #swagger.tags = ['Building']
 );
-app.use("/:player_id/tool", toolRouter
+app.use("/tool", toolRouter
 // #swagger.tags = ['Tool']
 );
-app.use("/:player_id/quest", questRouter
+app.use("/quest", questRouter
 // #swagger.tags = ['Quest']
 );
 app.use("/market", marketRouter

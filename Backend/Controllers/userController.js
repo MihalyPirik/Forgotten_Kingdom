@@ -45,7 +45,7 @@ const postLogin = async (req, res, next) => {
           expiresIn: "1h",
         });
         res.setHeader("Authorization", `Bearer ${token}`);
-        res.status(200).json({ data: {message: "Sikeres bejelentkezés!"} });
+        res.status(200).json({ data: {message: "Sikeres bejelentkezés!", token: token} });
       } else {
         res.status(401).json({ message: "Hibás jelszó!" });
       }
@@ -59,6 +59,8 @@ const postLogin = async (req, res, next) => {
 
 const putUser = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
     const player_name = req.body.player_name;
     const email = req.body.email;
     const password = req.body.password;
@@ -72,7 +74,7 @@ const putUser = async (req, res, next) => {
       },
       {
         where: {
-          player_id: req.params.player_id,
+          player_id: player_id,
         },
       }
     );
