@@ -15,7 +15,7 @@ export class Player extends Entity {
       this.money=money
       this.isDead=false
       this.#money=money
-      this.attackradius=10
+      this.attackradius=50
       this.inventory=inventory
       this.HP=HP
       this.#hp=HP
@@ -63,7 +63,7 @@ return this.#money
             e.offsetY<enemy.objY+enemy.radius
             )
             {
-              if(this.attack.timer>this.attack.interval){
+              if(this.attack.timer>this.attack.interval && Math.abs(enemy.objX-this.objX)<this.attackradius && Math.abs(enemy.objY-this.objY)<this.attackradius){
                 this.attack.timer=0
                 enemy.HP=enemy.HP-this.attack.attack
             }

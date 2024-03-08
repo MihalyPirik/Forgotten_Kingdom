@@ -93,11 +93,17 @@ if(playerCollision)
     this.player.HP-=entity.attack.attack
     this.gameView.BindPlayerHealth(this.player)
   }
+if(entity.isDead)
+{
 
+  const index = this.currentBlock.entities.indexOf(entity)
+  this.currentBlock.entities.splice(index,1)
+}
 
 
 entity.objX=newPos.x
 entity.objY=newPos.y
+
 }
 
 for (const barrier of this.currentBlock.barriers)
