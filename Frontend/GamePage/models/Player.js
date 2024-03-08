@@ -11,7 +11,7 @@ export class Player extends Entity {
       this.speed = speed
       this.tools=tools
       this.name=name
-      this.attack={timer:0,attack:10,interval:10}
+      this.attack={timer:0,attack:3,interval:60}
       this.money=money
       this.isDead=false
       this.#money=money
@@ -67,7 +67,6 @@ return this.#money
                 this.attack.timer=0
                 enemy.HP=enemy.HP-this.attack.attack
             }
-            this.attack.timer++
             }
           }
       }

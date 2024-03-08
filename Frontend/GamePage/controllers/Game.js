@@ -67,6 +67,7 @@ export class GameController {
         {
           return
         }
+        this.player.attack.timer++
 this.gameView.ClearContext()
 
         let newPlayerPos=SpriteController.MovePlayer(this.player)
