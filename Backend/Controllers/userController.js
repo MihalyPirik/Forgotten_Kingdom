@@ -45,7 +45,7 @@ const postLogin = async (req, res, next) => {
           expiresIn: "1h",
         });
         res.setHeader("Authorization", `Bearer ${token}`);
-        res.status(200).json({ data: {message: "Sikeres bejelentkezés!", token: token} });
+        res.status(200).json({ data: {message: "Sikeres bejelentkezés!"} });
       } else {
         res.status(401).json({ message: "Hibás jelszó!" });
       }
@@ -64,7 +64,11 @@ const putUser = async (req, res, next) => {
     const player_name = req.body.player_name;
     const email = req.body.email;
     const password = req.body.password;
-    const hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
+    let hashPassword;
+    console.log(password);
+    if (password) {
+      hashPassword = await bcrypt.hash(password, await bcrypt.genSalt(10));
+    }
 
     await Player.update(
       {
