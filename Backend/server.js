@@ -1,6 +1,7 @@
 require("dotenv").config();
 const cookie = require("cookie-parser");
 const express = require("express");
+const cors = require('cors');
 const app = express();
 require("./services/dbService");
 require("./models/relations");
@@ -22,7 +23,7 @@ app.use(
   swaggerUi.setup(swaggerFile)
 );
 
-
+app.use(cors());
 app.use(cookie());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

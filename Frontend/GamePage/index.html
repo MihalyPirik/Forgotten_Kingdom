@@ -1,77 +1,83 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
     <!-- <img src="bull.png" id="bull">
     <img src="lime2.jpg" id="lime2"> -->
-    
+
     <canvas id="game"></canvas>
-    <img src="./assets/directionSigns.png" class="relative" id="arrow1">
-    <img src="./assets/directionSigns.png" class="relative" id="arrow2">
+    <img src="./assets/directionSigns.png" class="relative" id="arrow1" />
+    <img src="./assets/directionSigns.png" class="relative" id="arrow2" />
 
+    <template id="blockChange">
+      <input type="button" value="Ugrás a {{name}} - re" />
+    </template>
+    <template id="navigationPanel">
+      <input type="button" id="forward" value="Ugrás {{name}}" />
+      <input type="button" id="backward" value="Ugrás {{name}}" />
+      <ul>
+        <li>
+          <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+          </ul>
+        </li>
+      </ul>
+    </template>
 
-<template id="blockChange">
+    <template id="HighlightEntities">
+      <p>{{name}}</p>
+      <p>{{level}}</p>
+      <div id="HP"><div></div></div>
+    </template>
 
-        <input type="button" value="Ugrás a {{name}} - re">
+    <template id="dead">
+      <p>Meghaltál!</p>
+      <input type="button" value="Újraéledés" />
+    </template>
 
-</template>
-<template id="navigationPanel">
-<input type="button" id="forward" value="Ugrás {{name}}">
-<input type="button" id="backward" value="Ugrás {{name}}">
-<ul>
-    <li><ul>
-        <li>a</li>
-        <li>b</li>
-        <li>c</li>
-    </ul></li>
-</ul>
-</template>
+    <div id="charStats">
+      <div>
+        <img id="pfp" src="./assets/pfpBorder.png" />
+        <div class="progress">
+          <div class="bar">100/100</div>
+        </div>
+      </div>
+      <span>
+        <span id="money" data-title="Pénz"
+          ><img class="navIMG" src="./assets/coinIcon.png" /><span></span
+        ></span>
+        <span id="sword" data-title="Kard"
+          ><img class="navIMG" src="./assets/icons/swordIcon.png" /><span
+            >stat</span
+          ></span
+        >
+      </span>
 
-<template id="HighlightEntities">
-<p>{{name}}</p>
-<p>{{level}}</p>
-<div id="HP"><div></div></div>
-</template>
-
-<template id="dead">
-    <p>Meghaltál!</p>
-    <input type="button" value="Újraéledés">
-</template>
-
-<div id="charStats">
-<div>
-    <img id="pfp" src="./assets/pfpBorder.png">
-<div class="progress">
-    <div class="bar">100/100</div>
-  </div>
-</div>
-<span>
-<span id="money" data-title="Pénz"><img class="navIMG" src="./assets/coinIcon.png"><span></span></span>
-<span id="sword" data-title="Kard"><img class="navIMG" src="./assets/icons/swordIcon.png"><span>stat</span></span>
-</span>
-
-<br>
-<span id="inventory" data-title="Inventory"><img class="navIMG" src="./assets/bagIcon.png"></span>
-    
- 
-    
-    
-
-</div>
-<span data-title="Kilépés" id="logout"><img class="navIMG" src="./assets/logout.png"></span>
-<span id="clock" data-title="Óra"><img src="./assets/pocketWatch.png" class="navIMG"></span>
-<span id="map" data-title="Mini térkép"><img class="navIMG" src="./assets/mapIcon.png"></span>
-<p id="mouseCoordinates" class="relative">
-</p>
+      <br />
+      <span id="inventory" data-title="Inventory"
+        ><img class="navIMG" src="./assets/bagIcon.png"
+      /></span>
+    </div>
+    <span data-title="Kilépés" id="logout"
+      ><img class="navIMG" src="./assets/logout.png"
+    /></span>
+    <span id="clock" data-title="Óra"
+      ><img src="./assets/pocketWatch.png" class="navIMG"
+    /></span>
+    <span id="map" data-title="Mini térkép"
+      ><img class="navIMG" src="./assets/mapIcon.png"
+    /></span>
+    <p id="mouseCoordinates" class="relative"></p>
 
     <script type="module" src="main.js"></script>
-   <!-- <script type="module" src="./services/test.js"></script>  teszt -->
+    <script type="module" src="./services/test.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
-    
-</body>
+  </body>
 </html>
