@@ -54,7 +54,7 @@ async function init(game)
 {
 
 
-  game.player=new Player('valami',character,10,100,{stone:100,wood:100,fish:100,coal:100,iron:100,wheat:100},game)
+  game.player=new Player('valami',character,100,100,{stone:100,wood:100,fish:100,coal:100,iron:100,wheat:100},game)
 InitEvents(game)
 
 
