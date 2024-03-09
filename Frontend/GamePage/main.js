@@ -28,8 +28,6 @@ const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
  const parsedToken=token?JSON.parse(atob(token.split('.')[1])):'e8c92350-c59c-11ee-aab5-e980bbd7a2f9'
-gameCanvas.width = innerWidth * 0.5
-gameCanvas.height = innerHeight
 
 const character=new Image()
 character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
@@ -37,8 +35,6 @@ character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
 window.addEventListener('load', () => {
   const gameView=new GameView(gameCanvas)
-  gameView.context.fillStyle='white'
-  gameView.context.strokeStyle='white'
   const game= new GameController([
     [Kastély,Malom,Bánya,Szörny1],
     [Kovács,Piac,Erdő,Szörny2],
@@ -63,7 +59,7 @@ window.addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.de
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[2][2](game)
+game.isometricBlocks[2][1](game)
 game.player.objX=game.width*0.488
 game.player.objY=game.height*0.541
 gameView.SetBackGround(game.currentBlock.backGround.src)

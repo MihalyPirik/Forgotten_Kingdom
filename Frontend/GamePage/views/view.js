@@ -15,6 +15,7 @@ export class GameView
      */
     this.context=canvas.getContext('2d')
     this.game=game
+    this.#InitCanvas()
   }
   /**
  * 
@@ -22,7 +23,6 @@ export class GameView
  */
 RenderEntity=(entity)=>
 {
-  this.context.lineWidth=4
   entity.spriteX = entity.objX - entity.width * 0.5
       entity.spriteY = entity.objY - entity.height * 0.5 - entity.radius
     this.context.drawImage(
@@ -77,6 +77,16 @@ RenderEntity=(entity)=>
           }
         }
       }
+}
+
+
+#InitCanvas()
+{
+this.canvas.width = innerWidth * 0.5
+this.canvas.height = innerHeight
+this.context.fillStyle='white'
+  this.context.strokeStyle='white'
+  this.context.lineWidth=4
 }
 BindPlayerHealth=(player)=>
 {
