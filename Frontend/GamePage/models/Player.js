@@ -14,6 +14,8 @@ export class Player extends Entity {
       this.attack={timer:0,attack:3,interval:60}
       this.money=money
       this.isDead=false
+      this.isFishing={timer:0,interval:10,is:false}
+      this.isMining=false
       this.#money=money
       this.attackradius=50
       this.inventory=inventory
@@ -76,5 +78,21 @@ return this.#money
       this.money-=10
       this.game.isometricBlocks[0][0](this.game)
       this.isDead=false
+    }
+    Fishing=()=>
+    {
+      let inInter
+      this.isFishing.is = true
+      inInter = setInterval(()=>
+      {
+        this.isFishing.timer++
+        PanelView.BindFishProgress(this.isFishing.timer)
+        if(this.isFishing.timer>this.isFishing.interval){
+          this.isFishing.timer=0
+          this.isFishing.is = false
+          clearInterval(inInter)
+        }
+      },1000)
+      
     }
   }

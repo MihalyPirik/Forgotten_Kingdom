@@ -36,7 +36,7 @@ RenderEntity=(entity)=>
         entity.width,
         entity.height
       )
-      if (this.game.debug.key == 'f' || true) {
+      if (this.game.debug.key == 'f') {
         this.context.beginPath()
         this.context.arc(
           entity.objX,
@@ -186,6 +186,14 @@ static BindMonsterHP(monster)
 
 export class PanelView {
 
+  static panelShowed = new CustomEvent('panelShowed',{bubbles:true,detail:
+    {
+      panel:undefined
+    }})
+    static panelHide = new CustomEvent('panelHide',{bubbles:true,detail:
+      {
+        panel:undefined
+      }}) 
 static #CreatePanelElement(panelInstance)
 {
   const div = document.createElement('div')
@@ -204,12 +212,17 @@ static #CreatePanelElement(panelInstance)
         PanelView.#processElement(div, panelInstance.context)
       
         document.querySelector('body').append(div);
+this.panelShowed.detail.panel = panelInstance
+        div.dispatchEvent(this.panelShowed)
       div.style.top = panelInstance.y - div.offsetHeight + 'px';
       div.style.left = panelInstance.x + 'px';
   }
   static HidePanel(panelInstance)
   {
-    document.querySelector('div#'+panelInstance.id).remove()
+    const el=document.querySelector('div#'+panelInstance.id)
+    this.panelHide.detail.panel = panelInstance
+    el.dispatchEvent(this.panelHide)
+    el.remove()
   }
   static GetOwnTemplate(panelInstance)
   {
@@ -300,7 +313,6 @@ if(el){
 const div=this.#CreatePanelElement("dead")
 console.log(div);
 const button=div.querySelector('input[type="button"]')
-console.log(button);
 button.addEventListener('click',player.Respawn,{once:true})
 button.addEventListener('click',this.HideDeathDialog,{once:true})
 document.querySelector('body').append(div)
@@ -316,5 +328,23 @@ document.querySelector('body').append(div)
   }
 
 
-
+static ShowFishingProgress()
+{
+  let el=document.getElementById('fishProgress')
+  if(el)
+  {
+    return
+  }
+  el = document.createElement('div')
+  el.id = "fishProgress"
+  el.style.height = 60+"px"
+  el.style.backgroundColor = 'green'
+  console.log(document.getElementById('Fishing'));
+  document.querySelector('div#Fishing').append(el)
+}
+static BindFishProgress(value)
+{
+  const el=document.getElementById('fishProgress')
+  el.style.width = el.parentElement.offsetWidth*value/10 + '%'
+}
 }

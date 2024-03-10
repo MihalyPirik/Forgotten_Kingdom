@@ -63,7 +63,7 @@ export class GameController {
     gameLoop(deltaTime) {
 
       if (this.timer > this.interval) {
-        if(this.player.isDead)
+        if(this.player.isDead || this.player.isFishing.is)
         {
           return
         }
