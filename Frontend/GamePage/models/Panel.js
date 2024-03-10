@@ -1,6 +1,5 @@
 export class Panel {
-    constructor(name, id, x, y, radius, isNavigationPanel ,context = null) {
-      this.name=name
+    constructor(id, x, y, radius, isNavigationPanel ,context = null) {
       this.id=id
         this.x = x
         this.y = y
