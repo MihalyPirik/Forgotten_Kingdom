@@ -25,11 +25,14 @@ export const InitEvents=(game)=>
     document.getElementById('game').addEventListener('mousemove',(e)=>{PanelController.GetEntityOnMouse(e,game.currentBlock.entities)})
     document.getElementById('game').addEventListener('click',(e)=>{game.player.Attack(e)})
     addEventListener("panelShowed",(e)=>{
-        if(e.detail.panel.id!="Fishing")
+        if(e.detail.panel.id="Fishing")
         {
-            return
-        }
-        e.target.querySelector('input[type=button]').addEventListener('click',game.player.Fishing)
+            e.target.querySelector('input[type=button]').addEventListener('click',game.player.Fishing)
         e.target.querySelector('input[type=button]').addEventListener('click',PanelView.ShowFishingProgress)
+        }
+        if(e.detail.panel.id="NPCPanel")
+        {
+            PanelView.NPCPanel(e.detail.panel,e.target)
+        }
     })
 }

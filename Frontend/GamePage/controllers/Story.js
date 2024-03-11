@@ -59,6 +59,7 @@ addEventListener('conversationFinished',()=>{
             this.currentConversationPanel.querySelector('button').removeEventListener('click',this)
             this.currentConversationPanel.remove()
             this.gameController.player.isInConversation = false
+            return
         }
         index++
         this.HideConversationPanel()

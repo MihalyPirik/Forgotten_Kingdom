@@ -347,4 +347,32 @@ static BindFishProgress(value)
   const el=document.getElementById('fishProgress')
   el.style.width = el.parentElement.offsetWidth*value/10 + '%'
 }
+
+
+static NPCPanel(panel,element)
+{
+  const resident = panel.context
+  const player = resident.game.player
+  if(resident.quest)
+  {
+    if(quest.quest.ismainstory)
+    {
+
+    }
+    else
+    {
+      if(quest.is_completed)
+      {
+        return
+      }
+      if(quest.is_active)
+      {
+
+      }
+    }
+  }
+
+}
+
+
 }
