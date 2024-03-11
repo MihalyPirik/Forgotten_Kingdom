@@ -15,6 +15,7 @@ import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from './services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
 import { InitEvents } from './views/Events.js'
+import { Story } from './controllers/Story.js'
 
 const gameCanvas = document.querySelector('canvas')
 
@@ -46,6 +47,9 @@ gameView.game=game
   
 init(game)
 
+Story.gameController = game
+Story.gameView = gameView
+Story.First()
 async function init(game)
 {
 

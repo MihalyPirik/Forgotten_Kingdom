@@ -14,6 +14,7 @@ export class Player extends Entity {
       this.attack={timer:0,attack:3,interval:60}
       this.money=money
       this.isDead=false
+      this.isInConversation = false
       this.isFishing={timer:0,interval:10,is:false}
       this.isMining=false
       this.#money=money
