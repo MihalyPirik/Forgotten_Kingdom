@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 require("./services/dbService");
 require("./models/relations");
-const { errorHandler } = require("./controllers/errorController");
+const { errorHandler } = require("./Controllers/errorController");
 const userRouter = require("./routes/userRoutes");
 const playerRouter = require("./routes/gameRoutes/playerRoutes");
 const enemyRouter = require("./routes/gameRoutes/enemyRoutes");
