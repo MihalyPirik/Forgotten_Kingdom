@@ -1,4 +1,4 @@
-const { getAllEnemies, getBlockEnemies, postEnemy, putEnemy, deleteEnemy } = require('../../controllers/gameController/enemyController');
+const { getAllEnemies, getBlockEnemies, postEnemy, putEnemy, deleteEnemy } = require('../../Controllers/gameController/enemyController');
 const { userAuth } = require('../../middlewares/auth');
 
 const enemyRouter = require('express').Router({ mergeParams: true });

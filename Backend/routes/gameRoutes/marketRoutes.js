@@ -1,4 +1,4 @@
-const { getAllOffer, getAllPlayerOffer, postOffer, putOffer, deleteOffer } = require('../../controllers/gameController/marketController');
+const { getAllOffer, getAllPlayerOffer, postOffer, putOffer, deleteOffer } = require('../../Controllers/gameController/marketController');
 const { userAuth } = require('../../middlewares/auth');
 
 const marketRouter = require('express').Router({ mergeParams: true });

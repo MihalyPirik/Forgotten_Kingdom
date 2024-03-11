@@ -1,4 +1,4 @@
-const { getTool, postTool, putTool, deleteTool } = require('../../controllers/gameController/toolController');
+const { getTool, postTool, putTool, deleteTool } = require('../../Controllers/gameController/toolController');
 const { userAuth } = require('../../middlewares/auth');
 
 const toolRouter = require('express').Router({ mergeParams: true });

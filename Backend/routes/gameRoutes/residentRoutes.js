@@ -1,4 +1,4 @@
-const { getAllResidents, getResidents, postResident, putResident, deleteResident } = require('../../controllers/gameController/residentController');
+const { getAllResidents, getResidents, postResident, putResident, deleteResident } = require('../../Controllers/gameController/residentController');
 const { userAuth } = require('../../middlewares/auth');
 
 const residentRouter = require('express').Router({ mergeParams: true });

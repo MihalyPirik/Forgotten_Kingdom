@@ -1,4 +1,4 @@
-const { getAllData, getInventory, putPlayer, deletePlayer } = require('../../controllers/gameController/playerController');
+const { getAllData, getInventory, putPlayer, deletePlayer } = require('../../Controllers/gameController/playerController');
 const { userAuth } = require('../../middlewares/auth');
 
 const playerRouter = require('express').Router({ mergeParams: true });
