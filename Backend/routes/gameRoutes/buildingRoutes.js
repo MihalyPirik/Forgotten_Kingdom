@@ -1,4 +1,4 @@
-const { getAllBuildings, postBuilding, putBuilding, deleteBuilding } = require('../../Controllers/gameController/buildingController')
+const { getAllBuildings, postBuilding, putBuilding, deleteBuilding } = require('../../controllers/gameController/buildingController')
 const { userAuth } = require('../../middlewares/auth')
 
 const buildingRouter = require('express').Router({ mergeParams: true })

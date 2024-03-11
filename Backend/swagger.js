@@ -7,15 +7,19 @@ const options={
         title:"Forgotten Kingdom",
         description:"A dokumentációt a <b>swagger-autogen</b> generálta"
     },
-    securityDefinitions: {
-        jwt: {
-          type: 'http',
-          in: 'header',
-          scheme:"bearer",
-          name: 'Authorization',
-          description: 'A felhasználó hitelesístésre használt tokenje'
+      servers: [
+        {
+          url: "https://forgottenkingdom.cyclic.app/"
         }
-      }
+      ],
+      components: {
+        securitySchemes:{
+            bearerAuth: {
+                type: 'http',
+                scheme: 'bearer'
+            }
+        }
+    }
 }
 
 swaggerAutogen(outputFile, endpointsFiles,options)

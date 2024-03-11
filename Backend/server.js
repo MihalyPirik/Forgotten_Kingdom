@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 require("./services/dbService");
 require("./models/relations");
-const { errorHandler } = require("./Controllers/errorController");
+const { errorHandler } = require("./controllers/errorController");
 const userRouter = require("./routes/userRoutes");
 const playerRouter = require("./routes/gameRoutes/playerRoutes");
 const enemyRouter = require("./routes/gameRoutes/enemyRoutes");
@@ -16,6 +16,8 @@ const toolRouter = require("./routes/gameRoutes/toolRoutes");
 const questRouter = require("./routes/gameRoutes/questRoutes");
 const swaggerFile = require("./swagger_output.json")
 const swaggerUi = require("swagger-ui-express")
+
+
 
 app.use(
   "/api-docs",
@@ -43,6 +45,9 @@ app.use("/user", userRouter
 );
 app.use("/player", playerRouter
 // #swagger.tags = ['Player']
+/* #swagger.security = [{
+            "bearerAuth": []
+    }] */
 );
 app.use("/enemies", enemyRouter
 // #swagger.tags = ['Enemy']
@@ -66,5 +71,5 @@ app.use("/market", marketRouter
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
-  console.log("Server started at port " + process.env.PORT);
+  console.log("Server started at port " + process.env.PORT || 3000);
 });

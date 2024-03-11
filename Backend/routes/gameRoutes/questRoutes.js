@@ -1,4 +1,4 @@
-const { getQuests, postQuest, putQuest, deleteQuest } = require('../../Controllers/gameController/questController');
+const { getQuests, postQuest, putQuest, deleteQuest } = require('../../controllers/gameController/questController');
 const { userAuth } = require('../../middlewares/auth');
 
 const questRouter = require('express').Router({ mergeParams: true });
