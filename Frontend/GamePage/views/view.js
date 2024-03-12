@@ -362,7 +362,7 @@ static NPCPanel(panel,element)
     {
       if(quest.is_completed)
       {
-        return
+        
       }
       if(quest.is_active)
       {
@@ -381,7 +381,7 @@ static NPCPanel(panel,element)
     {
       if(quest.is_completed)
       {
-        return
+        
       }
       if(quest.is_active)
       {

@@ -81,6 +81,10 @@ if(playerCollision)
   {
     newPos=playerCollision[0]
   }
+  if(entity instanceof NPC)
+  {
+    newPlayerPos = playerCollision[1]
+  }
   else
   {
     newPos=playerCollision[0]
