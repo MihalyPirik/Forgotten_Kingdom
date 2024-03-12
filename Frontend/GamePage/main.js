@@ -49,7 +49,7 @@ init(game)
 
 Story.gameController = game
 Story.gameView = gameView
-Story.First()
+
 async function init(game)
 {
 

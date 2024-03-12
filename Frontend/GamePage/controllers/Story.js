@@ -19,7 +19,7 @@ export class Story
         const panel = document.createElement('div')
         panel.classList.add('conversationPanel')
         document.querySelector('body').append(panel)
-        this.currentConversationPanel = panel
+        Story.currentConversationPanel = panel
         let index = 0
         const inter = setInterval(()=>{
             panel.innerHTML+=
@@ -30,7 +30,7 @@ export class Story
 const button = document.createElement('button')
 button.innerText = 'Következő'
 panel.append(button)
-                    dispatchEvent(this.conversationFinished)
+                    dispatchEvent(Story.conversationFinished)
 
             }
         },conversationtexts[currentDialogueIndex].length/5)
@@ -38,7 +38,7 @@ panel.append(button)
     }
     static HideConversationPanel()
     {
-        this.currentConversationPanel.remove()
+        Story.currentConversationPanel.remove()
     }
     static async LoadFile(fileName)
     {
@@ -49,23 +49,25 @@ panel.append(button)
 
     static async First()
     {
-        let index = 0
-        this.gameController.player.isInConversation = true
-        const array = await this.LoadFile('first.txt')
+        
+        let index = 18
+        Story.gameController.player.isInConversation = true
+        
+        const array = await Story.LoadFile('first.txt')
 addEventListener('conversationFinished',()=>{
-    this.currentConversationPanel.querySelector('button').addEventListener('click',()=>{
+    Story.currentConversationPanel.querySelector('button').addEventListener('click',()=>{
         if(index == array.length-1)
         {
-            this.currentConversationPanel.querySelector('button').removeEventListener('click',this)
-            this.currentConversationPanel.remove()
-            this.gameController.player.isInConversation = false
+            Story.currentConversationPanel.querySelector('button').removeEventListener('click',Story)
+            Story.currentConversationPanel.remove()
+            Story.gameController.player.isInConversation = false
             return
         }
         index++
-        this.HideConversationPanel()
-        this.ShowConversationPanel(array,index)
+        Story.HideConversationPanel()
+        Story.ShowConversationPanel(array,index)
     })
 })
-    this.ShowConversationPanel(array,index)
+    Story.ShowConversationPanel(array,index)
     }
 }

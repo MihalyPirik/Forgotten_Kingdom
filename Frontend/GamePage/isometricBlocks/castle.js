@@ -4,6 +4,8 @@ import { Line } from '../models/Line.js'
 import { Point } from '../models/Point.js'
 import { IsometricBlock } from '../models/isometricBlock.js'
 import { Panel } from '../models/Panel.js'
+import { NPC } from '../models/NPC.js'
+import { Story } from '../controllers/Story.js'
 /**
  * 
  * x: 0.339, 0.423
@@ -12,10 +14,25 @@ import { Panel } from '../models/Panel.js'
 const backGround=new Image()
 backGround.src="./assets/blocks/Castle.png"
 
+const charSprite=new Image()
+charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
+
 export const Kastély=(game)=>{
-    
+
+    const npc = new NPC(game,"John",charSprite,game.width*0.5,game.height*0.5,"Kovács",null,{
+        is_completed:false,
+        is_active:false,
+        QuestType:{
+            quest_name: "Küldetés",
+            description: "Vegyél 20 fánkot!",
+            ismainstory: true
+        }
+    },Story.First)
+    const npcPanel = new Panel("NPCPanel",game.width*0.5,game.height*0.5,game.width*0.04,false,npc)
    game.currentBlock=new IsometricBlock(
-    "Kastély",backGround,null,[],
+    "Kastély",backGround,null,[
+      npc  
+    ],
     [
 new Line(new Point(game.width*0.2,game.height*0.83),new Point(game.width*0.34,game.height*0.74)),
 new Line(new Point(game.width*0.33,game.height*0.75),new Point(game.width*0.43,game.height*0.728),500),
@@ -32,7 +49,8 @@ new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,
     ],
     [
         new Panel('navigationPanel',game.width*0.79,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1}),
-        new Panel('navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1})
+        new Panel('navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1}),
+        npcPanel
     ]
    )
    game.player.width=game.width*0.08

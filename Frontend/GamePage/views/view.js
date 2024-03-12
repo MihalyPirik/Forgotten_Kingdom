@@ -221,8 +221,10 @@ this.panelShowed.detail.panel = panelInstance
   {
     const el=document.querySelector('div#'+panelInstance.id)
     this.panelHide.detail.panel = panelInstance
+    if(el){
     el.dispatchEvent(this.panelHide)
     el.remove()
+    }
   }
   static GetOwnTemplate(panelInstance)
   {
@@ -352,12 +354,28 @@ static BindFishProgress(value)
 static NPCPanel(panel,element)
 {
   const resident = panel.context
-  const player = resident.game.player
-  if(resident.quest)
+  const quest = resident.quest
+  const el = element
+  if(quest)
   {
-    if(quest.quest.ismainstory)
+    if(quest.QuestType.ismainstory)
     {
-
+      if(quest.is_completed)
+      {
+        return
+      }
+      if(quest.is_active)
+      {
+        const P = document.createElement('p')
+        P.innerText = "Bízunk benned lelkes utazó!"
+        el.append(P)
+      }
+      else{
+        const but = document.createElement('button')
+        but.id = "StartButton"
+        but.innerText = "Párbeszéd indítása"
+        el.append(but)
+      }
     }
     else
     {
@@ -368,6 +386,15 @@ static NPCPanel(panel,element)
       if(quest.is_active)
       {
 
+      }
+      else{
+        const but = document.createElement('button')
+        const p = document.createElement('p')
+        p.innerText = "Szia van egy küldetésem számodra!"
+        but.innerText = "Küldetés felvétele"
+        el.append(p)
+        el.append(but)
+        
       }
     }
   }

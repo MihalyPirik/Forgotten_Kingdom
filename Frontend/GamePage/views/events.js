@@ -1,4 +1,5 @@
 import { PanelController } from "../controllers/Panel.js";
+import { Story } from "../controllers/Story.js";
 import { GameView, PanelView } from "./view.js";
 
 
@@ -25,14 +26,21 @@ export const InitEvents=(game)=>
     document.getElementById('game').addEventListener('mousemove',(e)=>{PanelController.GetEntityOnMouse(e,game.currentBlock.entities)})
     document.getElementById('game').addEventListener('click',(e)=>{game.player.Attack(e)})
     addEventListener("panelShowed",(e)=>{
-        if(e.detail.panel.id="Fishing")
+        console.log(e.target);
+        if(e.detail.panel.id=="Fishing")
         {
             e.target.querySelector('input[type=button]').addEventListener('click',game.player.Fishing)
         e.target.querySelector('input[type=button]').addEventListener('click',PanelView.ShowFishingProgress)
         }
-        if(e.detail.panel.id="NPCPanel")
+        if(e.detail.panel.id=="NPCPanel")
         {
             PanelView.NPCPanel(e.detail.panel,e.target)
+            e.target.querySelector("#StartButton")?e.target.querySelector("#StartButton").addEventListener('click',()=>{
+                PanelView.HidePanel(e.detail.panel)
+                e.detail.panel.context.mainStory()
+                e.detail.panel.context.quest.is_active = true
+            }):null
         }
     })
+    
 }
