@@ -330,31 +330,29 @@ document.querySelector('body').append(div)
   }
 
 
-static ShowFishingProgress()
+static ShowProgress()
 {
-  let el=document.getElementById('fishProgress')
+  let el=document.getElementById('ActionProgress')
   if(el)
   {
     return
   }
   el = document.createElement('div')
-  el.id = "fishProgress"
+  el.id = "ActionProgress"
   el.style.height = 60+"px"
   el.style.backgroundColor = 'green'
-  console.log(document.getElementById('Fishing'));
-  document.querySelector('div#Fishing').append(el)
+  document.querySelector('div#Action').append(el)
 }
-static BindFishProgress(value)
+static BindProgress(value)
 {
-  const el=document.getElementById('fishProgress')
+  const el=document.getElementById('ActionProgress')
   el.style.width = el.parentElement.offsetWidth*value/10 + '%'
 }
 
 
 static NPCPanel(panel,element)
-{
-  const resident = panel.context
-  const quest = resident.quest
+{ 
+  const quest = panel.context.quest
   const el = element
   if(quest)
   {
@@ -362,7 +360,12 @@ static NPCPanel(panel,element)
     {
       if(quest.is_completed)
       {
-        
+        const but=document.createElement('button')
+        but.value = "Párbeszéd indítása"
+        but.addEventListener('click',()=>{
+          console.log('generate new quest');
+        })
+        el.innerHTML = but
       }
       if(quest.is_active)
       {
@@ -381,11 +384,18 @@ static NPCPanel(panel,element)
     {
       if(quest.is_completed)
       {
-        
+        const but=document.createElement('button')
+        but.value = "Küldetés leadása"
+        but.addEventListener('click',()=>{
+          console.log('generate new quest');
+        })
+        el.innerHTML = but
       }
       if(quest.is_active)
       {
-
+        const P = document.createElement('p')
+        P.innerText = "Bízunk benned lelkes utazó!"
+        el.append(P)
       }
       else{
         const but = document.createElement('button')
@@ -394,7 +404,6 @@ static NPCPanel(panel,element)
         but.innerText = "Küldetés felvétele"
         el.append(p)
         el.append(but)
-        
       }
     }
   }

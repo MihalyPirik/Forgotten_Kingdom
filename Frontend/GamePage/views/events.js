@@ -26,20 +26,30 @@ export const InitEvents=(game)=>
     document.getElementById('game').addEventListener('mousemove',(e)=>{PanelController.GetEntityOnMouse(e,game.currentBlock.entities)})
     document.getElementById('game').addEventListener('click',(e)=>{game.player.Attack(e)})
     addEventListener("panelShowed",(e)=>{
-        console.log(e.target);
-        if(e.detail.panel.id=="Fishing")
+        if(e.detail.panel.id=="Action")
         {
-            e.target.querySelector('input[type=button]').addEventListener('click',game.player.Fishing)
-        e.target.querySelector('input[type=button]').addEventListener('click',PanelView.ShowFishingProgress)
+            e.target.querySelector('input[type=button]').addEventListener('click',game.player.Action)
+        e.target.querySelector('input[type=button]').addEventListener('click',PanelView.ShowProgress)
         }
         if(e.detail.panel.id=="NPCPanel")
         {
             PanelView.NPCPanel(e.detail.panel,e.target)
+            if(e.detail.panel.context.quest.QuestType.ismainstory){
             e.target.querySelector("#StartButton")?e.target.querySelector("#StartButton").addEventListener('click',()=>{
                 PanelView.HidePanel(e.detail.panel)
                 e.detail.panel.context.mainStory()
                 e.detail.panel.context.quest.is_active = true
-            }):null
+            },{once:true}):null
+        }
+        else
+        {
+            if(!e.detail.panel.context.quest.is_active)
+            {
+                e.target.querySelector('button').addEventListener('click',()=>{
+                    e.detail.panel.context.quest.is_active = true
+                },{once:true})
+            }
+        }
         }
     })
     

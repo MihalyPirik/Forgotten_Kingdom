@@ -78,7 +78,7 @@ export const Horgásztó=(game)=>{
         [
             new Panel('navigationPanel',0.786*game.width,0.758*game.height,100,{forwardId:'forward',backwardId:'backward',direction:1},game),
             new Panel('navigationPanel',0.267*game.width,0.794*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game),
-            new Panel('Fishing',game.width*0.5,game.height*0.59,game.width*0.04,false)
+            new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Horgászás"})
         ]
 
     )

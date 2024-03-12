@@ -2,7 +2,7 @@ import { PanelView } from "../views/view.js"
 import { Entity } from "./Entity.js"
 import { Monster } from "./Monster.js"
 import { Point } from "./Point.js"
-
+import {Random} from '../utils/probability.js'
 export class Player extends Entity {
   #money=null
   #hp=null
@@ -13,10 +13,8 @@ export class Player extends Entity {
       this.name=name
       this.attack={timer:0,attack:3,interval:60}
       this.money=money
-      this.isDead=false
       this.isInConversation = false
-      this.isFishing={timer:0,interval:10,is:false}
-      this.isMining=false
+      this.isAction={timer:0,interval:10,is:false}
       this.#money=money
       this.attackradius=50
       this.inventory=inventory
@@ -80,17 +78,22 @@ return this.#money
       this.game.isometricBlocks[0][0](this.game)
       this.isDead=false
     }
-    Fishing=()=>
+    Action=()=>
     {
       let inInter
-      this.isFishing.is = true
+      this.isAction.is = true
       inInter = setInterval(()=>
       {
-        this.isFishing.timer++
-        PanelView.BindFishProgress(this.isFishing.timer)
-        if(this.isFishing.timer>this.isFishing.interval){
-          this.isFishing.timer=0
-          this.isFishing.is = false
+        this.isAction.timer++
+        PanelView.BindProgress(this.isAction.timer)
+        if(this.isAction.timer>this.isAction.interval){
+          this.isAction.timer=0
+          const gottenItemCount=Random(1,3)
+          if(this.game.currentBlockX == 2 && this.game.currentBlockY == 1)
+          {
+            this.inventory.fish+=gottenItemCount
+          }
+          this.isAction.is = false
           clearInterval(inInter)
         }
       },1000)

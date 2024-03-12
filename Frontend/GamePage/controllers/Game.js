@@ -36,9 +36,6 @@ export class GameController {
        */
       this.currentBlock=currentBlock
       this.#currentBlock=currentBlock
-      // Csak teszt jellegű jellemzők
-      this.valami="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-      this.name="Malom:"
     }
     set currentBlock(value)
     {
@@ -63,7 +60,7 @@ export class GameController {
     gameLoop(deltaTime) {
 
       if (this.timer > this.interval) {
-        if(this.player.isDead || this.player.isFishing.is || this.player.isInConversation)
+        if(this.player.isDead || this.player.isAction.is || this.player.isInConversation)
         {
           return
         }

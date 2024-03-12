@@ -47,27 +47,39 @@ panel.append(button)
         return array
     }
 
-    static async First()
+    static async BasePlayConversation(filename,callback)
     {
         
-        let index = 18
+        let index = 0
         Story.gameController.player.isInConversation = true
         
-        const array = await Story.LoadFile('first.txt')
+        const array = await Story.LoadFile(filename)
 addEventListener('conversationFinished',()=>{
     Story.currentConversationPanel.querySelector('button').addEventListener('click',()=>{
         if(index == array.length-1)
         {
             Story.currentConversationPanel.querySelector('button').removeEventListener('click',Story)
             Story.currentConversationPanel.remove()
+            callback instanceof Function?callback():null
             Story.gameController.player.isInConversation = false
             return
         }
         index++
         Story.HideConversationPanel()
+        callback instanceof Function?callback():null
         Story.ShowConversationPanel(array,index)
     })
 })
     Story.ShowConversationPanel(array,index)
+    }
+
+
+    static async First()
+    {
+        Story.BasePlayConversation("first.txt")
+    }
+    static async Second()
+    {
+        Story.BasePlayConversation("second.txt")
     }
 }
