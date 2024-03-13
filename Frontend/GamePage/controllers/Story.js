@@ -1,3 +1,4 @@
+import { NPC } from "../models/NPC.js"
 import { GameView } from "../views/view.js"
 import { GameController } from "./Game.js"
 
@@ -60,26 +61,44 @@ addEventListener('conversationFinished',()=>{
         {
             Story.currentConversationPanel.querySelector('button').removeEventListener('click',Story)
             Story.currentConversationPanel.remove()
-            callback instanceof Function?callback():null
+            callback instanceof Function?callback(index):null
             Story.gameController.player.isInConversation = false
             return
         }
         index++
         Story.HideConversationPanel()
-        callback instanceof Function?callback():null
+        callback instanceof Function?callback(index):null
         Story.ShowConversationPanel(array,index)
     })
 })
+callback instanceof Function?callback(index):null
     Story.ShowConversationPanel(array,index)
     }
-
-
     static async First()
     {
         Story.BasePlayConversation("first.txt")
     }
     static async Second()
     {
-        Story.BasePlayConversation("second.txt")
+        Story.BasePlayConversation("second.txt",(index)=>{
+// kovács, szörnyvadász NPC
+            if(index==0){
+                Story.MoveEntity(Story.gameController.player,Story.gameController.width*0.5,Story.gameController.height*0.5)
+            }
+if(index==4){
+    
+}
+        })
+    }
+    static Third()
+    {
+        Story.BasePlayConversation("third.txt")
+    }
+
+    static MoveEntity(entity, x, y){
+        Story.gameView.context.clearRect(entity.spriteX, entity.spriteY, entity.width, entity.height)
+        entity.objX = x
+        entity.objY = y
+        Story.gameView.RenderEntity(entity)
     }
 }

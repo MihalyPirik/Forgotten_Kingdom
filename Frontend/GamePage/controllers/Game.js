@@ -9,7 +9,7 @@ import { Entity } from "../models/Entity.js";
 
 export class GameController {
   #currentBlock;
-    constructor(isometricBlocks=[[]],gameView,player=null,currentBlock=null,panels=[]) {
+    constructor(isometricBlocks=[[]],gameView,mainQuests=[],player=null,currentBlock=null,panels=[]) {
       /**
        * @type {Array<Array<Function>>}
        */

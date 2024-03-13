@@ -4,6 +4,7 @@ import { Monster } from "../models/Monster.js"
 import { Line } from "../models/Line.js"
 import { Point } from "../models/Point.js"
 import { Circle } from "../models/Circle.js"
+import { Story } from "../controllers/Story.js"
 const monster=new Image()
 monster.src='./assets/monsterSprite.jfif'
 const backGround=new Image()
@@ -41,4 +42,5 @@ export const Szörny1=(game)=>
         new Panel('navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1})
         ]
         )
+        Story.Second()
 }
