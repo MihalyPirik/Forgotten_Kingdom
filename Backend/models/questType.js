@@ -21,10 +21,10 @@ const QuestType = dbConnection.define
                 type: DataTypes.STRING,
                 allowNull: false
             },
-            ismainstory:
+            is_mainstory:
             {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false,
+                type: DataTypes.INTEGER,
+                defaultValue: 0,
                 allowNull: false
             },
             targetProgress:

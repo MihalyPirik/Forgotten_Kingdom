@@ -1,77 +1,77 @@
 {
     "client": "Thunder Client",
     "collectionName": "ForgottenKingdom",
-    "dateExported": "2024-03-08T07:48:05.517Z",
+    "dateExported": "2024-03-14T10:12:52.251Z",
     "version": "1.1",
     "folders": [
         {
-            "_id": "cc60de28-0e56-4dbc-8e52-ba62089da888",
+            "_id": "d7b450d1-ef99-4331-ae6c-7c7a1015f915",
             "name": "User",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.941Z",
+            "created": "2024-03-14T09:15:39.729Z",
             "sortNum": 10000
         },
         {
-            "_id": "7d3d4586-e3b5-4eae-ab8a-afab523dec90",
+            "_id": "95b450e7-cbec-4a87-b49a-7b75ded22a02",
             "name": "Player",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.942Z",
+            "created": "2024-03-14T09:15:39.730Z",
             "sortNum": 20000
         },
         {
-            "_id": "b0cea00f-4d49-4371-badb-6cdb285559d1",
+            "_id": "03986ae3-a804-48c9-a1f9-2e6b1656addf",
             "name": "Enemy",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.943Z",
+            "created": "2024-03-14T09:15:39.731Z",
             "sortNum": 30000
         },
         {
-            "_id": "c9b0666f-16a5-4aeb-bd75-7c7dbdc94ec9",
+            "_id": "18c3cb4b-5925-4867-9f4a-5b5272c5a4cc",
             "name": "Resident",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.944Z",
+            "created": "2024-03-14T09:15:39.732Z",
             "sortNum": 40000
         },
         {
-            "_id": "54a06b15-c5db-44f6-ae32-93e204867a70",
+            "_id": "13e3b6fa-51af-4d5c-9c3b-986ab6e05164",
             "name": "Market",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.945Z",
+            "created": "2024-03-14T09:15:39.733Z",
             "sortNum": 50000
         },
         {
-            "_id": "e00084f2-f396-4e61-8aad-144a4de0cd13",
+            "_id": "c22de10b-9f3f-4a28-a28d-568b52483553",
             "name": "Building",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.946Z",
+            "created": "2024-03-14T09:15:39.734Z",
             "sortNum": 60000
         },
         {
-            "_id": "8779483f-7903-4ae5-b14b-1bb595b205a9",
+            "_id": "59e75d3b-30ca-4737-81aa-b66518ab8e69",
             "name": "Tool",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.947Z",
+            "created": "2024-03-14T09:15:39.735Z",
             "sortNum": 70000
         },
         {
-            "_id": "229d1b05-5bf7-41e9-b25b-dae9c600f99f",
+            "_id": "4ba0a9fc-7116-4b07-9207-72b5f183085d",
             "name": "Quest",
             "containerId": "",
-            "created": "2024-03-08T07:12:51.948Z",
+            "created": "2024-03-14T09:15:39.736Z",
             "sortNum": 80000
         }
     ],
     "requests": [
         {
-            "_id": "18d49710-88db-4e60-816f-00fd1922ba67",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "7d3d4586-e3b5-4eae-ab8a-afab523dec90",
+            "_id": "dfbaa6fc-452a-4882-b281-28dafe84672e",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "95b450e7-cbec-4a87-b49a-7b75ded22a02",
             "name": "getAllData",
             "url": "http://localhost:3000/player",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.944Z",
-            "modified": "2024-03-08T07:15:17.144Z",
+            "created": "2024-03-14T09:15:39.733Z",
+            "modified": "2024-03-14T09:15:39.733Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -83,7 +83,6 @@
                 }
             ],
             "params": [],
-            "reqType": "get",
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTg4MjAwOCwiZXhwIjoxNzA5ODg1NjA4fQ.U8pnyseFIr59e-ut2C9WNGxztyV37lkOBXTHiyotgMs"
@@ -91,15 +90,15 @@
             "tests": []
         },
         {
-            "_id": "9ab74563-6527-495d-8f61-b651ff3459a5",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "229d1b05-5bf7-41e9-b25b-dae9c600f99f",
+            "_id": "abf69a37-765f-450b-b5d4-f8ca2ee9013e",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "4ba0a9fc-7116-4b07-9207-72b5f183085d",
             "name": "getQuests",
-            "url": "http://localhost:3000/quest",
+            "url": "http://localhost:3000/quest?is_active=false&sort_by=is_mainstory",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.945Z",
-            "modified": "2024-03-08T07:12:51.945Z",
+            "created": "2024-03-14T09:15:39.734Z",
+            "modified": "2024-03-14T10:10:55.577Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -110,23 +109,35 @@
                     "value": "application/json"
                 }
             ],
-            "params": [],
+            "params": [
+                {
+                    "name": "is_active",
+                    "value": "false",
+                    "isPath": false
+                },
+                {
+                    "name": "sort_by",
+                    "value": "is_mainstory",
+                    "isPath": false
+                }
+            ],
+            "reqType": "get",
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTgwNjE4OCwiZXhwIjoxNzA5ODA5Nzg4fQ.utPz_wwzjKOso9uvV7uJ-0StxeuUE94L9FcWQc2bZpg"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5MThiYTIwLWUxZTktMTFlZS1hYWJiLWIxNWIxZTAyYTRhNiIsImlhdCI6MTcxMDQxMDIwNCwiZXhwIjoxNzEwNDEzODA0fQ.azv7RIGn4trrwD4kxdkjwVA6yaumBh8ElsSDB_GZsCM"
             },
             "tests": []
         },
         {
-            "_id": "41d756ea-dde0-4ed2-ae1e-65aee3e43609",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "b0cea00f-4d49-4371-badb-6cdb285559d1",
+            "_id": "7dc575cf-7789-420b-a0d3-dbe3e5a06ded",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "03986ae3-a804-48c9-a1f9-2e6b1656addf",
             "name": "getAllEnemies",
             "url": "http://localhost:3000/enemies",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.951Z",
-            "modified": "2024-03-08T07:12:51.951Z",
+            "created": "2024-03-14T09:15:39.739Z",
+            "modified": "2024-03-14T09:15:39.739Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -145,15 +156,15 @@
             "tests": []
         },
         {
-            "_id": "dd82c347-31df-4682-b44c-902e0b42185f",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "c9b0666f-16a5-4aeb-bd75-7c7dbdc94ec9",
+            "_id": "afd65f9b-d79f-4e0a-b1e5-c3ae937c7e63",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "18c3cb4b-5925-4867-9f4a-5b5272c5a4cc",
             "name": "getAllResidents",
             "url": "http://localhost:3000/residents",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.956Z",
-            "modified": "2024-03-08T07:12:51.956Z",
+            "created": "2024-03-14T09:15:39.744Z",
+            "modified": "2024-03-14T09:15:39.744Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -172,15 +183,15 @@
             "tests": []
         },
         {
-            "_id": "1badec96-79fc-422a-ba7e-a5e37a283844",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "54a06b15-c5db-44f6-ae32-93e204867a70",
+            "_id": "b1489a14-a61b-4b70-a684-50c4db33a44f",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "13e3b6fa-51af-4d5c-9c3b-986ab6e05164",
             "name": "getAllOffer",
             "url": "http://localhost:3000/market",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.960Z",
-            "modified": "2024-03-08T07:12:51.960Z",
+            "created": "2024-03-14T09:15:39.748Z",
+            "modified": "2024-03-14T09:15:39.748Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -199,15 +210,15 @@
             "tests": []
         },
         {
-            "_id": "8d4bcbab-9004-49ad-a388-ff1d7069dc46",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "e00084f2-f396-4e61-8aad-144a4de0cd13",
+            "_id": "3b028442-ff88-4207-b902-e33a2d568d43",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "c22de10b-9f3f-4a28-a28d-568b52483553",
             "name": "getAllBuildings",
             "url": "http://localhost:3000/buildings",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.965Z",
-            "modified": "2024-03-08T07:12:51.965Z",
+            "created": "2024-03-14T09:15:39.753Z",
+            "modified": "2024-03-14T09:15:39.753Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -226,15 +237,15 @@
             "tests": []
         },
         {
-            "_id": "ef15e500-1d14-4af6-986c-fb3bf9268ccb",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "8779483f-7903-4ae5-b14b-1bb595b205a9",
+            "_id": "1b813275-916f-445e-ba65-880f240a0a58",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "59e75d3b-30ca-4737-81aa-b66518ab8e69",
             "name": "getTool",
             "url": "http://localhost:3000/tool",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2024-03-08T07:12:51.967Z",
-            "modified": "2024-03-08T07:45:51.149Z",
+            "created": "2024-03-14T09:15:39.755Z",
+            "modified": "2024-03-14T09:15:39.755Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -246,7 +257,6 @@
                 }
             ],
             "params": [],
-            "reqType": "get",
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTg4Mzc3MCwiZXhwIjoxNzA5ODg3MzcwfQ.ySQHUbBfbfCnCAPPPxZlbd9Soz-oYv93ODZYC1NCJ0w"
@@ -254,15 +264,15 @@
             "tests": []
         },
         {
-            "_id": "7ccf4ac2-f02c-40be-a977-54271caa0c0c",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "cc60de28-0e56-4dbc-8e52-ba62089da888",
+            "_id": "ab596556-29ef-455f-82f0-83f5b83fba9a",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "d7b450d1-ef99-4331-ae6c-7c7a1015f915",
             "name": "Login",
             "url": "http://localhost:3000/user/login",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.941Z",
-            "modified": "2024-03-08T07:12:51.941Z",
+            "created": "2024-03-14T09:15:39.730Z",
+            "modified": "2024-03-14T09:15:39.730Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -282,42 +292,15 @@
             "tests": []
         },
         {
-            "_id": "c8844f2d-e8f5-476a-8251-25c095f4f11b",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "229d1b05-5bf7-41e9-b25b-dae9c600f99f",
-            "name": "getQuestsIsActive",
-            "url": "http://localhost:3000/quest/false",
-            "method": "GET",
-            "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.947Z",
-            "modified": "2024-03-08T07:12:51.947Z",
-            "headers": [
-                {
-                    "name": "Accept",
-                    "value": "application/json"
-                },
-                {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                }
-            ],
-            "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTgwNjE4OCwiZXhwIjoxNzA5ODA5Nzg4fQ.utPz_wwzjKOso9uvV7uJ-0StxeuUE94L9FcWQc2bZpg"
-            },
-            "tests": []
-        },
-        {
-            "_id": "49881f23-71fe-418b-9ff5-9f404280c32b",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "b0cea00f-4d49-4371-badb-6cdb285559d1",
+            "_id": "dd57d77a-684d-418c-892b-e6fa95fe1e6f",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "03986ae3-a804-48c9-a1f9-2e6b1656addf",
             "name": "getBlockEnemies",
             "url": "http://localhost:3000/enemies/10/1",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.952Z",
-            "modified": "2024-03-08T07:12:51.952Z",
+            "created": "2024-03-14T09:15:39.740Z",
+            "modified": "2024-03-14T09:15:39.740Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -336,15 +319,15 @@
             "tests": []
         },
         {
-            "_id": "ffc4b4ef-cdbe-4320-94af-320efbd16a30",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "c9b0666f-16a5-4aeb-bd75-7c7dbdc94ec9",
+            "_id": "48bcd518-1100-4aeb-b360-89cf564323ee",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "18c3cb4b-5925-4867-9f4a-5b5272c5a4cc",
             "name": "getResidents",
             "url": "http://localhost:3000/residents/10/10",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.957Z",
-            "modified": "2024-03-08T07:12:51.957Z",
+            "created": "2024-03-14T09:15:39.745Z",
+            "modified": "2024-03-14T09:15:39.745Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -363,15 +346,15 @@
             "tests": []
         },
         {
-            "_id": "94adef87-a906-4640-88fe-9c6e846d9455",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "54a06b15-c5db-44f6-ae32-93e204867a70",
+            "_id": "9b8bd65f-930e-49f6-be94-6fcc9742d525",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "13e3b6fa-51af-4d5c-9c3b-986ab6e05164",
             "name": "getAllPlayerOffer",
             "url": "http://localhost:3000/market",
             "method": "GET",
             "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.961Z",
-            "modified": "2024-03-08T07:12:51.961Z",
+            "created": "2024-03-14T09:15:39.749Z",
+            "modified": "2024-03-14T09:15:39.749Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -390,15 +373,15 @@
             "tests": []
         },
         {
-            "_id": "9f9abd7e-eac8-465e-9ac3-3d95f1461238",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "e00084f2-f396-4e61-8aad-144a4de0cd13",
+            "_id": "037042f9-11fa-4dd1-8c82-f4f18112f8ad",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "c22de10b-9f3f-4a28-a28d-568b52483553",
             "name": "putBuilding",
             "url": "http://localhost:3000/buildings/b275e920-dc6a-11ee-9556-414263d6e1c1",
             "method": "PUT",
             "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.966Z",
-            "modified": "2024-03-08T07:12:51.966Z",
+            "created": "2024-03-14T09:15:39.754Z",
+            "modified": "2024-03-14T09:15:39.754Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -422,15 +405,15 @@
             "tests": []
         },
         {
-            "_id": "00d8ecd8-604d-4b9a-b544-1c5832b8e210",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "8779483f-7903-4ae5-b14b-1bb595b205a9",
+            "_id": "3e29975b-5152-4851-96cd-7ca2e7304636",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "59e75d3b-30ca-4737-81aa-b66518ab8e69",
             "name": "putTool",
             "url": "http://localhost:3000/tool/2c331260-dc6b-11ee-8e26-63613a671168",
             "method": "PUT",
             "sortNum": 20000,
-            "created": "2024-03-08T07:12:51.968Z",
-            "modified": "2024-03-08T07:12:51.968Z",
+            "created": "2024-03-14T09:15:39.756Z",
+            "modified": "2024-03-14T09:15:39.756Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -454,15 +437,15 @@
             "tests": []
         },
         {
-            "_id": "bc4d7d00-a589-47fe-8aa9-97b2e761ff1e",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "cc60de28-0e56-4dbc-8e52-ba62089da888",
+            "_id": "7b30ce23-4afa-4d05-b610-5d3f5e79a0c6",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "d7b450d1-ef99-4331-ae6c-7c7a1015f915",
             "name": "Registration",
             "url": "http://localhost:3000/user/registration",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.942Z",
-            "modified": "2024-03-08T07:12:51.942Z",
+            "created": "2024-03-14T09:15:39.731Z",
+            "modified": "2024-03-14T09:16:02.241Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -476,21 +459,22 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"name\": \"teszt1\",\n  \"email\": \"teszt1@teszt.hu\",\n  \"password\": \"123456789\"\n}",
+                "raw": "{\n  \"name\": \"teszt\",\n  \"email\": \"teszt@teszt.hu\",\n  \"password\": \"123456789\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
-            "_id": "6ac46303-e5a4-47f2-8949-4e4549dae60c",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "b0cea00f-4d49-4371-badb-6cdb285559d1",
+            "_id": "dc375235-491d-41be-b6c6-dff15e73ece4",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "03986ae3-a804-48c9-a1f9-2e6b1656addf",
             "name": "postEnemy",
             "url": "http://localhost:3000/enemies",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.953Z",
-            "modified": "2024-03-08T07:12:51.953Z",
+            "created": "2024-03-14T09:15:39.741Z",
+            "modified": "2024-03-14T09:15:39.741Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -514,15 +498,15 @@
             "tests": []
         },
         {
-            "_id": "d7ded66c-56fd-4170-a229-be7bb069cef6",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "c9b0666f-16a5-4aeb-bd75-7c7dbdc94ec9",
+            "_id": "e19e575c-814a-47a2-8bde-4288f9b7777a",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "18c3cb4b-5925-4867-9f4a-5b5272c5a4cc",
             "name": "postResident",
             "url": "http://localhost:3000/residents",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.958Z",
-            "modified": "2024-03-08T07:12:51.958Z",
+            "created": "2024-03-14T09:15:39.746Z",
+            "modified": "2024-03-14T09:15:39.746Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -546,15 +530,15 @@
             "tests": []
         },
         {
-            "_id": "e4be3156-33aa-4f3b-b974-d528a59a8ae9",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "54a06b15-c5db-44f6-ae32-93e204867a70",
+            "_id": "a289f552-00f2-472f-9193-0afc00d7df93",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "13e3b6fa-51af-4d5c-9c3b-986ab6e05164",
             "name": "postOffer",
             "url": "http://localhost:3000/market",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.962Z",
-            "modified": "2024-03-08T07:12:51.962Z",
+            "created": "2024-03-14T09:15:39.750Z",
+            "modified": "2024-03-14T09:15:39.750Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -578,15 +562,15 @@
             "tests": []
         },
         {
-            "_id": "ab9ed25a-29d7-44a0-9a73-9ae8f3b58b76",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "8779483f-7903-4ae5-b14b-1bb595b205a9",
+            "_id": "5692169d-703d-4505-b71b-6a9c4c59c3aa",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "59e75d3b-30ca-4737-81aa-b66518ab8e69",
             "name": "deleteTool",
             "url": "http://localhost:3000/tool/2c331260-dc6b-11ee-8e26-63613a671168",
             "method": "DELETE",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.969Z",
-            "modified": "2024-03-08T07:12:51.969Z",
+            "created": "2024-03-14T09:15:39.757Z",
+            "modified": "2024-03-14T09:15:39.757Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -605,15 +589,15 @@
             "tests": []
         },
         {
-            "_id": "46db6eb2-fc4d-4279-b8ee-398dce5ebcbb",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "229d1b05-5bf7-41e9-b25b-dae9c600f99f",
+            "_id": "40de6f31-9db2-4f4a-938d-7936011d6e4d",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "4ba0a9fc-7116-4b07-9207-72b5f183085d",
             "name": "postQuest",
             "url": "http://localhost:3000/quest",
             "method": "POST",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.971Z",
-            "modified": "2024-03-08T07:12:51.971Z",
+            "created": "2024-03-14T09:15:39.759Z",
+            "modified": "2024-03-14T10:02:41.955Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -627,25 +611,26 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"quest_id\": \"ac81a232-dbb6-11ee-b1e4-00155ddb1e0d\"\n}",
+                "raw": "{\n  \"quest_id\": \"81c5073d-e1da-11ee-b1e4-00155ddb1e0d\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "auth": {
                 "type": "bearer",
-                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTgwNjE4OCwiZXhwIjoxNzA5ODA5Nzg4fQ.utPz_wwzjKOso9uvV7uJ-0StxeuUE94L9FcWQc2bZpg"
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5MThiYTIwLWUxZTktMTFlZS1hYWJiLWIxNWIxZTAyYTRhNiIsImlhdCI6MTcxMDQxMDIwNCwiZXhwIjoxNzEwNDEzODA0fQ.azv7RIGn4trrwD4kxdkjwVA6yaumBh8ElsSDB_GZsCM"
             },
             "tests": []
         },
         {
-            "_id": "66867e11-650e-4b1d-bd21-9105bf4c27e5",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "e00084f2-f396-4e61-8aad-144a4de0cd13",
+            "_id": "a0102b6e-fd03-4a3c-b778-318394f174dd",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "c22de10b-9f3f-4a28-a28d-568b52483553",
             "name": "deleteBuilding",
             "url": "http://localhost:3000/buildings/b275e920-dc6a-11ee-9556-414263d6e1c1",
             "method": "DELETE",
             "sortNum": 30000,
-            "created": "2024-03-08T07:12:51.975Z",
-            "modified": "2024-03-08T07:12:51.975Z",
+            "created": "2024-03-14T09:15:39.763Z",
+            "modified": "2024-03-14T09:15:39.763Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -664,15 +649,15 @@
             "tests": []
         },
         {
-            "_id": "2ca60959-1be5-4bfd-a4c4-9e4e5b4323b8",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "cc60de28-0e56-4dbc-8e52-ba62089da888",
+            "_id": "569f2a57-a3af-4b1f-8ec1-3eade993f6a3",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "d7b450d1-ef99-4331-ae6c-7c7a1015f915",
             "name": "PutUser",
             "url": "http://localhost:3000/user",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.943Z",
-            "modified": "2024-03-08T07:42:20.606Z",
+            "created": "2024-03-14T09:15:39.732Z",
+            "modified": "2024-03-14T09:15:39.732Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -689,7 +674,6 @@
                 "raw": "{\n  \"player_name\": \"teszt\",\n  \"email\": \"teszt@teszt.hu\",\n  \"password\": \"123456789\"\n}",
                 "form": []
             },
-            "reqType": "put",
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTg4MjAwOCwiZXhwIjoxNzA5ODg1NjA4fQ.U8pnyseFIr59e-ut2C9WNGxztyV37lkOBXTHiyotgMs"
@@ -697,15 +681,15 @@
             "tests": []
         },
         {
-            "_id": "d20bea6b-e5d4-4d2a-8c74-0eaa6ef11bf5",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "7d3d4586-e3b5-4eae-ab8a-afab523dec90",
+            "_id": "5accbeb3-5e46-4379-a1fb-f4ac2297149e",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "95b450e7-cbec-4a87-b49a-7b75ded22a02",
             "name": "getInventory",
             "url": "http://localhost:3000/player/inventory",
             "method": "GET",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.948Z",
-            "modified": "2024-03-08T07:12:51.948Z",
+            "created": "2024-03-14T09:15:39.736Z",
+            "modified": "2024-03-14T09:15:39.736Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -724,15 +708,15 @@
             "tests": []
         },
         {
-            "_id": "8e5a968b-3ed4-46c0-8568-9b3088836eeb",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "b0cea00f-4d49-4371-badb-6cdb285559d1",
+            "_id": "fababa69-1b59-4dad-80d1-7e5d4feb8bb0",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "03986ae3-a804-48c9-a1f9-2e6b1656addf",
             "name": "putEnemy",
             "url": "http://localhost:3000/enemies/491725a0-dc67-11ee-8eca-6bdb1578bc48",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.954Z",
-            "modified": "2024-03-08T07:12:51.954Z",
+            "created": "2024-03-14T09:15:39.742Z",
+            "modified": "2024-03-14T09:15:39.742Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -756,15 +740,15 @@
             "tests": []
         },
         {
-            "_id": "cabe07b6-2019-4c90-925d-ee0d0e912d9d",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "c9b0666f-16a5-4aeb-bd75-7c7dbdc94ec9",
+            "_id": "3108907e-df99-4357-ba77-b1767354c7fb",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "18c3cb4b-5925-4867-9f4a-5b5272c5a4cc",
             "name": "putResident",
             "url": "http://localhost:3000/residents/18a24ab0-dc69-11ee-9c12-0984faf6ab7f",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.959Z",
-            "modified": "2024-03-08T07:12:51.959Z",
+            "created": "2024-03-14T09:15:39.747Z",
+            "modified": "2024-03-14T09:15:39.747Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -788,15 +772,15 @@
             "tests": []
         },
         {
-            "_id": "321162b6-d950-4a30-a8bc-bf128a5bf6b6",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "54a06b15-c5db-44f6-ae32-93e204867a70",
+            "_id": "7dd46919-a93a-4edc-b8e8-4f68d7618018",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "13e3b6fa-51af-4d5c-9c3b-986ab6e05164",
             "name": "putOffer",
             "url": "http://localhost:3000/market/0b3b16d0-dc6a-11ee-93c8-35723869a41c",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.963Z",
-            "modified": "2024-03-08T07:12:51.963Z",
+            "created": "2024-03-14T09:15:39.751Z",
+            "modified": "2024-03-14T09:15:39.751Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -820,15 +804,15 @@
             "tests": []
         },
         {
-            "_id": "a65af7e4-5372-4ec0-ad08-d27aa0069657",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "8779483f-7903-4ae5-b14b-1bb595b205a9",
+            "_id": "5199c390-da48-4ba5-b6ec-afc74413605f",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "59e75d3b-30ca-4737-81aa-b66518ab8e69",
             "name": "postTool",
             "url": "http://localhost:3000/tool",
             "method": "POST",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.970Z",
-            "modified": "2024-03-08T07:12:51.970Z",
+            "created": "2024-03-14T09:15:39.758Z",
+            "modified": "2024-03-14T09:15:39.758Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -852,15 +836,15 @@
             "tests": []
         },
         {
-            "_id": "a4e6793b-ba4b-4b83-ae4a-72b6e5dc657d",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "229d1b05-5bf7-41e9-b25b-dae9c600f99f",
+            "_id": "abdbbe9a-0dd2-4516-a62c-edbdc448e831",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "4ba0a9fc-7116-4b07-9207-72b5f183085d",
             "name": "putQuest",
             "url": "http://localhost:3000/quest/ac81a232-dbb6-11ee-b1e4-00155ddb1e0d",
             "method": "PUT",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.972Z",
-            "modified": "2024-03-08T07:12:51.972Z",
+            "created": "2024-03-14T09:15:39.760Z",
+            "modified": "2024-03-14T09:15:39.760Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -884,15 +868,15 @@
             "tests": []
         },
         {
-            "_id": "34447d6e-9095-4390-b5e6-d580b4f180f3",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "e00084f2-f396-4e61-8aad-144a4de0cd13",
+            "_id": "da20986f-84ff-49bb-ac15-d0d5dcfc120f",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "c22de10b-9f3f-4a28-a28d-568b52483553",
             "name": "postBuilding",
             "url": "http://localhost:3000/buildings",
             "method": "POST",
             "sortNum": 40000,
-            "created": "2024-03-08T07:12:51.976Z",
-            "modified": "2024-03-08T07:12:51.976Z",
+            "created": "2024-03-14T09:15:39.764Z",
+            "modified": "2024-03-14T09:15:39.764Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -916,15 +900,15 @@
             "tests": []
         },
         {
-            "_id": "62e60a1c-fbd1-4c22-9c1b-6aeedda2b21f",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "7d3d4586-e3b5-4eae-ab8a-afab523dec90",
+            "_id": "b5591bf4-fbf1-4c05-9d56-694852b814e7",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "95b450e7-cbec-4a87-b49a-7b75ded22a02",
             "name": "putPlayer",
             "url": "http://localhost:3000/player",
             "method": "PUT",
             "sortNum": 50000,
-            "created": "2024-03-08T07:12:51.949Z",
-            "modified": "2024-03-08T07:47:31.613Z",
+            "created": "2024-03-14T09:15:39.737Z",
+            "modified": "2024-03-14T09:15:39.737Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -941,7 +925,6 @@
                 "raw": "{\n  \"player_name\": \"Mihaly\",\n  \"money\": 1000,\n  \"world_name\": \"First\",\n  \"stone\": 5000,\n  \"wood\": 200,\n  \"coal\": 200,\n  \"iron\": 200,\n  \"wheat\": 200,\n  \"fish\": 200,\n  \"objX\": 10,\n  \"objY\": 10,\n  \"blockX\": 10,\n  \"blockY\": 10\n}",
                 "form": []
             },
-            "reqType": "put",
             "auth": {
                 "type": "bearer",
                 "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTg4MjAwOCwiZXhwIjoxNzA5ODg1NjA4fQ.U8pnyseFIr59e-ut2C9WNGxztyV37lkOBXTHiyotgMs"
@@ -949,15 +932,15 @@
             "tests": []
         },
         {
-            "_id": "a3579165-c23a-4b51-8d79-7cce83906b12",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "b0cea00f-4d49-4371-badb-6cdb285559d1",
+            "_id": "8663764a-8da8-4225-8b33-fe8e83d9a043",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "03986ae3-a804-48c9-a1f9-2e6b1656addf",
             "name": "deleteEnemy",
             "url": "http://localhost:3000/enemies/491725a0-dc67-11ee-8eca-6bdb1578bc48",
             "method": "DELETE",
             "sortNum": 50000,
-            "created": "2024-03-08T07:12:51.955Z",
-            "modified": "2024-03-08T07:12:51.955Z",
+            "created": "2024-03-14T09:15:39.743Z",
+            "modified": "2024-03-14T09:15:39.743Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -976,15 +959,15 @@
             "tests": []
         },
         {
-            "_id": "f988ecd5-3e1d-4748-93b1-80b93919b8da",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "54a06b15-c5db-44f6-ae32-93e204867a70",
+            "_id": "06da3819-7c4a-46c3-b1e8-02e3e5a63276",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "13e3b6fa-51af-4d5c-9c3b-986ab6e05164",
             "name": "deleteOffer",
             "url": "http://localhost:3000/market/0b3b16d0-dc6a-11ee-93c8-35723869a41c",
             "method": "DELETE",
             "sortNum": 50000,
-            "created": "2024-03-08T07:12:51.964Z",
-            "modified": "2024-03-08T07:12:51.964Z",
+            "created": "2024-03-14T09:15:39.752Z",
+            "modified": "2024-03-14T09:15:39.752Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1003,15 +986,15 @@
             "tests": []
         },
         {
-            "_id": "3ebe0f10-cf6a-4949-a43e-78733756d352",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "229d1b05-5bf7-41e9-b25b-dae9c600f99f",
+            "_id": "b236f096-c038-42c5-ac04-651b468acff0",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "4ba0a9fc-7116-4b07-9207-72b5f183085d",
             "name": "deleteQuest",
             "url": "http://localhost:3000/quest/ac81a232-dbb6-11ee-b1e4-00155ddb1e0d",
             "method": "DELETE",
             "sortNum": 50000,
-            "created": "2024-03-08T07:12:51.973Z",
-            "modified": "2024-03-08T07:12:51.973Z",
+            "created": "2024-03-14T09:15:39.761Z",
+            "modified": "2024-03-14T09:15:39.761Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1030,15 +1013,15 @@
             "tests": []
         },
         {
-            "_id": "50b9e0fa-efc1-40ce-a8ab-e588c01ee27c",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "c9b0666f-16a5-4aeb-bd75-7c7dbdc94ec9",
+            "_id": "14aef57c-e06d-45e7-bb99-db0896a21e9f",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "18c3cb4b-5925-4867-9f4a-5b5272c5a4cc",
             "name": "deleteResident",
             "url": "http://localhost:3000/residents/18a24ab0-dc69-11ee-9c12-0984faf6ab7f",
             "method": "DELETE",
             "sortNum": 50000,
-            "created": "2024-03-08T07:12:51.974Z",
-            "modified": "2024-03-08T07:12:51.974Z",
+            "created": "2024-03-14T09:15:39.762Z",
+            "modified": "2024-03-14T09:15:39.762Z",
             "headers": [
                 {
                     "name": "Accept",
@@ -1057,15 +1040,15 @@
             "tests": []
         },
         {
-            "_id": "f03fdb6d-8f3b-4fb8-bf41-7c0b5f294b7b",
-            "colId": "8de00ee9-5610-43b0-8ab6-665520ddc767",
-            "containerId": "7d3d4586-e3b5-4eae-ab8a-afab523dec90",
+            "_id": "a07c64d9-bf87-436f-8533-8baed718f627",
+            "colId": "ce622ca6-536d-4f71-81ba-0a3ef36cbb55",
+            "containerId": "95b450e7-cbec-4a87-b49a-7b75ded22a02",
             "name": "deletePlayer",
             "url": "http://localhost:3000/player",
             "method": "DELETE",
             "sortNum": 60000,
-            "created": "2024-03-08T07:12:51.950Z",
-            "modified": "2024-03-08T07:12:51.950Z",
+            "created": "2024-03-14T09:15:39.738Z",
+            "modified": "2024-03-14T09:15:39.738Z",
             "headers": [
                 {
                     "name": "Accept",
