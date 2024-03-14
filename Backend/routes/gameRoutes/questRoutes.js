@@ -6,7 +6,6 @@ const questRouter = require('express').Router({ mergeParams: true });
 questRouter.use(userAuth)
 
 questRouter.get('/', getQuests);
-questRouter.get('/:is_active', getQuests);
 
 questRouter.post('/', postQuest);
 

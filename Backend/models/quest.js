@@ -18,6 +18,12 @@ const Quest = dbConnection.define
                 defaultValue: false,
                 allowNull: false
             },
+            is_mainstory:
+            {
+                type: DataTypes.INTEGER,
+                defaultValue: 0,
+                allowNull: false
+            },
             currentProgress:
             {
                 type: DataTypes.INTEGER,
@@ -38,15 +44,15 @@ const Quest = dbConnection.define
                     const quest_type = await QuestType.findOne({where: {quest_id: quest.quest_id}});
                     if (quest_type) {
                         quest.targetProgress = quest_type.targetProgress,
-                        quest.is_completed = quest_type.is_completed
+                        quest.is_mainstory = quest_type.is_mainstory
                     }
                 }
             },
         }
     )
     Quest.associate = (models) => {
-        Quest.belongsTo(models.Player, { foreignKey: 'player_id' })
-        Quest.belongsTo(models.QuestType, { foreignKey: 'quest_id' })
+        Quest.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' })
+        Quest.belongsTo(models.QuestType, { foreignKey: 'quest_id', onDelete: 'CASCADE' })
 }
 
 module.exports = Quest
