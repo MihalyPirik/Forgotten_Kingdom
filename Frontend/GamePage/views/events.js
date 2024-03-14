@@ -37,7 +37,7 @@ export const InitEvents=(game)=>
             if(e.detail.panel.context.quest.QuestType.ismainstory){
             e.target.querySelector("#StartButton")?e.target.querySelector("#StartButton").addEventListener('click',()=>{
                 PanelView.HidePanel(e.detail.panel)
-                e.detail.panel.context.mainStory()
+                e.detail.panel.context.quest.story()
                 e.detail.panel.context.quest.is_active = true
             },{once:true}):null
         }
@@ -50,6 +50,24 @@ export const InitEvents=(game)=>
                 },{once:true})
             }
         }
+        }
+
+        if(e.detail.panel.id == "navigationPanel")
+        {
+            for(const quest of game.player.mainQuests)
+            {
+                if(quest.id == 1 && !quest.is_active)
+                {
+                    e.target.querySelectorAll('input[type=button]').forEach(element => {
+                        if(element.value == game.isometricBlocks[0][3].name)
+                        {
+                            element.disabled = true
+                            return
+                        } 
+                    })
+                    return
+                }
+            }
         }
     })
     

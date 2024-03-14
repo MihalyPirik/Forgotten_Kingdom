@@ -6,10 +6,11 @@ import {Random} from '../utils/probability.js'
 export class Player extends Entity {
   #money=null
   #hp=null
-    constructor(name,sprite,HP,money,inventory,game,tools=[],speed=4) {
+    constructor(name,sprite,HP,money,inventory,game,tools=[],speed=4,mainQuests=[]) {
       super(game, sprite,game.width * 0.5, game.height * 0.8, game.width*0.2, game.height*0.2)
       this.speed = speed
       this.tools=tools
+      this.mainQuests = mainQuests
       this.name=name
       this.attack={timer:0,attack:3,interval:60}
       this.money=money

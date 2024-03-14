@@ -13,6 +13,8 @@ export class Entity {
       this.spriteY = objY - height*0.5 -this.radius
       this.frameX = 0
       this.frameY = 0
+      this.blockX = this.game.currentBlockX
+      this.blockY = this.game.currentBlockY
       this.width = width
       this.height = height
       this.spriteWidth = spriteWidth

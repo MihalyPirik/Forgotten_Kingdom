@@ -81,12 +81,33 @@ callback instanceof Function?callback(index):null
     static async Second()
     {
         Story.BasePlayConversation("second.txt",(index)=>{
-// kovács, szörnyvadász NPC
+            const game = Story.gameController
+            const charSprite=new Image()
+            charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
+            const nOne = new NPC(Story.gameController,"Adam",charSprite,game.width*0.7,game.height*0.7,"Szörnyvadász")
+            const n = new NPC(Story.gameController,"Valaki",charSprite,game.width*0.6,game.height*0.6,"Kovács")
             if(index==0){
                 Story.MoveEntity(Story.gameController.player,Story.gameController.width*0.5,Story.gameController.height*0.5)
             }
-if(index==4){
+if(index==3){
     
+
+    
+    n.blockX = 1
+    n.blockY = 0
+    
+    nOne.blockX = 1
+    nOne.blockY = 2
+    game.currentBlock.entities.push(nOne)
+    game.gameView.RenderEntity(nOne)
+
+    game.currentBlock.entities.push(n)
+    game.gameView.RenderEntity(n)
+}
+if(index == 6)
+{
+    Story.gameController.currentBlock.entities.splice(Story.gameController.currentBlock.entities.indexOf(n),1)
+    Story.gameController.currentBlock.entities.splice(Story.gameController.currentBlock.entities.indexOf(nOne),1)
 }
         })
     }

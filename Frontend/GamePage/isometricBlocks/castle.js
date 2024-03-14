@@ -19,19 +19,23 @@ charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
 export const Kastély=(game)=>{
 
-    const npc = new NPC(game,"John",charSprite,game.width*0.5,game.height*0.5,"Kovács",null,{
+    const quest = {
+        id:1,
         is_completed:false,
         is_active:false,
         QuestType:{
             quest_name: "Küldetés",
             description: "Vegyél 20 fánkot!",
             ismainstory: true
-        }
-    },Story.First)
+        },
+        story:Story.First
+    }
+    const npc = new NPC(game,"John",charSprite,game.width*0.5,game.height*0.5,"Kovács",null,quest)
     const npcPanel = new Panel("NPCPanel",game.width*0.5,game.height*0.5,game.width*0.04,false,npc)
+    game.player.mainQuests.push(quest)
    game.currentBlock=new IsometricBlock(
     "Kastély",backGround,null,[
-      npc  
+      npc 
     ],
     [
 new Line(new Point(game.width*0.2,game.height*0.83),new Point(game.width*0.34,game.height*0.74)),
