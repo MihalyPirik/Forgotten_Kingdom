@@ -1,5 +1,6 @@
 const Quest = require("../../models/quest");
 const QuestType = require("../../models/questType");
+const { Sequelize } = require('sequelize');
 
 const getQuests = async (req, res, next) => {
   try {
@@ -18,14 +19,18 @@ const getQuests = async (req, res, next) => {
       }
     }
 
+    if (req.query.withoutZero !== undefined && req.query.withoutZero == "0") {
+      whereClause.is_mainstory = { [Sequelize.Op.ne]: 0 };
+    }
+
     let orderClause = [];
     if (req.query.sort_by === "is_mainstory") {
-      orderClause.push(["is_mainstory", "DESC"]);
+      orderClause.push(["is_mainstory", "ASC"]);
     }
 
     let data = await Quest.findAll({
       where: whereClause,
-      attributes: { exclude: ["player_id", "quest_id"] },
+      attributes: { exclude: ["player_id", "quest_id", "is_mainstory"] },
       include: {
         model: QuestType,
         attributes: { exclude: ["targetProgress"] },
