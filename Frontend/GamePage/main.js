@@ -16,19 +16,31 @@ import { getAllData, getInventory } from './services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
 import { InitEvents } from './views/Events.js'
 import { Story } from './controllers/Story.js'
+// import {createApp, ref} from './node_modules/vue/dist/vue.esm-browser.js'
 
 const gameCanvas = document.querySelector('canvas')
 
 
 
+// const app = createApp({
+//   setup()
+//   {
+//     const a = ref("safsdff")
+//     return {a}
+//   }
+// }
+// ).mount('#mouseCoordinates')
 
-const urlparams=new URLSearchParams(window.location.search)
-const token=urlparams.get("token")
+// const token = localStorage.getItem('token')
+// if(!token)
+// {
+//   document.querySelector('body').innerHTML = '<h1>Nem vagy bejelentkezve</h1>'
+//   throw new Error('Script execution was terminated due to the absence of an auetntication token!')
+// }
 
 const p = document.getElementById('mouseCoordinates')
 const arrow1=document.getElementById('arrow1')
 const arrow2=document.getElementById('arrow2')
- const parsedToken=token?JSON.parse(atob(token.split('.')[1])):'e8c92350-c59c-11ee-aab5-e980bbd7a2f9'
 
 const character=new Image()
 character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
@@ -63,9 +75,8 @@ addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = f
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[1][3](game)
-game.player.objX=game.width*0.488
-game.player.objY=game.height*0.541
+game.isometricBlocks[2][1](game)
+
 gameView.SetBackGround(game.currentBlock.backGround.src)
   arrow1.style.left=game.width/3/2-50+'px'
 arrow1.style.top=game.height*0.86+'px'
@@ -88,4 +99,4 @@ let previousTime = 0
 }
 
   
-})
+},{once:true})

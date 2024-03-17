@@ -6,6 +6,9 @@ import { IsometricBlock } from '../models/isometricBlock.js'
 import { Panel } from '../models/Panel.js'
 import { NPC } from '../models/NPC.js'
 import { Story } from '../controllers/Story.js'
+
+const playerId = "2918ba20-e1e9-11ee-aabb-b15b1e02a4a6"
+
 /**
  * 
  * x: 0.339, 0.423
@@ -17,8 +20,7 @@ backGround.src="./assets/blocks/Castle.png"
 const charSprite=new Image()
 charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
-export const Kastély=(game)=>{
-
+export const Kastély=async(game)=>{
     const quest = {
         id:1,
         is_completed:false,

@@ -23,52 +23,34 @@ export const InitEvents=(game)=>
 
     addEventListener('keydown',(e)=>{game.player.move.event=e})
     addEventListener('keyup',()=>{game.player.move.event=null})
+    
+
     document.getElementById('game').addEventListener('mousemove',(e)=>{PanelController.GetEntityOnMouse(e,game.currentBlock.entities)})
     document.getElementById('game').addEventListener('click',(e)=>{game.player.Attack(e)})
+    
+    
     addEventListener("panelShowed",(e)=>{
         if(e.detail.panel.id=="Action")
         {
+            if(game.currentBlockX == 2 && game.currentBlockY == 1)
+          {
+            
             e.target.querySelector('input[type=button]').addEventListener('click',game.player.Action)
-        e.target.querySelector('input[type=button]').addEventListener('click',PanelView.ShowProgress)
+          }
+          else
+          {
+            e.target.querySelector('input[type=button]').remove()
+            addEventListener('mousedown',game.player.Action)
+          }
+          PanelView.ShowProgress()
         }
         if(e.detail.panel.id=="NPCPanel")
         {
             PanelView.NPCPanel(e.detail.panel,e.target)
-            if(e.detail.panel.context.quest.QuestType.ismainstory){
-            e.target.querySelector("#StartButton")?e.target.querySelector("#StartButton").addEventListener('click',()=>{
-                PanelView.HidePanel(e.detail.panel)
-                e.detail.panel.context.quest.story()
-                e.detail.panel.context.quest.is_active = true
-            },{once:true}):null
         }
-        else
-        {
-            if(!e.detail.panel.context.quest.is_active)
-            {
-                e.target.querySelector('button').addEventListener('click',()=>{
-                    e.detail.panel.context.quest.is_active = true
-                },{once:true})
-            }
-        }
-        }
-
-        if(e.detail.panel.id == "navigationPanel")
-        {
-            for(const quest of game.player.mainQuests)
-            {
-                if(quest.id == 1 && !quest.is_active)
-                {
-                    e.target.querySelectorAll('input[type=button]').forEach(element => {
-                        if(element.value == game.isometricBlocks[0][3].name)
-                        {
-                            element.disabled = true
-                            return
-                        } 
-                    })
-                    return
-                }
-            }
-        }
+    })
+    addEventListener("panelHide",()=>{
+        removeEventListener('mousedown',game.player.Action)
     })
     
 }

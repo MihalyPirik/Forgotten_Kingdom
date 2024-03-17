@@ -79,8 +79,10 @@ return this.#money
       this.game.isometricBlocks[0][0](this.game)
       this.isDead=false
     }
-    Action=()=>
+    Action=(e)=>
     {
+      if(this.game.currentBlockX == 2 && this.game.currentBlockY == 1)
+          {
       let inInter
       this.isAction.is = true
       inInter = setInterval(()=>
@@ -90,14 +92,24 @@ return this.#money
         if(this.isAction.timer>this.isAction.interval){
           this.isAction.timer=0
           const gottenItemCount=Random(1,3)
-          if(this.game.currentBlockX == 2 && this.game.currentBlockY == 1)
-          {
+          
             this.inventory.fish+=gottenItemCount
-          }
           this.isAction.is = false
           clearInterval(inInter)
         }
       },1000)
-      
+      return
+    }
+    this.isAction.timer++
+        PanelView.BindProgress(this.isAction.timer)
+        if(this.isAction.timer>this.isAction.interval){
+          this.isAction.timer=0
+          const gottenItemCount=Random(1,3)
+            this.inventory.wood+=gottenItemCount
+        }
+    }
+    AddMission(quest)
+    {
+      quest.is_active = true
     }
   }

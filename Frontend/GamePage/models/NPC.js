@@ -11,4 +11,8 @@ this.profession=profession
 this.panel=panel
 this.quest=quest
     }
+    GenerateNewQuest()
+    {
+        
+    }
 }
