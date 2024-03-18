@@ -6,8 +6,8 @@ import { IsometricBlock } from '../models/isometricBlock.js'
 import { Panel } from '../models/Panel.js'
 import { NPC } from '../models/NPC.js'
 import { Story } from '../controllers/Story.js'
+import { getBlockResidents } from '../services/residentService.js'
 
-const playerId = "2918ba20-e1e9-11ee-aabb-b15b1e02a4a6"
 
 /**
  * 
@@ -50,4 +50,9 @@ new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,
    game.player.height=game.height*0.08
    game.player.objY=game.height*0.7
    game.player.radius=game.width*0.01
+
+   console.log(await getBlockResidents(game.currentBlockX,game.currentBlockY))
+
+   
+
 }

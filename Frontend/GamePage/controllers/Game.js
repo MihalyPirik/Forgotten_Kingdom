@@ -6,6 +6,7 @@ import { IsometricBlock } from "../models/isometricBlock.js";
 import { GameView, PanelView } from "../views/view.js";
 import { SpriteController } from "./Sprite.js";
 import { Entity } from "../models/Entity.js";
+import { putPlayer } from "../services/playerService.js";
 
 export class GameController {
   #currentBlock;
@@ -46,6 +47,9 @@ export class GameController {
             {
               this.currentBlockX=i
               this.currentBlockY=j
+              this.player.blockX = i
+              this.player.currentBlockY = j
+              putPlayer({blockX:i,blockY:j})
               this.#currentBlock=value
               this.gameView.SetBackGround(value.backGround.src)
               return

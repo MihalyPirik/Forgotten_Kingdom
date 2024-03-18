@@ -42,5 +42,5 @@ export const Szörny1=(game)=>
         new Panel('navigationPanel',game.width*0.2,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1})
         ]
         )
-        Story.Second()
+        
 }

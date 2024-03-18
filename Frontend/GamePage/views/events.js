@@ -41,6 +41,7 @@ export const InitEvents=(game)=>
           {
             if(!game.player.isAction.canExecute)
             {
+              e.target.querySelector('input[type=button]').remove()
 return
             }
             e.target.querySelector('input[type=button]').remove()

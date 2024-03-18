@@ -252,7 +252,6 @@ export class PanelView {
     }
 
     const div = this.#CreatePanelElement("dead")
-    console.log(div);
     const button = div.querySelector('input[type="button"]')
     button.addEventListener('click', player.Respawn, { once: true })
     button.addEventListener('click', this.HideDeathDialog, { once: true })

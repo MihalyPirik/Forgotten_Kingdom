@@ -99,9 +99,10 @@ if(index==3){
     nOne.blockX = 1
     nOne.blockY = 2
     game.currentBlock.entities.push(nOne)
+    game.currentBlock.entities.push(n)
     game.gameView.RenderEntity(nOne)
 
-    game.currentBlock.entities.push(n)
+    
     game.gameView.RenderEntity(n)
 }
 if(index == 6)

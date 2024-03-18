@@ -3,6 +3,7 @@ import { Entity } from "./Entity.js"
 import { Monster } from "./Monster.js"
 import { Point } from "./Point.js"
 import {Random} from '../utils/probability.js'
+import { putPlayer } from "../services/playerService.js"
 export class Player extends Entity {
   #money=null
   #hp=null
@@ -25,7 +26,9 @@ export class Player extends Entity {
 
     set money(value)
     {
+      putPlayer({money:value})
       this.#money=value
+      
       this.game.gameView.BindMoney(this)
       
     }
@@ -36,6 +39,8 @@ return this.#money
 
     set HP(value)
     {
+      console.log('original set');
+      putPlayer({HP:value})
       if(value<=0)
       {
         this.isDead=true
@@ -77,6 +82,7 @@ return this.#money
     {
       this.money-=10
       this.game.isometricBlocks[0][0](this.game)
+      putPlayer({HP:100})
       this.isDead=false
     }
     Action=(e)=>
@@ -92,7 +98,7 @@ return this.#money
         if(this.isAction.timer>this.isAction.interval){
           this.isAction.timer=0
           const gottenItemCount=Random(1,3)
-          
+          putPlayer({fish:gottenItemCount+this.inventory.fish})
             this.inventory.fish+=gottenItemCount
           this.isAction.is = false
           clearInterval(inInter)
@@ -109,6 +115,7 @@ return this.#money
         if(this.isAction.timer>this.isAction.interval){
           this.isAction.timer=0
           const gottenItemCount=Random(1,3)
+            putPlayer({wood:gottenItemCount+this.inventory.wood})
             this.inventory.wood+=gottenItemCount
             this.isAction.canExecute = false
             setTimeout(()=>{
