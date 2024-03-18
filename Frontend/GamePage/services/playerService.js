@@ -1,10 +1,11 @@
-axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app/";
 
+axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app";
+axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk3NDE4NzkwLWU1MDctMTFlZS1hNjJiLTZmYmQ0MDFiM2RjMyIsImlhdCI6MTcxMDc1MzE0NCwiZXhwIjoxNzEwNzU2NzQ0fQ.c_nxYhR8uk7yQROPQRXfSwikrobRSZ5pjZKn3cB9hrY"
 // GET
 
-export const getAllData = (playerId) => {
+export const getAllData = () => {
   return axios
-    .get("/" + playerId + "/player")
+    .get("/player")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -13,9 +14,9 @@ export const getAllData = (playerId) => {
     });
 };
 
-export const getInventory = (playerId) => {
+export const getInventory = () => {
   return axios
-    .get("/" + playerId + "/player" + "/inventory")
+    .get("/player" + "/inventory")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -48,9 +49,9 @@ export const getQuestsIsActive = (playerId, boolean) => {
 
 // PUT
 
-export const putPlayer = (playerId, data) => {
+export const putPlayer = (data) => {
   return axios
-    .put("/" + playerId + "/player", data)
+    .put("/player", data)
     .then(async (res) => {
       return await res.data;
     })

@@ -112,45 +112,7 @@ export class GameView {
   }
 
 
-  static #createTemplate() {
-
-    const div = document.createElement('div')
-    div.classList.add('globalPanel')
-
-    const closeElement = document.createElement('button')
-    closeElement.classList.add('closeButton')
-
-    div.append(closeElement)
-    return div
-  }
-  static InventoryPanel = (game) => {
-    const div = this.#createTemplate()
-    div.id = 'inventory'
-    const player = game.player
-    let counter = 0
-    for (const item in player.inventory) {
-      const img = document.createElement('img')
-      img.src = `./assets/icons/${item}.png`
-      img.classList.add('navIMG')
-      const span = document.createElement('span')
-      span.setAttribute('data-title', item)
-      span.append(img)
-      const div1 = document.createElement('div')
-      div1.append(span)
-      div1.append(document.createElement('br'))
-      div1.append(player.inventory[item])
-      if (counter == 3) {
-        div.append(document.createElement('br'))
-      }
-      const div2 = document.createElement('div')
-      div2.append(div1)
-      div.append(div2)
-      counter++
-    }
-
-    document.querySelector('body').append(div)
-
-  }
+  
 
   static BindMonsterHP(monster) {
     const el = document.getElementById(monster.id)
@@ -322,6 +284,50 @@ export class PanelView {
   }
 
 
+
+  static #createTemplate() {
+
+    const div = document.createElement('div')
+    div.classList.add('globalPanel')
+
+    const closeElement = document.createElement('button')
+    closeElement.classList.add('closeButton')
+
+    div.append(closeElement)
+    return div
+  }
+  static InventoryPanel = (game) => {
+    const div = PanelView.#createTemplate()
+    div.id = 'inventory'
+    const player = game.player
+    let counter = 0
+    for (const item in player.inventory) {
+      const img = document.createElement('img')
+      img.src = `./assets/icons/${item}.png`
+      img.classList.add('navIMG')
+      const span = document.createElement('span')
+      span.setAttribute('data-title', item)
+      span.append(img)
+      const div1 = document.createElement('div')
+      div1.append(span)
+      div1.append(document.createElement('br'))
+      div1.append(player.inventory[item])
+      if (counter == 3) {
+        div.append(document.createElement('br'))
+      }
+      const div2 = document.createElement('div')
+      div2.append(div1)
+      div.append(div2)
+      counter++
+    }
+
+    document.querySelector('body').append(div)
+return div
+  }
+
+
+
+
   static NPCPanel(panel, element) {
     const res = panel.context
     const quest = panel.context.quest
@@ -367,5 +373,14 @@ export class PanelView {
 
   }
 
+
+  static ToolPanel(game)
+  {
+    const div = PanelView.#createTemplate()
+    div.id = 'inventory'
+console.log(game.player);
+    document.querySelector('body').append(div)
+    return div
+  }
 
 }

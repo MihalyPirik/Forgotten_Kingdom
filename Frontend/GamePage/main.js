@@ -12,7 +12,7 @@ import {Szörny1} from './isometricBlocks/monsterOne.js'
 import {Szörny2} from './isometricBlocks/monsterTwo.js'
 import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
-import { getAllData, getInventory } from './services/playerService.js'
+import { getAllData, getInventory, putPlayer } from './services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
 import { InitEvents } from './views/Events.js'
 import { Story } from './controllers/Story.js'
@@ -65,7 +65,6 @@ Story.gameView = gameView
 async function init(game)
 {
 
-
   game.player=new Player('valami',character,100,100,{stone:100,wood:100,fish:100,coal:100,iron:100,wheat:100},game)
 InitEvents(game)
 
@@ -75,7 +74,7 @@ addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = f
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[2][1](game)
+game.isometricBlocks[1][1](game)
 
 gameView.SetBackGround(game.currentBlock.backGround.src)
   arrow1.style.left=game.width/3/2-50+'px'
