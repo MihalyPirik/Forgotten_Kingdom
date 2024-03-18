@@ -1,32 +1,30 @@
-import { getAllData, getInventory, getQuests, getQuestsIsActive, putPlayer, deletePlayer } from "./playerService.js";
+import { getAllData, getInventory, getQuests, putPlayer, deletePlayer } from "./playerService.js";
 import { getAllEnemies, getBlockEnemies, postEnemy, putEnemy, deleteEnemy } from "./enemyService.js";
 import { getAllResidents, getBlockResidents, postResident, putResident } from "./residentService.js";
 import { getAllOffer, getPlayerOffer, postOffer, putOffer, deleteOffer } from "./marketService.js";
 import { getAllBuilding, postBuilding, putBuilding, deleteBuilding } from "./buildingService.js";
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJkOTk3MjAwLWRiY2UtMTFlZS1iNTEwLTM3ZmZkYTJjYTM1OSIsImlhdCI6MTcwOTg4Nzc1MSwiZXhwIjoxNzA5ODkxMzUxfQ.x8vqW-fY_bBUEaSPK7RLGunCWDFdB0pUbOwfv4_RHw0";
 
 // GET
 
-// const playerDatas=await getAllData("22f13800-d165-11ee-bd96-8fe2447f8a0c");
-// const playerInventory=await getInventory("22f13800-d165-11ee-bd96-8fe2447f8a0c");
-// const playerQuests=await getQuests("22f13800-d165-11ee-bd96-8fe2447f8a0c");
-// const playerQuestsIsActive=await getQuestsIsActive("22f13800-d165-11ee-bd96-8fe2447f8a0c", "false"); // true or false
-// const allEnemies=await getAllEnemies("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d");
-// const allBlockEnemies=await getBlockEnemies("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", 1, 1);
-// const allResidents=await getAllResidents("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d");
-// const allBlockResidents=await getBlockResidents("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", 0, 0);
+// const playerDatas=await getAllData();
+// const playerInventory=await getInventory();
+// const playerQuests=await getQuests();
+// const allEnemies=await getAllEnemies();
+// const allBlockEnemies=await getBlockEnemies(1, 1);
+// const allResidents=await getAllResidents();
+// const allBlockResidents=await getBlockResidents(0, 0);
 // const allOffer=await getAllOffer();
-// const allPlayerOffer=await getPlayerOffer("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d");
-const allBuilding=await getAllBuilding(token);
+// const allPlayerOffer=await getPlayerOffer();
+// const allBuilding=await getAllBuilding();
 
 // POST
 
 const postEnemyData = {
   objX: 1,
   objY: 1,
-  blockX: 1,
+  blockX: 10,
   blockY: 1,
-  enemy_type_id: "e880a06c-c59c-11ee-b1e4-00155ddb1e0d"
+  enemy_type_id: "93f97947-dba8-11ee-b1e4-00155ddb1e0d"
 };
 
 const postResidentData = {
@@ -46,16 +44,31 @@ const postOfferData = {
     soughtAmount: 100
 }
 
-// const enemyPost = await postEnemy("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", postEnemyData);
-// const residentPost = await postResident("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", postResidentData);
-// const offerPost = await postOffer("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", postOfferData);
+const postBuildingData = {
+  "building_type_id": "6b116ed2-e4ed-11ee-b1e4-00155ddb1e0d"
+}
+
+// const enemyPost = await postEnemy(postEnemyData);
+// const residentPost = await postResident(postResidentData);
+// const offerPost = await postOffer(postOfferData);
+// const buildingPost = await postBuilding(postBuildingData);
 
 // PUT
 
 const playerData = {
-  player_name: "teszt5",
-  email: "teszt1@teszt.hu",
-  password: "0123456789",
+  player_name: "teszt",
+  money: 1,
+  world_name: "last",
+  stone: 1,
+  wood: 1,
+  coal: 1,
+  iron: 1,
+  wheat: 1,
+  fish: 1,
+  objX: 1,
+  objY: 1,
+  blockX: 1,
+  blockY: 1,
 };
 
 const enemyData = {
@@ -84,40 +97,40 @@ const putOfferData = {
 }
 
 const putBuildingData = {
-  "level": 1
+  "level": 5
 }
 
-// const playerPut=await putPlayer("22f13800-d165-11ee-bd96-8fe2447f8a0c", playerData);
-// const enemyPut = await putEnemy("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", "3a0cd1d0-c6ab-11ee-89ed-d1ee0bfade20", enemyData);
-// const residentPut = await putResident("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", "4f47b820-da16-11ee-b103-65f4d5d03d6e", putResidentData);
-// const offerPut = await putOffer("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", "f4a61ab0-d623-11ee-8a3b-533566130e3c", putOfferData);
-// const buildingPut = await putBuilding("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", "552cf0de-da0b-11ee-b1e4-00155ddb1e0d", putBuildingData);
+// const playerPut=await putPlayer(playerData);
+// const enemyPut = await putEnemy("3a0cd1d0-c6ab-11ee-89ed-d1ee0bfade20", enemyData);
+// const residentPut = await putResident("4f47b820-da16-11ee-b103-65f4d5d03d6e", putResidentData);
+// const offerPut = await putOffer("f4a61ab0-d623-11ee-8a3b-533566130e3c", putOfferData);
+// const buildingPut = await putBuilding("05ed9660-e513-11ee-836b-c92ba05f69bd", putBuildingData);
 
 
 
 // DELETE
 
-// const playerDelete=await deletePlayer("22078630-d163-11ee-a5af-5f436c65ebb1");
-// const enemyDelete=await deleteEnemy("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", "81d1ac79-da01-11ee-b1e4-00155ddb1e0d");
-// const offerDelete=await deleteOffer("9acd3892-d9ff-11ee-b1e4-00155ddb1e0d", "f4a61ab0-d623-11ee-8a3b-533566130e3c");
+// const playerDelete=await deletePlayer();
+// const enemyDelete=await deleteEnemy("81d1ac79-da01-11ee-b1e4-00155ddb1e0d");
+// const offerDelete=await deleteOffer("f4a61ab0-d623-11ee-8a3b-533566130e3c");
+// const buildingDelete=await deleteBuilding("71df0e64-e4ed-11ee-b1e4-00155ddb1e0d");
 
 
 console.log("Results_______________________________________");
 // console.log(playerDatas);
 // console.log(playerInventory);
 // console.log(playerQuests);
-// console.log(playerQuestsIsActive);
-// console.log(allEnemies);
 // console.log(allEnemies);
 // console.log(allBlockEnemies);
 // console.log(allResidents);
 // console.log(allBlockResidents);
 // console.log(allOffer);
 // console.log(allPlayerOffer);
-console.log(allBuilding);
+// console.log(allBuilding);
 // console.log(enemyPost);
 // console.log(residentPost);
 // console.log(offerPost);
+// console.log(buildingPost);
 // console.log(playerPut);
 // console.log(enemyPut);
 // console.log(residentPut);
@@ -126,4 +139,5 @@ console.log(allBuilding);
 // console.log(playerDelete);
 // console.log(enemyDelete);
 // console.log(offerDelete);
+// console.log(buildingDelete);
 

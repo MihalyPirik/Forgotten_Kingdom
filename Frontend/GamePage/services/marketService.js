@@ -1,4 +1,5 @@
-axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app/";
+axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app";
+axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5MThiYTIwLWUxZTktMTFlZS1hYWJiLWIxNWIxZTAyYTRhNiIsImlhdCI6MTcxMDc1NTg5NSwiZXhwIjoxNzEwNzU5NDk1fQ.BVcXVYBkLzfi6-zk8uUpBsE_lCrw5KdwSbb1HM9aoDw";
 
 // GET
 
@@ -13,9 +14,9 @@ export const getAllOffer = () => {
     });
 };
 
-export const getPlayerOffer = (playerId) => {
+export const getPlayerOffer = () => {
   return axios
-    .get("/market/" + playerId)
+    .get("/market")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -26,9 +27,9 @@ export const getPlayerOffer = (playerId) => {
 
 // POST
 
-export const postOffer = (playerId, data) => {
+export const postOffer = (data) => {
     return axios
-    .post("/market/" + playerId, data)
+    .post("/market", data)
     .then(async (res) => {
       return await res.data.data;
     })
@@ -39,9 +40,9 @@ export const postOffer = (playerId, data) => {
 
 // PUT
 
-export const putOffer = (playerId, offerId, data) => {
+export const putOffer = (offerId, data) => {
   return axios
-    .put("/market/" + playerId + "/" + offerId, data)
+    .put("/market/" + offerId, data)
     .then(async (res) => {
       return await res.data;
     })
@@ -52,9 +53,9 @@ export const putOffer = (playerId, offerId, data) => {
 
 // DELETE
 
-export const deleteOffer = (playerId, offerId) => {
+export const deleteOffer = (offerId) => {
   return axios
-    .delete("/market/" + playerId + "/" + offerId)
+    .delete("/market/" + offerId)
     .then(async (res) => {
       return await res.data.data;
     })

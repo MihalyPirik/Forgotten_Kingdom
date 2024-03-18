@@ -1,10 +1,11 @@
-axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app/";
+axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app";
+axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5MThiYTIwLWUxZTktMTFlZS1hYWJiLWIxNWIxZTAyYTRhNiIsImlhdCI6MTcxMDc1NTg5NSwiZXhwIjoxNzEwNzU5NDk1fQ.BVcXVYBkLzfi6-zk8uUpBsE_lCrw5KdwSbb1HM9aoDw";
 
 // GET
 
-export const getAllResidents = (playerId) => {
+export const getAllResidents = () => {
   return axios
-    .get("/" + playerId + "/residents")
+    .get("/residents")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -13,9 +14,9 @@ export const getAllResidents = (playerId) => {
     });
 };
 
-export const getBlockResidents = (playerId, blockX, blockY) => {
+export const getBlockResidents = (blockX, blockY) => {
   return axios
-    .get("/" + playerId + "/residents/" + blockX + "/" + blockY)
+    .get("/residents/" + blockX + "/" + blockY)
     .then(async (res) => {
       return await res.data.data;
     })
@@ -26,9 +27,9 @@ export const getBlockResidents = (playerId, blockX, blockY) => {
 
 // POST
 
-export const postResident = (playerId, data) => {
+export const postResident = (data) => {
     return axios
-    .post("/" + playerId + "/residents", data)
+    .post("/residents", data)
     .then(async (res) => {
       return await res.data.data;
     })
@@ -39,9 +40,9 @@ export const postResident = (playerId, data) => {
 
 // PUT
 
-export const putResident = (playerId, residentId, data) => {
+export const putResident = (residentId, data) => {
   return axios
-    .put("/" + playerId + "/residents/" + residentId, data)
+    .put("/residents/" + residentId, data)
     .then(async (res) => {
       return await res.data;
     })

@@ -1,6 +1,6 @@
-
 axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app";
-axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk3NDE4NzkwLWU1MDctMTFlZS1hNjJiLTZmYmQ0MDFiM2RjMyIsImlhdCI6MTcxMDc1MzE0NCwiZXhwIjoxNzEwNzU2NzQ0fQ.c_nxYhR8uk7yQROPQRXfSwikrobRSZ5pjZKn3cB9hrY"
+axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5MThiYTIwLWUxZTktMTFlZS1hYWJiLWIxNWIxZTAyYTRhNiIsImlhdCI6MTcxMDc1NTg5NSwiZXhwIjoxNzEwNzU5NDk1fQ.BVcXVYBkLzfi6-zk8uUpBsE_lCrw5KdwSbb1HM9aoDw"
+
 // GET
 
 export const getAllData = () => {
@@ -25,20 +25,9 @@ export const getInventory = () => {
     });
 };
 
-export const getQuests = (playerId) => {
+export const getQuests = () => {
   return axios
-    .get("/" + playerId + "/player" + "/quests")
-    .then(async (res) => {
-      return await res.data.data;
-    })
-    .catch(async (err) => {
-      return await err.response.data.message;
-    });
-};
-
-export const getQuestsIsActive = (playerId, boolean) => {
-  return axios
-    .get("/" + playerId + "/player" + "/quests/" + boolean)
+    .get("/quest?is_active=false&&withoutZero=0&sort_by=is_mainstory")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -62,9 +51,9 @@ export const putPlayer = (data) => {
 
 // DELETE
 
-export const deletePlayer = (playerId) => {
+export const deletePlayer = () => {
   return axios
-    .delete("/" + playerId + "/player")
+    .delete("/player")
     .then(async (res) => {
       return await res.data.data;
     })

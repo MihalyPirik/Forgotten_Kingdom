@@ -1,10 +1,11 @@
-axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app/";
+axios.defaults.baseURL = "https://forgottenkingdom.cyclic.app";
+axios.defaults.headers.common['Authorization'] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI5MThiYTIwLWUxZTktMTFlZS1hYWJiLWIxNWIxZTAyYTRhNiIsImlhdCI6MTcxMDc1NTg5NSwiZXhwIjoxNzEwNzU5NDk1fQ.BVcXVYBkLzfi6-zk8uUpBsE_lCrw5KdwSbb1HM9aoDw";
 
 // GET
 
-export const getAllEnemies = (playerId) => {
+export const getAllEnemies = () => {
   return axios
-    .get("/" + playerId + "/enemies")
+    .get("/enemies")
     .then(async (res) => {
       return await res.data.data;
     })
@@ -13,9 +14,9 @@ export const getAllEnemies = (playerId) => {
     });
 };
 
-export const getBlockEnemies = (playerId, blockX, blockY) => {
+export const getBlockEnemies = (blockX, blockY) => {
   return axios
-    .get("/" + playerId + "/enemies/" + blockX + "/" + blockY)
+    .get("/enemies/" + blockX + "/" + blockY)
     .then(async (res) => {
       return await res.data.data;
     })
@@ -26,9 +27,9 @@ export const getBlockEnemies = (playerId, blockX, blockY) => {
 
 // POST
 
-export const postEnemy = (playerId, data) => {
+export const postEnemy = (data) => {
     return axios
-    .post("/" + playerId + "/enemies", data)
+    .post("/enemies", data)
     .then(async (res) => {
       return await res.data.data;
     })
@@ -39,9 +40,9 @@ export const postEnemy = (playerId, data) => {
 
 // PUT
 
-export const putEnemy = (playerId, enemyId, data) => {
+export const putEnemy = (enemyId, data) => {
   return axios
-    .put("/" + playerId + "/enemies/" + enemyId, data)
+    .put("/enemies/" + enemyId, data)
     .then(async (res) => {
       return await res.data;
     })
@@ -52,9 +53,9 @@ export const putEnemy = (playerId, enemyId, data) => {
 
 // DELETE
 
-export const deleteEnemy = (playerId, enemyId) => {
+export const deleteEnemy = (enemyId) => {
   return axios
-    .delete("/" + playerId + "/enemies/" + enemyId)
+    .delete("/enemies/" + enemyId)
     .then(async (res) => {
       return await res.data.data;
     })
