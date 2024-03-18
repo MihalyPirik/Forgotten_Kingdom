@@ -183,9 +183,17 @@ div#HP div
 background-color: red;
 height: 100%;
 }
+div#Action{
+    min-width: 100px;
+}
 .conversationPanel{
     border: 3px solid black;
     color: black;
     font-weight: bold;
     bottom: 0;
+}
+
+#ActionProgress{
+    background-color: green;
+    height: 60px;
 }

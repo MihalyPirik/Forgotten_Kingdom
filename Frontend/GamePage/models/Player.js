@@ -15,7 +15,7 @@ export class Player extends Entity {
       this.attack={timer:0,attack:3,interval:60}
       this.money=money
       this.isInConversation = false
-      this.isAction={timer:0,interval:10,is:false}
+      this.isAction={timer:0,interval:10,is:false,canExecute:true}
       this.#money=money
       this.attackradius=50
       this.inventory=inventory
@@ -100,12 +100,20 @@ return this.#money
       },1000)
       return
     }
+    if(!this.isAction.canExecute)
+    {
+      return
+    }
     this.isAction.timer++
         PanelView.BindProgress(this.isAction.timer)
         if(this.isAction.timer>this.isAction.interval){
           this.isAction.timer=0
           const gottenItemCount=Random(1,3)
             this.inventory.wood+=gottenItemCount
+            this.isAction.canExecute = false
+            setTimeout(()=>{
+              this.isAction.canExecute = true
+            },60000)
         }
     }
     AddMission(quest)

@@ -74,7 +74,7 @@ addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = f
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[1][1](game)
+game.isometricBlocks[1][2](game)
 
 gameView.SetBackGround(game.currentBlock.backGround.src)
   arrow1.style.left=game.width/3/2-50+'px'

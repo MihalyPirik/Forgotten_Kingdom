@@ -274,8 +274,6 @@ export class PanelView {
     }
     el = document.createElement('div')
     el.id = "ActionProgress"
-    el.style.height = 60 + "px"
-    el.style.backgroundColor = 'green'
     document.querySelector('div#Action').append(el)
   }
   static BindProgress(value) {

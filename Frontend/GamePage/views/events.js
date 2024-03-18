@@ -39,10 +39,15 @@ export const InitEvents=(game)=>
           }
           else
           {
+            if(!game.player.isAction.canExecute)
+            {
+return
+            }
             e.target.querySelector('input[type=button]').remove()
             addEventListener('mousedown',game.player.Action)
           }
           PanelView.ShowProgress()
+          return
         }
         if(e.detail.panel.id=="NPCPanel")
         {
