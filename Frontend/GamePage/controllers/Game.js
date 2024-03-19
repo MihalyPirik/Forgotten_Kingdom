@@ -6,7 +6,7 @@ import { IsometricBlock } from "../models/isometricBlock.js";
 import { GameView, PanelView } from "../views/view.js";
 import { SpriteController } from "./Sprite.js";
 import { Entity } from "../models/Entity.js";
-import { putPlayer } from "../services/playerService.js";
+import { putPlayer } from "../../services/playerService.js";
 
 export class GameController {
   #currentBlock;

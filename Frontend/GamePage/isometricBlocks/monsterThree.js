@@ -32,8 +32,7 @@ export const Szörny3=(game)=>{
             new Line(new Point(game.width*0.496,game.height*0.821),new Point(game.width*0.89,game.height*0.6))
         ],
         [
-            new Panel('navigationPanel',0.786*game.width,0.24*game.height,71,{forwardId:'forward',backwardId:'backward',direction:1},game),
-            new Panel('navigationPanel',0.67*game.width,0.69*game.height,72,{forwardId:'forward',backwardId:'backward',direction:-1},game)
+            new Panel('navigationPanel',0.27*game.width,0.72*game.height,72,{forwardId:'forward',backwardId:'backward',direction:-1},game)
         ]
     )
 }

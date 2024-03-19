@@ -1,3 +1,4 @@
+import { Panel } from '../models/Panel.js'
 import {IsometricBlock} from '../models/isometricBlock.js'
 
 const backGround=new Image()
@@ -14,7 +15,7 @@ export const Bánya=(game)=>{
 
         ],
         [
-
+            new Panel('navigationPanel',game.width*0.64,game.height*0.85,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
         ]
     )
 }

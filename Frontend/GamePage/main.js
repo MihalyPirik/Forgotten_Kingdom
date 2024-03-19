@@ -12,7 +12,7 @@ import {Szörny1} from './isometricBlocks/monsterOne.js'
 import {Szörny2} from './isometricBlocks/monsterTwo.js'
 import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
-import { getAllData, getInventory } from './services/playerService.js'
+import { getAllData, getInventory } from '../services/playerService.js'
 import { GameView } from './views/view.js'
 import { InitEvents } from './views/Events.js'
 import { Story } from './controllers/Story.js'
@@ -64,6 +64,7 @@ Story.gameView = gameView
 
 async function init(game)
 {
+  
 const playerData = await getAllData()
 const inventory = await getInventory()
 

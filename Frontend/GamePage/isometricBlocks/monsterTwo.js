@@ -1,5 +1,6 @@
 import { Circle } from "../models/Circle.js"
 import { Line } from "../models/Line.js"
+import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
@@ -12,7 +13,10 @@ export const Szörny2=(game)=>{
         'Szörny2',
         backGround,
         null,
-        [],
+        [
+            new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
+        new Monster('2','Skeleton',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
+        ],
         [
             // x: 0.075, y: 0.517
             new Line(new Point(game.width*0.5,game.height*0.78),new Point(game.width,game.height*0.465)),

@@ -3,7 +3,7 @@ import { Entity } from "./Entity.js"
 import { Monster } from "./Monster.js"
 import { Point } from "./Point.js"
 import {Random} from '../utils/probability.js'
-import { putPlayer } from "../services/playerService.js"
+import { putPlayer } from "../../services/playerService.js"
 export class Player extends Entity {
   #money=null
   #hp=null

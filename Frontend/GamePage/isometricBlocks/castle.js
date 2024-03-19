@@ -6,7 +6,7 @@ import { IsometricBlock } from '../models/isometricBlock.js'
 import { Panel } from '../models/Panel.js'
 import { NPC } from '../models/NPC.js'
 import { Story } from '../controllers/Story.js'
-import { getBlockResidents } from '../services/residentService.js'
+import { getBlockResidents } from '../../services/residentService.js'
 
 
 /**

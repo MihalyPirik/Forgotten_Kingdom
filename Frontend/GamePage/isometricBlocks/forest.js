@@ -7,6 +7,7 @@ backGround.src="./assets/blocks/WoodForest.png"
 export const Erdő=(game)=>{
     game.currentBlock=new IsometricBlock
     (
+        // 0.32, 0.76
         'Erdő',
         backGround,
         null,
@@ -17,7 +18,8 @@ export const Erdő=(game)=>{
         [
 new Panel('Action',game.width*0.6,game.height*0.51,game.width*0.03,false,{action:"Favágás"}),
 new Panel('Action',game.width*0.64,game.height*0.62,game.width*0.03,false,{action:"Favágás"}),
-new Panel('Action',game.width*0.23,game.height*0.63,game.width*0.03,false,{action:"Favágás"})
+new Panel('Action',game.width*0.23,game.height*0.63,game.width*0.03,false,{action:"Favágás"}),
+new Panel('navigationPanel',game.width*0.32,game.height*0.76,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1})
         ]
     )
 
