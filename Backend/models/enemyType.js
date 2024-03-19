@@ -46,7 +46,7 @@ const EnemyType = dbConnection.define
         }
     )
 EnemyType.associate = (models) => {
-    EnemyType.belongsToMany(models.Player, { through: models.Enemy, foreignKey: "enemy_type_id" })
+    EnemyType.belongsToMany(models.Player, { through: {model:models.Enemy,unique:false}, foreignKey: "enemy_type_id" })
     EnemyType.hasMany(models.Enemy, { foreignKey: 'enemy_type_id' })
 }
 
