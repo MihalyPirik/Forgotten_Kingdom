@@ -39,7 +39,6 @@ return this.#money
 
     set HP(value)
     {
-      console.log('original set');
       putPlayer({HP:value})
       if(value<=0)
       {

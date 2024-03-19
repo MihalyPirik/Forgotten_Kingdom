@@ -1,6 +1,5 @@
 import { base } from "./base.js";
 
-
 // GET
 
 export const getAllOffer = () => {
@@ -8,7 +7,7 @@ export const getAllOffer = () => {
 };
 
 export const getPlayerOffer = () => {
-  return base("/market",'GET')
+  return base("/market/playerOffer",'GET')
 };
 
 // POST

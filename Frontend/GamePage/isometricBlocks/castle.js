@@ -50,9 +50,4 @@ new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,
    game.player.height=game.height*0.08
    game.player.objY=game.height*0.7
    game.player.radius=game.width*0.01
-
-   console.log(await getBlockResidents(game.currentBlockX,game.currentBlockY))
-
-   
-
 }

@@ -7,7 +7,7 @@ buildingRouter.use(userAuth)
 
 buildingRouter.get('/', getAllBuildings)
 
-buildingRouter.post('', postBuilding)
+buildingRouter.post('/', postBuilding)
 
 buildingRouter.put('/:building_id', putBuilding)
 

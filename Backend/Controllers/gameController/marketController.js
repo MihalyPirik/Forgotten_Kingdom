@@ -17,6 +17,7 @@ const getAllOffer = async (req, res, next) => {
 const getAllPlayerOffer = async (req, res, next) => {
   try {
     const player_id = req.token.id;
+    console.log("token:", req.token.id);
 
     const data = await Market.findAll({
       where: {

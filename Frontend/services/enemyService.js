@@ -1,6 +1,5 @@
 import { base } from "./base.js";
 
-
 // GET
 
 export const getAllEnemies = () => {

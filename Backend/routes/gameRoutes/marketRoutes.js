@@ -6,7 +6,7 @@ const marketRouter = require('express').Router({ mergeParams: true });
 marketRouter.use(userAuth)
 
 marketRouter.get('/', getAllOffer);
-marketRouter.get('/', getAllPlayerOffer);
+marketRouter.get('/playerOffer', getAllPlayerOffer);
 
 marketRouter.post('/', postOffer);
 

@@ -13,11 +13,11 @@ export const getBlockResidents = (blockX, blockY) => {
 // POST
 
 export const postResident = (data) => {
-    return base("/residents", data)
+    return base("/residents", "POST", data)
 }
 
 // PUT
 
 export const putResident = (residentId, data) => {
-  return base("/residents/" + residentId, data)
+  return base("/residents/" + residentId, "PUT", data)
 };

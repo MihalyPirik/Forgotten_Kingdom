@@ -1,15 +1,10 @@
 import { base } from "./base.js";
 
-
 // GET
 
 export const getAllData = () => {
   return base('/player','GET')
 };
-
-
-
-
 
 export const getInventory = () => {
   return base("/player" + "/inventory", 'GET')
