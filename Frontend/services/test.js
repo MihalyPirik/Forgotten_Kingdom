@@ -1,6 +1,6 @@
 import { getAllData, getInventory, getQuests, putPlayer, deletePlayer } from "./playerService.js";
 import { getAllEnemies, getBlockEnemies, postEnemy, putEnemy, deleteEnemy } from "./enemyService.js";
-import { getAllResidents, getBlockResidents, postResident, putResident } from "./residentService.js";
+import { getAllResidents, getBlockResidents, postResident, putResident, deleteResident } from "./residentService.js";
 import { getAllOffer, getPlayerOffer, postOffer, putOffer, deleteOffer } from "./marketService.js";
 import { getAllBuilding, postBuilding, putBuilding, deleteBuilding } from "./buildingService.js";
 
@@ -112,6 +112,7 @@ const putBuildingData = {
 // const enemyDelete=await deleteEnemy("280f3d70-e5db-11ee-abf5-3913413dc67d");
 // const offerDelete=await deleteOffer("e6226150-e5dd-11ee-a229-b50b973e4440");
 // const buildingDelete=await deleteBuilding("71df0e64-e4ed-11ee-b1e4-00155ddb1e0d");
+// const residentDelete=await deleteResident("43bad710-e5df-11ee-a229-b50b973e4440");
 
 
 console.log("Results_______________________________________");
@@ -138,4 +139,4 @@ console.log("Results_______________________________________");
 // console.log(enemyDelete);
 // console.log(offerDelete);
 // console.log(buildingDelete);
-
+// console.log(residentDelete);

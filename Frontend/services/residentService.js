@@ -21,3 +21,9 @@ export const postResident = (data) => {
 export const putResident = (residentId, data) => {
   return base("/residents/" + residentId, "PUT", data)
 };
+
+// DELETE
+
+export const deleteResident = (residentId) => {
+  return base("/residents/" + residentId, 'DELETE')
+};
