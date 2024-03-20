@@ -86,7 +86,9 @@ return this.#money
     }
     Action=(e)=>
     {
-      if(this.game.currentBlockX == 2 && this.game.currentBlockY == 1)
+      if((this.game.currentBlockX == 2 && this.game.currentBlockY == 1) || 
+        (this.game.currentBlockX == 0 && this.game.currentBlockY == 2)
+        )
           {
       let inInter
       this.isAction.is = true
@@ -97,8 +99,22 @@ return this.#money
         if(this.isAction.timer>this.isAction.interval){
           this.isAction.timer=0
           const gottenItemCount=Random(1,3)
-          putPlayer({fish:gottenItemCount+this.inventory.fish})
+          if(this.game.currentBlockX == 2 && this.game.currentBlockY == 1)
+          {
+            putPlayer({fish:gottenItemCount+this.inventory.fish})
             this.inventory.fish+=gottenItemCount
+          }
+          else if(this.game.currentBlockX == 0 && this.game.currentBlockY == 2)
+          {
+            const gottenCoalAmount = Random(0,3)
+            console.log(gottenItemCount);
+            console.log(gottenCoalAmount);
+            putPlayer({stone:gottenItemCount+this.inventory.stone,coal:gottenCoalAmount+this.inventory.coal})
+            this.inventory.stone+=gottenItemCount
+            this.inventory.coal+=gottenCoalAmount
+          }
+          
+            
           this.isAction.is = false
           clearInterval(inInter)
         }

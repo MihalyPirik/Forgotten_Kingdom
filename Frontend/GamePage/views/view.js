@@ -1,3 +1,4 @@
+import { getQuests } from '../../services/playerService.js'
 import { GameController } from '../controllers/Game.js'
 import { PanelController } from '../controllers/Panel.js'
 import { Circle } from '../models/Circle.js'
@@ -322,7 +323,18 @@ export class PanelView {
 return div
   }
 
+static QuestPanelShow(questList)
+{
+  const questPanel = document.getElementById('quests')
+questList.forEach(quest => {
+  let div = this.GetOwnTemplate('questPanel').cloneNode(true)
+  div = div.innerHTML
+  this.#processElement(div,quest)
+  questPanel.innerHTML = div
+});
 
+
+}
 
 
   static NPCPanel(panel, element) {
