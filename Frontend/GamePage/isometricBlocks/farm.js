@@ -1,5 +1,6 @@
 import { Circle } from "../models/Circle.js"
 import { Line } from "../models/Line.js"
+import { NPC } from "../models/NPC.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
@@ -8,7 +9,8 @@ import { IsometricBlock } from "../models/isometricBlock.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/Farm.png"
-
+const charSprite=new Image()
+charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 export const Farm=(game)=>{
 
     game.currentBlock=new IsometricBlock(
@@ -16,11 +18,9 @@ export const Farm=(game)=>{
         backGround,
         null,
         [
-
+new NPC(game,'Eric',charSprite,game.width*0.53,game.height*0.57,'Farmer',null,null)
         ],
         [
-            // start: x: 0.951, y:0.628
-            // end: x: 0.714, y:0.749
 new Line(
     new Point(game.width*0.507,game.height*0.89),
 new Point(game.width*0.673,game.height*0.798)),
@@ -49,7 +49,8 @@ new Circle(game.width*0.337,game.height*0.523,game.width*0.01)
         ],
         [
             new Panel('navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
-            new Panel('navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1})
+            new Panel('navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1}),
+            new Panel('Action',game.width*0.63,game.height*0.61,game.width*0.03,false,{action:"Aratás"})
         ]
     )
 }

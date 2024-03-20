@@ -32,7 +32,7 @@ export const InitEvents=(game)=>
     addEventListener("panelShowed",(e)=>{
         if(e.detail.panel.id=="Action")
         {
-            if(game.currentBlockX == 2 && game.currentBlockY == 1)
+            if(game.currentBlockX == 2 && game.currentBlockY == 1 || game.currentBlockX == 0 && game.currentBlockY == 2)
           {
             
             e.target.querySelector('input[type=button]').addEventListener('click',game.player.Action)

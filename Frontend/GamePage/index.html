@@ -42,7 +42,14 @@
     <template id="blockPanel">
 
     </template>
-
+<template id="questPanel">
+<div id="quest">
+  <p>{{QuestType.quest_name}}</p>
+  <p>{{QuestType.quest_name}}</p>
+  <p>{{QuestType.description}}</p>
+  <p>{{currentProgress}}</p>
+</div>
+</template>
     <div id="charStats">
       <div>
         <img id="pfp" src="./assets/pfpBorder.png" />
@@ -60,11 +67,11 @@
           ></span
         >
       </span>
-
       <br />
       <span id="inventory" data-title="Inventory"
         ><img class="navIMG" src="./assets/bagIcon.png"
       /></span>
+      <div id="quests"></div>
     </div>
     <span data-title="Kilépés" id="logout"
       ><img class="navIMG" src="./assets/logout.png"

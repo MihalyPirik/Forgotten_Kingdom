@@ -15,7 +15,9 @@ export const Bánya=(game)=>{
 
         ],
         [
-            new Panel('navigationPanel',game.width*0.64,game.height*0.85,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
+            new Panel('navigationPanel',game.width*0.64,game.height*0.85,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1}),
+            new Panel('navigationPanel',game.width*0.34,game.height*0.86,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1}),
+            new Panel('Action',game.width*0.52,game.height*0.61,game.width*0.03,false,{action:"Bányászás"}),
         ]
     )
 }
