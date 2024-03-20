@@ -7,6 +7,7 @@ import { GameView, PanelView } from "../views/view.js";
 import { SpriteController } from "./Sprite.js";
 import { Entity } from "../models/Entity.js";
 import { putPlayer } from "../../services/playerService.js";
+import { deleteEnemy, putEnemy } from "../../services/enemyService.js";
 
 export class GameController {
   #currentBlock;
@@ -104,6 +105,10 @@ if(entity.isDead)
 
   const index = this.currentBlock.entities.indexOf(entity)
   this.currentBlock.entities.splice(index,1)
+  if(entity instanceof Monster)
+  {
+    deleteEnemy(entity)
+  }
 }
 
 

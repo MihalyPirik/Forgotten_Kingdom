@@ -14,8 +14,8 @@ import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory, getQuests } from '../services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
-import { InitEvents } from './views/Events.js'
 import { Story } from './controllers/Story.js'
+import { InitEvents } from './views/events.js'
 // import {createApp, ref} from './node_modules/vue/dist/vue.esm-browser.js'
 
 const gameCanvas = document.querySelector('canvas')
@@ -91,7 +91,6 @@ arrow2.style.top=game.height*0.86+'px'
 
 game.gameView.BindPlayerHealth(game.player)
 const questList = await getQuests()
-console.log(questList);
 PanelView.QuestPanelShow(questList)
 
 

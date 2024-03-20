@@ -11,6 +11,7 @@ export class Entity {
       this.objY = objY
       this.spriteX = objX - width*0.5
       this.spriteY = objY - height*0.5 -this.radius
+      this.isDead=false
       this.frameX = 0
       this.frameY = 0
       this.blockX = this.game.currentBlockX

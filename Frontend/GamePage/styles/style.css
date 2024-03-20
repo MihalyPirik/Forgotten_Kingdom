@@ -196,3 +196,21 @@ div#Action{
     background-color: green;
     height: 60px;
 }
+
+#quests
+{
+    top: 4vw;
+    right: 0%;
+    height:  calc(100% - 4vw);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-margin: 0;
+    scroll-padding: 0;
+}
+
+.questCard
+{
+    text-align: center;
+    border: 2px solid black;
+    margin: 3px;
+}

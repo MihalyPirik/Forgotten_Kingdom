@@ -25,12 +25,12 @@ export class Player extends Entity {
     }
 
     set money(value)
-    {
+    {this.#money=value
+if(this.#money!=value){
+
       putPlayer({money:value})
-      this.#money=value
-      
-      this.game.gameView.BindMoney(this)
-      
+}
+this.game.gameView.BindMoney(value)
     }
     get money()
     {
@@ -39,13 +39,16 @@ return this.#money
 
     set HP(value)
     {
+      this.#hp=value
+      if(this.#hp!=value){
       putPlayer({HP:value})
       if(value<=0)
       {
         this.isDead=true
         PanelView.ShowDeathDialog(this)
       }
-      this.#hp=value
+      
+    }
     }
     get HP(){
       return this.#hp

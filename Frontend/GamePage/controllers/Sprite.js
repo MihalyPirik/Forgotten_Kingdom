@@ -38,7 +38,13 @@ static MoveSprite(entity,angle)
 
   static MovePlayer=(player)=>
   {
-      if (player.move.event) {
+    if(!player.move.event){
+      if(player.frameX!=0)
+      {
+        player.frameX = 0
+      }
+    }
+      else {
         
 
         let newX = player.objX
@@ -132,3 +138,4 @@ return new Point(monsterInstance.objX,monsterInstance.objY)
 
 
 }
+

@@ -98,8 +98,8 @@ export class GameView {
 
 
 
-  BindMoney(player) {
-    document.querySelector('#money span').innerHTML = ' ' + player.money
+  BindMoney(money) {
+    document.querySelector('#money span').innerHTML = ' ' + money
   }
 
 
@@ -180,6 +180,7 @@ export class PanelView {
     return document.querySelector('template#' + panelInstance)
   }
   static #processElement(element, context) {
+    
     if (context) {
       if (element.nodeType === Node.TEXT_NODE) {
         element.nodeValue = PanelView.#getMatches(element.nodeValue, /{{(.*?)}}/g, context);
@@ -202,7 +203,18 @@ export class PanelView {
         matches.push(match[1])
       }
       return str.replace(regex, (match, variable) => {
-        return context[variable] || match
+        if(variable.includes('.'))
+        {
+          let newContext = context
+          let newKey = variable
+          const list = variable.split('.')
+          for (let i = 0; i < list.length-1; i++) {
+            newContext = newContext[list[i]]
+            newKey = list[i+1]
+          }
+          return newContext[newKey]==undefined?match:newContext[newKey]
+        }
+        return context[variable]==undefined?match:context[variable]
       })
     }
   }
@@ -327,10 +339,17 @@ static QuestPanelShow(questList)
 {
   const questPanel = document.getElementById('quests')
 questList.forEach(quest => {
-  let div = this.GetOwnTemplate('questPanel').cloneNode(true)
-  div = div.innerHTML
-  this.#processElement(div,quest)
-  questPanel.innerHTML = div
+  let div = this.GetOwnTemplate('questPanel').content.cloneNode(true)
+  const div2 = document.createElement('div')
+  div2.classList.add("questCard")
+  div2.append(div)
+div2.id = quest.QuestType.quest_id
+  if(!quest.targetProgress)
+  {
+    div2.querySelector('p:last-child').remove()
+  }
+  this.#processElement(div2,quest)
+  questPanel.append(div2)
 });
 
 

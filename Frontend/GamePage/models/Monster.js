@@ -11,7 +11,6 @@ this.name=name
 this.radius=game.width*0.03
 this.speed=speed
 this.HP=HP
-this.isDead=false
 this.#hp=HP
 this.attack={timer:0,attack:attack,interval:60}
 this.level=level

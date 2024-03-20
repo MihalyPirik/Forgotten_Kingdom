@@ -43,12 +43,9 @@
 
     </template>
 <template id="questPanel">
-<div id="quest">
-  <p>{{QuestType.quest_name}}</p>
   <p>{{QuestType.quest_name}}</p>
   <p>{{QuestType.description}}</p>
-  <p>{{currentProgress}}</p>
-</div>
+  <p>{{currentProgress}}/{{targetProgress}}</p>
 </template>
     <div id="charStats">
       <div>
@@ -71,7 +68,10 @@
       <span id="inventory" data-title="Inventory"
         ><img class="navIMG" src="./assets/bagIcon.png"
       /></span>
-      <div id="quests"></div>
+      
+    </div>
+    <div id="quests">
+      <h2>Aktív Küldetések</h2>
     </div>
     <span data-title="Kilépés" id="logout"
       ><img class="navIMG" src="./assets/logout.png"
@@ -85,6 +85,6 @@
     <p id="mouseCoordinates" class="relative"></p>
 
     <script type="module" src="main.js"></script>
-    <script type="module" src="../services/test.js"></script>
+    <!-- <script type="module" src="../services/test.js"></script> -->
   </body>
 </html>
