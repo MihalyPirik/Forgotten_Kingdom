@@ -10,11 +10,6 @@ export const getInventory = () => {
   return base("/player" + "/inventory", 'GET')
 };
 
-export const getQuests = () => {
-  // return base("/quest?is_active=false&withoutZero=0&sort_by=is_mainstory", 'GET')
-  return base("/quest",'GET')
-};
-
 // PUT
 
 export const putPlayer = (data) => {
