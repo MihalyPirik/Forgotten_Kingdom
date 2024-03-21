@@ -77,15 +77,13 @@ callback instanceof Function?callback(index):null
     static async First()
     {
         Story.BasePlayConversation("first.txt")
+        // first main - completed
+        // second - active
     }
     static async Second()
     {
         Story.BasePlayConversation("second.txt",(index)=>{
             const game = Story.gameController
-            const charSprite=new Image()
-            charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
-            const nOne = new NPC(Story.gameController,"Adam",charSprite,game.width*0.7,game.height*0.7,"Szörnyvadász")
-            const n = new NPC(Story.gameController,"Valaki",charSprite,game.width*0.6,game.height*0.6,"Kovács")
             if(index==0){
                 Story.MoveEntity(Story.gameController.player,Story.gameController.width*0.5,Story.gameController.height*0.5)
             }
@@ -111,6 +109,8 @@ if(index == 6)
     Story.gameController.currentBlock.entities.splice(Story.gameController.currentBlock.entities.indexOf(nOne),1)
 }
         })
+        // second - completed
+        // third = active
     }
     static Third()
     {

@@ -31,6 +31,7 @@ export const Piac=(game)=>{
         backGround,
         null,
         [
+            new NPC(game,'Dominik',charSprite,game.width*0.22,game.height*0.52,'Szörnyvadász'),
             npc
         ],
         [

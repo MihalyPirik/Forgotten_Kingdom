@@ -24,7 +24,7 @@ export const Kastély=async(game)=>{
     
    game.currentBlock=new IsometricBlock(
     "Kastély",backGround,null,[
-    
+    new NPC(game,'Michail',charSprite,game.width*0.37,game.height*0.63,'Lovag')
     ],
     [
 new Line(new Point(game.width*0.2,game.height*0.83),new Point(game.width*0.34,game.height*0.74)),

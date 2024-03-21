@@ -54,6 +54,12 @@ return
         {
             PanelView.NPCPanel(e.detail.panel,e.target)
         }
+        if(e.detail.panel.id=="enterInterior")
+        {
+          document.querySelector('#enterInterior input[type=button]').addEventListener('click',()=>{
+            game.currentBlock = game.currentBlock.interior
+          },{once:true})
+        }
     })
     addEventListener("panelHide",()=>{
         removeEventListener('mousedown',game.player.Action)

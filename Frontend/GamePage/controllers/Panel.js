@@ -46,9 +46,11 @@ for (const enemy of enemies)
         )
     {
         PanelView.ShowHighlight(enemy)
+        break
     }
     else
     {
+      console.log('remove');
         PanelView.HideHighlight(enemy.id)
     }
 }

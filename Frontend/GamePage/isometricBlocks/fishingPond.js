@@ -3,19 +3,26 @@ import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
 import { Circle } from '../models/Circle.js'
 import { Panel } from "../models/Panel.js"
+import { NPC } from "../models/NPC.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/FishingPond.png"
 
 // start X: 0.524,  Y: 0.578
 // end X:0.397 , Y: 0.495
+
+
+
+const charSprite=new Image()
+charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
+
 export const Horgásztó=(game)=>{
     game.currentBlock=new IsometricBlock(
         'Horgásztó',
         backGround,
         null,
         [
-            
+            new NPC(game,'Billy',charSprite,game.width*0.44,game.height*0.44,'Halász')
         ],
         [
             new Line(new Point(game.width*0.496,game.height*0.909),new Point(game.width*0.016,game.height*0.651)),
