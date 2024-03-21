@@ -1,14 +1,15 @@
-import { getAllData, getInventory, getQuests, putPlayer, deletePlayer } from "./playerService.js";
+import { getAllData, getInventory, putPlayer, deletePlayer } from "./playerService.js";
 import { getAllEnemies, getBlockEnemies, postEnemy, putEnemy, deleteEnemy } from "./enemyService.js";
 import { getAllResidents, getBlockResidents, postResident, putResident, deleteResident } from "./residentService.js";
 import { getAllOffer, getPlayerOffer, postOffer, putOffer, deleteOffer } from "./marketService.js";
 import { getAllBuilding, postBuilding, putBuilding, deleteBuilding } from "./buildingService.js";
+import { getQuests, postQuest, putQuest, deleteQuest } from "./questService.js";
 
 // GET
 
 // const playerDatas=await getAllData();
 // const playerInventory=await getInventory();
-// const playerQuests=await getQuests();
+// const allQuests=await getQuests("?withoutZero=0");
 // const allEnemies=await getAllEnemies();
 // const allBlockEnemies=await getBlockEnemies(1, 1);
 // const allResidents=await getAllResidents();
@@ -118,7 +119,7 @@ const putBuildingData = {
 console.log("Results_______________________________________");
 // console.log(playerDatas);
 // console.log(playerInventory);
-// console.log(playerQuests);
+// console.log(allQuests);
 // console.log(allEnemies);
 // console.log(allBlockEnemies);
 // console.log(allResidents);
