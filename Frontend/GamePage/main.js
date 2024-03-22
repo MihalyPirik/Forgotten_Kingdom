@@ -12,10 +12,12 @@ import {Szörny1} from './isometricBlocks/monsterOne.js'
 import {Szörny2} from './isometricBlocks/monsterTwo.js'
 import {Szörny3} from './isometricBlocks/monsterThree.js'
 import {Szörny4} from './isometricBlocks/monsterFour.js'
-import { getAllData, getInventory, getQuests } from '../services/playerService.js'
+import { getAllData, getInventory } from '../services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
 import { Story } from './controllers/Story.js'
 import { InitEvents } from './views/events.js'
+import { getQuests } from '../services/questService.js'
+import { getAllTools } from '../services/toolService.js'
 // import {createApp, ref} from './node_modules/vue/dist/vue.esm-browser.js'
 
 const gameCanvas = document.querySelector('canvas')
@@ -69,7 +71,7 @@ const playerData = await getAllData()
 const inventory = await getInventory()
 
 game.player = new Player(playerData.player_name,character,playerData.HP,playerData.money,inventory,game,playerData.tools)
-
+game.player.tools = await getAllTools()
   // game.player=new Player('valami',character,100,100,{stone:100,wood:100,fish:100,coal:100,iron:100,wheat:100},game)
 InitEvents(game)
 

@@ -1,4 +1,4 @@
-import { getQuests } from '../../services/playerService.js'
+import { getQuests } from '../../services/questService.js'
 import { GameController } from '../controllers/Game.js'
 import { PanelController } from '../controllers/Panel.js'
 import { Circle } from '../models/Circle.js'
@@ -405,8 +405,17 @@ div2.id = quest.QuestType.quest_id
   static ToolPanel(game)
   {
     const div = PanelView.#createTemplate()
-    div.id = 'inventory'
-console.log(game.player);
+    
+    game.player.tools.forEach(tool=>{
+      const card = PanelView.GetOwnTemplate('toolPanel').content.cloneNode(true)
+      const div2 = document.createElement('div')
+      div2.classList.add("toolCard")
+      div2.append(card)
+PanelView.#processElement(div2,tool)
+div.append(div2)
+
+
+    })
     document.querySelector('body').append(div)
     return div
   }

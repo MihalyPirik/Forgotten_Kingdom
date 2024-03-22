@@ -201,16 +201,17 @@ div#Action{
 {
     top: 4vw;
     right: 0%;
-    height:  calc(100% - 4vw);
+    height:  calc(100% - 8vw);
     overflow-y: scroll;
     scroll-behavior: smooth;
     scroll-margin: 0;
     scroll-padding: 0;
+    padding: 5px;
 }
 
 .questCard
 {
     text-align: center;
     border: 2px solid black;
-    margin: 3px;
+    margin: 5px;
 }
