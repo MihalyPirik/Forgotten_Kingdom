@@ -23,7 +23,7 @@ const Building = dbConnection.define(
   }
 );
 Building.associate = (models) => {
-  Building.belongsTo(models.Player, { foreignKey: "world_id" });
+  Building.belongsTo(models.Player, { foreignKey: "world_id", onDelete: "CASCADE" });
   Building.belongsTo(models.BuildingType, { foreignKey: "building_type_id" });
 };
 

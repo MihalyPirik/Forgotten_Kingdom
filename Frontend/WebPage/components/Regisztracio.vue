@@ -8,6 +8,7 @@ let name,email,password;
 let mess=ref()
 const Regisztracio=async()=>{
   mess.value=await FormRegistration(name,email,password)
+  console.log(mess.value);
 }
 
 </script>

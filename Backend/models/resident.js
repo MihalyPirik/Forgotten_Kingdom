@@ -15,7 +15,6 @@ const Resident = dbConnection.define
             {
                 type: DataTypes.STRING,
                 allowNull: false,
-                unique: true
             },
             profession:
             {
@@ -51,7 +50,7 @@ const Resident = dbConnection.define
         }
     )
 Resident.associate = (models) => {
-    Resident.belongsTo(models.Player, {foreignKey: 'world_id'});
+    Resident.belongsTo(models.Player, {foreignKey: 'world_id', onDelete: "CASCADE"});
     Resident.belongsTo(models.QuestType, { foreignKey: 'quest_id' });
 }
 module.exports = Resident
