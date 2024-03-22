@@ -52,7 +52,7 @@ const Quest = dbConnection.define
     )
     Quest.associate = (models) => {
         Quest.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' })
-        Quest.belongsTo(models.QuestType, { foreignKey: 'quest_id', onDelete: 'CASCADE' })
+        Quest.belongsTo(models.QuestType, { foreignKey: 'quest_id' })
 }
 
 module.exports = Quest

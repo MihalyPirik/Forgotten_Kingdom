@@ -1,6 +1,7 @@
 const { DataTypes } = require("sequelize")
 const bcrypt = require('bcrypt')
 const dbConnection = require("../services/dbService")
+const { SetInitialState } = require("../middlewares/initialState")
 
 const Player = dbConnection.define
     (
@@ -164,7 +165,8 @@ const Player = dbConnection.define
             {
                 beforeCreate: async (user) => {
                     user.password = await bcrypt.hash(user.password, await bcrypt.genSalt(10))
-                }
+                },
+                afterCreate: SetInitialState
             },
         }
     )

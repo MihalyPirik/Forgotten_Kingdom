@@ -63,4 +63,4 @@ module.exports=dbConnection;
 //   return data[0][0]
 // }
 
-// dbConnection.sync({force: true})
+// dbConnection.sync({alter: true})

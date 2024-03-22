@@ -10,7 +10,7 @@ export const FormRegistration = async(name, email, password) => {
 
 export const FormLogin=async(email,password)=>{
   return axios.post('/user/login',({"email":email,"password":password}))
-  .then(async res=>{window.location.href=`http://127.0.0.1:5500/Frontend/components/Game_Page/index.html?token=${res.headers.authorization}`
+  .then(async res=>{window.location.href=`http://127.0.0.1:5500/Frontend/GamePage/index.html?token=${res.headers.authorization}`
   ;return await res.data.message})
   .catch(async err=>{console.log(err);return await err.response.data.message})
 }
