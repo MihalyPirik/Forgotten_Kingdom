@@ -1,0 +1,14 @@
+Elfeledett Királyság - Henry megbízása
+
+Henry:  Szép napot!
+	Szeretnél besegíteni a favágásba?
+	Természetesen megfizetlek érte.
+
+Játékos: Megegyeztünk!
+
+---------Szerezz Henry-nek, a favágónak 1500 fát----------
+
+Henry:  Ez kemény volt!
+	Nem ma kezdted!
+	Tessék, megérdemled!
+	

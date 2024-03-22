@@ -1,0 +1,7 @@
+Elfeledett Királyság - Minerva megbízása
+
+Minerva: Én hősöm! Hát eljöttél!
+	 Mondd csak! Miben segíthetek?
+
+/Megnyílik a skin váltó felület\
+
