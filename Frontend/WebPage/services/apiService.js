@@ -4,7 +4,7 @@ axios.defaults.baseURL='http://127.0.0.1:3000'
 
 export const FormRegistration = async(name, email, password) => {
   return axios.post('/user/registration', ({ "name": name, "email": email, "password": password }))
-  .then(async res=>{return await res.data.message})
+  .then(async res=>{return await res.data.data.message})
   .catch(async err=>{return await err.response.data.message})
 }
 
