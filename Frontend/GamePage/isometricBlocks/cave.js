@@ -2,22 +2,38 @@ import { Panel } from '../models/Panel.js'
 import {IsometricBlock} from '../models/isometricBlock.js'
 
 const backGround=new Image()
-backGround.src="./assets/blocks/MineEntrance.png"
+backGround.src="./assets/blocks/Mine.png"
 
+const inCave = new Image()
+inCave.src = './assets/blocks/inMine.png'
+const CaveInterior = (game)=>
+{
+    game.currentBlock = new IsometricBlock(
+        'Bánya',
+        inCave,
+        null,
+        [],
+        [],
+        [
+            new Panel('leaveInterior',game.width*0.16,game.height*0.76,game.width*0.05,false)
+        ]
+    )
+    return game.currentBlock
+}
 export const Bánya=(game)=>{
     game.currentBlock=new IsometricBlock
     (
         'Bánya',
         backGround,
-        null,
+        CaveInterior,
         [],
         [
 
         ],
         [
-            new Panel('navigationPanel',game.width*0.64,game.height*0.85,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1}),
-            new Panel('navigationPanel',game.width*0.34,game.height*0.86,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1}),
-            new Panel('Action',game.width*0.52,game.height*0.61,game.width*0.03,false,{action:"Bányászás"}),
+            new Panel('navigationPanel',game.width*0.63,game.height*0.85,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
+            new Panel('navigationPanel',game.width*0.37,game.height*0.85,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
+            new Panel('enterInterior',game.width*0.46,game.height*0.54,game.width*0.08,false)
         ]
     )
 }

@@ -57,7 +57,13 @@ return
         if(e.detail.panel.id=="enterInterior")
         {
           document.querySelector('#enterInterior input[type=button]').addEventListener('click',()=>{
-            game.currentBlock = game.currentBlock.interior
+            game.currentBlock = game.currentBlock.interior(game)
+          },{once:true})
+        }
+        if(e.detail.panel.id=="leaveInterior")
+        {
+          document.querySelector('#leaveInterior input[type=button]').addEventListener('click',()=>{
+            game.currentBlock = game.isometricBlocks[game.currentBlockX][game.currentBlockY](game)
           },{once:true})
         }
     })

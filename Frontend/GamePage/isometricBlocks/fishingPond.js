@@ -6,7 +6,7 @@ import { Panel } from "../models/Panel.js"
 import { NPC } from "../models/NPC.js"
 
 const backGround=new Image()
-backGround.src="./assets/blocks/FishingPond.png"
+backGround.src="./assets/blocks/Pond.png"
 
 // start X: 0.524,  Y: 0.578
 // end X:0.397 , Y: 0.495
@@ -16,11 +16,28 @@ backGround.src="./assets/blocks/FishingPond.png"
 const charSprite=new Image()
 charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
+const inPond = new Image()
+inPond.src = './assets/blocks/inPond.png'
+const PondInterior = (game)=>
+{
+    game.currentBlock = new IsometricBlock(
+        'Horgásztó',
+        inPond,
+        null,
+        [],
+        [],
+        [
+            new Panel('leaveInterior',game.width*0.61,game.height*0.82,game.width*0.05,false)
+        ]
+    )
+    return game.currentBlock
+}
+
 export const Horgásztó=(game)=>{
     game.currentBlock=new IsometricBlock(
         'Horgásztó',
         backGround,
-        null,
+        PondInterior,
         [
             new NPC(game,'Billy',charSprite,game.width*0.44,game.height*0.44,'Halász')
         ],
@@ -83,9 +100,10 @@ export const Horgásztó=(game)=>{
             new Line(new Point(game.width*0.488,game.height*0.596),new Point(game.width*0.524,game.height*0.578))
         ],
         [
-            new Panel('navigationPanel',0.786*game.width,0.758*game.height,100,{forwardId:'forward',backwardId:'backward',direction:1},game),
-            new Panel('navigationPanel',0.267*game.width,0.794*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game),
-            new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Horgászás"})
+            new Panel('navigationPanel',0.26*game.width,0.74*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game),
+            new Panel('navigationPanel',0.78*game.width,0.71*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game),
+            new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Horgászás"}),
+            new Panel('enterInterior',game.width*0.41,game.height*0.33,game.width*0.08,false)
         ]
 
     )

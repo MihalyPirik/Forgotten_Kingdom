@@ -20,11 +20,30 @@ backGround.src="./assets/blocks/Castle.png"
 const charSprite=new Image()
 charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
+const inCastle = new Image()
+inCastle.src = './assets/blocks/inCastle.png'
+
+const CastleInterior = (game)=>{
+    game.currentBlock=new IsometricBlock(
+        'Kastély',
+        inCastle,
+        null,
+        [],
+        [],
+        [
+            new Panel('leaveInterior',game.width*0.42,game.height*0.84,game.width*0.05,false)
+        ]
+
+    )
+    return game.currentBlock
+}
+
+
 export const Kastély=async(game)=>{
     
    game.currentBlock=new IsometricBlock(
-    "Kastély",backGround,null,[
-    new NPC(game,'Michail',charSprite,game.width*0.37,game.height*0.63,'Lovag')
+    "Kastély",backGround,CastleInterior,[
+    new NPC(game,'Michail',charSprite,game.width*0.26,game.height*0.67,'Lovag')
     ],
     [
 new Line(new Point(game.width*0.2,game.height*0.83),new Point(game.width*0.34,game.height*0.74)),
@@ -41,8 +60,9 @@ new Line(new Point(game.width*0.246,game.height*0.712),new Point(game.width*0.17
 new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,game.height*0.79))
     ],
     [
-        new Panel('navigationPanel',game.width*0.74,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1}),
-        new Panel('navigationPanel',game.width*0.17,game.height*0.82,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:-1}),
+        new Panel('navigationPanel',game.width*0.74,game.height*0.82,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
+        new Panel('navigationPanel',game.width*0.22,game.height*0.78,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
+        new Panel('enterInterior',game.width*0.38,game.height*0.55,game.width*0.08,false),
    
     ]
    )

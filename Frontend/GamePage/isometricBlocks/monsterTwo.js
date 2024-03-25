@@ -7,15 +7,16 @@ import { IsometricBlock } from "../models/isometricBlock.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/EnemyTwo.png"
-
+const monster=new Image()
+monster.src='./assets/monsterSprite.jfif'
 export const Szörny2=(game)=>{
     game.currentBlock=new IsometricBlock(
         'Szörny2',
         backGround,
         null,
         [
-            new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
-        new Monster('2','Skeleton',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
+        //     new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
+        // new Monster('2','Skeleton',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
         ],
         [
             // x: 0.075, y: 0.517
@@ -37,8 +38,7 @@ export const Szörny2=(game)=>{
             new Circle(game.width*0.98,game.height*0.45,game.width*0.035)
         ],
         [
-            new Panel('navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
-        new Panel('navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1})
+            new Panel('navigationPanel',game.width*0.29,game.height*0.64,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
         ]
 
     )

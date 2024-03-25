@@ -16,13 +16,27 @@ charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 const inFarm = new Image()
 inFarm.src = './assets/blocks/inFarm.png'
 
+
+const inFarmBlock = (game)=>{
+    return new IsometricBlock('Farm',inFarm,null,
+    [new NPC(game,'Eric',charSprite,game.width*0.53,game.height*0.57,'Farmer')]
+    ,
+    [],
+    [
+        new Panel('leaveInterior',game.width*0.41,game.height*0.88,game.width*0.05,false)
+    ]
+    )
+}
+
+
+
 export const Farm=(game)=>{
 
-    const FarmInterior = new IsometricBlock('FarmInterior',inFarm,null,[new NPC(game,'Eric',charSprite,game.width*0.53,game.height*0.57,'Farmer',null,null)])
+
     game.currentBlock=new IsometricBlock(
         'Farm',
         backGround,
-        FarmInterior,
+        inFarmBlock,
         [
 
         ],
@@ -54,8 +68,8 @@ new Circle(game.width*0.289,game.height*0.568,game.width*0.01),
 new Circle(game.width*0.337,game.height*0.523,game.width*0.01)
         ],
         [
-            new Panel('navigationPanel',game.width*0.7638,game.height*0.7574,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:1}),
-            new Panel('navigationPanel',game.width*0.2425,game.height*0.7713,game.width*0.2,{forwardId:'forward',backwardId:'backward',direction:-1}),
+            new Panel('navigationPanel',game.width*0.23,game.height*0.76,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
+            new Panel('navigationPanel',game.width*0.68,game.height*0.8,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
             new Panel('Action',game.width*0.63,game.height*0.61,game.width*0.03,false,{action:"Aratás"}),
             new Panel('enterInterior',game.width*0.4,game.height*0.52,game.width*0.05,false)
         ]

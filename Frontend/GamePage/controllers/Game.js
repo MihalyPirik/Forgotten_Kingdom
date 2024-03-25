@@ -41,17 +41,6 @@ export class GameController {
     }
     set currentBlock(value)
     {
-      if(this.#currentBlock!=null && this.#currentBlock.interior)
-      {
-        console.log(this.#currentBlock);
-        if(this.#currentBlock.interior.name==value.name)
-        {
-          this.#currentBlock=value
-          this.gameView.SetBackGround(value.backGround.src)
-          document.getElementsByClassName('gamePanel')[0].remove()
-          return
-        }
-      }
       if(value){
         for (let i = 0; i < this.isometricBlocks.length; i++) {
           for (let j = 0; j < this.isometricBlocks[i].length; j++) {
@@ -64,13 +53,20 @@ export class GameController {
               putPlayer({blockX:i,blockY:j})
               this.#currentBlock=value
               this.gameView.SetBackGround(value.backGround.src)
-
+              const panels = document.getElementsByClassName('gamePanel')
+              for (let i = 0; i < panels.length; i++) {
+                panels[i].remove()
+              }
+              
               return
             }
           }
         }
-        throw new ReferenceError('The isometricBlock is not registered in the matrix!')
+        
       }
+if(value!=null){
+        throw new ReferenceError('The isometricBlock is not registered in the matrix!')
+}
     }
     get currentBlock(){return this.#currentBlock}
 

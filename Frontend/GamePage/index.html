@@ -10,8 +10,8 @@
 
 
     <canvas id="game"></canvas>
-    <img src="./assets/directionSigns.png" class="relative" id="arrow1" />
-    <img src="./assets/directionSigns.png" class="relative" id="arrow2" />
+    <img src="./assets/icons/directionSigns.png" class="relative" id="arrow1" />
+    <img src="./assets/icons/directionSigns.png" class="relative" id="arrow2" />
 
 
     <template id="navigationPanel">
@@ -47,6 +47,9 @@
     <template id="enterInterior">
       <input type="button" value="Belépés a házba">
     </template>
+    <template id="leaveInterior">
+<input type="button" value="Kilépés a házból">
+    </template>
 <template id="questPanel">
   <p>{{QuestType.quest_name}}</p>
   <p>{{QuestType.description}}</p>
@@ -61,14 +64,14 @@
 
     <div id="charStats">
       <div>
-        <img id="pfp" src="./assets/pfpBorder.png" />
+        <img id="pfp" src="./assets/icons/pfpBorder.png" />
         <div class="progress">
           <div class="bar">100/100</div>
         </div>
       </div>
       <span>
         <span id="money" data-title="Pénz"
-          ><img class="navIMG" src="./assets/coinIcon.png" /><span></span
+          ><img class="navIMG" src="./assets/icons/coinIcon.png" /><span></span
         ></span>
         <span id="sword" data-title="Kard"
           ><img class="navIMG" src="./assets/icons/swordIcon.png" /><span
@@ -78,7 +81,7 @@
       </span>
       <br />
       <span id="inventory" data-title="Inventory"
-        ><img class="navIMG" src="./assets/bagIcon.png"
+        ><img class="navIMG" src="./assets/icons/bagIcon.png"
       /></span>
       
     </div>
@@ -86,13 +89,13 @@
       <h2>Aktív Küldetések</h2>
     </div>
     <span data-title="Kilépés" id="logout"
-      ><img class="navIMG" src="./assets/logout.png"
+      ><img class="navIMG" src="./assets/icons/logout.png"
     /></span>
     <span id="clock" data-title="Óra"
-      ><img src="./assets/pocketWatch.png" class="navIMG"
+      ><img src="./assets/icons/pocketWatch.png" class="navIMG"
     /></span>
     <span id="map" data-title="Mini térkép"
-      ><img class="navIMG" src="./assets/mapIcon.png"
+      ><img class="navIMG" src="./assets/icons/mapIcon.png"
     /></span>
     <p id="mouseCoordinates" class="relative"></p>
 
