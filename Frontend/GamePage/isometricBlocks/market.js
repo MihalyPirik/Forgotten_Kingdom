@@ -1,3 +1,5 @@
+import { getQuests } from "../../services/questService.js"
+import { getBlockResidents } from "../../services/residentService.js"
 import { Story } from "../controllers/Story.js"
 import { NPC } from "../models/NPC.js"
 import { Panel } from "../models/Panel.js"
@@ -9,21 +11,9 @@ const charSprite=new Image()
 charSprite.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 export const Piac=(game)=>{
 
-    const quest = {
-        id:1,
-        is_completed:false,
-        is_active:false,
-        QuestType:{
-            quest_name: "Küldetés",
-            description: "Vegyél 20 fánkot!",
-            ismainstory: true
-        },
-        story:Story.First
-    }
-    const npc = new NPC(game,"Arthur",charSprite,game.width*0.73,game.height*0.4,null,null,quest)
-    const npcPanel = new Panel("NPCPanel",game.width*0.73,game.height*0.4,game.width*0.04,false,npc)
-    npc.panel = npcPanel
-    game.player.mainQuests.push(quest)
+
+console.log(charSprite.src);
+
 
     game.currentBlock=new IsometricBlock
     (
@@ -31,14 +21,12 @@ export const Piac=(game)=>{
         backGround,
         null,
         [
-            new NPC(game,'Dominik',charSprite,game.width*0.22,game.height*0.52,'Szörnyvadász'),
-            npc
+
         ],
         [
 
         ],
         [
-npcPanel,
 new Panel('navigationPanel',0.87*game.width,0.76*game.height,100,{forwardId:'forward',backwardId:'backward',direction:1},game),
 new Panel('navigationPanel',0.13*game.width,0.81*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game),
         ]
@@ -51,6 +39,25 @@ game.player.height = game.height*0.1
 
    game.player.objY=game.height*0.7
    game.player.radius=game.width*0.01
+   getBlockResidents(game.currentBlockX,game.currentBlockY)
+   .then(res=>{
+    console.log(res);
+    res.forEach(async resident => {
+console.log(charSprite);
+        const npc = new NPC(game,resident.resident_name,charSprite,game.width*resident.objX,game.height*resident.objY,resident.profession)
 
+
+        npc.quest = resident.QuestType?(await getQuests('?quest_id='+resident.QuestType.quest_id))[0]:null
+        if(resident.is_mainstory!=0 && npc.quest!=null){
+            Object.defineProperty(npc.quest,'story',{value:Story.First})
+    }
+        
+        game.currentBlock.entities.push(npc)
+        npc.panel = new Panel("NPCPanel",npc.objX,npc.objY,npc.radius+10,false,npc)
+        game.currentBlock.panels.push(npc.panel)
+        npc.id = resident.id
+console.log(npc);
+   })
+   });
 
 }

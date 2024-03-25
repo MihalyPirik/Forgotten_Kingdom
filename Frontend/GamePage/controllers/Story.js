@@ -1,3 +1,6 @@
+import { getBlockEnemies } from "../../services/enemyService.js"
+import { getQuests, putQuest } from "../../services/questService.js"
+import { getBlockResidents, putResident } from "../../services/residentService.js"
 import { NPC } from "../models/NPC.js"
 import { GameView } from "../views/view.js"
 import { GameController } from "./Game.js"
@@ -77,40 +80,20 @@ callback instanceof Function?callback(index):null
     static async First()
     {
         Story.BasePlayConversation("first.txt")
-        // first main - completed
-        // second - active
+        const second = await getQuests('?is_mainstory=2')[0]
+        putQuest((await getQuests('?is_mainstory=1'))[0].QuestType.quest_id,{is_completed:true})
+        putQuest(second.QuestType.quest_id,{is_active:true})
     }
     static async Second()
     {
-        Story.BasePlayConversation("second.txt",(index)=>{
+        Story.BasePlayConversation("second.txt",async(index)=>{
             const game = Story.gameController
             if(index==0){
                 Story.MoveEntity(Story.gameController.player,Story.gameController.width*0.5,Story.gameController.height*0.5)
             }
 if(index==3){
-    
-
-    
-    n.blockX = 1
-    n.blockY = 0
-    
-    nOne.blockX = 1
-    nOne.blockY = 2
-    game.currentBlock.entities.push(nOne)
-    game.currentBlock.entities.push(n)
-    game.gameView.RenderEntity(nOne)
-
-    
-    game.gameView.RenderEntity(n)
-}
-if(index == 6)
-{
-    Story.gameController.currentBlock.entities.splice(Story.gameController.currentBlock.entities.indexOf(n),1)
-    Story.gameController.currentBlock.entities.splice(Story.gameController.currentBlock.entities.indexOf(nOne),1)
 }
         })
-        // second - completed
-        // third = active
     }
     static Third()
     {

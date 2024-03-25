@@ -1,11 +1,12 @@
 import {GameController} from '../controllers/Game.js'
 import { Point } from './Point.js'
 export class Entity {
-    constructor(game, sprite, objX = 0, objY = 0, width = 255, height = 255, spriteWidth = 64, spriteHeight = 64) {
+    constructor(game, sprite, objX = 0, objY = 0, width = 255, height = 255, spriteWidth = 64, spriteHeight = 64,id=null) {
       /**
        * @type {GameController}
        */
       this.game = game
+      this.id = id
       this.radius = spriteWidth*0.7 / 2
       this.objX = objX
       this.objY = objY

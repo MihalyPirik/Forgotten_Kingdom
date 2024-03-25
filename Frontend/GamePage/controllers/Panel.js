@@ -50,7 +50,6 @@ for (const enemy of enemies)
     }
     else
     {
-      console.log('remove');
         PanelView.HideHighlight(enemy.id)
     }
 }

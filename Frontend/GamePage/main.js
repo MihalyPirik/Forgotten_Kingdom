@@ -92,7 +92,7 @@ arrow2.style.left=game.width/3*2+game.width/3/2-50+'px'
 arrow2.style.top=game.height*0.86+'px'
 
 game.gameView.BindPlayerHealth(game.player)
-const questList = await getQuests()
+const questList = await getQuests('?is_active=true&is_completed=false')
 PanelView.QuestPanelShow(questList)
 
 

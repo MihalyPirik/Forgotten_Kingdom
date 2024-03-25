@@ -366,6 +366,21 @@ div2.id = quest.QuestType.quest_id
       el.append(p)
       return
     }
+    if(quest.QuestType.is_mainstory==1 && quest.is_active && !quest.is_completed && res.profession == "Kereskedő")
+    {
+      const but = document.createElement('input')
+      but.type = "button"
+      but.value = "Küldetés felvétele"
+      but.addEventListener('click',()=>{
+        res.game.player.AddMission(res.quest)
+        if(quest.QuestType.is_mainstory!=0)
+        {
+          quest.story()
+        }
+      },{once:true})
+      el.append(but)
+      return
+    }
     if (!quest.is_active) {
       const p = document.createElement('p')
       p.innerText = "Szia én " + res.name + " vagyok!\nVan egy küldetésem számodra!"
@@ -375,7 +390,7 @@ div2.id = quest.QuestType.quest_id
       but.value = "Küldetés felvétele"
       but.addEventListener('click',()=>{
         res.game.player.AddMission(res.quest)
-        if(quest.QuestType.ismainstory!=0)
+        if(quest.QuestType.is_mainstory!=0)
         {
           quest.story()
         }
@@ -383,7 +398,7 @@ div2.id = quest.QuestType.quest_id
       el.append(but)
     }
     else {
-      if (!quest.is_completed) {
+      if (quest.is_completed) {
         if (quest.currentProgress >= quest.targetProgress) {
           const but = document.createElement('input')
           but.type = "button"
@@ -391,11 +406,11 @@ div2.id = quest.QuestType.quest_id
           but.addEventListener('click',res.GenerateNewQuest,{once:true})
           el.append(but)
         }
-        else {
-          const p = document.createElement('p')
-          p.innerText = "Sok sikert!"
-          el.append(p)
-        }
+      }
+      else {
+        const p = document.createElement('p')
+        p.innerText = "Sok sikert!"
+        el.append(p)
       }
     }
 
