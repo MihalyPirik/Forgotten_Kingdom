@@ -41,7 +41,7 @@ game.player.height = game.height*0.1
    game.player.radius=game.width*0.01
    getBlockResidents(game.currentBlockX,game.currentBlockY)
    .then(res=>{
-    console.log(res);
+
     res.forEach(async resident => {
 
         const npc = new NPC(game,resident.resident_name,charSprite,game.width*resident.objX,game.height*resident.objY,resident.profession)
@@ -55,7 +55,7 @@ game.player.height = game.height*0.1
         game.currentBlock.entities.push(npc)
         npc.panel = new Panel("NPCPanel",npc.objX,npc.objY,npc.radius+10,false,npc)
         game.currentBlock.panels.push(npc.panel)
-        npc.id = resident.id
+        npc.id = resident.resident_id
 
    })
    });

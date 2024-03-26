@@ -81,8 +81,19 @@ callback instanceof Function?callback(index):null
     {
         Story.BasePlayConversation("first.txt")
         const second = await getQuests('?is_mainstory=2')[0]
+        console.log(second);
         putQuest((await getQuests('?is_mainstory=1'))[0].QuestType.quest_id,{is_completed:true})
         putQuest(second.QuestType.quest_id,{is_active:true})
+        for (const entity of this.gameController.currentBlock.entities)
+        {
+            if(entity.quest.QuestType.is_mainstory==1)
+            {
+                console.log(entity.id);
+                console.log(second.QuestType.quest_id);
+                putResident(entity.id,{quest_id:second.QuestType.quest_id})
+                break
+            }
+        }
     }
     static async Second()
     {

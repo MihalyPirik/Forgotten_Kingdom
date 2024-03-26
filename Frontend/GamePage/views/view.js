@@ -370,14 +370,8 @@ div2.id = quest.QuestType.quest_id
     {
       const but = document.createElement('input')
       but.type = "button"
-      but.value = "Küldetés felvétele"
-      but.addEventListener('click',()=>{
-        res.game.player.AddMission(res.quest)
-        if(quest.QuestType.is_mainstory!=0)
-        {
-          quest.story()
-        }
-      },{once:true})
+      but.value = "Párbeszéd indítása"
+      but.addEventListener('click',quest.story,{once:true})
       el.append(but)
       return
     }
@@ -389,7 +383,7 @@ div2.id = quest.QuestType.quest_id
       but.type = "button"
       but.value = "Küldetés felvétele"
       but.addEventListener('click',()=>{
-        res.game.player.AddMission(res.quest)
+
         if(quest.QuestType.is_mainstory!=0)
         {
           quest.story()
