@@ -1,13 +1,13 @@
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import { FormRegistration } from '../services/apiService';
 
-let name,email,password;
+let name, email, password;
 
 
-let mess=ref("")
-const Regisztracio=async()=>{
-  mess.value=await FormRegistration(name,email,password)
+let mess = ref("")
+const Regisztracio = async () => {
+  mess.value = await FormRegistration(name, email, password)
   console.log(mess.value);
 }
 
@@ -15,13 +15,17 @@ const Regisztracio=async()=>{
 <template>
   <div class="col">
 
-    <form @submit.prevent="Regisztracio" class="d-flex flex-column justify-content-evenly align-items-center" method="POST">
+    <form @submit.prevent="Regisztracio" class="d-flex flex-column justify-content-evenly align-items-center"
+      method="POST">
 
       <h3>Regisztráció</h3>
       <div class="w-100">
-        <input v-model="name" placeholder="name" type="text" class="registrationForm form-control mx-auto" aria-describedby="nameHelp">
-        <input v-model="email" placeholder="name@example.com" type="email" class="registrationForm form-control mx-auto" aria-describedby="emailHelp">
-        <input v-model="password" placeholder="Password" type="password" class="registrationForm form-control mx-auto" aria-describedby="passwordHelp">
+        <input v-model="name" placeholder="name" type="text" class="registrationForm form-control mx-auto"
+          aria-describedby="nameHelp">
+        <input v-model="email" placeholder="name@example.com" type="email" class="registrationForm form-control mx-auto"
+          aria-describedby="emailHelp">
+        <input v-model="password" placeholder="Password" type="password" class="registrationForm form-control mx-auto"
+          aria-describedby="passwordHelp">
         <p>{{ mess }}</p>
       </div>
 
