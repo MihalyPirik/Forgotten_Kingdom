@@ -45,7 +45,7 @@ const putQuest = async (req, res, next) => {
     const is_completed = req.body.is_completed;
     const is_active = req.body.is_active;
     const currentProgress = req.body.currentProgress;
-    await Quest.update(
+    await QuestStat.update(
       {
         is_completed: is_completed,
         is_active: is_active,
@@ -56,7 +56,6 @@ const putQuest = async (req, res, next) => {
           player_id: player_id,
           quest_id: req.params.quest_id,
         },
-        include: { model: QuestType },
       }
     );
 
@@ -69,7 +68,7 @@ const putQuest = async (req, res, next) => {
 const deleteQuest = async (req, res, next) => {
   try {
     const player_id = req.token.id;
-    const isDeleted = await Quest.destroy({
+    const isDeleted = await QuestStat.destroy({
       where: { quest_id: req.params.quest_id, player_id: player_id },
     });
 

@@ -27,6 +27,7 @@ const QuestStat = dbConnection.define
         }
     )
     QuestStat.associate = (models) => {
+        QuestStat.hasOne(models.Resident, { foreignKey: 'quest_id'})
         QuestStat.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' })
         QuestStat.belongsTo(models.Quest, { foreignKey: 'quest_id' })
 }

@@ -1,5 +1,6 @@
 const Resident = require("../../models/resident");
 const Quest = require("../../models/quest");
+const QuestStat = require('../../models/questStat')
 const uuid = require("uuid");
 const QueryProcessor = require('../../utils/queryProcessor')
 const getAllResidents = async (req, res, next) => {
@@ -9,7 +10,7 @@ query.world_id = req.token.id
         const data = await Resident.findAll({
             where:query,
             attributes: { exclude: ["world_id", "quest_id"] },
-            include: { model: Quest },
+            include: { model: QuestStat, include:Quest, where:{player_id:req.token.id} },
         });
         res.status(200).json({ data: data });
     } catch (error) {
@@ -70,7 +71,7 @@ const putResident = async (req, res, next) => {
                 where: {
                     resident_id: req.params.resident_id,
                 },
-                include: { model: QuestType },
+                include: { model: Quest },
             }
         );
 

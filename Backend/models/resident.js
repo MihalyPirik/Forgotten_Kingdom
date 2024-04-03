@@ -50,7 +50,7 @@ primaryKey:true
         }
     )
 Resident.associate = (models) => {
-    Resident.belongsTo(models.Quest, { foreignKey: 'quest_id' })
+    Resident.belongsTo(models.QuestStat, { foreignKey: 'quest_id' })
     // Resident.hasMany(models.Quest,{foreignKey:'target_resident'})
     Resident.belongsTo(models.Player, {foreignKey: 'world_id', onDelete: "CASCADE"});
 }

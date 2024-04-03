@@ -1,18 +1,13 @@
 const Tool = require("../../models/tool");
 const ToolType = require("../../models/toolType");
 const uuid = require("uuid");
+const Player = require('../../models/player')
 
 const getTool = async (req, res, next) => {
   try {
     const player_id = req.token.id;
 
-    const data = await Tool.findAll({
-      attributes: { exclude: ["player_id", "tool_type_id"] },
-      include: { model: ToolType, attributes: { exclude: ["tool_type_id"] } },
-      where: {
-        player_id: player_id,
-      }
-    });
+    const data = await (await Player.findByPk(player_id)).getToolTypes({joinTableAttributes:[]})
     res.status(200).json({ data: data });
   } catch (error) {
     next(error);

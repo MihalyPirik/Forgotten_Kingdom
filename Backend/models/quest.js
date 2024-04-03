@@ -36,7 +36,6 @@ const Quest = dbConnection.define
 Quest.associate = (models) => {
     Quest.belongsToMany(models.Player, { through: {model:models.QuestStat,unique:false}, foreignKey: "quest_id" })
     Quest.hasMany(models.QuestStat, { foreignKey: 'quest_id'})
-    Quest.hasOne(models.Resident, { foreignKey: 'quest_id'})
     Quest.belongsTo(models.Item,{foreignKey:'item'})
     Quest.belongsTo(models.EnemyType,{foreignKey:'enemy_type'})
     // Quest.belongsTo(models.Resident,{foreignKey:'target_resident'})
