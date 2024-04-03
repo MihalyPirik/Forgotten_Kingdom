@@ -4,6 +4,7 @@ import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
 
@@ -21,6 +22,7 @@ const MillInterior = (game)=>
           new Panel('leaveInterior',game.width*0.44,game.height*0.88,game.width*0.05,false)
         ]
     )
+    populateIsometricBlock(game)
     return game.currentBlock
 }
 
@@ -63,4 +65,5 @@ export const Malom=(game)=>
             new Panel('enterInterior',game.width*0.36,game.height*0.61,game.width*0.1,false)
         ],
         )
+        populateIsometricBlock(game)
 }

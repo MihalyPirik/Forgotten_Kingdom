@@ -1,6 +1,7 @@
 import { Panel } from '../models/Panel.js'
 import { Point } from '../models/Point.js'
 import {IsometricBlock} from '../models/isometricBlock.js'
+import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
 import { PanelView } from '../views/view.js'
 const backGround=new Image()
 backGround.src="./assets/blocks/Forest.png"
@@ -23,7 +24,7 @@ new Panel('navigationPanel',game.width*0.31,game.height*0.74,game.width*0.05,{fo
 new Panel('navigationPanel',game.width*0.64,game.height*0.74,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1})
         ]
     )
-
+populateIsometricBlock(game)
     game.player.width = game.width*0.12
     game.player.height = game.height*0.12
 }

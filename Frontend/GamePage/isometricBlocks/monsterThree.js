@@ -3,6 +3,7 @@ import {Line} from '../models/Line.js'
 import { Point } from '../models/Point.js'
 import {Circle} from '../models/Circle.js'
 import { Panel } from '../models/Panel.js'
+import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
 const backGround=new Image()
 backGround.src="./assets/blocks/EnemyThree.png"
 
@@ -35,4 +36,5 @@ export const Szörny3=(game)=>{
             new Panel('navigationPanel',0.6*game.width,0.75*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game)
         ]
     )
+    populateIsometricBlock(game)
 }

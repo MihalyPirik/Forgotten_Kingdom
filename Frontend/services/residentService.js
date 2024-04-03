@@ -2,12 +2,8 @@ import { base } from "./base.js";
 
 // GET
 
-export const getAllResidents = () => {
-  return base("/residents",'GET')
-};
-
-export const getBlockResidents = (blockX, blockY) => {
-  return base("/residents/" + blockX + "/" + blockY,'GET')
+export const getAllResidents = (query) => {
+  return base("/residents?"+query,'GET')
 };
 
 // POST

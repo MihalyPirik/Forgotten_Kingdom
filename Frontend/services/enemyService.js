@@ -2,12 +2,8 @@ import { base } from "./base.js";
 
 // GET
 
-export const getAllEnemies = () => {
-  return base("/enemies",'GET')
-};
-
-export const getBlockEnemies = (blockX, blockY) => {
-  return base("/enemies/" + blockX + "/" + blockY,'GET')
+export const getAllEnemies = (query='') => {
+  return base("/enemies?"+query,'GET')
 };
 
 // POST

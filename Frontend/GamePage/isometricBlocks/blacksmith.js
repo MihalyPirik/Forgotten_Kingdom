@@ -1,5 +1,10 @@
+import { getAllEnemies } from "../../services/enemyService.js"
+import { getAllResidents } from "../../services/residentService.js"
+import { Monster } from "../models/Monster.js"
+import { NPC } from "../models/NPC.js"
 import { Panel } from "../models/Panel.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 
 const backGround=new Image()
@@ -7,6 +12,8 @@ backGround.src="./assets/blocks/Blacksmith.png"
 
 const inBlacksmith = new Image()
 inBlacksmith.src = './assets/blocks/inBlacksmith.png'
+
+
 
 const blackSmithInterior = (game)=>{
 
@@ -19,7 +26,13 @@ const blackSmithInterior = (game)=>{
     [
         new Panel('leaveInterior',game.width*0.64,game.height*0.82,game.width*0.05,false)
     ]
+
 )
+populateIsometricBlock(game)
+game.player.width = game.width*0.25
+game.player.height = game.height*0.4
+console.log(game.player.height);
+console.log(game.player.width);
 return game.currentBlock
 }
 
@@ -28,7 +41,9 @@ export const Kovács=(game)=>{
         'Kovács',
         backGround,
         blackSmithInterior,
-        [],
+        [
+
+        ],
         [],
         [
             new Panel('enterInterior',game.width*0.36,game.height*0.66,game.width*0.05,false),
@@ -36,4 +51,6 @@ export const Kovács=(game)=>{
         new Panel('navigationPanel',game.width*0.25,game.height*0.77,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1})
         ]
     )
+    populateIsometricBlock(game)
+    // game.currentBlock.entities
 }

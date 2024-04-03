@@ -8,10 +8,11 @@ import { SpriteController } from "./Sprite.js";
 import { Entity } from "../models/Entity.js";
 import { putPlayer } from "../../services/playerService.js";
 import { deleteEnemy, putEnemy } from "../../services/enemyService.js";
+import { ExploringQuests, KillerQuests } from "./Quest.js";
 
 export class GameController {
   #currentBlock;
-    constructor(isometricBlocks=[[]],gameView,mainQuests=[],player=null,currentBlock=null,panels=[]) {
+    constructor(isometricBlocks=[[]],gameView,player=null,currentBlock=null,panels=[]) {
       /**
        * @type {Array<Array<Function>>}
        */
@@ -57,7 +58,7 @@ export class GameController {
               for (let i = 0; i < panels.length; i++) {
                 panels[i].remove()
               }
-              
+              ExploringQuests(i,j,this.player.quests)
               return
             }
           }
@@ -116,6 +117,7 @@ if(entity.isDead)
   if(entity instanceof Monster)
   {
     deleteEnemy(entity)
+    KillerQuests(entity,this.player.quests)
   }
 }
 

@@ -51,15 +51,13 @@
 <input type="button" value="Kilépés a házból">
     </template>
 <template id="questPanel">
-  <p>{{QuestType.quest_name}}</p>
-  <p>{{QuestType.description}}</p>
-  <p>{{currentProgress}}/{{targetProgress}}</p>
+  <p>{{Quest.quest_name}}</p>
 </template>
 
 <template id="toolPanel">
-<p>{{ToolType.tool_name}}</p>
-<p>{{ToolType.level}}</p>
-<p>{{ToolType.attack}}</p>
+<p>{{tool_name}}</p>
+<p>{{level}}</p>
+<p>{{attack}}</p>
 </template>
 
     <div id="charStats">
@@ -100,6 +98,6 @@
     <p id="mouseCoordinates" class="relative"></p>
 
     <script type="module" src="main.js"></script>
-    <script type="module" src="../services/test.js"></script>
+    <!-- <script type="module" src="../services/test.js"></script> -->
   </body>
 </html>

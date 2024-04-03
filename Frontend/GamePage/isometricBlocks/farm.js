@@ -4,6 +4,7 @@ import { NPC } from "../models/NPC.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 
 
@@ -18,7 +19,7 @@ inFarm.src = './assets/blocks/inFarm.png'
 
 
 const inFarmBlock = (game)=>{
-    return new IsometricBlock('Farm',inFarm,null,
+    game.currentBlock = new IsometricBlock('Farm',inFarm,null,
     [new NPC(game,'Eric',charSprite,game.width*0.53,game.height*0.57,'Farmer')]
     ,
     [],
@@ -26,6 +27,8 @@ const inFarmBlock = (game)=>{
         new Panel('leaveInterior',game.width*0.41,game.height*0.88,game.width*0.05,false)
     ]
     )
+    populateIsometricBlock(game)
+    return game.currentBlock
 }
 
 

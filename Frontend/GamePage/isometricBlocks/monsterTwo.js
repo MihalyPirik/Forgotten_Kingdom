@@ -4,6 +4,7 @@ import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/EnemyTwo.png"
@@ -42,4 +43,5 @@ export const Szörny2=(game)=>{
         ]
 
     )
+    populateIsometricBlock(game)
 }

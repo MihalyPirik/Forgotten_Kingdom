@@ -7,11 +7,11 @@ import { putPlayer } from "../../services/playerService.js"
 export class Player extends Entity {
   #money=null
   #hp=null
-    constructor(name,sprite,HP,money,inventory,game,tools=[],speed=4,mainQuests=[]) {
+    constructor(name,sprite,HP,money,inventory,game,tools=[],speed=4,quests=[]) {
       super(game, sprite,game.width * 0.5, game.height * 0.8, game.width*0.2, game.height*0.2)
       this.speed = speed
       this.tools=tools
-      this.mainQuests = mainQuests
+      this.quests = quests
       this.name=name
       this.attack={timer:0,attack:3,interval:60}
       this.money=money
@@ -89,60 +89,7 @@ return this.#money
     }
     Action=(e)=>
     {
-      if((this.game.currentBlockX == 2 && this.game.currentBlockY == 1) || 
-        (this.game.currentBlockX == 0 && this.game.currentBlockY == 2)
-        )
-          {
-      let inInter
-      this.isAction.is = true
-      inInter = setInterval(()=>
-      {
-        this.isAction.timer++
-        PanelView.BindProgress(this.isAction.timer)
-        if(this.isAction.timer>this.isAction.interval){
-          this.isAction.timer=0
-          const gottenItemCount=Random(1,3)
-          if(this.game.currentBlockX == 2 && this.game.currentBlockY == 1)
-          {
-            putPlayer({fish:gottenItemCount+this.inventory.fish})
-            this.inventory.fish+=gottenItemCount
-          }
-          else if(this.game.currentBlockX == 0 && this.game.currentBlockY == 2)
-          {
-            const gottenCoalAmount = Random(0,3)
-            console.log(gottenItemCount);
-            console.log(gottenCoalAmount);
-            putPlayer({stone:gottenItemCount+this.inventory.stone,coal:gottenCoalAmount+this.inventory.coal})
-            this.inventory.stone+=gottenItemCount
-            this.inventory.coal+=gottenCoalAmount
-          }
-          
-            
-          this.isAction.is = false
-          clearInterval(inInter)
-        }
-      },1000)
-      return
+      
     }
-    if(!this.isAction.canExecute)
-    {
-      return
-    }
-    this.isAction.timer++
-        PanelView.BindProgress(this.isAction.timer)
-        if(this.isAction.timer>this.isAction.interval){
-          this.isAction.timer=0
-          const gottenItemCount=Random(1,3)
-            putPlayer({wood:gottenItemCount+this.inventory.wood})
-            this.inventory.wood+=gottenItemCount
-            this.isAction.canExecute = false
-            setTimeout(()=>{
-              this.isAction.canExecute = true
-            },60000)
-        }
-    }
-    AddMission(quest)
-    {
-      quest.is_active = true
-    }
+
   }

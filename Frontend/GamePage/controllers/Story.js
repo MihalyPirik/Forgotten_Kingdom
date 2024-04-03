@@ -1,6 +1,5 @@
-import { getBlockEnemies } from "../../services/enemyService.js"
 import { getQuests, putQuest } from "../../services/questService.js"
-import { getBlockResidents, putResident } from "../../services/residentService.js"
+import { putResident } from "../../services/residentService.js"
 import { NPC } from "../models/NPC.js"
 import { GameView } from "../views/view.js"
 import { GameController } from "./Game.js"
@@ -80,20 +79,10 @@ callback instanceof Function?callback(index):null
     static async First()
     {
         Story.BasePlayConversation("first.txt")
-        const second = await getQuests('?is_mainstory=2')[0]
-        console.log(second);
-        putQuest((await getQuests('?is_mainstory=1'))[0].QuestType.quest_id,{is_completed:true})
-        putQuest(second.QuestType.quest_id,{is_active:true})
-        for (const entity of this.gameController.currentBlock.entities)
-        {
-            if(entity.quest.QuestType.is_mainstory==1)
-            {
-                console.log(entity.id);
-                console.log(second.QuestType.quest_id);
-                putResident(entity.id,{quest_id:second.QuestType.quest_id})
-                break
-            }
-        }
+        // Arthur gets second main quest
+        // first completed
+        // second is_active
+
     }
     static async Second()
     {
@@ -105,10 +94,18 @@ callback instanceof Function?callback(index):null
 if(index==3){
 }
         })
+
+        // add Urlic and Dominik
+        // second completed
+        // third active
+        // Arthur gets third main quest
     }
     static Third()
     {
         Story.BasePlayConversation("third.txt")
+        // third completed
+        // Ulric gets fourth main quests
+        // fourth is_active
     }
 
     static MoveEntity(entity, x, y){

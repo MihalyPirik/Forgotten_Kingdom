@@ -5,6 +5,7 @@ import { Line } from "../models/Line.js"
 import { Point } from "../models/Point.js"
 import { Circle } from "../models/Circle.js"
 import { Story } from "../controllers/Story.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 const monster=new Image()
 monster.src='./assets/monsterSprite.jfif'
 const backGround=new Image()
@@ -41,5 +42,5 @@ export const Szörny1=(game)=>
             new Panel('navigationPanel',game.width*0.61,game.height*0.72,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
         ]
         )
-        
+        populateIsometricBlock(game)
 }

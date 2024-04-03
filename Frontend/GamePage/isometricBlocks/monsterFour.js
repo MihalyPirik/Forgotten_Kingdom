@@ -1,5 +1,6 @@
 import { Panel } from "../models/Panel.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround=new Image()
 backGround.src='./assets/blocks/Witch.png'
@@ -8,7 +9,7 @@ inWitch.src = './assets/blocks/inWitch.png'
 
 
 const inWitchBlock = (game)=>{
-    return new IsometricBlock('Szörny4',inWitch,null,
+    game.currentBlock = new IsometricBlock('Szörny4',inWitch,null,
     []
     ,
     [],
@@ -16,6 +17,8 @@ const inWitchBlock = (game)=>{
         new Panel('leaveInterior',game.width*0.75,game.height*0.8,game.width*0.05,false)
     ]
     )
+    populateIsometricBlock(game)
+    return game.currentBlock
 }
 export const Szörny4=(game)=>{
     game.currentBlock=new IsometricBlock(
@@ -31,4 +34,5 @@ export const Szörny4=(game)=>{
         ]
 
     )
+    populateIsometricBlock(game)
 }

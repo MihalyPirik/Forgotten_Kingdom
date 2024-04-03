@@ -57,7 +57,6 @@ window.addEventListener('load', () => {
     [Szörny4]
   ],gameView)
 gameView.game=game
-
   
 init(game)
 
@@ -71,7 +70,8 @@ const playerData = await getAllData()
 const inventory = await getInventory()
 
 game.player = new Player(playerData.player_name,character,playerData.HP,playerData.money,inventory,game,playerData.tools)
-game.player.tools = await getAllTools()
+game.player.tools = playerData.ToolTypes
+console.log(game.player);
   // game.player=new Player('valami',character,100,100,{stone:100,wood:100,fish:100,coal:100,iron:100,wheat:100},game)
 InitEvents(game)
 
@@ -92,7 +92,8 @@ arrow2.style.left=game.width/3*2+game.width/3/2-50+'px'
 arrow2.style.top=game.height*0.86+'px'
 
 game.gameView.BindPlayerHealth(game.player)
-const questList = await getQuests('?is_active=true&is_completed=false')
+const questList = await getQuests("?is_active=true&is_completed=false")
+game.player.quests=questList
 PanelView.QuestPanelShow(questList)
 
 

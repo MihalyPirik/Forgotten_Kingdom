@@ -32,23 +32,17 @@ export const InitEvents=(game)=>
     addEventListener("panelShowed",(e)=>{
         if(e.detail.panel.id=="Action")
         {
-            if(game.currentBlockX == 2 && game.currentBlockY == 1 || game.currentBlockX == 0 && game.currentBlockY == 2)
-          {
-            
-            e.target.querySelector('input[type=button]').addEventListener('click',game.player.Action)
+          const action = e.detail.panel.context.action
+          // Favágás, Horgászás, Bányászás, Farmolás
+          switch (action) {
+            case "Favágás":
+              
+              break;
+          
+            default:
+              break;
           }
-          else
-          {
-            if(!game.player.isAction.canExecute)
-            {
-              e.target.querySelector('input[type=button]').remove()
-return
-            }
-            e.target.querySelector('input[type=button]').remove()
-            addEventListener('mousedown',game.player.Action)
-          }
-          PanelView.ShowProgress()
-          return
+         
         }
         if(e.detail.panel.id=="NPCPanel")
         {

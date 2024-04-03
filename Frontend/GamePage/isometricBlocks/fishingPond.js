@@ -4,6 +4,7 @@ import { IsometricBlock } from "../models/isometricBlock.js"
 import { Circle } from '../models/Circle.js'
 import { Panel } from "../models/Panel.js"
 import { NPC } from "../models/NPC.js"
+import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/Pond.png"
@@ -30,6 +31,7 @@ const PondInterior = (game)=>
             new Panel('leaveInterior',game.width*0.61,game.height*0.82,game.width*0.05,false)
         ]
     )
+    populateIsometricBlock(game)
     return game.currentBlock
 }
 
@@ -107,4 +109,6 @@ export const Horgásztó=(game)=>{
         ]
 
     )
+
+    populateIsometricBlock(game)
 }

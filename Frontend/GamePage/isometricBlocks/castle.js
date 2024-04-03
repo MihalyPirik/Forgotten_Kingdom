@@ -6,7 +6,7 @@ import { IsometricBlock } from '../models/isometricBlock.js'
 import { Panel } from '../models/Panel.js'
 import { NPC } from '../models/NPC.js'
 import { Story } from '../controllers/Story.js'
-import { getBlockResidents } from '../../services/residentService.js'
+import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
 
 
 /**
@@ -35,6 +35,7 @@ const CastleInterior = (game)=>{
         ]
 
     )
+    populateIsometricBlock(game)
     return game.currentBlock
 }
 
@@ -43,7 +44,7 @@ export const Kastély=async(game)=>{
     
    game.currentBlock=new IsometricBlock(
     "Kastély",backGround,CastleInterior,[
-    new NPC(game,'Michail',charSprite,game.width*0.26,game.height*0.67,'Lovag')
+    // new NPC(game,'Michail',charSprite,game.width*0.26,game.height*0.67,'Lovag')
     ],
     [
 new Line(new Point(game.width*0.2,game.height*0.83),new Point(game.width*0.34,game.height*0.74)),
@@ -66,6 +67,7 @@ new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,
    
     ]
    )
+   populateIsometricBlock(game)
    game.player.width=game.width*0.08
    game.player.height=game.height*0.08
    game.player.objY=game.height*0.7

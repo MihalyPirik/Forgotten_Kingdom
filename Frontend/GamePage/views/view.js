@@ -1,4 +1,4 @@
-import { getQuests } from '../../services/questService.js'
+import { getQuests, putQuest } from '../../services/questService.js'
 import { GameController } from '../controllers/Game.js'
 import { PanelController } from '../controllers/Panel.js'
 import { Circle } from '../models/Circle.js'
@@ -343,10 +343,19 @@ questList.forEach(quest => {
   const div2 = document.createElement('div')
   div2.classList.add("questCard")
   div2.append(div)
-div2.id = quest.QuestType.quest_id
-  if(!quest.targetProgress)
-  {
-    div2.querySelector('p:last-child').remove()
+
+  switch (quest.Quest.category) {
+    case "Killer":
+      div2.innerHTML+=`<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
+      break;
+  case "Conversation":
+    div2.innerHTML+=`<p>Beszélj ${quest.Quest.target_resident}</p>`
+    break;
+    case "Collector":
+      div2.innerHTML+=`<p>Szerezz ${quest.Quest.target_amount} ${quest.Quest.Item.name} - t</p>`
+      break;
+    default:
+      break;
   }
   this.#processElement(div2,quest)
   questPanel.append(div2)
@@ -357,56 +366,42 @@ div2.id = quest.QuestType.quest_id
 
 
   static NPCPanel(panel, element) {
-    const res = panel.context
+    const resident = panel.context
     const quest = panel.context.quest
     const el = element
-    if (!quest) {
-      const p = document.createElement('p')
-      p.innerText = "Szia én" + res.name + "vagyok!"
-      el.append(p)
-      return
-    }
-    if(quest.QuestType.is_mainstory==1 && quest.is_active && !quest.is_completed && res.profession == "Kereskedő")
-    {
-      const but = document.createElement('input')
-      but.type = "button"
-      but.value = "Párbeszéd indítása"
-      but.addEventListener('click',quest.story,{once:true})
-      el.append(but)
-      return
-    }
-    if (!quest.is_active) {
-      const p = document.createElement('p')
-      p.innerText = "Szia én " + res.name + " vagyok!\nVan egy küldetésem számodra!"
-      el.append(p)
-      const but = document.createElement('input')
-      but.type = "button"
-      but.value = "Küldetés felvétele"
-      but.addEventListener('click',()=>{
+    if(quest){
+if(quest.is_completed)
+{
+  el.innerHTML='Generate new quest'
+}
+else{
+  if(quest.is_active)
+  {
+    if(quest.currentProgress>=quest.Quest.target_amount)
+  {
+    const but=document.createElement('input')
+    but.type = 'button'
+    but.value = "Küldetés leadás"
+    but.addEventListener('click',()=>{putQuest(quest.quest_id,{is_completed:true})},{once:true})
+    el.innerHTML = but
+  }
+  else
+  {
+    el.innerHTML='<p>Sok sikert kedves utazó!</p>'
+  }
+  }
+  else
+  {
+    el.innerHTML+=`<p>Szia van egy küldetésem számodra</p>`
+    const but=document.createElement('input')
+    but.type = 'button'
+    but.value = "Küldetés felvétele"
+    but.addEventListener('click',()=>{putQuest(quest.quest_id,{is_active:true})},{once:true})
+    el.append(but)
+  }
+}
+}
 
-        if(quest.QuestType.is_mainstory!=0)
-        {
-          quest.story()
-        }
-      },{once:true})
-      el.append(but)
-    }
-    else {
-      if (quest.is_completed) {
-        if (quest.currentProgress >= quest.targetProgress) {
-          const but = document.createElement('input')
-          but.type = "button"
-          but.value = "Küldetés leadása"
-          but.addEventListener('click',res.GenerateNewQuest,{once:true})
-          el.append(but)
-        }
-      }
-      else {
-        const p = document.createElement('p')
-        p.innerText = "Sok sikert!"
-        el.append(p)
-      }
-    }
 
   }
 

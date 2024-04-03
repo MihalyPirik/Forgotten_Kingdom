@@ -1,5 +1,6 @@
 import { Panel } from '../models/Panel.js'
 import {IsometricBlock} from '../models/isometricBlock.js'
+import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
 
 const backGround=new Image()
 backGround.src="./assets/blocks/Mine.png"
@@ -18,6 +19,7 @@ const CaveInterior = (game)=>
             new Panel('leaveInterior',game.width*0.16,game.height*0.76,game.width*0.05,false)
         ]
     )
+    populateIsometricBlock(game)
     return game.currentBlock
 }
 export const Bánya=(game)=>{
@@ -36,4 +38,5 @@ export const Bánya=(game)=>{
             new Panel('enterInterior',game.width*0.46,game.height*0.54,game.width*0.08,false)
         ]
     )
+    populateIsometricBlock(game)
 }
