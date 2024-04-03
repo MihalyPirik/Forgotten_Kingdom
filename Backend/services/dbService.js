@@ -17,7 +17,7 @@ const dbConnection=new Sequelize
     password:process.env.DB_PASSWORD,
     database:process.env.DB_DATABASE,
     port:process.env.DB_PORT,
-    dialect:'mariadb',
+    dialect:'mysql',
     define: {
       timestamps: false
     }
@@ -51,7 +51,7 @@ Test()
 // }
 
 module.exports=dbConnection;
-// dbConnection.sync({force:true})
+
 // const postUser=async(name,email,password)=>
 // {
 //   return await pool.query("INSERT INTO players (HP,player_name,email,password,world_name) VALUES ('100',?,?,?,'valami')", [name, email, password])
@@ -62,5 +62,8 @@ module.exports=dbConnection;
 //   const data=await pool.query("SELECT * FROM players WHERE email=?",[email])
 //   return data[0][0]
 // }
-
-// dbConnection.sync({alter: true})
+// try {
+//dbConnection.sync({alter: true})
+// } catch (error) {
+//   console.log(error.parent);
+// }

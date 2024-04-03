@@ -1,25 +1,15 @@
 const Enemy = require("../../models/enemy");
 const EnemyType = require("../../models/enemyType");
 const uuid = require("uuid");
-
+const ProcessQuery = require('../../utils/queryProcessor')
 const getAllEnemies = async (req, res, next) => {
   try {
+    const query = ProcessQuery(Enemy,req.query)
+    query.world_id = req.token.id
     const data = await Enemy.findAll({
       attributes: { exclude: ["world_id", "enemy_type_id"] },
       include: { model: EnemyType, attributes: { exclude: ["enemy_type_id"] } },
-    });
-    res.status(200).json({ data: data });
-  } catch (error) {
-    next(error);
-  }
-};
-
-const getBlockEnemies = async (req, res, next) => {
-  try {
-    const data = await Enemy.findAll({
-      where: { blockX: req.params.blockX, blockY: req.params.blockY },
-      attributes: { exclude: ["world_id", "enemy_type_id"] },
-      include: { model: EnemyType, attributes: { exclude: ["enemy_type_id"] } },
+      where:query
     });
     res.status(200).json({ data: data });
   } catch (error) {
@@ -96,7 +86,6 @@ const deleteEnemy = async (req, res, next) => {
 
 module.exports = {
   getAllEnemies,
-  getBlockEnemies,
   postEnemy,
   putEnemy,
   deleteEnemy,

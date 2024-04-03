@@ -1,12 +1,11 @@
-const { getAllEnemies, getBlockEnemies, postEnemy, putEnemy, deleteEnemy } = require('../../Controllers/gameController/enemyController');
+const { getAllEnemies, postEnemy, putEnemy, deleteEnemy } = require('../../Controllers/gameController/enemyController');
 const { userAuth } = require('../../middlewares/auth');
-
+const {ProcessQuery} = require('../../middlewares/query')
 const enemyRouter = require('express').Router({ mergeParams: true });
 
 enemyRouter.use(userAuth)
 
-enemyRouter.get('/', getAllEnemies);
-enemyRouter.get('/:blockX/:blockY', getBlockEnemies);
+enemyRouter.get('/', ProcessQuery, getAllEnemies);
 
 enemyRouter.post('/', postEnemy);
 

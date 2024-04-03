@@ -1,42 +1,20 @@
 const Quest = require("../../models/quest");
-const QuestType = require("../../models/questType");
+const QuestStat = require('../../models/questStat')
 const { Sequelize } = require('sequelize');
-
+const EnemyType = require("../../models/enemyType");
+const Item = require('../../models/item')
+const QueryProcessor = require('../../utils/queryProcessor')
 const getQuests = async (req, res, next) => {
   try {
-    const player_id = req.token.id;
-    let whereClause = { player_id: player_id };
+const globalQuery = QueryProcessor(QuestStat,req.query)
+globalQuery.player_id = req.token.id
+  const data = await QuestStat.findAll({
+    where:globalQuery,
+    attributes:{exclude:['player_id']},
+    include:[{model:Quest,include:[Item,EnemyType],where:QueryProcessor(Quest,req.query)}]
+  })
 
-    if (req.query.is_active !== undefined) {
-      const is_active = req.query.is_active === "true" ? 1 : 0;
-      whereClause.is_active = is_active;
-    }
 
-    if (req.query.is_mainstory !== undefined) {
-      const is_mainstory = parseInt(req.query.is_mainstory);
-      if (!isNaN(is_mainstory)) {
-        whereClause.is_mainstory = is_mainstory;
-      }
-    }
-
-    if (req.query.withoutZero !== undefined && req.query.withoutZero == "0") {
-      whereClause.is_mainstory = { [Sequelize.Op.ne]: 0 };
-    }
-
-    let orderClause = [];
-    if (req.query.sort_by === "is_mainstory") {
-      orderClause.push(["is_mainstory", "ASC"]);
-    }
-
-    let data = await Quest.findAll({
-      where: whereClause,
-      attributes: { exclude: ["player_id", "quest_id", "is_mainstory"] },
-      include: {
-        model: QuestType,
-        attributes: { exclude: ["targetProgress"] },
-      },
-      order: orderClause,
-    });
 
     res.status(200).json({ data: data });
   } catch (error) {
@@ -49,7 +27,7 @@ const postQuest = async (req, res, next) => {
     const player_id = req.token.id;
 
     const quest_id = req.body.quest_id;
-    await Quest.create({
+    await QuestStat.create({
       player_id: player_id,
       quest_id: quest_id,
     });
@@ -67,13 +45,11 @@ const putQuest = async (req, res, next) => {
     const is_completed = req.body.is_completed;
     const is_active = req.body.is_active;
     const currentProgress = req.body.currentProgress;
-    const targetProgress = req.body.targetProgress;
     await Quest.update(
       {
         is_completed: is_completed,
         is_active: is_active,
         currentProgress: currentProgress,
-        targetProgress: targetProgress,
       },
       {
         where: {

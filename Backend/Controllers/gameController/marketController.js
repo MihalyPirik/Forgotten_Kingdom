@@ -7,6 +7,7 @@ const getAllOffer = async (req, res, next) => {
     const data = await Market.findAll({
       attributes: { exclude: ["player_id"] },
       include: { model: Player, attributes: ["player_name"] },
+      where:req.query
     });
     res.status(200).json({ data: data });
   } catch (error) {

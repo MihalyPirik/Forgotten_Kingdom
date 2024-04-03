@@ -1,58 +1,46 @@
 const { DataTypes } = require("sequelize")
 const dbConnection = require("../services/dbService")
-const QuestType = require("./questType")
+const Resident = require("./resident")
+
 
 const Quest = dbConnection.define
     (
         'Quest',
         {
-            is_completed:
+            quest_name:
             {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false,
-                allowNull: true
+                type: DataTypes.STRING,
+                primaryKey:true
             },
-            is_active:
-            {
-                type: DataTypes.BOOLEAN,
-                defaultValue: false,
-                allowNull: false
-            },
+            mainstory_group:DataTypes.STRING,
             is_mainstory:
             {
                 type: DataTypes.INTEGER,
                 defaultValue: 0,
                 allowNull: false
             },
-            currentProgress:
-            {
-                type: DataTypes.INTEGER,
-                defaultValue: 0,
-                allowNull: true
-            },
-            targetProgress:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: true
-            }
+            category: {
+                type: DataTypes.ENUM('Collector', 'Conversation', 'Exploring', 'Killer'),
+                allowNull: false,
+              },
+              blockX:DataTypes.INTEGER,
+              blockY:DataTypes.INTEGER,
+              target_amount:DataTypes.INTEGER,
+              target_resident:DataTypes.STRING
+
         },
         {
-            tableName: 'quests',
-            hooks:
-            {
-                beforeCreate: async (quest) => {
-                    const quest_type = await QuestType.findOne({where: {quest_id: quest.quest_id}});
-                    if (quest_type) {
-                        quest.targetProgress = quest_type.targetProgress,
-                        quest.is_mainstory = quest_type.is_mainstory
-                    }
-                }
-            },
+            tableName: 'quests'
         }
     )
-    Quest.associate = (models) => {
-        Quest.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' })
-        Quest.belongsTo(models.QuestType, { foreignKey: 'quest_id' })
+Quest.associate = (models) => {
+    Quest.belongsToMany(models.Player, { through: {model:models.QuestStat,unique:false}, foreignKey: "quest_id" })
+    Quest.hasMany(models.QuestStat, { foreignKey: 'quest_id'})
+    Quest.hasOne(models.Resident, { foreignKey: 'quest_id'})
+    Quest.belongsTo(models.Item,{foreignKey:'item'})
+    Quest.belongsTo(models.EnemyType,{foreignKey:'enemy_type'})
+    // Quest.belongsTo(models.Resident,{foreignKey:'target_resident'})
+
 }
 
 module.exports = Quest

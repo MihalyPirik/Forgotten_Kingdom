@@ -1,17 +1,14 @@
-const { getAllResidents, getResidents, postResident, putResident, deleteResident } = require('../../Controllers/gameController/residentController');
+const { getAllResidents, postResident, putResident } = require('../../Controllers/gameController/residentController');
 const { userAuth } = require('../../middlewares/auth');
-
+const {ProcessQuery} = require('../../middlewares/query')
 const residentRouter = require('express').Router({ mergeParams: true });
 
 residentRouter.use(userAuth)
 
-residentRouter.get('/', getAllResidents);
-residentRouter.get('/:blockX/:blockY', getResidents);
+residentRouter.get('/', ProcessQuery, getAllResidents);
 
 residentRouter.post('/', postResident);
 
 residentRouter.put('/:resident_id', putResident);
-
-residentRouter.delete('/:resident_id', deleteResident);
 
 module.exports = residentRouter;

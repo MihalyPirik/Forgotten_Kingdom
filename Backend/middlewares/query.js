@@ -1,27 +1,22 @@
-function ProcessQuery(query) {
-    let whereClause = {};
+const { Op } = require("sequelize")
 
-    if (query.is_active !== undefined) {
-      const is_active = query.is_active === "true" ? 1 : 0;
-      whereClause.is_active = is_active;
-    }
+const ProcessQuery = (req, res, next)=> {
+  req.query = JSON.stringify(req.query)
+  req.query = req.query.replace(/:"([^"]+)"/g, ':$1')
+  // req.query = req.query.replace(/"(gte|lte|lt|gt|ne)"/g, '[Op.$1]')
+  
+req.query = req.query.replaceAll("'",'"')
 
-    if (query.is_mainstory !== undefined) {
-      const is_mainstory = parseInt(query.is_mainstory);
-      if (!isNaN(is_mainstory)) {
-        whereClause.is_mainstory = is_mainstory;
-      }
-    }
+req.query = JSON.parse(req.query)
 
-    if (query.withoutZero !== undefined && query.withoutZero == "0") {
-      whereClause.is_mainstory = { [Sequelize.Op.ne]: 0 };
-    }
-
-    if (query.sort_by === "is_mainstory") {
-      orderClause.push(["is_mainstory", "ASC"]);
-    }
-
-    if (query.id !== undefined) {
-        whereClause.id = query.id;
-    }
+for (const key in req.query) {
+  if(typeof req.query[key]=='object')
+  {
+    const nestedKey = Object.keys(req.query[key])[0]
+    req.query[key]={[Op[nestedKey]]:req.query[key][nestedKey]}
+  }
 }
+
+next()
+}
+module.exports = {ProcessQuery}

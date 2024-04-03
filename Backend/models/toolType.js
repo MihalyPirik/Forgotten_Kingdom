@@ -8,7 +8,8 @@ const ToolType = dbConnection.define
         {
             tool_type_id:
             {
-                type: DataTypes.UUID,
+                type: DataTypes.INTEGER,
+                autoIncrement:true,
                 primaryKey: true
             },
             tool_name:

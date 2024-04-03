@@ -98,42 +98,6 @@ const Player = dbConnection.define
                 type: DataTypes.STRING,
                 defaultValue: 'New World'
             },
-            stone:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 100
-            },
-            wood:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 100
-            },
-            coal:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 100
-            },
-            iron:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 100
-            },
-            wheat:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 100
-            },
-            fish:
-            {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 100
-            },
             objX:
             {
                 type: DataTypes.DOUBLE,
@@ -165,21 +129,19 @@ const Player = dbConnection.define
             {
                 beforeCreate: async (user) => {
                     user.password = await bcrypt.hash(user.password, await bcrypt.genSalt(10))
-                },
-                afterCreate: SetInitialState
+                }
             },
         }
     )
 Player.associate = (models) => {
     Player.belongsToMany(models.ToolType, { through: models.Tool, foreignKey: "player_id", onDelete: "CASCADE" })
-    Player.belongsToMany(models.QuestType, { through: models.Quest, foreignKey: "player_id", onDelete: "CASCADE" })
+    Player.belongsToMany(models.Quest, { through: { model:models.QuestStat,unique:false}, foreignKey: "player_id", onDelete: "CASCADE" })
     Player.belongsToMany(models.EnemyType, { through: {model: models.Enemy,unique:false}, foreignKey: "world_id", onDelete: "CASCADE" })
-    Player.belongsToMany(models.BuildingType, { through: models.Building, foreignKey: "world_id", onDelete: "CASCADE" })
+    Player.belongsToMany(models.Item,{through:models.Inventory,foreignKey:'player_id'})
     Player.hasMany(models.Resident, { foreignKey: "world_id", onDelete: "CASCADE" })
     Player.hasMany(models.Tool, { foreignKey: "player_id", onDelete: "CASCADE" })
     Player.hasMany(models.Enemy, { foreignKey: "world_id", onDelete: "CASCADE" })
-    Player.hasMany(models.Building, { foreignKey: "world_id", onDelete: "CASCADE" })
-    Player.hasMany(models.Quest, { foreignKey: "player_id", as: "playerQuest", onDelete: "CASCADE" })
+    Player.hasMany(models.QuestStat, { foreignKey: "player_id", onDelete: "CASCADE" })
     Player.hasMany(models.Market, { foreignKey: "player_id", onDelete: "CASCADE" })
 }
 

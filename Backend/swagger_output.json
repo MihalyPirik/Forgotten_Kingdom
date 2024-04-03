@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://forgottenkingdom.cyclic.app/"
+      "url": "http://127.0.0.1:3000"
     }
   ],
   "paths": {
@@ -223,24 +223,6 @@
                   "world_name": {
                     "example": "any"
                   },
-                  "stone": {
-                    "example": "any"
-                  },
-                  "wood": {
-                    "example": "any"
-                  },
-                  "coal": {
-                    "example": "any"
-                  },
-                  "iron": {
-                    "example": "any"
-                  },
-                  "wheat": {
-                    "example": "any"
-                  },
-                  "fish": {
-                    "example": "any"
-                  },
                   "objX": {
                     "example": "any"
                   },
@@ -417,55 +399,6 @@
         }
       }
     },
-    "/enemies/{blockX}/{blockY}": {
-      "get": {
-        "tags": [
-          "Enemy"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "blockX",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "blockY",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/enemies/{enemy_id}": {
       "put": {
         "tags": [
@@ -588,6 +521,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "world_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -671,55 +611,6 @@
         }
       }
     },
-    "/residents/{blockX}/{blockY}": {
-      "get": {
-        "tags": [
-          "Resident"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "blockX",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "blockY",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/residents/{resident_id}": {
       "put": {
         "tags": [
@@ -791,178 +682,6 @@
             }
           }
         }
-      },
-      "delete": {
-        "tags": [
-          "Resident"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "resident_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/buildings/": {
-      "get": {
-        "tags": [
-          "Building"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/buildings/{building_id}": {
-      "put": {
-        "tags": [
-          "Building"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "building_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "level": {
-                    "example": "any"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Building"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "building_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
       }
     },
     "/tool/": {
@@ -1153,6 +872,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "player_id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -1218,47 +944,6 @@
         }
       }
     },
-    "/quest/{is_active}": {
-      "get": {
-        "tags": [
-          "Quest"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "is_active",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/quest/{quest_id}": {
       "put": {
         "tags": [
@@ -1311,9 +996,6 @@
                     "example": "any"
                   },
                   "currentProgress": {
-                    "example": "any"
-                  },
-                  "targetProgress": {
                     "example": "any"
                   }
                 }
@@ -1450,6 +1132,39 @@
             }
           }
         }
+      }
+    },
+    "/market/playerOffer": {
+      "get": {
+        "tags": [
+          "Market"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/market/{offer_id}": {

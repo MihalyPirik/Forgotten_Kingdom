@@ -1,17 +1,15 @@
 const Resident = require("../../models/resident");
-const QuestType = require("../../models/questType");
+const Quest = require("../../models/quest");
 const uuid = require("uuid");
-
+const QueryProcessor = require('../../utils/queryProcessor')
 const getAllResidents = async (req, res, next) => {
     try {
-        const player_id = req.token.id;
-
+        const query = QueryProcessor(Resident,req.query)
+query.world_id = req.token.id
         const data = await Resident.findAll({
-            where: {
-                world_id: player_id
-            },
+            where:query,
             attributes: { exclude: ["world_id", "quest_id"] },
-            include: { model: QuestType },
+            include: { model: Quest },
         });
         res.status(200).json({ data: data });
     } catch (error) {
@@ -19,24 +17,6 @@ const getAllResidents = async (req, res, next) => {
     }
 };
 
-const getResidents = async (req, res, next) => {
-    try {
-        const player_id = req.token.id;
-
-        const data = await Resident.findAll({
-            where: {
-                world_id: player_id,
-                blockX: req.params.blockX,
-                blockY: req.params.blockY,
-            },
-            attributes: { exclude: ["world_id", "quest_id"] },
-            include: { model: QuestType },
-        });
-        res.status(200).json({ data: data });
-    } catch (error) {
-        next(error);
-    }
-};
 
 const postResident = async (req, res, next) => {
     try {
@@ -100,23 +80,8 @@ const putResident = async (req, res, next) => {
     }
 };
 
-const deleteResident = async (req, res, next) => {
-    try {
-      const isDeleted = await Resident.destroy({ where: { resident_id: req.params.resident_id } });
-  
-      if (isDeleted == 0) {
-        return res.status(404).json({ message: "Ilyen ellenség nem létezik!" })
-      }
-      res.status(200).json({ data: {message: "Sikeres törlés!"} });
-    } catch (error) {
-      next(error);
-    }
-  };
-
 module.exports = {
     getAllResidents,
-    getResidents,
     postResident,
     putResident,
-    deleteResident
 };

@@ -5,20 +5,20 @@ const Resident = dbConnection.define
     (
         'Resident',
         {
-            // resident_id resident_name profession world_id quest_id objX objY blockX blockY	
             resident_id:
             {
-                type: DataTypes.UUID,
-                primaryKey: true
+type:DataTypes.UUID,
+primaryKey:true
             },
             resident_name:
             {
                 type: DataTypes.STRING,
-                allowNull: false,
+                allowNull:false
             },
             profession:
             {
-                type: DataTypes.STRING,
+                type: DataTypes.ENUM('Kereskedő','Kovács','Farmer','Szörnyvadász','Lovag','Mágus','Halász','Favágó','Boszorkány'),
+                allowNull:false
             },
             objX:
             {
@@ -50,7 +50,8 @@ const Resident = dbConnection.define
         }
     )
 Resident.associate = (models) => {
+    Resident.belongsTo(models.Quest, { foreignKey: 'quest_id' })
+    // Resident.hasMany(models.Quest,{foreignKey:'target_resident'})
     Resident.belongsTo(models.Player, {foreignKey: 'world_id', onDelete: "CASCADE"});
-    Resident.belongsTo(models.QuestType, { foreignKey: 'quest_id' });
 }
 module.exports = Resident
