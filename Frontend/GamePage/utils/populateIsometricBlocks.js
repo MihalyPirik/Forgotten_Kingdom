@@ -14,7 +14,7 @@ export const populateIsometricBlock=async(game)=>{
     })})
     getAllResidents(`blockX=${game.currentBlockX}&blockY=${game.currentBlockY}`)
     .then(res=>{res.forEach(e => {
-const resident = new NPC(game,e.resident_name,charSprite,game.width*e.objX,game.height*e.objY,e.profession,null,e.QuestStat)
+const resident = new NPC(game,e.resident_name,charSprite,game.width*e.objX,game.height*e.objY,e.profession,null,e.QuestStat,e.resident_id)
 const panel = new Panel('NPCPanel',game.width*e.objX,game.height*e.objY,resident.radius+10,false,resident)
 resident.panel=panel
 game.currentBlock.panels.push(panel)

@@ -1,7 +1,7 @@
 import { getQuests, putQuest } from "../../services/questService.js"
 import { putResident } from "../../services/residentService.js"
 import { NPC } from "../models/NPC.js"
-import { GameView } from "../views/view.js"
+import { GameView, PanelView } from "../views/view.js"
 import { GameController } from "./Game.js"
 
 export class Story
@@ -91,14 +91,14 @@ callback instanceof Function?callback(index):null
 
 
 
-    static async StartConversation(filePath,mainStoryNumber)
+    static async StartConversation(filePath,completedQuest)
     {
-        switch (mainStoryNumber) {
+        switch (completedQuest.Quest.is_mainstory) {
             case 1:
-                this.First(filePath)
+                this.First(filePath,completedQuest)
                 break;
             case 2:
-                this.Second(filePath)
+                this.Second(filePath,completedQuest)
                 break;
             default:
                 Story.BasePlayConversation(filePath);
@@ -106,15 +106,20 @@ callback instanceof Function?callback(index):null
     }
 
 
-    static async First(filePath)
+    static async First(filePath,completedQuest)
     {
         Story.BasePlayConversation(filePath)
-        // Arthur gets second main quest
-        // first completed
-        // second is_active
+        const secondmainQuest = (await getQuests('is_mainstory=2'))[0]
+        console.log(completedQuest);
+        document.getElementById('quests').append(PanelView.GenerateQuestCard(secondmainQuest,this.gameController.isometricBlocks))
+        putResident(completedQuest.Resident.resident_id,{quest_id:secondmainQuest.quest_id})
+        .then(res=>{console.log(res);})
+        putQuest(secondmainQuest.quest_id,{is_active:true})
+        .then(res=>{console.log(res);})
+        this.gameController.player.quests.push(secondmainQuest)
 
     }
-    static async Second(filePath)
+    static async Second(filePath,resident)
     {
         Story.BasePlayConversation(filePath,async(index)=>{
             const game = Story.gameController

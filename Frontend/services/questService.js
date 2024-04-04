@@ -4,7 +4,7 @@ import { base } from "./base.js";
 
 export const getQuests = (query='') => {
   // return base("/quest?is_active=false&withoutZero=0&sort_by=is_mainstory", 'GET')
-  return base(`/quest${query}`, 'GET')
+  return base(`/quest?${query}`, 'GET')
 };
 
 // POST

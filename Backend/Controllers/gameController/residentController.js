@@ -10,7 +10,7 @@ query.world_id = req.token.id
         const data = await Resident.findAll({
             where:query,
             attributes: { exclude: ["world_id", "quest_id"] },
-            include: { model: QuestStat, include:Quest, where:{player_id:req.token.id} },
+            include: { model: QuestStat, include:[Quest,Resident], where:{player_id:req.token.id} },
         });
         res.status(200).json({ data: data });
     } catch (error) {

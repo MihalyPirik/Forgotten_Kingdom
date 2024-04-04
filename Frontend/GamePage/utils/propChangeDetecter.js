@@ -1,4 +1,6 @@
-const proxfy = new Proxy(game.player, 
+export function MakeReactiveObject(object,setCallback)
+{
+  return new Proxy(object, 
     {
       get(target, key) {
         if (key == 'isProxy')
@@ -14,9 +16,10 @@ const proxfy = new Proxy(game.player,
         return target[key]
       },
       set(target, key, value) {
-        console.log('Setting', target, `.${key} to equal`, value)
+        setCallback(target, key, value)
     
         target[key] = value
         return true
       }
     });
+}

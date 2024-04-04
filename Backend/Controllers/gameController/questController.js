@@ -3,7 +3,8 @@ const QuestStat = require('../../models/questStat')
 const { Sequelize } = require('sequelize');
 const EnemyType = require("../../models/enemyType");
 const Item = require('../../models/item')
-const QueryProcessor = require('../../utils/queryProcessor')
+const QueryProcessor = require('../../utils/queryProcessor');
+const Resident = require("../../models/resident");
 const getQuests = async (req, res, next) => {
   try {
 const globalQuery = QueryProcessor(QuestStat,req.query)
@@ -11,7 +12,7 @@ globalQuery.player_id = req.token.id
   const data = await QuestStat.findAll({
     where:globalQuery,
     attributes:{exclude:['player_id']},
-    include:[{model:Quest,include:[Item,EnemyType],where:QueryProcessor(Quest,req.query)}]
+    include:[{model:Quest,include:[Item,EnemyType],where:QueryProcessor(Quest,req.query)},Resident]
   })
 
 

@@ -1,5 +1,6 @@
 import { putQuest } from "../../services/questService.js"
 import { Monster } from "../models/Monster.js"
+import { Story } from "./Story.js"
 
 /**
  * 
@@ -15,11 +16,11 @@ export const ExploringQuests=(blockX,blockY,questList)=>
     })
     if(completedQuest!=undefined)
     {
-        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress++})
         completedQuest.currentProgress++
+        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
         {
-
+Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
         }
     }
 }
@@ -31,11 +32,12 @@ const completedQuest = questList.find((element)=>{
 })
 if(completedQuest!=undefined)
     {
-        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress++})
         completedQuest.currentProgress++
+        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
+        
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
         {
-
+            Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
         }
     }
 }
@@ -47,11 +49,12 @@ export const CollectorQuests=(item,questList)=>{
     })
     if(completedQuest!=undefined)
         {
-            putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress++})
             completedQuest.currentProgress++
+            putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
+            
             if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
             {
-
+                Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
             }
         }
     }
@@ -72,10 +75,6 @@ export const CollectorQuests=(item,questList)=>{
         return false
     }
     export const ConversationQuests=(completedQuest)=>{
-        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress++})
         completedQuest.currentProgress++
-        if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
-            {
-
-            }
+        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
     }

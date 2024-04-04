@@ -337,12 +337,12 @@ export class PanelView {
 return div
   }
 
-static QuestPanelShow(questList)
+static QuestPanelShow(questList,isometricBlocks)
 {
   const questPanel = document.getElementById('quests')
 
 questList.forEach(quest => {
-  const div2 = this.GenerateQuestCard(quest)
+  const div2 = this.GenerateQuestCard(quest,isometricBlocks)
   questPanel.append(div2)
 });
 
@@ -350,11 +350,12 @@ questList.forEach(quest => {
 }
 
 
-static GenerateQuestCard(quest)
+static GenerateQuestCard(quest,isometricBlocks)
 {
   const div2 = document.createElement('div')
   div2.classList.add("questCard")
 div2.id=quest.quest_id
+div2.innerHTML+=`<p>${quest.quest_id}</p>`
   switch (quest.Quest.category) {
     case "Killer":
       div2.innerHTML+=`<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
@@ -365,6 +366,9 @@ div2.id=quest.quest_id
     case "Collector":
       div2.innerHTML+=`<p>Szerezz ${quest.Quest.target_amount} db ${quest.Quest.Item.name} - t</p>`
       break;
+      case "Exploring":
+        div2.innerHTML+=`<p>Juss el a ${isometricBlocks[quest.Quest.blockX][quest.Quest.blockY].name} - re</p>`
+        break;
     default:
       break;
   }
@@ -377,8 +381,8 @@ div2.id=quest.quest_id
   static NPCPanel(panel, element) {
     const resident = panel.context
     const quest = panel.context.quest
+    console.log(quest)
     const el = element
-    
     if(quest){
       if(quest.is_completed)
 {
@@ -393,10 +397,9 @@ div2.id=quest.quest_id
     but.type = 'button'
     but.value = "Küldetés leadás"
     but.addEventListener('click',()=>{
-      Story.StartConversation('after/'+quest.Quest.quest_name,quest.Quest.is_mainstory)
+      Story.StartConversation('after/'+quest.Quest.quest_name,quest)
       putQuest(quest.quest_id,{is_completed:true})
       quest.is_completed=true
-      console.log(resident.game.player.quests);
       resident.game.player.quests.splice(resident.game.player.quests.indexOf(quest),1)
       document.getElementById('quests').querySelector('#'+quest.quest_id).remove()
     },{once:true})
@@ -414,7 +417,7 @@ div2.id=quest.quest_id
     but.type = 'button'
     but.value = "Küldetés felvétele"
     but.addEventListener('click',()=>{
-      Story.StartConversation('pre/'+quest.Quest.quest_name,quest.Quest.is_mainstory)
+      Story.StartConversation('pre/'+quest.Quest.quest_name,quest)
       putQuest(quest.quest_id,{is_active:true})
     quest.is_active=true
     resident.game.player.quests.push(quest)
@@ -432,8 +435,8 @@ if(anotherQuest)
   but.type='button'
   but.value='Párbeszéd indítása'+'('+anotherQuest.Quest.quest_name+')'
   but.addEventListener('click',()=>{
-    Story.StartConversation('during/'+anotherQuest.Quest.quest_name,anotherQuest.Quest.is_mainstory)
-    ConversationQuests(quest)},{once:true}
+    Story.StartConversation('during/'+anotherQuest.Quest.quest_name,quest)
+    ConversationQuests(anotherQuest)},{once:true}
     )
     el.innerHTML=""
     el.append(but)
