@@ -2,4 +2,4 @@ Backend/node_modules
 Backend/dist
 Frontend/GamePage/node_modules
 Backend/.env
-services/config.json
+Frontend/services/config.json

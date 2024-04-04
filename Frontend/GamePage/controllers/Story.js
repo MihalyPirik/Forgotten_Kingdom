@@ -43,20 +43,31 @@ panel.append(button)
     {
         Story.currentConversationPanel.remove()
     }
-    static async LoadFile(fileName)
+    static async LoadFile(filePath)
     {
-        let array = await (await fetch(`/Frontend/GamePage/assets/conversations/${fileName}`)).text()
+        
+            const res = await fetch(`/Frontend/GamePage/assets/conversations/${filePath}.txt`)
+            if(!res.ok)
+            {
+                throw new Error('Conversation does not exist!')
+            }
+            let array = await res.text()
+
+
+  
+        
         array = array.split('\n')
         return array
     }
 
-    static async BasePlayConversation(filename,callback)
+    static async BasePlayConversation(filePath,callback)
     {
-        
+       
         let index = 0
+           let array = await Story.LoadFile(filePath)
+
         Story.gameController.player.isInConversation = true
         
-        const array = await Story.LoadFile(filename)
 addEventListener('conversationFinished',()=>{
     Story.currentConversationPanel.querySelector('button').addEventListener('click',()=>{
         if(index == array.length-1)
@@ -76,17 +87,36 @@ addEventListener('conversationFinished',()=>{
 callback instanceof Function?callback(index):null
     Story.ShowConversationPanel(array,index)
     }
-    static async First()
+
+
+
+
+    static async StartConversation(filePath,mainStoryNumber)
     {
-        Story.BasePlayConversation("first.txt")
+        switch (mainStoryNumber) {
+            case 1:
+                this.First(filePath)
+                break;
+            case 2:
+                this.Second(filePath)
+                break;
+            default:
+                Story.BasePlayConversation(filePath);
+        }
+    }
+
+
+    static async First(filePath)
+    {
+        Story.BasePlayConversation(filePath)
         // Arthur gets second main quest
         // first completed
         // second is_active
 
     }
-    static async Second()
+    static async Second(filePath)
     {
-        Story.BasePlayConversation("second.txt",async(index)=>{
+        Story.BasePlayConversation(filePath,async(index)=>{
             const game = Story.gameController
             if(index==0){
                 Story.MoveEntity(Story.gameController.player,Story.gameController.width*0.5,Story.gameController.height*0.5)

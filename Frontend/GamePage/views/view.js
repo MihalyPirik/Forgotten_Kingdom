@@ -1,6 +1,8 @@
 import { getQuests, putQuest } from '../../services/questService.js'
 import { GameController } from '../controllers/Game.js'
 import { PanelController } from '../controllers/Panel.js'
+import { ConversationQuests, IsTargetResident } from '../controllers/Quest.js'
+import { Story } from '../controllers/Story.js'
 import { Circle } from '../models/Circle.js'
 import { Line } from '../models/Line.js'
 export class GameView {
@@ -338,26 +340,9 @@ return div
 static QuestPanelShow(questList)
 {
   const questPanel = document.getElementById('quests')
-questList.forEach(quest => {
-  let div = this.GetOwnTemplate('questPanel').content.cloneNode(true)
-  const div2 = document.createElement('div')
-  div2.classList.add("questCard")
-  div2.append(div)
 
-  switch (quest.Quest.category) {
-    case "Killer":
-      div2.innerHTML+=`<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
-      break;
-  case "Conversation":
-    div2.innerHTML+=`<p>Beszélj ${quest.Quest.target_resident}</p>`
-    break;
-    case "Collector":
-      div2.innerHTML+=`<p>Szerezz ${quest.Quest.target_amount} ${quest.Quest.Item.name} - t</p>`
-      break;
-    default:
-      break;
-  }
-  this.#processElement(div2,quest)
+questList.forEach(quest => {
+  const div2 = this.GenerateQuestCard(quest)
   questPanel.append(div2)
 });
 
@@ -365,16 +350,41 @@ questList.forEach(quest => {
 }
 
 
+static GenerateQuestCard(quest)
+{
+  const div2 = document.createElement('div')
+  div2.classList.add("questCard")
+div2.id=quest.quest_id
+  switch (quest.Quest.category) {
+    case "Killer":
+      div2.innerHTML+=`<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
+      break;
+  case "Conversation":
+    div2.innerHTML+=`<p>Beszélj ${quest.Quest.target_resident} - ral</p>`
+    break;
+    case "Collector":
+      div2.innerHTML+=`<p>Szerezz ${quest.Quest.target_amount} db ${quest.Quest.Item.name} - t</p>`
+      break;
+    default:
+      break;
+  }
+  this.#processElement(div2,quest)
+  return div2
+}
+
+
+
   static NPCPanel(panel, element) {
     const resident = panel.context
     const quest = panel.context.quest
     const el = element
+    
     if(quest){
-if(quest.is_completed)
+      if(quest.is_completed)
 {
   el.innerHTML='Generate new quest'
+  return
 }
-else{
   if(quest.is_active)
   {
     if(quest.currentProgress>=quest.Quest.target_amount)
@@ -382,8 +392,15 @@ else{
     const but=document.createElement('input')
     but.type = 'button'
     but.value = "Küldetés leadás"
-    but.addEventListener('click',()=>{putQuest(quest.quest_id,{is_completed:true})},{once:true})
-    el.innerHTML = but
+    but.addEventListener('click',()=>{
+      Story.StartConversation('after/'+quest.Quest.quest_name,quest.Quest.is_mainstory)
+      putQuest(quest.quest_id,{is_completed:true})
+      quest.is_completed=true
+      console.log(resident.game.player.quests);
+      resident.game.player.quests.splice(resident.game.player.quests.indexOf(quest),1)
+      document.getElementById('quests').querySelector('#'+quest.quest_id).remove()
+    },{once:true})
+    el.append(but)
   }
   else
   {
@@ -396,10 +413,31 @@ else{
     const but=document.createElement('input')
     but.type = 'button'
     but.value = "Küldetés felvétele"
-    but.addEventListener('click',()=>{putQuest(quest.quest_id,{is_active:true})},{once:true})
+    but.addEventListener('click',()=>{
+      Story.StartConversation('pre/'+quest.Quest.quest_name,quest.Quest.is_mainstory)
+      putQuest(quest.quest_id,{is_active:true})
+    quest.is_active=true
+    resident.game.player.quests.push(quest)
+    document.getElementById('quests').append(this.GenerateQuestCard(quest))
+    },{once:true}
+      )
     el.append(but)
   }
 }
+const anotherQuest = IsTargetResident(resident,resident.game.player.quests)
+if(anotherQuest)
+{
+  if(anotherQuest.currentProgress<anotherQuest.Quest.target_amount){
+  const but = document.createElement('input')
+  but.type='button'
+  but.value='Párbeszéd indítása'+'('+anotherQuest.Quest.quest_name+')'
+  but.addEventListener('click',()=>{
+    Story.StartConversation('during/'+anotherQuest.Quest.quest_name,anotherQuest.Quest.is_mainstory)
+    ConversationQuests(quest)},{once:true}
+    )
+    el.innerHTML=""
+    el.append(but)
+  }
 }
 
 

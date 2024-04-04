@@ -15,15 +15,15 @@ export const ExploringQuests=(blockX,blockY,questList)=>
     })
     if(completedQuest!=undefined)
     {
-        putQuest(completedQuest.quest_id,{is_completed:true})
-        completedQuest.is_completed=true
+        putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress++})
+        completedQuest.currentProgress++
+        if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
+        {
+
+        }
     }
 }
-/**
- * 
- * @param {Monster} entity 
- * @param {Array} questList 
- */
+
 export const KillerQuests=(entity,questList)=>{
 const completedQuest = questList.find((element)=>{
     if(element.Quest.category!="Killer"){return false}
@@ -35,8 +35,7 @@ if(completedQuest!=undefined)
         completedQuest.currentProgress++
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
         {
-putQuest(completedQuest.quest_id,{is_completed:true})
-completedQuest.is_completed=true
+
         }
     }
 }
@@ -52,25 +51,31 @@ export const CollectorQuests=(item,questList)=>{
             completedQuest.currentProgress++
             if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
             {
-    putQuest(completedQuest.quest_id,{is_completed:true})
-    completedQuest.is_completed=true
+
             }
         }
     }
 
-    export const ConversationQuests=(resident,questList)=>{
+
+
+
+
+
+
+    export const IsTargetResident=(resident,questList)=>
+    {
         const completedQuest = questList.find((element)=>{
             if(element.Quest.category!="Conversation"){return false}
-            return element.resident==resident.name
+            return element.Quest.target_resident==resident.name
         })
-        if(completedQuest!=undefined)
-        {
+        if(completedQuest!=undefined){return completedQuest}
+        return false
+    }
+    export const ConversationQuests=(completedQuest)=>{
         putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress++})
         completedQuest.currentProgress++
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
             {
-    putQuest(completedQuest.quest_id,{is_completed:true})
-    completedQuest.is_completed=true
+
             }
-        }
     }

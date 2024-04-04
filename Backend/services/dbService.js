@@ -17,7 +17,7 @@ const dbConnection=new Sequelize
     password:process.env.DB_PASSWORD,
     database:process.env.DB_DATABASE,
     port:process.env.DB_PORT,
-    dialect:'mysql',
+    dialect:'mariadb',
     define: {
       timestamps: false
     }
@@ -63,7 +63,7 @@ module.exports=dbConnection;
 //   return data[0][0]
 // }
 // try {
-//dbConnection.sync({alter: true})
+//dbConnection.sync({force: true})
 // } catch (error) {
 //   console.log(error.parent);
 // }
