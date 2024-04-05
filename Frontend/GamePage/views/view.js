@@ -372,6 +372,10 @@ div2.innerHTML+=`<p>${quest.quest_id}</p>`
     default:
       break;
   }
+  if(quest.currentProgress>=quest.Quest.target_amount)
+  {
+    div2.innerHTML='Térj vissza '+quest.Resident.resident_name+' - hoz'
+  }
   this.#processElement(div2,quest)
   return div2
 }
@@ -435,8 +439,9 @@ if(anotherQuest)
   but.type='button'
   but.value='Párbeszéd indítása'+'('+anotherQuest.Quest.quest_name+')'
   but.addEventListener('click',()=>{
+    ConversationQuests(anotherQuest)
     Story.StartConversation('during/'+anotherQuest.Quest.quest_name,quest)
-    ConversationQuests(anotherQuest)},{once:true}
+    },{once:true}
     )
     el.innerHTML=""
     el.append(but)

@@ -109,17 +109,23 @@ callback instanceof Function?callback(index):null
     static async First(filePath,completedQuest)
     {
         Story.BasePlayConversation(filePath)
-        const secondmainQuest = (await getQuests('is_mainstory=2'))[0]
-        console.log(completedQuest);
+
+        if(filePath.includes("during"))
+        {
+            const secondmainQuest = (await getQuests('is_mainstory=2'))[0]
+        completedQuest.is_completed=true
         document.getElementById('quests').append(PanelView.GenerateQuestCard(secondmainQuest,this.gameController.isometricBlocks))
+        document.getElementById('quests').querySelector('#'+completedQuest.quest_id).remove()
         putResident(completedQuest.Resident.resident_id,{quest_id:secondmainQuest.quest_id})
-        .then(res=>{console.log(res);})
+        putQuest(completedQuest.quest_id,{is_completed:true})
         putQuest(secondmainQuest.quest_id,{is_active:true})
-        .then(res=>{console.log(res);})
         this.gameController.player.quests.push(secondmainQuest)
+        this.gameController.player.quests.splice(this.gameController.player.quests.indexOf(completedQuest),1)
+        }
+        
 
     }
-    static async Second(filePath,resident)
+    static async Second(filePath,completedQuest)
     {
         Story.BasePlayConversation(filePath,async(index)=>{
             const game = Story.gameController
