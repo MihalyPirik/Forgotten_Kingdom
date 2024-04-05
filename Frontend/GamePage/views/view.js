@@ -352,7 +352,11 @@ questList.forEach(quest => {
 
 static GenerateQuestCard(quest,isometricBlocks)
 {
-  const div2 = document.createElement('div')
+  let div2 = document.getElementById('quests').querySelector('#'+quest.quest_id)
+  if(!div2)
+  {
+    div2 = document.createElement('div')
+  }
   div2.classList.add("questCard")
 div2.id=quest.quest_id
 div2.innerHTML+=`<p>${quest.quest_id}</p>`
@@ -385,7 +389,6 @@ div2.innerHTML+=`<p>${quest.quest_id}</p>`
   static NPCPanel(panel, element) {
     const resident = panel.context
     const quest = panel.context.quest
-    console.log(quest)
     const el = element
     if(quest){
       if(quest.is_completed)
@@ -440,7 +443,7 @@ if(anotherQuest)
   but.value='Párbeszéd indítása'+'('+anotherQuest.Quest.quest_name+')'
   but.addEventListener('click',()=>{
     ConversationQuests(anotherQuest)
-    Story.StartConversation('during/'+anotherQuest.Quest.quest_name,quest)
+    Story.StartConversation('during/'+anotherQuest.Quest.quest_name,anotherQuest)
     },{once:true}
     )
     el.innerHTML=""

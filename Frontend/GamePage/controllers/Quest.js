@@ -1,5 +1,6 @@
 import { putQuest } from "../../services/questService.js"
 import { Monster } from "../models/Monster.js"
+import { PanelView } from "../views/view.js"
 import { Story } from "./Story.js"
 
 /**
@@ -55,6 +56,7 @@ export const CollectorQuests=(item,questList)=>{
             if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
             {
                 Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
+                // PanelView.GenerateQuestCard(completedQuest)
             }
         }
     }
