@@ -58,7 +58,7 @@ export class GameController {
               for (let i = 0; i < panels.length; i++) {
                 panels[i].remove()
               }
-              ExploringQuests(i,j,this.player.quests)
+              ExploringQuests(i,j,this.player.quests,this.isometricBlocks)
               return
             }
           }
@@ -117,7 +117,7 @@ if(entity.isDead)
   if(entity instanceof Monster)
   {
     deleteEnemy(entity)
-    KillerQuests(entity,this.player.quests)
+    KillerQuests(entity,this.player.quests,this.currentBlock.isometricBlocks)
   }
 }
 

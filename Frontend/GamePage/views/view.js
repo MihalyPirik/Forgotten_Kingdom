@@ -353,6 +353,7 @@ questList.forEach(quest => {
 static GenerateQuestCard(quest,isometricBlocks)
 {
   let div2 = document.getElementById('quests').querySelector('#'+quest.quest_id)
+  if(div2){div2.innerHTML=""}
   if(!div2)
   {
     div2 = document.createElement('div')
@@ -405,10 +406,6 @@ div2.innerHTML+=`<p>${quest.quest_id}</p>`
     but.value = "Küldetés leadás"
     but.addEventListener('click',()=>{
       Story.StartConversation('after/'+quest.Quest.quest_name,quest)
-      putQuest(quest.quest_id,{is_completed:true})
-      quest.is_completed=true
-      resident.game.player.quests.splice(resident.game.player.quests.indexOf(quest),1)
-      document.getElementById('quests').querySelector('#'+quest.quest_id).remove()
     },{once:true})
     el.append(but)
   }
@@ -425,14 +422,14 @@ div2.innerHTML+=`<p>${quest.quest_id}</p>`
     but.value = "Küldetés felvétele"
     but.addEventListener('click',()=>{
       Story.StartConversation('pre/'+quest.Quest.quest_name,quest)
-      putQuest(quest.quest_id,{is_active:true})
-    quest.is_active=true
-    resident.game.player.quests.push(quest)
-    document.getElementById('quests').append(this.GenerateQuestCard(quest))
     },{once:true}
       )
     el.append(but)
   }
+}
+else
+{
+  el.innerHTML='<p>Üdvözöllek bátor utazó!</p>'
 }
 const anotherQuest = IsTargetResident(resident,resident.game.player.quests)
 if(anotherQuest)
@@ -458,7 +455,6 @@ if(anotherQuest)
   static ToolPanel(game)
   {
     const div = PanelView.#createTemplate()
-    
     game.player.tools.forEach(tool=>{
       const card = PanelView.GetOwnTemplate('toolPanel').content.cloneNode(true)
       const div2 = document.createElement('div')

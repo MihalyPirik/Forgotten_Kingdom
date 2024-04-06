@@ -1,42 +1,34 @@
 Elfeledett királyság - A vihar előtti csend
 
-------------Szerezz 2000 fát, 2000 követ és 1000 vasat, hogy megszerezd a végső fegyveredet, majd térj vissza Ulric-hoz-----------------
 
-Kovács: Szervusz! Már vártunk téged!
+--------------Juss el a második szörny területére, és vedd fel a harcot!---------------
 
-Dominik, Ármin, Michail: Üdv!
+/Sikeresen legyőzi a szörnyeket\
 
-Dominik: Szeretnénk mi is támogatni téged.
-	 Az én hivatásomban a fegyvereink külső rétege ezüstből készül.
-	 A szörnyek nem nagyon szeretik.
-	 Éppen ezért, hoztam egy kis ezüst ércet a készülő fegyveredhez.
-	 Ulric-ot már beavattam az elkészítés részleteibe.
+Mesélő: Hősünk ismét sikerrel járt és ezúttal megmentett egy csapat lovagot is.
 
-Kovács: Hahahaha!
+Lovag:  Köszönjük szépen, hogy megmentettél minket! Ezt az összes lovag nevében mondhatom!
+	Az én nevem Michail. Jómagam és a csapatom ezen királyság védelmezői.
+	Vagyis... csak voltunk. 
+	Kudarcot vallottunk...
+	Sokkal keményebben kellesz edzenünk ahoz, hogy olyanok lehessünk mint te.
+	Hálásan köszönjük, még egyszer!
+	Fiúk! Amint visszaértünk a kastélyhoz, a lakosok ellátása és segítése lesz az elsődleges feladatunk!
 
-Ármin:  Jó magam is szeretnék segíteni.
-	Egy rúnakövet hoztam a markolatba, ami meggátolja a fegyver repedését még a legnagyobb ütésektől is!
+Halász:  Köszönöm, hogy megmentettél harcos!
+	 Billy vagyok, egy egyszerű halász.
+	 Már azt hittem, hogy soha többé nem foghatok horgászbotot a kezemben!
+	 De hála neked, ez nem így lett.
+	 Ha érdekel a horgászat, akkor keress meg a legközelebbi tó mellett.
+	 Fizettséget kínálok a kifogott halakért cserébe.
 
-Michail: Végezetül pedig itt egy speciális olaj, amit csak a királyság lovagjai használtak eddig.
-	 A harc előtt, öntsd majd rá a pengére. 
-	 Egy mérgező oldat, ami ha bejut a szervezetbe, akkor komoly károkat okoz.
-	 De ne aggódj! Csak mutánsokra veszélyes, úgyhogy bátran forgathatod a kardodat.
+Játékos: *Lassan itt az ideje, hogy bejussak az erdő közepére.
+	  A utolsó áldozatokat is ki kell szabadítanom!
+	  De előtte, még egy sokkal erősebb fegyverre lesz szükségem.*
 
-Játékos: Hálásan köszönöm mindenki támogatását!
 
-Michail: Ja és még valami! Én és a csapatom is veled fog tartani.
-	 Még ha nem is vagyunk olyan tehetségesek mint te, legalább teszünk róla, hogy a környező, gyengébb ellenfelekkel ne kelljen foglalkoznod.
 
-Játékos: Az nagy segítség lenne! Köszönöm szépen még egyszer, mindenkinek!
-
-Kovács: Na akkor készítsük el ezt az elit fegyvert! HaaaHAHAHAAHAA!
-
-Mesélő: Pár nappal később!
-
-Kovács: Elkészült! Életem fő műve!
-
-Játékos: Elképesztő! Ígérem, hogy ezzel, ma mindenkit vissza hozok.
-	 Itt az idő! Találkozom a lovagokkal és együtt indulunk az erdőbe.
-	
+* = belső gondolatok
+--""-- = feladat
 
 

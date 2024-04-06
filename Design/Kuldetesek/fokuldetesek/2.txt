@@ -34,3 +34,23 @@ Játékos: *Na mostmár én is indulok.
 --""-- = feladat
 
 
+----------------Menj vissza Arthur-hoz, a kereskedőhöz--------------------
+
+Mesélő: A harcos visszatér Arthurhoz, az idős kereskedőhöz, hogy elmesélje a jó hírt és megvitassák a további lépéseket.
+
+Játékos: Arthur, van egy jó hírem! Sikeresen megmentettem két lakost.
+	 Biztosan ismered őket. Ulric és Dominik.
+
+Arthur: Ez fantasztikus hír! Igen, Ulric-ot jól ismerem. Már régóta nagyon jó barátom.
+	Dominik-kal még nem sokat beszélgettünk, de biztos vagyok benne, hogy rendes fiatalember.
+
+Játékos: Örülök, hogy sikerült megmentenem őket. Viszont, nem hiszem, hogy folytathatnám tovább ezzel a karddal.
+	 Sajnos, egyre rosszabb állapotban van.
+
+Arthur: De hiszen, most mentettél meg egy nagyszerű kovácsot, nem igaz? Menyj és beszélj vele.
+	Biztos vagyok benne, hogy segíteni fog neked.
+
+Játékos: Igazad van! Egy kovács keze alatt biztos, hogy erős kardot kapok majd a kezembe.
+	 El is indulok, hogy minél hamarabb segíthessek a többi lakoson.
+
+Mesélő: Hősünk elköszön a kereskedőtől és mihamarabb elindul a kovács háza felé.

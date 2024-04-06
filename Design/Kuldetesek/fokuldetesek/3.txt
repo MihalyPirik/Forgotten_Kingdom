@@ -1,25 +1,6 @@
 Elfeledett királyság - Hogyan tovább ( Az első kardfejlesztés )
 
-----------------Menj vissza Arthur-hoz, a kereskedőhöz--------------------
 
-Mesélő: A harcos visszatér Arthurhoz, az idős kereskedőhöz, hogy elmesélje a jó hírt és megvitassák a további lépéseket.
-
-Játékos: Arthur, van egy jó hírem! Sikeresen megmentettem két lakost.
-	 Biztosan ismered őket. Ulric és Dominik.
-
-Arthur: Ez fantasztikus hír! Igen, Ulric-ot jól ismerem. Már régóta nagyon jó barátom.
-	Dominik-kal még nem sokat beszélgettünk, de biztos vagyok benne, hogy rendes fiatalember.
-
-Játékos: Örülök, hogy sikerült megmentenem őket. Viszont, nem hiszem, hogy folytathatnám tovább ezzel a karddal.
-	 Sajnos, egyre rosszabb állapotban van.
-
-Arthur: De hiszen, most mentettél meg egy nagyszerű kovácsot, nem igaz? Menyj és beszélj vele.
-	Biztos vagyok benne, hogy segíteni fog neked.
-
-Játékos: Igazad van! Egy kovács keze alatt biztos, hogy erős kardot kapok majd a kezembe.
-	 El is indulok, hogy minél hamarabb segíthessek a többi lakoson.
-
-Mesélő: Hősünk elköszön a kereskedőtől és mihamarabb elindul a kovács háza felé.
 
 ----------------------------Menyj és beszélj a Kováccsal-----------------------------
 
@@ -42,27 +23,3 @@ Kovács: Ez a beszéd fiacskám! Akkor ezt megbeszéltük! Fogdd ezt a csákány
 	A téképen megtalálod a bánya helyét.
 	Addig én előkészítem ezt a helyet, az új nyitásra! Hahahaha!
 
----------------------Szerezz 1000 követ a bányában, majd térj vissza Ulric-hoz!---------------------
-
-Kovács: Úgy látom sikerrel jártál.
-
-Játékos: Igen!
-
-Kovács: Remek! Azonnal elkezdem a kardod javítását!
-
-Mesélő: Egy nappal később!
-
-Kovács: Parancsolj! Jobb mint új korában! Hahahaha!
-	
-Játékos: Nagyon szépen köszönöm!
-
-Kovács: Viszont, miközben elraboltak láttam, hogy vannak sokkal erősebb szörnyek is az erdő mélyén.
-	Nem biztos, hogy ez a kard elég lesz ahoz, hogy szembe nézz velük.
-	Ha megmentettél mindenkit az erdő körül, akkor gyere vissza hozzám, még több alapanyaggal.
-	Szükséged lesz erősebb fegyverekre. Hahahaha!
-
-Mesélő: Hősünk bólintással jelezte, hogy megértette a helyzetet. Majd elköszönt Ulric-tól, hogy még több lakosnak segíthessen.
-
-
-* = belső gondolatok
---""-- = feladat

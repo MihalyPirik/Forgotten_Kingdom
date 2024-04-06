@@ -1,30 +1,40 @@
 Elfeledett királyság - Végjáték
 
-------------Juss el az utolsó szörny területére------------
 
-Michail: MINDENKI KÉSZEN ÁLL?
+------------Szerezz 2000 fát, 2000 követ és 1000 vasat, hogy megszerezd a végső fegyveredet, majd térj vissza Ulric-hoz-----------------
 
-Mesélő: Hősünk és a lovagok bátran kiáltják, hogy készen állnak.
+Kovács: Szervusz! Már vártunk téged!
 
-/Sikeres küzdelem\
+Dominik, Ármin, Michail: Üdv!
 
-Mindenki: SIKERÜÜLT!!
+Dominik: Szeretnénk mi is támogatni téged.
+	 Az én hivatásomban a fegyvereink külső rétege ezüstből készül.
+	 A szörnyek nem nagyon szeretik.
+	 Éppen ezért, hoztam egy kis ezüst ércet a készülő fegyveredhez.
+	 Ulric-ot már beavattam az elkészítés részleteibe.
 
-Játékos: Végre felszabadítottunk mindenkit!
+Kovács: Hahahaha!
 
-Favágó: Hálásan köszönöm! Ezek a szörnyeteget már készültek volna engem megsü---
-	Inkább hagyjuk...
-	Henry vagyok! Favágó.
-	Ha akad nálad némi fa, akkor engem keress.
+Ármin:  Jó magam is szeretnék segíteni.
+	Egy rúnakövet hoztam a markolatba, ami meggátolja a fegyver repedését még a legnagyobb ütésektől is!
 
-Minerva:  Köszönöm, hogy megmentetted az életemet! 
-	  A nevem Minerva, az erdő boszorkánya.
-	  Csak szerencséjük volt ezeknek a fenevadaknak, hogy sikerült elkapniuk!
-	  Még véletlenül sem azért mert figyelmetlen voltam!
-	  De te eljöttél értem... ezért jutalom jár...
-	  Majd később látogass meg érte... 
-	  Én hősöm.
+Michail: Végezetül pedig itt egy speciális olaj, amit csak a királyság lovagjai használtak eddig.
+	 A harc előtt, öntsd majd rá a pengére. 
+	 Egy mérgező oldat, ami ha bejut a szervezetbe, akkor komoly károkat okoz.
+	 De ne aggódj! Csak mutánsokra veszélyes, úgyhogy bátran forgathatod a kardodat.
 
-Mesélő: A sikert aratott harcosok még örvendeztek egy darabig, mielött vissza indultak a királyságba.
+Játékos: Hálásan köszönöm mindenki támogatását!
 
-Játékos: Itt az idő, hogy mindenkihez eljuttassuk a jó hírt!
+Michail: Ja és még valami! Én és a csapatom is veled fog tartani.
+	 Még ha nem is vagyunk olyan tehetségesek mint te, legalább teszünk róla, hogy a környező, gyengébb ellenfelekkel ne kelljen foglalkoznod.
+
+Játékos: Az nagy segítség lenne! Köszönöm szépen még egyszer, mindenkinek!
+
+Kovács: Na akkor készítsük el ezt az elit fegyvert! HaaaHAHAHAAHAA!
+
+Mesélő: Pár nappal később!
+
+Kovács: Elkészült! Életem fő műve!
+
+Játékos: Elképesztő! Ígérem, hogy ezzel, ma mindenkit vissza hozok.
+	 Itt az idő! Találkozom a lovagokkal és együtt indulunk az erdőbe.

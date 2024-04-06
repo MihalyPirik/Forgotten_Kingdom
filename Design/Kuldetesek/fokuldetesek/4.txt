@@ -1,39 +1,28 @@
 Elfeledett királyság - A második küzdelem
 
---------------------Juss el az első szörny területére-----------------------
 
-Játékos: Újra itt! Vágjunk bele!
 
-/Legyőzi a szörnyeket\
+---------------------Szerezz 1000 követ a bányában, majd térj vissza Ulric-hoz!---------------------
 
-Mesélő: A bátor harcos ismét győzelmet aratott!
-	Ezúttal rengeteg lakost sikerült felszabadítania.
-	De van közöttük kettő, aki megszólította az utazót.
+Kovács: Úgy látom sikerrel jártál.
 
-Farmer: Azt hiszem hálásan megköszönhetem mindenki nevében, azt amit tettél ma értünk!
-	A nevem Eric, a helyi Farmer. Az én bírtokom látja el az egész királyságot élelemmel.
-	A támadás után, viszont nincs olyan állapotban az egészségem, hogy foglalkozhatnék a földjeimmel.
-	Tudom nem a legjobb alkalom, hogy erre kérjelek, de te talán segíthetnél nekem ebben.
-	Ha érdekel, akkor később keress meg a házamnál.
+Játékos: Igen!
 
-Mágus:  Köszönöm szépen, hogy megmentetted az életünket, nagy harcos!
-	Engedd meg, hogy bemutatkozzam. Ármin vagyok, mágus! 
-	A királyunk mellett szolgáltam, mint tanácsadó és patikus.
-	Sajnálatos módon, az uralkodónk nem volt olyan szerencsés, mint mi most.
-	Nyugodjék békében!
+Kovács: Remek! Azonnal elkezdem a kardod javítását!
 
-Játékos: Ez rettenetes! Fogadjátok őszinte részvétemet!
+Mesélő: Egy nappal később!
 
-Mágus:  Köszönjük!
-	Jobb ha tudod, hogy az erdő mélyén még érzem egy kedves barátom életjeleit.
-	Lehet, hogy többen is vannak mellette.
-	Segíthetek megjelelölni a térképen, hogy körülbelül hol lehetnek.
-	Nekem viszont itt kell maradnom, hogy mágiával és főzetekkel ellássam a sérülteket.
-	Sok szerencsét az utadon!
-
-Mesélő: Az utazó elköszön a túlélőktől.
-
-Játékos: *Talán tényleg szükségem lesz erősebb fegyverre. Irány a bánya!*
+Kovács: Parancsolj! Jobb mint új korában! Hahahaha!
 	
+Játékos: Nagyon szépen köszönöm!
+
+Kovács: Viszont, miközben elraboltak láttam, hogy vannak sokkal erősebb szörnyek is az erdő mélyén.
+	Nem biztos, hogy ez a kard elég lesz ahoz, hogy szembe nézz velük.
+	Ha megmentettél mindenkit az erdő körül, akkor gyere vissza hozzám, még több alapanyaggal.
+	Szükséged lesz erősebb fegyverekre. Hahahaha!
+
+Mesélő: Hősünk bólintással jelezte, hogy megértette a helyzetet. Majd elköszönt Ulric-tól, hogy még több lakosnak segíthessen.
+
+
 * = belső gondolatok
 --""-- = feladat

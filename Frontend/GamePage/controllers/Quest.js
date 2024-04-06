@@ -9,24 +9,29 @@ import { Story } from "./Story.js"
  * @param {number} blockY 
  * @param {Array<object>} questList 
  */
-export const ExploringQuests=(blockX,blockY,questList)=>
+export const ExploringQuests=(blockX,blockY,questList,isometricBlocks)=>
 {
+    
     const completedQuest = questList.find((element)=>{
         if(element.Quest.category!="Exploring"){return false}
         return element.Quest.blockX==blockX && element.Quest.blockY==blockY
     })
     if(completedQuest!=undefined)
     {
+        console.log('entered monster1 block');
+        console.log(completedQuest);
+        console.log(isometricBlocks);
         completedQuest.currentProgress++
         putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
         {
 Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
+PanelView.GenerateQuestCard(completedQuest,isometricBlocks)
         }
     }
 }
 
-export const KillerQuests=(entity,questList)=>{
+export const KillerQuests=(entity,questList,isometricBlocks)=>{
 const completedQuest = questList.find((element)=>{
     if(element.Quest.category!="Killer"){return false}
     return entity.name==element.Quest.EnemyType.enemy_name
@@ -39,11 +44,12 @@ if(completedQuest!=undefined)
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
         {
             Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
+            PanelView.GenerateQuestCard(completedQuest,isometricBlocks)
         }
     }
 }
 
-export const CollectorQuests=(item,questList)=>{
+export const CollectorQuests=(item,questList,isometricBlocks)=>{
     const completedQuest = questList.find((element)=>{
         if(element.Quest.category!="Collector"){return false}
         return item==element.Quest.Item.name
@@ -56,7 +62,7 @@ export const CollectorQuests=(item,questList)=>{
             if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
             {
                 Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
-                // PanelView.GenerateQuestCard(completedQuest)
+                PanelView.GenerateQuestCard(completedQuest,isometricBlocks)
             }
         }
     }
@@ -76,7 +82,11 @@ export const CollectorQuests=(item,questList)=>{
         if(completedQuest!=undefined){return completedQuest}
         return false
     }
-    export const ConversationQuests=(completedQuest)=>{
+    export const ConversationQuests=(completedQuest,isometricBlocks)=>{
         completedQuest.currentProgress++
         putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
+        if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
+            {
+                PanelView.GenerateQuestCard(completedQuest,isometricBlocks)
+            }
     }
