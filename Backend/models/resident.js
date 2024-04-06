@@ -43,6 +43,10 @@ primaryKey:true
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 defaultValue: 0
+            },
+            isInterior:{
+                type:DataTypes.BOOLEAN,
+                defaultValue:false
             }
         },
         {

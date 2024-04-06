@@ -40,6 +40,10 @@ const Enemy = dbConnection.define
             {
                 type: DataTypes.INTEGER,
                 allowNull: true,
+            },
+            isInterior:{
+                type:DataTypes.BOOLEAN,
+                defaultValue:false
             }
         },
         {
