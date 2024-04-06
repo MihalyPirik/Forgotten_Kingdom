@@ -22,7 +22,9 @@ new Panel('Action',game.width*0.64,game.height*0.62,game.width*0.03,false,{actio
 new Panel('Action',game.width*0.23,game.height*0.63,game.width*0.03,false,{action:"Wood"}),
 new Panel('navigationPanel',game.width*0.31,game.height*0.74,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
 new Panel('navigationPanel',game.width*0.64,game.height*0.74,game.width*0.1,{forwardId:'forward',backwardId:'backward',direction:1})
-        ]
+        ],
+        0.08,
+        0.08
     )
 populateIsometricBlock(game)
     game.player.width = game.width*0.12

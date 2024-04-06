@@ -17,7 +17,7 @@ const inWitchBlock = (game)=>{
         new Panel('leaveInterior',game.width*0.75,game.height*0.8,game.width*0.05,false)
     ]
     )
-    populateIsometricBlock(game)
+    populateIsometricBlock(game,true)
     return game.currentBlock
 }
 export const Szörny4=(game)=>{
@@ -31,7 +31,9 @@ export const Szörny4=(game)=>{
             // 0.45, 0.88
             new Panel('navigationPanel',game.width*0.45,game.height*0.88,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
             new Panel('enterInterior',game.width*0.4,game.height*0.58,game.width*0.1,false)
-        ]
+        ],
+        0.2,
+        0.2
 
     )
     populateIsometricBlock(game)

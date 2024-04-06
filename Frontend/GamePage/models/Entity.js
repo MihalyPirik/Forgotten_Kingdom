@@ -7,7 +7,7 @@ export class Entity {
        */
       this.game = game
       this.id = id
-      this.radius = spriteWidth*0.7 / 2
+      this.radius = spriteWidth * 0.6 / 2
       this.objX = objX
       this.objY = objY
       this.spriteX = objX - width*0.5

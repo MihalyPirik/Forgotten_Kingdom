@@ -25,14 +25,13 @@ const blackSmithInterior = (game)=>{
     [],
     [
         new Panel('leaveInterior',game.width*0.64,game.height*0.82,game.width*0.05,false)
-    ]
+    ],
+    0.21,
+    0.21
 
 )
-populateIsometricBlock(game)
-game.player.width = game.width*0.25
-game.player.height = game.height*0.4
-console.log(game.player.height);
-console.log(game.player.width);
+populateIsometricBlock(game,true)
+
 return game.currentBlock
 }
 
@@ -52,5 +51,4 @@ export const Kovács=(game)=>{
         ]
     )
     populateIsometricBlock(game)
-    // game.currentBlock.entities
 }

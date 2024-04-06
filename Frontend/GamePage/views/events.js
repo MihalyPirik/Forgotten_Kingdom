@@ -38,9 +38,10 @@ export const InitEvents=(game)=>
       }
     }
     addEventListener("panelShowed",(e)=>{
-      PanelView.BindProgress(game.player.isAction.timer)
+      
         if(e.detail.panel.id=="Action")
         {
+          PanelView.BindProgress(game.player.isAction.timer)
           // if(game.player.tools.length==0)
           // {
           //   e.target.innerHTML='<p>Flash tanárúr üzenete:</p><p>Szükséged lesz egy eszközre, hogy ezt csináld</p>'
@@ -52,8 +53,8 @@ export const InitEvents=(game)=>
             const but = PanelView.SetFishActionView(e.target)
             game.player.isAction.action='Fish'
             but.addEventListener('click',game.player.Action)
-            return
           }
+          else{
           function TogglePlayerActionWrapper(eMouse)
     {
 TogglePlayerAction(eMouse,e.detail.panel.context.action,game)
@@ -64,6 +65,7 @@ TogglePlayerAction(eMouse,e.detail.panel.context.action,game)
     
           addEventListener('mousedown',TogglePlayerActionWrapper)
           addEventListener('mouseup',TogglePlayerActionWrapper)
+  }
         }
         if(e.detail.panel.id=="NPCPanel")
         {

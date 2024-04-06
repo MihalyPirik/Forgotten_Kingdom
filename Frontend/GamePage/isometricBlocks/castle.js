@@ -35,7 +35,7 @@ const CastleInterior = (game)=>{
         ]
 
     )
-    populateIsometricBlock(game)
+    populateIsometricBlock(game,true)
     return game.currentBlock
 }
 
@@ -65,11 +65,9 @@ new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,
         new Panel('navigationPanel',game.width*0.22,game.height*0.78,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
         new Panel('enterInterior',game.width*0.38,game.height*0.55,game.width*0.08,false),
    
-    ]
+    ],
+    0.1,
+    0.1
    )
    populateIsometricBlock(game)
-   game.player.width=game.width*0.08
-   game.player.height=game.height*0.08
-   game.player.objY=game.height*0.7
-   game.player.radius=game.width*0.01
 }

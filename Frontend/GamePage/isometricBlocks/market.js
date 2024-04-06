@@ -28,15 +28,13 @@ export const Piac=(game)=>{
         [
 new Panel('navigationPanel',0.87*game.width,0.76*game.height,100,{forwardId:'forward',backwardId:'backward',direction:1},game),
 new Panel('navigationPanel',0.13*game.width,0.81*game.height,100,{forwardId:'forward',backwardId:'backward',direction:-1},game),
-        ]
+        ],
+        0.07,
+        0.07
     )
 populateIsometricBlock(game)
-game.player.width = game.width*0.1
-game.player.height = game.height*0.1
 
 
 
-   game.player.objY=game.height*0.7
-   game.player.radius=game.width*0.01
 
 }

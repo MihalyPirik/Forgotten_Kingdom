@@ -22,7 +22,7 @@ const MillInterior = (game)=>
           new Panel('leaveInterior',game.width*0.44,game.height*0.88,game.width*0.05,false)
         ]
     )
-    populateIsometricBlock(game)
+    populateIsometricBlock(game,true)
     return game.currentBlock
 }
 

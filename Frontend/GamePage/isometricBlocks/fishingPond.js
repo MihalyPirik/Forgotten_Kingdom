@@ -31,7 +31,7 @@ const PondInterior = (game)=>
             new Panel('leaveInterior',game.width*0.61,game.height*0.82,game.width*0.05,false)
         ]
     )
-    populateIsometricBlock(game)
+    populateIsometricBlock(game,true)
     return game.currentBlock
 }
 
@@ -41,7 +41,7 @@ export const Horgásztó=(game)=>{
         backGround,
         PondInterior,
         [
-            new NPC(game,'Billy',charSprite,game.width*0.44,game.height*0.44,'Halász')
+            
         ],
         [
             new Line(new Point(game.width*0.496,game.height*0.909),new Point(game.width*0.016,game.height*0.651)),
@@ -106,7 +106,9 @@ export const Horgásztó=(game)=>{
             new Panel('navigationPanel',0.78*game.width,0.71*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game),
             new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Fish"}),
             new Panel('enterInterior',game.width*0.41,game.height*0.33,game.width*0.08,false)
-        ]
+        ],
+        0.1,
+        0.1
 
     )
 

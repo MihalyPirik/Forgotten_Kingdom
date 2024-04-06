@@ -40,7 +40,9 @@ export const Szörny1=(game)=>
         ],
         [
             new Panel('navigationPanel',game.width*0.61,game.height*0.72,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
-        ]
+        ],
+        0.2,
+        0.2
         )
         populateIsometricBlock(game)
 }
