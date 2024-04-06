@@ -74,8 +74,17 @@ if(value!=null){
     gameLoop(deltaTime) {
 
       if (this.timer > this.interval) {
-        if(this.player.isDead || this.player.isAction.is || this.player.isInConversation)
+        if(this.player.isDead || this.player.isInConversation)
         {
+          return
+        }
+        if(this.player.isAction.is)
+        {
+          if(this.player.isAction.canExecute)
+          {
+          this.player.Action()
+          return
+          }
           return
         }
         this.player.attack.timer++

@@ -16,7 +16,7 @@ export class Player extends Entity {
       this.attack={timer:0,attack:3,interval:60}
       this.money=money
       this.isInConversation = false
-      this.isAction={timer:0,interval:10,is:false,canExecute:true}
+      this.isAction={timer:0,interval:1000,is:false,action:null,canExecute:true}
       this.#money=money
       this.attackradius=50
       this.inventory=inventory
@@ -87,9 +87,44 @@ return this.#money
       putPlayer({HP:100})
       this.isDead=false
     }
-    Action=(e)=>
+    Action=()=>
     {
-      
+      switch (this.isAction.action) {
+        case "Fish":
+          this.isAction.interval=60
+          this.isAction.is=true
+          this.isAction.canExecute=false
+          const iner = setInterval(()=>
+          {
+            
+PanelView.BindProgress(this.isAction.timer,this.isAction.interval)
+if(this.isAction.timer>this.isAction.interval)
+          {
+            const gottenAmount=Random(0,6)
+            this.inventory.Fish+=gottenAmount
+            putPlayer({Fish:this.inventory.Fish})
+            this.isAction.timer=0
+            this.isAction.is=this.false
+            this.isAction.canExecute=true
+            clearInterval(iner)
+          }
+          this.isAction.timer+=10
+          },500)
+          break;
+        default:
+          this.isAction.interval=1000
+          if(this.isAction.timer>this.isAction.interval)
+          {
+            const gottenAmount=Random(0,6)
+            this.inventory[this.isAction.action]+=gottenAmount
+            putPlayer({[this.isAction.action]:this.inventory.Wood})
+            this.isAction.timer=0
+            PanelView.BindProgress(this.isAction.timer,this.isAction.interval)
+          }
+          this.isAction.timer++
+          PanelView.BindProgress(this.isAction.timer,this.isAction.interval)
+          break;
+      }
     }
 
   }

@@ -281,20 +281,22 @@ export class PanelView {
   }
 
 
-  static ShowProgress() {
-    let el = document.getElementById('ActionProgress')
-    if (el) {
-      return
-    }
-    el = document.createElement('div')
-    el.id = "ActionProgress"
-    document.querySelector('div#Action').append(el)
-  }
-  static BindProgress(value) {
+  
+  static BindProgress(value,interval) {
     const el = document.getElementById('ActionProgress')
-    el.style.width = el.parentElement.offsetWidth * value / 10 + '%'
+    let width = el.parentElement.offsetWidth * value / interval
+    if(width>100){width=100}
+    el.style.width = width + '%'
   }
 
+  static SetFishActionView(element)
+  {
+    const but=document.createElement('input')
+    but.type='button'
+    but.value='Horgászsás'
+    element.append(but)
+    return but
+  }
 
 
   static #createTemplate() {
@@ -314,6 +316,10 @@ export class PanelView {
     const player = game.player
     let counter = 0
     for (const item in player.inventory) {
+      if(player.inventory[item]==0)
+      {
+        continue
+      }
       const img = document.createElement('img')
       img.src = `./assets/icons/${item}.png`
       img.classList.add('navIMG')

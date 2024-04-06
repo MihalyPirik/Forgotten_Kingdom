@@ -104,7 +104,7 @@ export const Horgásztó=(game)=>{
         [
             new Panel('navigationPanel',0.26*game.width,0.74*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game),
             new Panel('navigationPanel',0.78*game.width,0.71*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game),
-            new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Horgászás"}),
+            new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Fish"}),
             new Panel('enterInterior',game.width*0.41,game.height*0.33,game.width*0.08,false)
         ]
 

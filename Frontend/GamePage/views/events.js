@@ -28,21 +28,42 @@ export const InitEvents=(game)=>
     document.getElementById('game').addEventListener('mousemove',(e)=>{PanelController.GetEntityOnMouse(e,game.currentBlock.entities)})
     document.getElementById('game').addEventListener('click',(e)=>{game.player.Attack(e)})
     
-    
+    let TogglePlayerActionWrapperReference
+    function TogglePlayerAction(e,action,game) {
+  let isInAction = game.player.isAction.is
+      game.player.isAction.is = isInAction = !isInAction
+      if(isInAction)
+      {
+        game.player.isAction.action=action
+      }
+    }
     addEventListener("panelShowed",(e)=>{
+      PanelView.BindProgress(game.player.isAction.timer)
         if(e.detail.panel.id=="Action")
         {
-          const action = e.detail.panel.context.action
-          // Favágás, Horgászás, Bányászás, Farmolás
-          switch (action) {
-            case "Favágás":
-              
-              break;
-          
-            default:
-              break;
+          // if(game.player.tools.length==0)
+          // {
+          //   e.target.innerHTML='<p>Flash tanárúr üzenete:</p><p>Szükséged lesz egy eszközre, hogy ezt csináld</p>'
+          //   return
+          // }
+          console.log(e.detail.panel.context.action);
+          if(e.detail.panel.context.action=='Fish')
+          {
+            const but = PanelView.SetFishActionView(e.target)
+            game.player.isAction.action='Fish'
+            but.addEventListener('click',game.player.Action)
+            return
           }
-         
+          function TogglePlayerActionWrapper(eMouse)
+    {
+TogglePlayerAction(eMouse,e.detail.panel.context.action,game)
+    }
+    TogglePlayerActionWrapperReference=TogglePlayerActionWrapper
+    
+          // Favágás, Horgászás, Bányászás, Farmolás
+    
+          addEventListener('mousedown',TogglePlayerActionWrapper)
+          addEventListener('mouseup',TogglePlayerActionWrapper)
         }
         if(e.detail.panel.id=="NPCPanel")
         {
@@ -61,10 +82,13 @@ export const InitEvents=(game)=>
           },{once:true})
         }
     })
-    addEventListener("panelHide",()=>{
-        removeEventListener('mousedown',game.player.Action)
+    addEventListener("panelHide",(e)=>{
+      if(e.detail.panel.id=="Action")
+      {
+        removeEventListener('mousedown',TogglePlayerActionWrapperReference)
+        removeEventListener('mouseup',TogglePlayerActionWrapperReference)
+      }
     })
-
 
     document.getElementById('sword').addEventListener('click',(e)=>{ShowPanel('sword',PanelView.ToolPanel,e.target)},{once:true})
     
