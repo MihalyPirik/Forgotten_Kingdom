@@ -18,6 +18,7 @@ const residentRouter = require("./routes/gameRoutes/residentRoutes");
 const marketRouter = require("./routes/gameRoutes/marketRoutes");
 const toolRouter = require("./routes/gameRoutes/toolRoutes");
 const questRouter = require("./routes/gameRoutes/questRoutes");
+const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes')
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
@@ -107,7 +108,11 @@ app.use(
   marketRouter
   // #swagger.tags = ['Market']
 );
-
+app.use(
+  "/enemyType",
+  enemyTypeRouter
+  // #swagger.tags = ['EnemyType']
+)
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
