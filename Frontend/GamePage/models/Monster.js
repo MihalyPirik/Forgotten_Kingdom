@@ -4,7 +4,7 @@ import { Entity } from "./Entity.js"
 export class Monster extends Entity
 {
     #hp=null
-    constructor(id,name,game,sprite,objX,objY,HP,attack,level,speed)
+    constructor(id=undefined,name,game,sprite,objX,objY,HP,attack,level,speed)
     {
         super(game,sprite,objX,objY,game.width*0.1, game.height*0.1)
 this.name=name

@@ -127,6 +127,7 @@ if(entity.isDead)
   {
     deleteEnemy(entity)
     KillerQuests(entity,this.player.quests,this.currentBlock.isometricBlocks)
+    this.currentBlock.StartTimeOut(this)
   }
 }
 
