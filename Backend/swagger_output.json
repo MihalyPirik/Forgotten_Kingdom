@@ -11,6 +11,47 @@
     }
   ],
   "paths": {
+    "/send-email": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "example": "any"
+                  },
+                  "subject": {
+                    "example": "any"
+                  },
+                  "text": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/registration": {
       "post": {
         "tags": [
@@ -521,13 +562,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "world_id",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -603,6 +637,9 @@
                   },
                   "quest_id": {
                     "example": "any"
+                  },
+                  "isInterior": {
+                    "example": "any"
                   }
                 }
               }
@@ -675,6 +712,9 @@
                     "example": "any"
                   },
                   "quest_id": {
+                    "example": "any"
+                  },
+                  "IsInterior": {
                     "example": "any"
                   }
                 }
@@ -869,13 +909,6 @@
           {
             "name": "authorization",
             "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "player_id",
-            "in": "query",
             "schema": {
               "type": "string"
             }
@@ -1264,6 +1297,39 @@
           },
           "404": {
             "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/enemyType/": {
+      "get": {
+        "tags": [
+          "EnemyType"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "security": [
