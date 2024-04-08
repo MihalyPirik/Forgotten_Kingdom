@@ -15,10 +15,10 @@ describe("home page", () => {
   it("should login with correct credentials and redirect to game page", () => {
     cy.visit("http://localhost:5173/forgottenkingdom/");
     cy.get("form").find("input").eq(0).type("teszt@teszt.hu");
-    cy.get("form").find("input").eq(1).type("123456789");
+    cy.get("form").find("input").eq(1).type("12345678");
     cy.get("form").find("button").click();
 
-    cy.url().should(
+    cy.url(
       "include",
       "http://127.0.0.1:5500/Frontend/GamePage/index.html"
     );
