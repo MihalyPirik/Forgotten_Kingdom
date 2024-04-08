@@ -30,6 +30,7 @@ const postResident = async (req, res, next) => {
         const resident_name = req.body.resident_name;
         const profession = req.body.profession;
         const quest_id = req.body.quest_id;
+        const isInterior = req.body.isInterior
         await Resident.create({
             resident_id: uuid.v1(),
             objX: objX,
@@ -39,7 +40,8 @@ const postResident = async (req, res, next) => {
             resident_name: resident_name,
             profession: profession,
             world_id: world_id,
-            quest_id: quest_id
+            quest_id: quest_id,
+            isInterior:isInterior
         });
 
         res.status(201).json({ data: {message: "Sikeres felvétel!"} });
@@ -57,6 +59,7 @@ const putResident = async (req, res, next) => {
         const resident_name = req.body.resident_name;
         const profession = req.body.profession;
         const quest_id = req.body.quest_id;
+        const IsInterior = req.body.IsInterior
         await Resident.update(
             {
                 objX: objX,
@@ -65,7 +68,8 @@ const putResident = async (req, res, next) => {
                 blockY: blockY,
                 resident_name: resident_name,
                 profession: profession,
-                quest_id: quest_id
+                quest_id: quest_id,
+                isInterior:IsInterior
             },
             {
                 where: {
