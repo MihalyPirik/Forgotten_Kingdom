@@ -186,11 +186,34 @@ div#Action{
     min-width: 100px;
 }
 .conversationPanel{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-auto-columns: 0;
+    column-gap: 10px;
     border: 3px solid black;
     color: black;
     font-weight: bold;
     bottom: 0;
 }
+.conversationPanel figure
+{
+    margin: 0;
+    text-align: center;
+}
+
+
+.conversationPanel figure img
+{
+    margin-bottom: 6px;
+}
+.conversationPanel button
+{
+    display: block;
+    margin-inline: auto;
+}
+
+
 
 #ActionProgress{
     background-color: green;

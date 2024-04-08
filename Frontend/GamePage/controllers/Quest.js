@@ -40,7 +40,7 @@ if(completedQuest!=undefined)
     {
         completedQuest.currentProgress++
         putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
-        
+        PanelView.ModifyQuestProgress(completedQuest.quest_id,completedQuest.currentProgress)
         if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)
         {
             Story.StartConversation('during/'+completedQuest.quest_id,completedQuest)
@@ -49,14 +49,15 @@ if(completedQuest!=undefined)
     }
 }
 
-export const CollectorQuests=(item,questList,isometricBlocks)=>{
+export const CollectorQuests=(item,amount,questList,isometricBlocks)=>{
     const completedQuest = questList.find((element)=>{
         if(element.Quest.category!="Collector"){return false}
         return item==element.Quest.Item.name
     })
     if(completedQuest!=undefined)
         {
-            completedQuest.currentProgress++
+            completedQuest.currentProgress+=amount
+            PanelView.ModifyQuestProgress(completedQuest.quest_id,completedQuest.currentProgress)
             putQuest(completedQuest.quest_id,{currentProgress:completedQuest.currentProgress})
             
             if(completedQuest.currentProgress>=completedQuest.Quest.target_amount)

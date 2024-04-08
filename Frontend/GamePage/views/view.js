@@ -367,6 +367,11 @@ static GenerateQuestCard(quest,isometricBlocks)
   div2.classList.add("questCard")
 div2.id=quest.quest_id
 div2.innerHTML+=`<p>${quest.quest_id}</p>`
+if(quest.currentProgress>=quest.Quest.target_amount)
+  {
+    div2.innerHTML+='Térj vissza '+quest.Resident.resident_name+' - hoz'
+  }
+  else{
   switch (quest.Quest.category) {
     case "Killer":
       div2.innerHTML+=`<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
@@ -383,14 +388,22 @@ div2.innerHTML+=`<p>${quest.quest_id}</p>`
     default:
       break;
   }
-  if(quest.currentProgress>=quest.Quest.target_amount)
-  {
-    div2.innerHTML='Térj vissza '+quest.Resident.resident_name+' - hoz'
-  }
+  div2.innerHTML+=`<p><span id="progress">${quest.currentProgress}</span>/${quest.Quest.target_amount}</p>`
+}
+  
   this.#processElement(div2,quest)
   return div2
 }
 
+
+static ModifyQuestProgress(quest_id,newProgress)
+{
+  const progressHolder = document.getElementById(quest_id).querySelector('#progress')
+  if(progressHolder)
+  {
+    progressHolder.innerHTML=newProgress
+  }
+}
 
 
   static NPCPanel(panel, element) {

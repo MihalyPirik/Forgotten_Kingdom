@@ -5,3 +5,10 @@ export async function GetSprite(name)
     await image.decode()
     return image
 }
+export async function GetPortrait(name)
+{
+    const image = new Image()
+    image.src='./assets/portaits/'+name+'.png'
+    await image.decode()
+    return image
+}

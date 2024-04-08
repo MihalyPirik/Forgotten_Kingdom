@@ -1,7 +1,9 @@
+import { postEnemy } from "../../services/enemyService.js"
 import { getQuests, putQuest } from "../../services/questService.js"
 import { getAllResidents, postResident, putResident } from "../../services/residentService.js"
+import { Monster } from "../models/Monster.js"
 import { NPC } from "../models/NPC.js"
-import { GetSprite } from "../utils/imageLoader.js"
+import { GetPortrait, GetSprite } from "../utils/imageLoader.js"
 import { GameView, PanelView } from "../views/view.js"
 import { GameController } from "./Game.js"
 
@@ -18,26 +20,46 @@ export class Story
     static conversationFinished = new Event('conversationFinished')
     static currentConversationPanel
 
-    static ShowConversationPanel(conversationtexts,currentDialogueIndex)
+    static async ShowConversationPanel(conversationtexts,currentDialogueIndex)
     {
         const panel = document.createElement('div')
         panel.classList.add('conversationPanel')
         document.querySelector('body').append(panel)
         Story.currentConversationPanel = panel
         let index = 0
+        const textList = conversationtexts[currentDialogueIndex].split(':')
+        const speakerName = textList[0]
+        const currentText = textList[1]
+        try {
+            panel.innerHTML=`
+            
+            <figure>
+            <img src='./assets/portaits/${speakerName}.png'>
+            <figcaption>${speakerName}</figcaption>
+            </figure>
+            <div></div>
+          
+            `
+        } catch (error) {
+            console.error(error)
+        }
         const inter = setInterval(()=>{
-            panel.innerHTML+=
-            conversationtexts[currentDialogueIndex][index]
+            const conversationHolderElement = panel.querySelector('div')
+            conversationHolderElement.innerHTML+=
+            currentText[index]
             index++
-            if(index == conversationtexts[currentDialogueIndex].length){
+            if(index == currentText.length){
                 clearInterval(inter)
 const button = document.createElement('button')
 button.innerText = 'Következő'
-panel.append(button)
+button.style.gridColumnStart=2
+button.style.gridRowStart=2
+conversationHolderElement.append(document.createElement('br'))
+conversationHolderElement.append(button)
                     dispatchEvent(Story.conversationFinished)
 
             }
-        },conversationtexts[currentDialogueIndex].length/5)
+        },currentText.length/5)
 
     }
     static HideConversationPanel()
@@ -152,6 +174,7 @@ if(filePath.includes('pre'))
         {
             const secondmainQuest = (await getQuests('is_mainstory=2'))[0]
         completedQuest.is_completed=true
+        secondmainQuest.Resident=completedQuest.Resident
         document.getElementById('quests').append(PanelView.GenerateQuestCard(secondmainQuest,this.gameController.isometricBlocks))
         document.getElementById('quests').querySelector('#'+completedQuest.quest_id).remove()
         putResident(completedQuest.Resident.resident_id,{quest_id:secondmainQuest.quest_id})
@@ -177,39 +200,33 @@ this.gameController.player.quests.push(thirdMainQuest)
         }
         Story.BasePlayConversation(filePath,async(index)=>{
             const game = Story.gameController
-            if(index==0){
+            if(index==0 && filePath.includes('during')){
                 Story.MoveEntity(Story.gameController.player,Story.gameController.width*0.5,Story.gameController.height*0.5)
             }
-if(index==3){
+if(index==3 && filePath.includes('during')){
 const urlicSprite = await GetSprite('Ulric')
-
 const dominikSprite = await GetSprite('Dominik')
     const ulric = new NPC(game,'Ulric',urlicSprite,game.width*0.32,game.height*0.64,'Kovács')
     const dominik = new NPC(game,'Dominik',dominikSprite,game.width*0.72,game.height*0.52,'Szörnyvadász')
-    this.MoveEntity(dominik,dominik.objX,dominik.objY)
-    this.MoveEntity(ulric,ulric.objX,ulric.objY)
-postResident({
-    objX:0.72,
-    objY:0.52,
-    blockX:1,
-    blockY:1,
-    resident_name:dominik.name,
-    profession:dominik.profession
-})
-postResident({
-    objX:0.32,
-    objY:0.64,
-    blockX:1,
-    blockY:0,
-    resident_name:ulric.name,
-    profession:ulric.profession
-})
+    ulric.blockX=1
+    ulric.blockY=0
+    ulric.isInterior=true
+    dominik.blockX=1
+    dominik.blockY=1
+    this.AddEntitiesToScene([ulric,dominik])
+    ulric.objX=this.gameController.width*0.32
+    ulric.objY=this.gameController.height*0.64
+    dominik.objX=this.gameController.width*0.2
+    dominik.objY=this.gameController.height*0.52
+    this.PostEntitis([ulric,dominik])
 }
         })
     }
     static async Third(filePath,completedQuest)
     {
-        Story.BasePlayConversation("third.txt")
+        Story.BasePlayConversation(filePath)
+        if(filePath.includes('during'))
+        {
         const fourthMainQuest = (await getQuests('is_mainstory=4'))[0]
 
         const urlic = this.gameController.currentBlock.entities.find(resident=>{
@@ -225,13 +242,12 @@ postResident({
         this.gameController.player.quests.push(fourthMainQuest)
 putQuest(fourthMainQuest.quest_id,{is_active:true})
     }
+    }
 
 
     static async Fourth(filePath,completedQuest)
     {
-Story.BasePlayConversation(filePath,(index=>{
-
-}))
+Story.BasePlayConversation(filePath)
 if(filePath.includes('after'))
 {
     const fifthMainStory = (await getQuests('is_mainstory=5'))[0]
@@ -247,7 +263,27 @@ fifthMainStory.Resident=completedQuest.Resident
 static async Fifth(filePath,completedQuest)
 {
     
-Story.BasePlayConversation(filePath)
+Story.BasePlayConversation(filePath,async(index)=>{
+    const game = Story.gameController
+    if(index==2 && filePath.includes('during'))
+    {
+        const emmaSprite = await GetSprite('Emma')
+        const arminSprite = await GetSprite('Ármin')
+    const emma = new NPC(game,'Emma',emmaSprite,game.width*0.32,game.height*0.64,'Farmer')
+    const armin = new NPC(game,'Ármin',arminSprite,game.width*0.72,game.height*0.52,'Mágus')
+    armin.isInterior=true
+    armin.blockX=0
+    armin.blockY=1
+    emma.blockX=2
+    emma.blockY=0
+    this.AddEntitiesToScene([emma,armin])
+    armin.objX=game.width*0.49
+    armin.objY=game.height*0.63
+    emma.objX=game.width*0.49
+    emma.objY=game.height*0.54
+    this.PostEntitis([emma,armin])
+    }
+})
 if(filePath.includes('after'))
 {
     const sixthMainStory = (await getQuests('is_mainstory=6'))[0]
@@ -278,7 +314,28 @@ seventhMainStory.Resident=completedQuest.Resident
 
 static async Seventh(filePath,completedQuest)
 {
-    Story.BasePlayConversation(filePath)
+    Story.BasePlayConversation(filePath,async (index)=>
+    {
+        const game = Story.gameController
+        if(index==1)
+        {
+            const michailSprite = await GetSprite('Michail')
+            const billySprite = await GetSprite('Billy')
+
+            const michail = new NPC(game,'Michail',michailSprite,game.width*0.32,game.height*0.64,'Lovag')
+    const billy = new NPC(game,'Billy',billySprite,game.width*0.72,game.height*0.52,'Horgász')
+    michail.blockX=0
+    michail.blockY=0
+    billy.blockX=2
+    billy.blockY=1
+    billy.objX=game.width*0.25
+    billy.objY=game.height*0.4
+    michail.objX=game.width*0.26
+    michail.objY=game.height*0.67
+    this.AddEntitiesToScene([michail,billy])
+    this.PostEntitis([michail,billy])
+        }
+    })
     if(filePath.includes('during'))
     {
         const eightMainQuest = (await getQuests('is_mainstory=8'))[0]
@@ -294,7 +351,44 @@ static async Seventh(filePath,completedQuest)
 
 static async Eight(filePath,completedQuest)
 {
-    Story.BasePlayConversation(filePath)
+    Story.BasePlayConversation(filePath,async (index)=>
+    {
+        if(index==0 && filePath.includes('after'))
+        {
+
+
+this.MoveEntity(this.gameController.player,this.gameController.width*0.41,this.gameController.height*0.78)
+const dominik = (await getAllResidents("resident_name='Dominik'"))[0]
+const armin = (await getAllResidents("resident_name='Ármin'"))[0]
+const michail = (await getAllResidents("resident_name='Michail'"))[0]
+
+
+    const arminNPC = new NPC(this.gameController,armin.resident_name,await GetSprite(armin.resident_name),game.width*armin.objX,game.height*armin.objY,armin.profession)
+    const dominikNPC = new NPC(this.gameController,dominik.resident_name,await GetSprite(dominik.resident_name),game.width*dominik.objX,game.height*dominik.objY,dominik.profession)
+    const michailNPC = new NPC(this.gameController,michail.resident_name,await GetSprite(michail.resident_name),game.width*michail.objX,game.height*michail.objY,michail.profession)
+    
+arminNPC.id = armin.resident_id
+arminNPC.isInterior=armin.isInterior
+
+dominik.id = dominik.resident_id
+dominikNPC.isInterior=dominik.isInterior
+
+michailNPC.id = michail.resident_id
+michailNPC.isInterior=michail.isInterior
+
+michailNPC.objX = this.gameController.width*0.57
+michailNPC.objY = this.gameController.height*0.65
+
+arminNPC.objX = this.gameController.width*0.64
+arminNPC.objY = this.gameController.height*0.7
+
+dominikNPC.objX = this.gameController.width*0.74
+dominikNPC.objY = this.gameController.height*0.74
+
+
+this.AddEntitiesToScene([dominikNPC,arminNPC,michailNPC])
+        }
+    })
     if(filePath.includes('after'))
     {
         const ninthMainStory = (await getQuests('is_mainstory=9'))[0]
@@ -311,10 +405,29 @@ ninthMainStory.Resident=completedQuest.Resident
 
 static async Ninth(filePath,completedQuest)
 {
-    Story.BasePlayConversation(filePath)
+    Story.BasePlayConversation(filePath,async (index)=>
+    {
+        const game=this.gameController
+        if(index==0 && filePath.includes('during'))
+        {
+
+this.MoveEntity(game.player,game.width*0.53,game.height*0.86)
+        }
+        if(index==2 && filePath.includes('during'))
+        {
+            const minerva = new NPC(game,'Minerva',await GetSprite('Minerva'),game.width*0.35,game.height*0.73,'Boszorkány')
+            minerva.blockX=3
+            minerva.blockY=0
+const henry = new NPC(game,'Henry',await GetSprite('Henry'),game.width*0.49,game.height*0.78,'Favágó')
+henry.blockX=1
+henry.blockY=2
+minerva.isInterior=true
+this.AddEntitiesToScene([minerva,henry])
+this.PostEntitis([minerva,henry])
+        }
+    })
     if(filePath.includes('during'))
     {
-        console.log(completedQuest);
         const tenthMainStory = (await getQuests('is_mainstory=10'))[0]
         putResident(completedQuest.Resident.resident_id,{quest_id:tenthMainStory.quest_id})
         putQuest(completedQuest.quest_id,{is_completed:true})
@@ -332,5 +445,47 @@ static async Ninth(filePath,completedQuest)
         entity.objX = x
         entity.objY = y
         Story.gameView.RenderEntity(entity)
+    }
+    /**
+     * 
+     * @param {Array<Monster | NPC>} entitiesList 
+     */
+    static AddEntitiesToScene(entitiesList)
+    {
+        entitiesList.forEach(async entity => {
+                entity.spriteHeight=entity.sprite.height
+                entity.spriteWidth=entity.sprite.width
+                entity.width=this.gameController.width*this.gameController.currentBlock.entityWidth
+                entity.height=this.gameController.height*this.gameController.currentBlock.entityHeight
+                this.gameController.currentBlock.entities.push(entity)
+                this.MoveEntity(entity,entity.objX,entity.objY)
+
+        });
+    }
+    /**
+     * 
+     * @param {Array<Monster | NPC>} entitiesList 
+     */
+    static PostEntitis(entitiesList)
+    {
+entitiesList.forEach(async entity=>
+    {
+if(entity instanceof NPC)
+{
+    postResident({
+        objX:entity.objX/this.gameController.width,
+        objY:entity.objY/this.gameController.height,
+        blockX:entity.blockX,
+        blockY:entity.blockY,
+        resident_name:entity.name,
+        profession:entity.profession,
+        isInterior:entity.isInterior
+    })
+}
+else if(entity instanceof Monster)
+{
+   // Coming soon
+}
+    })
     }
 }

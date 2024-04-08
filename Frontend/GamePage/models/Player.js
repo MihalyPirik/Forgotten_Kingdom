@@ -4,6 +4,7 @@ import { Monster } from "./Monster.js"
 import { Point } from "./Point.js"
 import {Random} from '../utils/probability.js'
 import { putPlayer } from "../../services/playerService.js"
+import { CollectorQuests } from "../controllers/Quest.js"
 export class Player extends Entity {
   #money=null
   #hp=null
@@ -103,6 +104,7 @@ if(this.isAction.timer>this.isAction.interval)
             const gottenAmount=Random(0,6)
             this.inventory.Fish+=gottenAmount
             putPlayer({Fish:this.inventory.Fish})
+            CollectorQuests('Fish',gottenAmount,this.quests,this.game.isometricBlocks)
             this.isAction.timer=0
             this.isAction.is=this.false
             this.isAction.canExecute=true
@@ -118,6 +120,7 @@ if(this.isAction.timer>this.isAction.interval)
             const gottenAmount=Random(0,6)
             this.inventory[this.isAction.action]+=gottenAmount
             putPlayer({[this.isAction.action]:this.inventory.Wood})
+            CollectorQuests(this.isAction.action,gottenAmount,this.quests,this.game.isometricBlocks)
             this.isAction.timer=0
             PanelView.BindProgress(this.isAction.timer,this.isAction.interval)
           }

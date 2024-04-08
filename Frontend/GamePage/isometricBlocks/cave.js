@@ -16,7 +16,8 @@ const CaveInterior = (game)=>
         [],
         [],
         [
-            new Panel('leaveInterior',game.width*0.16,game.height*0.76,game.width*0.05,false)
+            new Panel('leaveInterior',game.width*0.16,game.height*0.76,game.width*0.05,false),
+            new Panel('Action',game.width*0.71,game.height*0.41,game.width*0.03,false,{action:"Stone"}),
         ],
         0.1,
         0.1
