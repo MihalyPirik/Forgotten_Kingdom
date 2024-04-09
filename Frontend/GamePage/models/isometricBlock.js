@@ -26,7 +26,6 @@ export class IsometricBlock
         
         async StartTimeOut(game)
         {
-            console.log(this.maxNumberOfMonsters)
                 if(game.currentBlockX==0 && game.currentBlockY==3
                     || game.currentBlockX==1 && game.currentBlockY==3
                     || game.currentBlockX==2 && game.currentBlockY==2
@@ -60,10 +59,10 @@ export class IsometricBlock
             })
             if(this.numberOfMonsters<this.maxNumberOfMonsters)
             {
-                setTimeout(callback,500)
+                setTimeout(callback,10000)
             }
         }
-setTimeout(callback,500)
+setTimeout(callback,10000)
     }
             }
         }

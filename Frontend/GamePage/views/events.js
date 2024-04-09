@@ -47,7 +47,6 @@ export const InitEvents=(game)=>
           //   e.target.innerHTML='<p>Flash tanárúr üzenete:</p><p>Szükséged lesz egy eszközre, hogy ezt csináld</p>'
           //   return
           // }
-          console.log(e.detail.panel.context.action);
           if(e.detail.panel.context.action=='Fish')
           {
             const but = PanelView.SetFishActionView(e.target)

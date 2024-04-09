@@ -8,6 +8,7 @@ export class Entity {
       this.isInterior=isInterior
       this.game = game
       this.id = id
+      this.isAttack=false
       this.radius = spriteWidth * 0.6 / 2
       this.objX = objX
       this.objY = objY

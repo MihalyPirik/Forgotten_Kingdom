@@ -1,3 +1,4 @@
+import { putEnemy } from "../../services/enemyService.js"
 import { GameView } from "../views/view.js"
 import { Entity } from "./Entity.js"
 
@@ -13,8 +14,8 @@ this.speed=speed
 this.HP=HP
 this.#hp=HP
 this.attack={timer:0,attack:attack,interval:60}
-this.isAttack=false
 this.level=level
+this.knockedBack=false
 this.id=id
 this.noticeRadius=100
 this.attackRadius=60
@@ -30,6 +31,7 @@ this.isDead=true
         }
       this.#hp=value
       GameView.BindMonsterHP(this)
+      putEnemy(this.id,{HP:value})
     }
     get HP()
     {

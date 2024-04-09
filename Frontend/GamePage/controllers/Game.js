@@ -125,16 +125,18 @@ if(entity.isDead)
   this.currentBlock.entities.splice(index,1)
   if(entity instanceof Monster)
   {
-    deleteEnemy(entity)
+    deleteEnemy(entity.id)
     KillerQuests(entity,this.player.quests,this.currentBlock.isometricBlocks)
     this.currentBlock.StartTimeOut(this)
   }
 }
 
+if(!entity.knockedBack)
+{
 
   entity.objX=newPos.x
   entity.objY=newPos.y
-
+}
 }
 
 for (const barrier of this.currentBlock.barriers)

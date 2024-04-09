@@ -14,7 +14,7 @@ export class Player extends Entity {
       this.tools=tools
       this.quests = quests
       this.name=name
-      this.attack={timer:0,attack:3,interval:60}
+      this.attack={timer:0,attack:10,interval:60}
       this.money=money
       this.isInConversation = false
       this.isAction={timer:0,interval:1000,is:false,action:null,canExecute:true}
@@ -27,10 +27,9 @@ export class Player extends Entity {
 
     set money(value)
     {this.#money=value
-if(this.#money!=value){
 
       putPlayer({money:value})
-}
+
 this.game.gameView.BindMoney(value)
     }
     get money()
@@ -41,23 +40,106 @@ return this.#money
     set HP(value)
     {
       this.#hp=value
-      if(this.#hp!=value){
+    
       putPlayer({HP:value})
       if(value<=0)
       {
         this.isDead=true
         PanelView.ShowDeathDialog(this)
       }
-      
-    }
     }
     get HP(){
       return this.#hp
     }
 
 
-    
+    Knockback(enemy)
+    {
+      const dx=enemy.objX-this.objX
+      const dy=enemy.objY-this.objY
+      const distance = Math.hypot(dx,dy)
+      const unitX = dx / distance
+      const unitY = dy / distance
+      const newEnemyObjX=enemy.objX+this.game.width*0.1*unitX
+      const newEnemyObjY=enemy.objY+this.game.height*0.1*unitY
 
+if(enemy.objX<newEnemyObjX && enemy.objY<newEnemyObjY){
+      const inter = setInterval(()=>{
+        if(enemy.objY>=newEnemyObjY && enemy.objX>=newEnemyObjX)
+{
+  enemy.knockedBack=false
+  clearInterval(inter)
+}
+if(enemy.objX<=newEnemyObjX){
+enemy.objX+=4
+}
+if(enemy.objY<=newEnemyObjY)
+{
+enemy.objY+=4
+}
+
+},10)
+}
+
+if(enemy.objX<newEnemyObjX && enemy.objY>newEnemyObjY){
+  const inter = setInterval(()=>{
+    if(enemy.objY<=newEnemyObjY && enemy.objX>=newEnemyObjX)
+{
+enemy.knockedBack=false
+clearInterval(inter)
+}
+if(enemy.objX<=newEnemyObjX){
+enemy.objX+=4
+}
+if(enemy.objY>=newEnemyObjY)
+{
+enemy.objY-=4
+}
+
+},10)
+}
+
+
+
+
+if(enemy.objX>newEnemyObjX && enemy.objY>newEnemyObjY){
+  const inter = setInterval(()=>{
+    if(enemy.objY<=newEnemyObjY && enemy.objX<=newEnemyObjX)
+{
+enemy.knockedBack=false
+clearInterval(inter)
+}
+if(enemy.objX>=newEnemyObjX){
+enemy.objX-=4
+}
+if(enemy.objY>=newEnemyObjY)
+{
+enemy.objY-=4
+}
+
+},10)
+}
+
+
+if(enemy.objX>newEnemyObjX && enemy.objY<newEnemyObjY){
+  const inter = setInterval(()=>{
+    if(enemy.objY>=newEnemyObjY && enemy.objX<=newEnemyObjX)
+{
+enemy.knockedBack=false
+clearInterval(inter)
+}
+if(enemy.objX>=newEnemyObjX){
+enemy.objX-=4
+}
+if(enemy.objY<=newEnemyObjY)
+{
+enemy.objY+=4
+}
+
+},10)
+}
+
+  }
 
     Attack(e)
     {
@@ -76,6 +158,11 @@ return this.#money
               if(this.attack.timer>this.attack.interval && Math.abs(enemy.objX-this.objX)<this.attackradius && Math.abs(enemy.objY-this.objY)<this.attackradius){
                 this.attack.timer=0
                 enemy.HP=enemy.HP-this.attack.attack
+                enemy.knockedBack=true
+                if(Math.random()>0.6)
+                {
+                  this.Knockback(enemy)
+                }
             }
             }
           }
