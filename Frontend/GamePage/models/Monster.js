@@ -13,10 +13,11 @@ this.speed=speed
 this.HP=HP
 this.#hp=HP
 this.attack={timer:0,attack:attack,interval:60}
+this.isAttack=false
 this.level=level
 this.id=id
 this.noticeRadius=100
-this.attackRadius=50
+this.attackRadius=60
     }
 
 
@@ -49,11 +50,15 @@ return true
         if(this.NoticePlayer()){
         if(Math.abs(player.objX-this.objX)<this.attackRadius && Math.abs(player.objY-this.objY)<this.attackRadius)
         {
+            this.isAttack=true
             if(this.attack.timer>this.attack.interval){
                 this.attack.timer=0
             return true
             }
             this.attack.timer++
+        }
+        else{
+        this.isAttack=false
         }
     }
     return false

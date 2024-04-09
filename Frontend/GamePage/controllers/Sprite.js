@@ -14,15 +14,23 @@ static MoveSprite(entity,angle)
   // -1.57 - -2.35 - lefele
   // -2.35 - 2.35 - balra
 
-  if (angle >= 0.78 && angle <=2.35) {entity.frameY = 2} // előre
-  else if(angle>=2.35 || angle<=-2.35){entity.frameY=3} // jobbra
-  else if(angle>=-2.35 && angle<=-1.25){entity.frameY=1} // balra
-  else if(angle>=-1.57 && angle<=0.78){entity.frameY=0} // lefele
+  if (angle >= 0.78 && angle <=2.35) {entity.frameY=3} // előre
+  else if(angle>=2.35 || angle<=-2.35){entity.frameY=5} // jobbra
+  else if(angle>=-2.35 && angle<=-1.25){entity.frameY=3} // balra
+  else if(angle>=-1.57 && angle<=0.78){entity.frameY=4} // lefele
 
-
+  if (angle >= 0.78 && angle <=2.35 && entity.isAttack) {entity.frameY=0} // előre
+  else if(angle>=2.35 || angle<=-2.35 && entity.isAttack){entity.frameY=2} // jobbra
+  else if(angle>=-2.35 && angle<=-1.25 && entity.isAttack){entity.frameY=0} // balra
+  else if(angle>=-1.57 && angle<=0.78 && entity.isAttack){entity.frameY=1} // lefele
 
     if (entity.move.timer > entity.move.interval) {
-      if (entity.frameX < 3) {
+      let numberOfRows=3
+      if(entity.isAttack){
+        numberOfRows=6
+
+      }
+      if (entity.frameX < numberOfRows) {
         entity.frameX += 1
       }
       else {
@@ -31,7 +39,6 @@ static MoveSprite(entity,angle)
       entity.move.timer = 0
     }
     entity.move.timer++
-
 }
 
 

@@ -132,8 +132,8 @@ if(entity.isDead)
 }
 
 
-entity.objX=newPos.x
-entity.objY=newPos.y
+  entity.objX=newPos.x
+  entity.objY=newPos.y
 
 }
 
