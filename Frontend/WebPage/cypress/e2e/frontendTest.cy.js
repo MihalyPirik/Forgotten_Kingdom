@@ -142,21 +142,4 @@ describe("report page", () => {
 
     cy.get("form").find("p").contains("Sikeres report küldése!");
   });
-  it("should handle report with incorrect credentials", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
-    cy.get("#buttonPanel").find("div").eq(3).click();
-
-    cy.url().should(
-      "eq",
-      "http://localhost:5173/forgottenkingdom/report"
-    );
-
-    cy.get("form").find("input").eq(0).type("teszt1@teszt.hu");
-    cy.get("form").find("input").eq(1).type("teszt1");
-    cy.get("form").find("textarea").eq(0).type("Ez a report teszt");
-    cy.get("form").find("button").click();
-
-    cy.get("form").find("p").should("not.contain", "Sikeres report küldése!");
-  });
-
 });

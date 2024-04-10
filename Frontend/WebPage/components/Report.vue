@@ -1,25 +1,27 @@
 <script setup>
-  const email = {
-    from: '',
-    subject: '',
-    text: ''
-  };
+import { ref } from 'vue';
+var result = ref('');
 
-  async function sendEmail() {
-    try {
-      const response = await fetch('http://127.0.0.1:3000/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(email)
-      });
-      const result = await response.text();
-      alert(result);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+const email = {
+  from: '',
+  subject: '',
+  text: ''
+};
+
+async function sendEmail() {
+  try {
+    const response = await fetch('http://127.0.0.1:3000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(email)
+    });
+    result.value = await response.text();
+  } catch (error) {
+    console.error('Error:', error);
   }
+}
 </script>
 
 <template>
@@ -30,10 +32,13 @@
 
       <h3>Report</h3>
       <div class="w-100">
-        <input placeholder="name@example.com" id="to" type="email" class="reportForm form-control mx-auto" v-model="email.from" required>
-        <input placeholder="Title" id="subject" type="text" class="reportForm form-control mx-auto" v-model="email.subject" required>
-        <textarea placeholder="Text" id="text" class="reportForm form-control mx-auto" v-model="email.text" required></textarea>
-        <p>{{  }}</p>
+        <input placeholder="name@example.com" id="to" type="email" class="reportForm form-control mx-auto"
+          v-model="email.from" required>
+        <input placeholder="Title" id="subject" type="text" class="reportForm form-control mx-auto"
+          v-model="email.subject" required>
+        <textarea placeholder="Text" id="text" class="reportForm form-control mx-auto" v-model="email.text"
+          required></textarea>
+        <p v-if="result">{{ result }}</p>
       </div>
 
       <button type="submit" class="btn btn-primary">Küldés</button>

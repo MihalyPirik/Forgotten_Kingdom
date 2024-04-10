@@ -27,7 +27,7 @@ app.use(cookie());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -44,29 +44,27 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "misipirik@gmail.com", 
-    pass: "Pmisip2001#", 
+    user: "", // email
+    pass: "", // kulcs
   },
+  secure: true,
 });
 
 app.post("/send-email", (req, res) => {
   const { from, subject, text } = req.body;
 
   const mailOptions = {
-    from,
-    to: "misipirik@gmail.com",
-    subject,
-    text,
+    from: from,
+    to: "", // email
+    subject: subject,
+    text: text,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
-      res.status(500).send("Error: Email sending failed");
-    } else {
-      console.log("Email sent: " + info.response);
-      res.status(200).send("Email sent successfully");
+      res.status(500).send("A report nem került elküldésre!");
     }
+    res.status(200).send("Sikeres report küldése!");
   });
 });
 
