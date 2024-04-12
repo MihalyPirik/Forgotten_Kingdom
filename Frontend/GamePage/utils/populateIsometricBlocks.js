@@ -31,9 +31,10 @@ resident.spriteWidth=npcSprite.width
 resident.spriteHeight=npcSprite.height
 resident.width=game.width*game.currentBlock.entityWidth
         resident.height=game.height*game.currentBlock.entityHeight
-const panel = new Panel('NPCPanel',game.width*e.objX,game.height*e.objY,resident.radius+50,false,resident)
+        resident.radius=resident.width*0.22
+const panel = new Panel('NPCPanel',game.width*e.objX,game.height*e.objY,resident.radius+resident.radius*1.4,false,resident)
 resident.panel=panel
-resident.radius=resident.width*0.22
+
 game.currentBlock.panels.push(panel)
         game.currentBlock.entities.push(resident)
     })})

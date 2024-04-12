@@ -1,4 +1,5 @@
 import { PanelController } from "../controllers/Panel.js";
+import { InputChange } from "../controllers/PublicMarket.js";
 import { Story } from "../controllers/Story.js";
 import { GameView, PanelView } from "./view.js";
 
@@ -6,10 +7,17 @@ import { GameView, PanelView } from "./view.js";
 export const InitEvents=(game)=>
 {
 
-    const ShowPanel=(id,handler)=>
+    const ShowPanel=async(id,handler,params=[])=>
     {
-        
-            const panel = handler(game)
+      let panel
+        if(!(params instanceof Array)){
+          panel = await handler(game)
+        }
+            else
+            {
+              console.log(params);
+              panel = await handler(game,...params)
+            }
             const btn=panel.querySelector('.closeButton')
             btn.addEventListener('click',()=>{HidePanel(id,panel,handler)},{once:true})
 
@@ -82,6 +90,14 @@ TogglePlayerAction(eMouse,e.detail.panel.context.action,game)
             game.currentBlock = game.isometricBlocks[game.currentBlockX][game.currentBlockY](game)
           },{once:true})
         }
+        if(e.detail.panel.id=='shop')
+        {
+          e.target.querySelectorAll('input[type=number]').forEach(el=>{
+            el.addEventListener('change',InputChange)
+          })
+          PanelView.ShowShopItems(e.target,game)
+          e.target.querySelector('#newOffer').addEventListener('click',(e)=>ShowPanel('newOffer',PanelView.ShowAddNewOfferPanel,[e]))
+        }
     })
     addEventListener("panelHide",(e)=>{
       if(e.detail.panel.id=="Action")
@@ -92,5 +108,4 @@ TogglePlayerAction(eMouse,e.detail.panel.context.action,game)
     })
 
     document.getElementById('sword').addEventListener('click',(e)=>{ShowPanel('sword',PanelView.ToolPanel,e.target)},{once:true})
-    
 }

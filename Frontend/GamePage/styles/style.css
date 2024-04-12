@@ -238,3 +238,11 @@ div#Action{
     border: 2px solid black;
     margin: 5px;
 }
+
+
+div#newOffer
+{
+    position: absolute;
+    top: 0;
+    right: auto;
+}

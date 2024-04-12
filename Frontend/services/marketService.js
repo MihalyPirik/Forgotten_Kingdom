@@ -2,8 +2,8 @@ import { base } from "./base.js";
 
 // GET
 
-export const getAllOffer = () => {
-  return base("/market",'GET')
+export const getAllOffer = (query) => {
+  return base("/market?"+query,'GET')
 };
 
 export const getPlayerOffer = () => {

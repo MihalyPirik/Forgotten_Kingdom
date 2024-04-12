@@ -5,6 +5,10 @@ import { ConversationQuests, IsTargetResident } from '../controllers/Quest.js'
 import { Story } from '../controllers/Story.js'
 import { Circle } from '../models/Circle.js'
 import { Line } from '../models/Line.js'
+import { getAllOffer } from '../../services/marketService.js'
+import { getAllItems } from '../../services/playerService.js'
+import { AddNewOffer, BuyOffer } from '../controllers/PublicMarket.js'
+import { Panel } from '../models/Panel.js'
 export class GameView {
   constructor(canvas, game) {
     /**
@@ -75,7 +79,44 @@ export class GameView {
       }
     }
   }
+  /**
+   * 
+   * @param {Panel} panel 
+   */
+RenderPanel(panel)
+{
+  if(panel.image){
+this.context.drawImage(
+  panel.image,
+  0,
+  0,
+  panel.image.width,
+  panel.image.height,
+  panel.x-this.game.currentBlock.entityWidth*this.game.width*0.5,
+  panel.y-this.game.currentBlock.entityHeight*this.game.height*0.5,
+  this.game.currentBlock.entityWidth*this.game.width,
+  this.game.currentBlock.entityHeight*this.game.height
+  )
+  }
 
+  if(this.game.debug.key == 'f')
+  {
+    this.context.fillStyle='black'
+    this.context.beginPath()
+      this.context.arc(
+        panel.x,
+        panel.y,
+        panel.radius,
+        0,
+        Math.PI * 2
+      )
+      this.context.save()
+      this.context.globalAlpha = 0.5
+      this.context.fill()
+      this.context.restore()
+      this.context.stroke()
+  }
+}
 
   #InitCanvas() {
     this.canvas.width = innerWidth * 0.5
@@ -355,6 +396,67 @@ questList.forEach(quest => {
 
 }
 
+
+
+static async ShowShopItems(element,game)
+{
+const offers = await getAllOffer()
+const itemsContainer = element.querySelector('#items')
+itemsContainer.innerHTML=''
+offers.forEach(offer=>
+  {
+    itemsContainer.innerHTML+=`<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
+  })
+  itemsContainer.addEventListener('click',(e)=>{
+    if(e.target instanceof HTMLInputElement){
+    BuyOffer(e.target.parentElement.id,game)}
+  }
+    )
+}
+
+
+static AddNewOffer(offer)
+{
+const itemsContainer = document.getElementById('items')
+itemsContainer.innerHTML=`<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input type="button" value="Buy"><br></div>`+itemsContainer.innerHTML
+}
+
+
+static DeleteOffer(offerId)
+{
+  const offer = document.getElementById(offerId)
+  if(offer)
+  {
+    offer.remove()
+  }
+
+}
+
+
+
+static async ShowAddNewOfferPanel(_game,e)
+{
+const tem = PanelView.GetOwnTemplate('newOffer')
+const container = PanelView.#createTemplate()
+container.innerHTML+=tem.cloneNode(true).innerHTML
+container.id='newOffer'
+const resources = await getAllItems()
+const selects = container.querySelectorAll('select')
+  resources.forEach(item=>{
+    selects.forEach(el=>{
+      el.innerHTML+=`<option value='${item.name}'>${item.name}</option>`
+    })
+
+  })
+
+  container.addEventListener('submit',AddNewOffer)
+  e.target.parentElement.prepend(container)
+
+
+
+return container
+
+}
 
 static GenerateQuestCard(quest,isometricBlocks)
 {

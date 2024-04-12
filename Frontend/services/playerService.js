@@ -6,6 +6,11 @@ export const getAllData = () => {
   return base('/player','GET')
 };
 
+export const getAllItems = () => 
+{
+  return base('/player/items', 'GET')
+}
+
 export const getInventory = () => {
   return base("/player" + "/inventory", 'GET')
 };
