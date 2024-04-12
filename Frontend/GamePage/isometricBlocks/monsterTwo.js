@@ -4,13 +4,14 @@ import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { GetIcon } from "../utils/imageLoader.js"
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/EnemyTwo.png"
 const monster=new Image()
 monster.src='./assets/monsterSprite.jfif'
-export const Szörny2=(game)=>{
+export const Szörny2= async (game)=>{
     game.currentBlock=new IsometricBlock(
         'Szörny2',
         backGround,
@@ -39,7 +40,7 @@ export const Szörny2=(game)=>{
             new Circle(game.width*0.98,game.height*0.45,game.width*0.035)
         ],
         [
-            new Panel('navigationPanel',game.width*0.29,game.height*0.64,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
+            new Panel('navigationPanel',game.width*0.29,game.height*0.64,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},null,await GetIcon('directionSigns')),
         ],
         0.2,
         0.2

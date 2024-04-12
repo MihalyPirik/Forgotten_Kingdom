@@ -4,10 +4,11 @@ import { Point } from '../models/Point.js'
 import {Circle} from '../models/Circle.js'
 import { Panel } from '../models/Panel.js'
 import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
+import { GetIcon } from '../utils/imageLoader.js'
 const backGround=new Image()
 backGround.src="./assets/blocks/EnemyThree.png"
 
-export const Szörny3=(game)=>{
+export const Szörny3=async(game)=>{
     game.currentBlock=new IsometricBlock(
         'Szörny3',
         backGround,
@@ -33,7 +34,7 @@ export const Szörny3=(game)=>{
             new Line(new Point(game.width*0.496,game.height*0.821),new Point(game.width*0.89,game.height*0.6))
         ],
         [
-            new Panel('navigationPanel',0.6*game.width,0.75*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game)
+            new Panel('navigationPanel',0.6*game.width,0.75*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game,null,await GetIcon('directionSigns'))
         ]
     )
     populateIsometricBlock(game)

@@ -1,5 +1,6 @@
 import { Panel } from "../models/Panel.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { GetIcon } from "../utils/imageLoader.js"
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround=new Image()
@@ -20,7 +21,7 @@ const inWitchBlock = (game)=>{
     populateIsometricBlock(game,true)
     return game.currentBlock
 }
-export const Szörny4=(game)=>{
+export const Szörny4=async(game)=>{
     game.currentBlock=new IsometricBlock(
         'Szörny4',
         backGround,
@@ -29,7 +30,7 @@ export const Szörny4=(game)=>{
         [],
         [
             // 0.45, 0.88
-            new Panel('navigationPanel',game.width*0.45,game.height*0.88,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
+            new Panel('navigationPanel',game.width*0.45,game.height*0.88,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},await GetIcon('directionSigns')),
             new Panel('enterInterior',game.width*0.4,game.height*0.58,game.width*0.1,false)
         ],
         0.2,

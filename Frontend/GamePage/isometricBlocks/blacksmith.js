@@ -4,6 +4,7 @@ import { Monster } from "../models/Monster.js"
 import { NPC } from "../models/NPC.js"
 import { Panel } from "../models/Panel.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { GetIcon } from "../utils/imageLoader.js"
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 
@@ -35,7 +36,7 @@ populateIsometricBlock(game,true)
 return game.currentBlock
 }
 
-export const Kovács=(game)=>{
+export const Kovács= async (game)=>{
     game.currentBlock = new IsometricBlock(
         'Kovács',
         backGround,
@@ -46,8 +47,8 @@ export const Kovács=(game)=>{
         [],
         [
             new Panel('enterInterior',game.width*0.36,game.height*0.66,game.width*0.05,false),
-            new Panel('navigationPanel',game.width*0.72,game.height*0.76,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
-        new Panel('navigationPanel',game.width*0.25,game.height*0.77,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1})
+            new Panel('navigationPanel',game.width*0.72,game.height*0.76,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},null,await GetIcon('directionSigns')),
+        new Panel('navigationPanel',game.width*0.25,game.height*0.77,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},null,await GetIcon('directionSigns'))
         ]
     )
     populateIsometricBlock(game)

@@ -12,3 +12,11 @@ export async function GetPortrait(name)
     await image.decode()
     return image
 }
+
+export async function GetIcon(name)
+{
+    const image = new Image()
+    image.src='./assets/icons/'+name+'.png'
+    await image.decode()
+    return image
+}

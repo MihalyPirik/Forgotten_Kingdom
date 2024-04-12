@@ -10,8 +10,6 @@
 
 
     <canvas id="game"></canvas>
-    <img src="./assets/icons/directionSigns.png" class="relative" id="arrow1" />
-    <img src="./assets/icons/directionSigns.png" class="relative" id="arrow2" />
 
 
     <template id="navigationPanel">
@@ -60,6 +58,21 @@
 <p>{{attack}}</p>
 </template>
 
+<template id="shop">
+  <input type="button" value="Ajánlat feladása" id="newOffer">
+  <label><input type="number" min="1"> db egy oldalon</label><br>
+  <label><input type="number" min="1"> oldal</label>
+<div id="items"></div>
+</template>
+<template id="newOffer">
+  <form action="http://127.0.0.1:3000/market" method="post">
+<label>Kínált mennyiség: <input name="offeredAmount" type="number" min="1" value="1" required></label><br>
+<label>Kínált alapanyag: <select name="offeredType" required></select></label><br>
+<label>Kért mennyiség: <input name="soughtAmount" type="number" min="1" value="1" required></label><br>
+<label>Kért alapanyag: <select name="soughtType" required></select></label><br>
+<input type="submit" value="Feladás">
+</form>
+</template>
     <div id="charStats">
       <div>
         <img id="pfp" src="./assets/icons/pfpBorder.png" />
@@ -71,9 +84,9 @@
         <span id="money" data-title="Pénz"
           ><img class="navIMG" src="./assets/icons/coinIcon.png" /><span></span
         ></span>
-        <span id="sword" data-title="Kard"
+        <span id="sword" data-title="Eszközök"
           ><img class="navIMG" src="./assets/icons/swordIcon.png" /><span
-          >stat</span
+          >Eszközök</span
           ></span
         >
       </span>

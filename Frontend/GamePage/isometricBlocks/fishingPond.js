@@ -5,6 +5,7 @@ import { Circle } from '../models/Circle.js'
 import { Panel } from "../models/Panel.js"
 import { NPC } from "../models/NPC.js"
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
+import { GetIcon } from "../utils/imageLoader.js"
 
 const backGround=new Image()
 backGround.src="./assets/blocks/Pond.png"
@@ -35,7 +36,7 @@ const PondInterior = (game)=>
     return game.currentBlock
 }
 
-export const Horgásztó=(game)=>{
+export const Horgásztó= async (game)=>{
     game.currentBlock=new IsometricBlock(
         'Horgásztó',
         backGround,
@@ -102,8 +103,8 @@ export const Horgásztó=(game)=>{
             new Line(new Point(game.width*0.488,game.height*0.596),new Point(game.width*0.524,game.height*0.578))
         ],
         [
-            new Panel('navigationPanel',0.26*game.width,0.74*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game),
-            new Panel('navigationPanel',0.78*game.width,0.71*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game),
+            new Panel('navigationPanel',0.26*game.width,0.74*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game,await GetIcon('directionSigns')),
+            new Panel('navigationPanel',0.78*game.width,0.71*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game,await GetIcon('directionSigns')),
             new Panel('Action',game.width*0.5,game.height*0.59,game.width*0.04,false,{action:"Fish"}),
             new Panel('enterInterior',game.width*0.41,game.height*0.33,game.width*0.08,false)
         ],

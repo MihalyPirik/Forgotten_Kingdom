@@ -4,6 +4,7 @@ import { Monster } from "../models/Monster.js"
 import { Panel } from "../models/Panel.js"
 import { Point } from "../models/Point.js"
 import { IsometricBlock } from "../models/isometricBlock.js"
+import { GetIcon } from "../utils/imageLoader.js"
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 const mill=new Image()
 mill.src='./assets/blocks/Mill.png'
@@ -27,12 +28,12 @@ const MillInterior = (game)=>
 }
 
 
-export const Malom=(game)=>
+export const Malom= async (game)=>
 {
 
 
-  const navigationPanelX=new Panel('navigationPanel',0.67*game.width,0.83*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game)
-  const navigationPanelY=new Panel('navigationPanel',0.34*game.width,0.84*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game)
+  const navigationPanelX=new Panel('navigationPanel',0.67*game.width,0.83*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},game,await GetIcon('directionSigns'))
+  const navigationPanelY=new Panel('navigationPanel',0.34*game.width,0.84*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game,await GetIcon('directionSigns'))
 
   game.currentBlock=new IsometricBlock(
         'Malom',

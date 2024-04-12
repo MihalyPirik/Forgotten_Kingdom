@@ -41,8 +41,6 @@ const gameCanvas = document.querySelector('canvas')
 // }
 
 const p = document.getElementById('mouseCoordinates')
-const arrow1=document.getElementById('arrow1')
-const arrow2=document.getElementById('arrow2')
 
 const character=new Image()
 character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
@@ -81,15 +79,7 @@ addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = f
     p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
 })
 
-game.isometricBlocks[playerData.blockX][playerData.blockY](game)
-
-
-  arrow1.style.left=game.width/3/2-50+'px'
-arrow1.style.top=game.height*0.86+'px'
-
-
-arrow2.style.left=game.width/3*2+game.width/3/2-50+'px'
-arrow2.style.top=game.height*0.86+'px'
+await game.isometricBlocks[playerData.blockX][playerData.blockY](game)
 
 game.gameView.BindPlayerHealth(game.player)
 const questList = await getQuests("is_active=true&is_completed=false")

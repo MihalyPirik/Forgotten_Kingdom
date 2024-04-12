@@ -7,6 +7,7 @@ import { Panel } from '../models/Panel.js'
 import { NPC } from '../models/NPC.js'
 import { Story } from '../controllers/Story.js'
 import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
+import { GetIcon } from '../utils/imageLoader.js'
 
 
 /**
@@ -61,8 +62,8 @@ new Line(new Point(game.width*0.246,game.height*0.712),new Point(game.width*0.17
 new Line(new Point(game.width*0.25,game.height*0.83),new Point(game.width*0.176,game.height*0.79))
     ],
     [
-        new Panel('navigationPanel',game.width*0.74,game.height*0.82,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1}),
-        new Panel('navigationPanel',game.width*0.22,game.height*0.78,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1}),
+        new Panel('navigationPanel',game.width*0.74,game.height*0.82,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},null,await GetIcon('directionSigns')),
+        new Panel('navigationPanel',game.width*0.22,game.height*0.78,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},null,await GetIcon('directionSigns')),
         new Panel('enterInterior',game.width*0.38,game.height*0.55,game.width*0.08,false),
    
     ],

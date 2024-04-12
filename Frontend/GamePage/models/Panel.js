@@ -1,5 +1,7 @@
+const navigationImage = new Image()
+navigationImage.src='./assets/icons/directionSigns.png'
 export class Panel {
-    constructor(id, x, y, radius, isNavigationPanel ,context = null) {
+    constructor(id, x, y, radius, isNavigationPanel ,context = null, image) {
       this.id=id
         this.x = x
         this.y = y
@@ -7,6 +9,7 @@ export class Panel {
         this.isNavigationPanel=isNavigationPanel
         this.context = context
         this.radius = radius
+        this.image=image
     }
     IsVisible=(player)=>
     {

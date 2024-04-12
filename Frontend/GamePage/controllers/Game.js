@@ -196,6 +196,10 @@ this.player.objY=newPlayerPos.y
 const s=[...this.currentBlock.entities]
 s.push(this.player)
 s.sort((a,b)=>a.objY-b.objY)
+
+this.currentBlock.panels.forEach(panel=>{
+  this.gameView.RenderPanel(panel)
+})
 for (const entity of s)
 {
   this.gameView.RenderEntity(entity)
