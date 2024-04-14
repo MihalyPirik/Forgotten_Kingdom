@@ -1,15 +1,22 @@
 const Player = require("../../models/player");
 const Market = require("../../models/market");
 const uuid = require("uuid");
+const ProcessQuery = require('../../utils/queryProcessor')
 
 const getAllOffer = async (req, res, next) => {
   try {
+
+    const page = req.query.page || 1
+    const limit = req.query.limit || 25
+    const startIndex = (page - 1) * limit
     const data = await Market.findAll({
       attributes: { exclude: ["player_id"] },
       include: { model: Player, attributes: ["player_name"] },
-      where:req.query
+      offset:startIndex,
+      limit:limit,
+      where:ProcessQuery(Market,req.query)
     });
-    res.status(200).json({ data: data });
+    res.status(200).json({ data: data,page:req.query.page,count:data.length });
   } catch (error) {
     next(error);
   }
@@ -36,12 +43,11 @@ const getAllPlayerOffer = async (req, res, next) => {
 const postOffer = async (req, res, next) => {
   try {
     const player_id = req.token.id;
-
     const offeredType = req.body.offeredType;
     const offeredAmount = req.body.offeredAmount;
     const soughtType = req.body.soughtType;
     const soughtAmount = req.body.soughtAmount;
-    await Market.create({
+    const data = await Market.create({
       offer_id: uuid.v1(),
       offeredType: offeredType,
       offeredAmount: offeredAmount,
@@ -50,7 +56,7 @@ const postOffer = async (req, res, next) => {
       player_id: player_id,
     });
 
-    res.status(201).json({ data: {message: "Sikeres felvétel!"} });
+    res.status(201).json({ data: data });
   } catch (error) {
     next(error);
   }

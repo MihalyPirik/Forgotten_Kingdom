@@ -57,6 +57,18 @@ const getInventory = async (req, res, next) => {
   }
 };
 
+
+const getAllItems = async (req, res, next) => 
+{
+  try {
+    const data = await Item.findAll()
+    res.status(200).json({data:data})    
+  } catch (error) {
+    next(error)
+  }
+
+}
+
 const putPlayer = async (req, res, next) => {
   try {
     const player_id = req.token.id;
@@ -120,4 +132,5 @@ module.exports = {
   getInventory,
   putPlayer,
   deletePlayer,
+  getAllItems
 };
