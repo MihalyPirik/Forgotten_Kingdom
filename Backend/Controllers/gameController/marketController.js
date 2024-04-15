@@ -1,5 +1,6 @@
 const Player = require("../../models/player");
 const Market = require("../../models/market");
+const Inventory = require("../../models/inventory");
 const uuid = require("uuid");
 const ProcessQuery = require('../../utils/queryProcessor')
 
@@ -12,11 +13,11 @@ const getAllOffer = async (req, res, next) => {
     const data = await Market.findAll({
       attributes: { exclude: ["player_id"] },
       include: { model: Player, attributes: ["player_name"] },
-      offset:startIndex,
-      limit:limit,
-      where:ProcessQuery(Market,req.query)
+      offset: startIndex,
+      limit: limit,
+      where: ProcessQuery(Market, req.query)
     });
-    res.status(200).json({ data: data,page:req.query.page,count:data.length });
+    res.status(200).json({ data: data, page: req.query.page, count: data.length });
   } catch (error) {
     next(error);
   }
@@ -87,7 +88,7 @@ const putOffer = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ data: {message: "Sikeres módosítás!"} });
+    res.status(200).json({ data: { message: "Sikeres módosítás!" } });
   } catch (error) {
     next(error);
   }
@@ -101,15 +102,86 @@ const deleteOffer = async (req, res, next) => {
     if (isDeleted == 0) {
       return res.status(404).json({ message: "Ilyen ajánlat nem létezik!" });
     }
-    res.status(200).json({ data: {message: "Sikeres törlés!"} });
+    res.status(200).json({ data: { message: "Sikeres törlés!" } });
   } catch (error) {
     next(error);
   }
 };
+
+const buyOffer = async (req, res, next) => {
+  try {
+    const buyer_id = req.token.id;
+    const offer = await Market.findByPk(req.params.offer_id);
+    const buyerPlayer = await Inventory.findAll({
+      where: {
+        player_id: buyer_id,
+      },
+    });
+    const owner_id = offer.player_id;
+    const soughtType = offer.soughtType;
+    const soughtAmount = offer.soughtAmount;
+    const currentAmount = buyerPlayer.find(item => item.item == soughtType).amount;
+
+    if (!currentAmount && currentAmount != 0) {
+      return res.status(400).json({ data: { message: `Nincs ilyen alapanyagod!` } });
+    }
+
+    if (currentAmount < soughtAmount) {
+      return res.status(400).json({ data: { message: `Nem elég ${soughtType} a vásárláshoz!` } });
+    };
+
+    await Inventory.increment(
+      {
+        "amount": soughtAmount
+      },
+      {
+        where: {
+          player_id: owner_id,
+          item: soughtType
+        },
+      }
+    );
+
+    await Inventory.increment(
+      {
+        "amount": offer.offeredAmount,
+      },
+      {
+        where: {
+          player_id: buyer_id,
+          item: offer.offeredType
+        },
+      }
+    );
+
+    await Inventory.decrement(
+      {
+        "amount": soughtAmount
+      },
+      {
+        where: {
+          player_id: buyer_id,
+          item: soughtType
+        },
+      }
+    );
+
+    await Market.destroy({
+      where: { offer_id: req.params.offer_id },
+    });
+
+    res.status(200).json({ data: { message: "Sikeres vásárlás!" } });
+
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   getAllOffer,
   getAllPlayerOffer,
   postOffer,
   putOffer,
   deleteOffer,
+  buyOffer
 };
