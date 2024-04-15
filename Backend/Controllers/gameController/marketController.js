@@ -44,10 +44,30 @@ const getAllPlayerOffer = async (req, res, next) => {
 const postOffer = async (req, res, next) => {
   try {
     const player_id = req.token.id;
+
     const offeredType = req.body.offeredType;
     const offeredAmount = req.body.offeredAmount;
     const soughtType = req.body.soughtType;
     const soughtAmount = req.body.soughtAmount;
+    console.log(offeredType);
+
+    const player = await Inventory.findAll({
+      where: {
+        player_id: player_id,
+      },
+    });
+  
+    const currentAmount = player.find(item => item.item == offeredType).amount;
+    console.log(currentAmount);
+
+    if (!currentAmount) {
+      return res.status(400).json({ data: { message: `Nincs ilyen alapanyagod!` } });
+    }
+
+    if (currentAmount < offeredAmount) {
+      return res.status(400).json({ data: { message: `Nincs elég ${offeredType} az eladáshoz!` } });
+    };
+
     const data = await Market.create({
       offer_id: uuid.v1(),
       offeredType: offeredType,
@@ -56,6 +76,18 @@ const postOffer = async (req, res, next) => {
       soughtAmount: soughtAmount,
       player_id: player_id,
     });
+
+    await Inventory.decrement(
+      {
+        "amount": offeredAmount
+      },
+      {
+        where: {
+          player_id: player_id,
+          item: offeredType
+        },
+      }
+    );
 
     res.status(201).json({ data: data });
   } catch (error) {
@@ -96,6 +128,32 @@ const putOffer = async (req, res, next) => {
 
 const deleteOffer = async (req, res, next) => {
   try {
+    const player_id = req.token.id;
+
+    const offer = await Market.findByPk(req.params.offer_id);
+    const player = await Inventory.findAll({
+      where: {
+        player_id: player_id,
+      },
+    });
+    const currentAmount = player.find(item => item.item == offer.offeredType).amount;
+
+    if (!currentAmount && currentAmount != 0) {
+      return res.status(400).json({ data: { message: `Nincs ilyen alapanyagod!` } });
+    }
+
+    await Inventory.increment(
+      {
+        "amount": offer.offeredAmount
+      },
+      {
+        where: {
+          player_id: player_id,
+          item: offer.offeredType
+        },
+      }
+    );
+
     const isDeleted = await Market.destroy({
       where: { offer_id: req.params.offer_id },
     });
@@ -127,7 +185,7 @@ const buyOffer = async (req, res, next) => {
     }
 
     if (currentAmount < soughtAmount) {
-      return res.status(400).json({ data: { message: `Nem elég ${soughtType} a vásárláshoz!` } });
+      return res.status(400).json({ data: { message: `Nincs elég ${soughtType} a vásárláshoz!` } });
     };
 
     await Inventory.increment(
