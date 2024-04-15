@@ -33,12 +33,12 @@ const gameCanvas = document.querySelector('canvas')
 // }
 // ).mount('#mouseCoordinates')
 
-// const token = localStorage.getItem('token')
-// if(!token)
-// {
-//   document.querySelector('body').innerHTML = '<h1>Nem vagy bejelentkezve</h1>'
-//   throw new Error('Script execution was terminated due to the absence of an auetntication token!')
-// }
+const token = localStorage.getItem('token')
+if(!token)
+{
+  document.querySelector('body').innerHTML = '<h1>Nem vagy bejelentkezve</h1>'
+  throw new Error('Script execution was terminated due to the absence of an auetntication token!')
+}
 
 const p = document.getElementById('mouseCoordinates')
 

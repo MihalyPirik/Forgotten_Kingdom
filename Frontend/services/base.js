@@ -1,11 +1,15 @@
 import config from './config.json' assert { type: 'json' }
 
+
+const token = localStorage.getItem('token')
+
+
 export function base(url,method,data)
 {
 return fetch(config.URL+url,{
   method:method,
   headers:{
-    'Authorization':config.developmentToken,
+    'Authorization':token,
     'Content-Type':'application/json'
   },
   body:data?JSON.stringify(data):null
