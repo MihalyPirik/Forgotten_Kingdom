@@ -83,26 +83,24 @@ export class GameView {
    * 
    * @param {Panel} panel 
    */
-RenderPanel(panel)
-{
-  if(panel.image){
-this.context.drawImage(
-  panel.image,
-  0,
-  0,
-  panel.image.width,
-  panel.image.height,
-  panel.x-this.game.currentBlock.entityWidth*this.game.width*0.5,
-  panel.y-this.game.currentBlock.entityHeight*this.game.height*0.5,
-  this.game.currentBlock.entityWidth*this.game.width,
-  this.game.currentBlock.entityHeight*this.game.height
-  )
-  }
+  RenderPanel(panel) {
+    if (panel.image) {
+      this.context.drawImage(
+        panel.image,
+        0,
+        0,
+        panel.image.width,
+        panel.image.height,
+        panel.x - this.game.currentBlock.entityWidth * this.game.width * 0.5,
+        panel.y - this.game.currentBlock.entityHeight * this.game.height * 0.5,
+        this.game.currentBlock.entityWidth * this.game.width,
+        this.game.currentBlock.entityHeight * this.game.height
+      )
+    }
 
-  if(this.game.debug.key == 'f')
-  {
-    this.context.fillStyle='black'
-    this.context.beginPath()
+    if (this.game.debug.key == 'f') {
+      this.context.fillStyle = 'black'
+      this.context.beginPath()
       this.context.arc(
         panel.x,
         panel.y,
@@ -115,8 +113,8 @@ this.context.drawImage(
       this.context.fill()
       this.context.restore()
       this.context.stroke()
+    }
   }
-}
 
   #InitCanvas() {
     this.canvas.width = innerWidth * 0.5
@@ -129,24 +127,14 @@ this.context.drawImage(
 
     if (player.HP >= 0) {
       const bar = document.querySelector(".bar");
-
-
       bar.style.width = player.HP + '%'
       bar.innerHTML = player.HP + '/100'
-
     }
-
-
   }
-
-
 
   BindMoney(money) {
     document.querySelector('#money span').innerHTML = ' ' + money
   }
-
-
-
 
   ClearContext = () => {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
@@ -155,23 +143,13 @@ this.context.drawImage(
     this.canvas.style.backgroundImage = `url(${imageUrl})`
   }
 
-
-  
-
   static BindMonsterHP(monster) {
     const el = document.getElementById(monster.id)
     if (el) {
       document.getElementById(monster.id).querySelector('div#HP div').style.width = monster.HP + '%'
     }
   }
-
-
 }
-
-
-
-
-
 
 export class PanelView {
 
@@ -223,7 +201,7 @@ export class PanelView {
     return document.querySelector('template#' + panelInstance)
   }
   static #processElement(element, context) {
-    
+
     if (context) {
       if (element.nodeType === Node.TEXT_NODE) {
         element.nodeValue = PanelView.#getMatches(element.nodeValue, /{{(.*?)}}/g, context);
@@ -246,18 +224,17 @@ export class PanelView {
         matches.push(match[1])
       }
       return str.replace(regex, (match, variable) => {
-        if(variable.includes('.'))
-        {
+        if (variable.includes('.')) {
           let newContext = context
           let newKey = variable
           const list = variable.split('.')
-          for (let i = 0; i < list.length-1; i++) {
+          for (let i = 0; i < list.length - 1; i++) {
             newContext = newContext[list[i]]
-            newKey = list[i+1]
+            newKey = list[i + 1]
           }
-          return newContext[newKey]==undefined?match:newContext[newKey]
+          return newContext[newKey] == undefined ? match : newContext[newKey]
         }
-        return context[variable]==undefined?match:context[variable]
+        return context[variable] == undefined ? match : context[variable]
       })
     }
   }
@@ -301,7 +278,6 @@ export class PanelView {
     }
   }
 
-
   static ShowDeathDialog(player) {
     if (document.querySelector("div#dead")) {
       return
@@ -321,24 +297,20 @@ export class PanelView {
     }
   }
 
-
-  
-  static BindProgress(value,interval) {
+  static BindProgress(value, interval) {
     const el = document.getElementById('ActionProgress')
     let width = el.parentElement.offsetWidth * value / interval
-    if(width>100){width=100}
+    if (width > 100) { width = 100 }
     el.style.width = width + '%'
   }
 
-  static SetFishActionView(element)
-  {
-    const but=document.createElement('input')
-    but.type='button'
-    but.value='Horgászsás'
+  static SetFishActionView(element) {
+    const but = document.createElement('input')
+    but.type = 'button'
+    but.value = 'Horgászsás'
     element.append(but)
     return but
   }
-
 
   static #createTemplate() {
 
@@ -377,213 +349,174 @@ export class PanelView {
     }
 
     document.querySelector('body').append(div)
-return div
+    return div
   }
 
-static QuestPanelShow(questList,isometricBlocks)
-{
-  const questPanel = document.getElementById('quests')
+  static QuestPanelShow(questList, isometricBlocks) {
+    const questPanel = document.getElementById('quests')
 
-questList.forEach(quest => {
-  const div2 = this.GenerateQuestCard(quest,isometricBlocks)
-  questPanel.append(div2)
-});
-
-
-}
-
-
-
-static async ShowShopItems(element,game)
-{
-const offers = await getAllOffer()
-const itemsContainer = element.querySelector('#items')
-itemsContainer.innerHTML=''
-offers.forEach(offer=>
-  {
-    itemsContainer.innerHTML+=`<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
-  })
-  itemsContainer.addEventListener('click',(e)=>{
-    if(e.target instanceof HTMLInputElement){
-    BuyOffer(e.target.parentElement.id,game)}
-  }
-    )
-}
-
-
-static AddNewOffer(offer)
-{
-const itemsContainer = document.getElementById('items')
-itemsContainer.innerHTML=`<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input type="button" value="Buy"><br></div>`+itemsContainer.innerHTML
-}
-
-
-static DeleteOffer(offerId)
-{
-  const offer = document.getElementById(offerId)
-  if(offer)
-  {
-    offer.remove()
+    questList.forEach(quest => {
+      const div2 = this.GenerateQuestCard(quest, isometricBlocks)
+      questPanel.append(div2)
+    });
   }
 
-}
-
-
-
-static async ShowAddNewOfferPanel(game,e)
-{
-const tem = PanelView.GetOwnTemplate('newOffer')
-const container = PanelView.#createTemplate()
-container.innerHTML+=tem.cloneNode(true).innerHTML
-container.id='newOffer'
-const resources = await getAllItems()
-const selects = container.querySelectorAll('select')
-  resources.forEach(item=>{
-    selects.forEach(el=>{
-      el.innerHTML+=`<option value='${item.name}'>${item.name}</option>`
+  static async ShowShopItems(element, game) {
+    const offers = await getAllOffer()
+    const itemsContainer = element.querySelector('#items')
+    itemsContainer.innerHTML = ''
+    offers.forEach(offer => {
+      itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
     })
-
-  })
-
-  container.addEventListener('submit',(e)=>AddNewOffer(e,game))
-  e.target.parentElement.prepend(container)
-
-
-
-return container
-
-}
-
-static GenerateQuestCard(quest,isometricBlocks)
-{
-  let div2 = document.getElementById('quests').querySelector('#'+quest.quest_id)
-  if(div2){div2.innerHTML=""}
-  if(!div2)
-  {
-    div2 = document.createElement('div')
+    itemsContainer.addEventListener('click', (e) => {
+      if (e.target instanceof HTMLInputElement) {
+        BuyOffer(e.target.parentElement.id, game)
+      }
+    }
+    )
   }
-  div2.classList.add("questCard")
-div2.id=quest.quest_id
-div2.innerHTML+=`<p>${quest.quest_id}</p>`
-if(quest.currentProgress>=quest.Quest.target_amount)
-  {
-    div2.innerHTML+='Térj vissza '+quest.Resident.resident_name+' - hoz'
+
+  static AddNewOffer(offer) {
+    const itemsContainer = document.getElementById('items')
+    itemsContainer.innerHTML = `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input type="button" value="Buy"><br></div>` + itemsContainer.innerHTML
   }
-  else{
-  switch (quest.Quest.category) {
-    case "Killer":
-      div2.innerHTML+=`<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
-      break;
-  case "Conversation":
-    div2.innerHTML+=`<p>Beszélj ${quest.Quest.target_resident} - ral</p>`
-    break;
-    case "Collector":
-      div2.innerHTML+=`<p>Szerezz ${quest.Quest.target_amount} db ${quest.Quest.Item.name} - t</p>`
-      break;
-      case "Exploring":
-        div2.innerHTML+=`<p>Juss el a ${isometricBlocks[quest.Quest.blockX][quest.Quest.blockY].name} - re</p>`
-        break;
-    default:
-      break;
-  }
-  div2.innerHTML+=`<p><span id="progress">${quest.currentProgress}</span>/${quest.Quest.target_amount}</p>`
-}
-  
-  this.#processElement(div2,quest)
-  return div2
-}
 
 
-static ModifyQuestProgress(quest_id,newProgress)
-{
-  const progressHolder = document.getElementById(quest_id).querySelector('#progress')
-  if(progressHolder)
-  {
-    progressHolder.innerHTML=newProgress
+  static DeleteOffer(offerId) {
+    const offer = document.getElementById(offerId)
+    if (offer) {
+      offer.remove()
+    }
   }
-}
 
+  static async ShowAddNewOfferPanel(game, e) {
+    const tem = PanelView.GetOwnTemplate('newOffer')
+    const container = PanelView.#createTemplate()
+    container.innerHTML += tem.cloneNode(true).innerHTML
+    container.id = 'newOffer'
+    const resources = await getAllItems()
+    const selects = container.querySelectorAll('select')
+    resources.forEach(item => {
+      selects.forEach(el => {
+        el.innerHTML += `<option value='${item.name}'>${item.name}</option>`
+      })
+
+    })
+    container.addEventListener('submit', (e) => AddNewOffer(e, game))
+    e.target.parentElement.prepend(container)
+
+    return container
+  }
+
+  static GenerateQuestCard(quest, isometricBlocks) {
+    let div2 = document.getElementById('quests').querySelector('#' + quest.quest_id)
+    if (div2) { div2.innerHTML = "" }
+    if (!div2) {
+      div2 = document.createElement('div')
+    }
+    div2.classList.add("questCard")
+    div2.id = quest.quest_id
+    div2.innerHTML += `<p>${quest.quest_id}</p>`
+    if (quest.currentProgress >= quest.Quest.target_amount) {
+      div2.innerHTML += 'Térj vissza ' + quest.Resident.resident_name + ' - hoz'
+    }
+    else {
+      switch (quest.Quest.category) {
+        case "Killer":
+          div2.innerHTML += `<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
+          break;
+        case "Conversation":
+          div2.innerHTML += `<p>Beszélj ${quest.Quest.target_resident} - ral</p>`
+          break;
+        case "Collector":
+          div2.innerHTML += `<p>Szerezz ${quest.Quest.target_amount} db ${quest.Quest.Item.name} - t</p>`
+          break;
+        case "Exploring":
+          div2.innerHTML += `<p>Juss el a ${isometricBlocks[quest.Quest.blockX][quest.Quest.blockY].name} - re</p>`
+          break;
+        default:
+          break;
+      }
+      div2.innerHTML += `<p><span id="progress">${quest.currentProgress}</span>/${quest.Quest.target_amount}</p>`
+    }
+
+    this.#processElement(div2, quest)
+    return div2
+  }
+
+  static ModifyQuestProgress(quest_id, newProgress) {
+    const progressHolder = document.getElementById(quest_id).querySelector('#progress')
+    if (progressHolder) {
+      progressHolder.innerHTML = newProgress
+    }
+  }
 
   static NPCPanel(panel, element) {
     const resident = panel.context
     const quest = panel.context.quest
     const el = element
-    if(quest){
-      if(quest.is_completed)
-{
-  el.innerHTML='Generate new quest'
-  return
-}
-  if(quest.is_active)
-  {
-    if(quest.currentProgress>=quest.Quest.target_amount)
-  {
-    const but=document.createElement('input')
-    but.type = 'button'
-    but.value = "Küldetés leadás"
-    but.addEventListener('click',()=>{
-      Story.StartConversation('after/'+quest.Quest.quest_name,quest)
-    },{once:true})
-    el.append(but)
-  }
-  else
-  {
-    el.innerHTML='<p>Sok sikert kedves utazó!</p>'
-  }
-  }
-  else
-  {
-    el.innerHTML+=`<p>Szia van egy küldetésem számodra</p>`
-    const but=document.createElement('input')
-    but.type = 'button'
-    but.value = "Küldetés felvétele"
-    but.addEventListener('click',()=>{
-      Story.StartConversation('pre/'+quest.Quest.quest_name,quest)
-    },{once:true}
-      )
-    el.append(but)
-  }
-}
-else
-{
-  el.innerHTML='<p>Üdvözöllek bátor utazó!</p>'
-}
-const anotherQuest = IsTargetResident(resident,resident.game.player.quests)
-if(anotherQuest)
-{
-  if(anotherQuest.currentProgress<anotherQuest.Quest.target_amount){
-  const but = document.createElement('input')
-  but.type='button'
-  but.value='Párbeszéd indítása'+'('+anotherQuest.Quest.quest_name+')'
-  but.addEventListener('click',()=>{
-    ConversationQuests(anotherQuest)
-    Story.StartConversation('during/'+anotherQuest.Quest.quest_name,anotherQuest)
-    },{once:true}
-    )
-    el.innerHTML=""
-    el.append(but)
-  }
-}
-
-
+    if (quest) {
+      if (quest.is_completed) {
+        el.innerHTML = 'Generate new quest'
+        return
+      }
+      if (quest.is_active) {
+        if (quest.currentProgress >= quest.Quest.target_amount) {
+          const but = document.createElement('input')
+          but.type = 'button'
+          but.value = "Küldetés leadás"
+          but.addEventListener('click', () => {
+            Story.StartConversation('after/' + quest.Quest.quest_name, quest)
+          }, { once: true })
+          el.append(but)
+        }
+        else {
+          el.innerHTML = '<p>Sok sikert kedves utazó!</p>'
+        }
+      }
+      else {
+        el.innerHTML += `<p>Szia van egy küldetésem számodra</p>`
+        const but = document.createElement('input')
+        but.type = 'button'
+        but.value = "Küldetés felvétele"
+        but.addEventListener('click', () => {
+          Story.StartConversation('pre/' + quest.Quest.quest_name, quest)
+        }, { once: true }
+        )
+        el.append(but)
+      }
+    }
+    else {
+      el.innerHTML = '<p>Üdvözöllek bátor utazó!</p>'
+    }
+    const anotherQuest = IsTargetResident(resident, resident.game.player.quests)
+    if (anotherQuest) {
+      if (anotherQuest.currentProgress < anotherQuest.Quest.target_amount) {
+        const but = document.createElement('input')
+        but.type = 'button'
+        but.value = 'Párbeszéd indítása' + '(' + anotherQuest.Quest.quest_name + ')'
+        but.addEventListener('click', () => {
+          ConversationQuests(anotherQuest)
+          Story.StartConversation('during/' + anotherQuest.Quest.quest_name, anotherQuest)
+        }, { once: true }
+        )
+        el.innerHTML = ""
+        el.append(but)
+      }
+    }
   }
 
-
-  static ToolPanel(game)
-  {
+  static ToolPanel(game) {
     const div = PanelView.#createTemplate()
-    game.player.tools.forEach(tool=>{
+    game.player.tools.forEach(tool => {
       const card = PanelView.GetOwnTemplate('toolPanel').content.cloneNode(true)
       const div2 = document.createElement('div')
       div2.classList.add("toolCard")
       div2.append(card)
-PanelView.#processElement(div2,tool)
-div.append(div2)
-
-
+      PanelView.#processElement(div2, tool)
+      div.append(div2)
     })
     document.querySelector('body').append(div)
     return div
   }
-
 }

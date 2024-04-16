@@ -181,9 +181,7 @@ div#Action {
   color: gold;
   margin-inline: 25%;
   font-weight: bold;
-  bottom: 0;;
-  border-image: url(/Frontend/GamePage/assets/gameBG/border2.png) 70;
-  border-top: 10px solid;
+  bottom: 0;
   padding-top: 10px;
 }
 .conversationPanel figure {
@@ -225,10 +223,13 @@ div#Action {
 }
 
 #quests {
+  background: url(/Frontend/GamePage/assets/gameBG/bg1.png);
+  border: 10px solid transparent; /* Vastagság és típus beállítása */
+  border-image: url(/Frontend/GamePage/assets/gameBG/border2.png) 70; /* Border kép beállítása */
+  color: gold;
   top: 4vw;
-  right: 0%;
-  height: calc(100% - 8vw);
-  overflow-y: scroll;
+  right: 20px;
+  height: 300px;
   scroll-behavior: smooth;
   scroll-margin: 0;
   scroll-padding: 0;
@@ -237,7 +238,6 @@ div#Action {
 
 .questCard {
   text-align: center;
-  border: 2px solid black;
   margin: 5px;
 }
 

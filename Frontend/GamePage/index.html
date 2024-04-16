@@ -1,116 +1,108 @@
 <!DOCTYPE html>
 <html lang="hu">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game</title>
-    <link rel="stylesheet" href="styles/style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+
+<body>
 
 
-    <canvas id="game"></canvas>
+  <canvas id="game"></canvas>
 
 
-    <template id="navigationPanel">
-      <input type="button" id="forward" value="Ugrás {{name}}" />
-      <input type="button" id="backward" value="Ugrás {{name}}" />
-    </template>
+  <template id="navigationPanel">
+    <input type="button" id="forward" value="Ugrás {{name}}" />
+    <input type="button" id="backward" value="Ugrás {{name}}" />
+  </template>
 
-    <template id="HighlightEntities">
-      <p>{{name}}</p>
-      <p>{{profession}}</p>
-      <p>{{level}}</p>
-      <div id="HP"><div></div></div>
-    </template>
+  <template id="HighlightEntities">
+    <p>{{name}}</p>
+    <p>{{profession}}</p>
+    <p>{{level}}</p>
+    <div id="HP">
+      <div></div>
+    </div>
+  </template>
 
-    <template id="dead">
-      <p>Meghaltál!</p>
-      <input type="button" value="Újraéledés" />
-    </template>
+  <template id="dead">
+    <p>Meghaltál!</p>
+    <input type="button" value="Újraéledés" />
+  </template>
 
 
-    <template id="Action">
-      <div id="ActionProgress"></div>
-    </template>
+  <template id="Action">
+    <div id="ActionProgress"></div>
+  </template>
 
-    <template id="NPCPanel">
+  <template id="NPCPanel">
 
-    </template>
+  </template>
 
-    <template id="blockPanel">
+  <template id="blockPanel">
 
-    </template>
+  </template>
 
-    <template id="enterInterior">
-      <input type="button" value="Belépés a házba">
-    </template>
-    <template id="leaveInterior">
-<input type="button" value="Kilépés a házból">
-    </template>
-<template id="questPanel">
-  <p>{{Quest.quest_name}}</p>
-</template>
+  <template id="enterInterior">
+    <input type="button" value="Belépés a házba">
+  </template>
+  <template id="leaveInterior">
+    <input type="button" value="Kilépés a házból">
+  </template>
+  <template id="questPanel">
+    <p>{{Quest.quest_name}}</p>
+  </template>
 
-<template id="toolPanel">
-<p>{{tool_name}}</p>
-<p>{{level}}</p>
-<p>{{attack}}</p>
-</template>
+  <template id="toolPanel">
+    <p>{{tool_name}}</p>
+    <p>{{level}}</p>
+    <p>{{attack}}</p>
+  </template>
 
-<template id="shop">
-  <input type="button" value="Ajánlat feladása" id="newOffer">
-  <label><input type="number" min="1"> db egy oldalon</label><br>
-  <label><input type="number" min="1"> oldal</label>
-<div id="items"></div>
-</template>
-<template id="newOffer">
-  <form action="http://127.0.0.1:3000/market" method="post">
-<label>Kínált mennyiség: <input name="offeredAmount" type="number" min="1" value="1" required></label><br>
-<label>Kínált alapanyag: <select name="offeredType" required></select></label><br>
-<label>Kért mennyiség: <input name="soughtAmount" type="number" min="1" value="1" required></label><br>
-<label>Kért alapanyag: <select name="soughtType" required></select></label><br>
-<input type="submit" value="Feladás">
-</form>
-</template>
-    <div id="charStats">
-      <div>
-        <img id="pfp" src="./assets/icons/pfpBorder.png" />
-        <div class="progress">
-          <div class="bar">100/100</div>
-        </div>
+  <template id="shop">
+    <input type="button" value="Ajánlat feladása" id="newOffer">
+    <label><input type="number" min="1"> db egy oldalon</label><br>
+    <label><input type="number" min="1"> oldal</label>
+    <div id="items"></div>
+  </template>
+  <template id="newOffer">
+    <form action="http://127.0.0.1:3000/market" method="post">
+      <label>Kínált mennyiség: <input name="offeredAmount" type="number" min="1" value="1" required></label><br>
+      <label>Kínált alapanyag: <select name="offeredType" required></select></label><br>
+      <label>Kért mennyiség: <input name="soughtAmount" type="number" min="1" value="1" required></label><br>
+      <label>Kért alapanyag: <select name="soughtType" required></select></label><br>
+      <input type="submit" value="Feladás">
+    </form>
+  </template>
+  <div id="charStats">
+    <div>
+      <img id="pfp" src="./assets/icons/pfpBorder.png" />
+      <div class="progress">
+        <div class="bar">100/100</div>
       </div>
-      <span>
-        <span id="money" data-title="Pénz"
-          ><img class="navIMG" src="./assets/icons/coinIcon.png" /><span></span
-        ></span>
-        <span id="sword" data-title="Eszközök"
-          ><img class="navIMG" src="./assets/icons/swordIcon.png" /><span
-          >Eszközök</span
-          ></span
-        >
-      </span>
-      <br />
-      <span id="inventory" data-title="Inventory"
-        ><img class="navIMG" src="./assets/icons/bagIcon.png"
-      /></span>
-      
     </div>
-    <div id="quests">
-      <h2>Aktív Küldetések</h2>
-    </div>
-    <span data-title="Kilépés" id="logout"
-      ><img class="navIMG" src="./assets/icons/logout.png"
-    /></span>
-    <span id="clock" data-title="Óra"
-      ><img src="./assets/icons/pocketWatch.png" class="navIMG"
-    /></span>
-    <span id="map" data-title="Mini térkép"
-      ><img class="navIMG" src="./assets/icons/mapIcon.png"
-    /></span>
-    <p id="mouseCoordinates" class="relative"></p>
+    <span>
+      <span id="money" data-title="Pénz"><img class="navIMG" src="./assets/icons/coinIcon.png" /><span></span></span>
+      <span id="sword" data-title="Eszközök"><img class="navIMG"
+          src="./assets/icons/swordIcon.png" /><span>Eszközök</span></span>
+    </span>
+    <br />
+    <span id="inventory" data-title="Inventory"><img class="navIMG" src="./assets/icons/bagIcon.png" /></span>
 
-    <script type="module" src="main.js"></script>
-    <!-- <script type="module" src="../services/test.js"></script> -->
-  </body>
+  </div>
+  <div id="quests">
+    <h2>Aktív Küldetések</h2>
+  </div>
+  <span data-title="Kilépés" id="logout"><img class="navIMG" src="./assets/icons/logout.png" /></span>
+  <span id="clock" data-title="Óra"><img src="./assets/icons/pocketWatch.png" class="navIMG" /></span>
+  <span id="map" data-title="Mini térkép"><img class="navIMG" src="./assets/icons/mapIcon.png" /></span>
+  <p id="mouseCoordinates" class="relative"></p>
+
+  <script type="module" src="main.js"></script>
+  <!-- <script type="module" src="../services/test.js"></script> -->
+</body>
+
 </html>

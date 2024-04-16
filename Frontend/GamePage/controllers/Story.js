@@ -62,6 +62,7 @@ export class Story {
         }, currentText.length / 5)
     }
     static HideConversationPanel() {
+        game.classList.remove('hide')
         Story.currentConversationPanel.remove()
     }
     static async LoadFile(filePath) {
@@ -90,6 +91,7 @@ export class Story {
                     Story.currentConversationPanel.remove()
                     callback instanceof Function ? callback(index) : null
                     Story.gameController.player.isInConversation = false
+                    game.classList.remove('hide')
                     return
                 }
                 index++
