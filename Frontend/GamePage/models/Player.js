@@ -206,7 +206,7 @@ if(this.isAction.timer>this.isAction.interval)
           {
             const gottenAmount=Random(0,6)
             this.inventory[this.isAction.action]+=gottenAmount
-            putPlayer({[this.isAction.action]:this.inventory.Wood})
+            putPlayer({[this.isAction.action]:this.inventory[this.isAction.action]})
             CollectorQuests(this.isAction.action,gottenAmount,this.quests,this.game.isometricBlocks)
             this.isAction.timer=0
             PanelView.BindProgress(this.isAction.timer,this.isAction.interval)
