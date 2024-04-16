@@ -22,6 +22,12 @@ export const putOffer = (offerId, data) => {
   return base("/market/" + offerId, 'PUT', data)
 };
 
+
+export const buyOffer = (offerId, data) => {
+  return base("/market/buy/"+offerId, 'PUT', data)
+}
+
+
 // DELETE
 
 export const deleteOffer = (offerId) => {
