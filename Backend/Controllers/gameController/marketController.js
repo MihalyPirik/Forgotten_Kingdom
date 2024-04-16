@@ -57,8 +57,8 @@ const postOffer = async (req, res, next) => {
       },
     });
   
-    const currentAmount = player.find(item => item.item == offeredType).amount;
-    console.log(currentAmount);
+    const currentAmount = player.find(item => item.item == offeredType);
+    if(currentAmount){currentAmount=currentAmount.amount}
 
     if (!currentAmount) {
       return res.status(400).json({ data: { message: `Nincs ilyen alapanyagod!` } });

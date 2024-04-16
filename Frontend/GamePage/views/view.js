@@ -430,7 +430,7 @@ static DeleteOffer(offerId)
 
 
 
-static async ShowAddNewOfferPanel(_game,e)
+static async ShowAddNewOfferPanel(game,e)
 {
 const tem = PanelView.GetOwnTemplate('newOffer')
 const container = PanelView.#createTemplate()
@@ -445,7 +445,7 @@ const selects = container.querySelectorAll('select')
 
   })
 
-  container.addEventListener('submit',AddNewOffer)
+  container.addEventListener('submit',(e)=>AddNewOffer(e,game))
   e.target.parentElement.prepend(container)
 
 

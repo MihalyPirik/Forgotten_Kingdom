@@ -10,17 +10,18 @@ export async function BuyOffer(offerId,game) {
     const offer = (await getAllOffer('offer_id='+"'"+offerId+"'"))[0]
     const soughtValue = game.player.inventory[offer.soughtType]-offer.soughtAmount
     const offeredValue = game.player.inventory[offer.offeredType]+offer.offeredAmount
-    
+
     buyOffer(offerId,{
-        [offer.soughtType]:soughtValue,
-        [offer.offeredType]:offeredValue
+        [offer.soughtType]:offer.soughtAmount,
+        [offer.offeredType]:offer.offeredAmount
     })
     
     game.player.inventory[offer.soughtType]=soughtValue
     game.player.inventory[offer.offeredType]=offeredValue
+    PanelView.DeleteOffer(offerId)
 }
 
-export async function AddNewOffer(event) {
+export async function AddNewOffer(event,game) {
     event.preventDefault()
     const data = {}
     new FormData(event.target).forEach((value,key)=>{
