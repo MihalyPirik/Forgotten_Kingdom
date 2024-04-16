@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize")
 const bcrypt = require('bcrypt')
 const dbConnection = require("../services/dbService")
-const { SetInitialState } = require("../middlewares/initialState")
+const { SetInitialState } = require("../utils/initialState.js")
 
 const Player = dbConnection.define
     (
@@ -129,15 +129,16 @@ const Player = dbConnection.define
             {
                 beforeCreate: async (user) => {
                     user.password = await bcrypt.hash(user.password, await bcrypt.genSalt(10))
-                }
+                },
+                afterCreate: SetInitialState
             },
         }
     )
 Player.associate = (models) => {
     Player.belongsToMany(models.ToolType, { through: models.Tool, foreignKey: "player_id", onDelete: "CASCADE" })
-    Player.belongsToMany(models.Quest, { through: { model:models.QuestStat,unique:false}, foreignKey: "player_id", onDelete: "CASCADE" })
-    Player.belongsToMany(models.EnemyType, { through: {model: models.Enemy,unique:false}, foreignKey: "world_id", onDelete: "CASCADE" })
-    Player.belongsToMany(models.Item,{through:models.Inventory,foreignKey:'player_id'})
+    Player.belongsToMany(models.Quest, { through: { model: models.QuestStat, unique: false }, foreignKey: "player_id", onDelete: "CASCADE" })
+    Player.belongsToMany(models.EnemyType, { through: { model: models.Enemy, unique: false }, foreignKey: "world_id", onDelete: "CASCADE" })
+    Player.belongsToMany(models.Item, { through: models.Inventory, foreignKey: 'player_id' })
     Player.hasMany(models.Resident, { foreignKey: "world_id", onDelete: "CASCADE" })
     Player.hasMany(models.Tool, { foreignKey: "player_id", onDelete: "CASCADE" })
     Player.hasMany(models.Enemy, { foreignKey: "world_id", onDelete: "CASCADE" })

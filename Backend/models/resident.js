@@ -7,18 +7,18 @@ const Resident = dbConnection.define
         {
             resident_id:
             {
-type:DataTypes.UUID,
-primaryKey:true
+                type: DataTypes.UUID,
+                primaryKey: true
             },
             resident_name:
             {
                 type: DataTypes.STRING,
-                allowNull:false
+                allowNull: false
             },
             profession:
             {
-                type: DataTypes.ENUM('Kereskedő','Kovács','Farmer','Szörnyvadász','Lovag','Mágus','Halász','Favágó','Boszorkány'),
-                allowNull:false
+                type: DataTypes.ENUM('Kereskedő', 'Kovács', 'Farmer', 'Szörnyvadász', 'Lovag', 'Mágus', 'Halász', 'Favágó', 'Boszorkány'),
+                allowNull: false
             },
             objX:
             {
@@ -44,9 +44,9 @@ primaryKey:true
                 allowNull: false,
                 defaultValue: 0
             },
-            isInterior:{
-                type:DataTypes.BOOLEAN,
-                defaultValue:false
+            isInterior: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
             }
         },
         {
@@ -56,6 +56,6 @@ primaryKey:true
 Resident.associate = (models) => {
     Resident.belongsTo(models.QuestStat, { foreignKey: 'quest_id' })
     // Resident.hasMany(models.Quest,{foreignKey:'target_resident'})
-    Resident.belongsTo(models.Player, {foreignKey: 'world_id', onDelete: "CASCADE"});
+    Resident.belongsTo(models.Player, { foreignKey: 'world_id', onDelete: "CASCADE" });
 }
 module.exports = Resident

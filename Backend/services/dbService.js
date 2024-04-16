@@ -63,7 +63,7 @@ module.exports=dbConnection;
 //   return data[0][0]
 // }
 // try {
-//dbConnection.sync({alter: true})
+// dbConnection.sync({alter: true})
 // } catch (error) {
 //   console.log(error.parent);
 // }
