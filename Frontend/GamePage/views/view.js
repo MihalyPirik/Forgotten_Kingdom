@@ -357,10 +357,6 @@ export class PanelView {
     const player = game.player
     let counter = 0
     for (const item in player.inventory) {
-      if(player.inventory[item]==0)
-      {
-        continue
-      }
       const img = document.createElement('img')
       img.src = `./assets/icons/${item}.png`
       img.classList.add('navIMG')
