@@ -43,7 +43,7 @@ if(!token)
 const p = document.getElementById('mouseCoordinates')
 
 const character=new Image()
-character.src='./assets/maincharacters/char_a_p1_0bas_humn_v01.png'
+character.src='./assets/maincharacters/player.png'
 
 
 window.addEventListener('load', () => {
@@ -70,7 +70,6 @@ const inventory = await getInventory()
 game.player = new Player(playerData.player_name,character,playerData.HP,playerData.money,inventory,game,playerData.tools)
 game.player.tools = playerData.ToolTypes
 
-  // game.player=new Player('valami',character,100,100,{stone:100,wood:100,fish:100,coal:100,iron:100,wheat:100},game)
 InitEvents(game)
 
 

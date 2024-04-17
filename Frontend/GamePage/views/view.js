@@ -9,6 +9,7 @@ import { getAllOffer } from '../../services/marketService.js'
 import { getAllItems } from '../../services/playerService.js'
 import { AddNewOffer, BuyOffer } from '../controllers/PublicMarket.js'
 import { Panel } from '../models/Panel.js'
+import { Entity } from '../models/Entity.js'
 export class GameView {
   constructor(canvas, game) {
     /**
@@ -115,6 +116,21 @@ export class GameView {
       this.context.stroke()
     }
   }
+
+/**
+ * 
+ * @param {Entity} entity 
+ */
+  ClearEntity(entity)
+  {
+    this.context.clearRect(
+      entity.spriteX,
+      entity.spriteY,
+      entity.width,
+      entity.height
+    )
+  }
+
 
   #InitCanvas() {
     this.canvas.width = innerWidth * 0.5
@@ -341,6 +357,7 @@ export class PanelView {
       if (counter == 3) {
         div.append(document.createElement('br'))
       }
+      div1.id=item
       const div2 = document.createElement('div')
       div2.append(div1)
       div.append(div2)
@@ -350,6 +367,20 @@ export class PanelView {
     document.querySelector('body').append(div)
     return div
   }
+
+  static BindInventoryItem(itemType,value)
+  {
+    let element = document.querySelector('div#inventory')
+    if(!element)
+    {
+      return
+    }
+      element = element.querySelector('#'+itemType)
+      element = element.childNodes
+      element = element[element.length-1]
+      element.nodeValue = value
+  }
+
 
   static QuestPanelShow(questList, isometricBlocks) {
     const questPanel = document.getElementById('quests')

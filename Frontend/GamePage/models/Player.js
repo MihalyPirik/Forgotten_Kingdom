@@ -5,6 +5,7 @@ import { Point } from "./Point.js"
 import { Random } from '../utils/probability.js'
 import { putPlayer } from "../../services/playerService.js"
 import { CollectorQuests } from "../controllers/Quest.js"
+import { SpriteController } from "../controllers/Sprite.js"
 export class Player extends Entity {
   #money = null
   #hp = null
@@ -171,6 +172,7 @@ export class Player extends Entity {
             const gottenAmount = Random(1, 6)
             this.inventory.Fish += gottenAmount
             putPlayer({ Fish: this.inventory.Fish })
+            PanelView.BindInventoryItem('Fish', this.inventory.Fish)
             CollectorQuests('Fish', gottenAmount, this.quests, this.game.isometricBlocks)
             this.isAction.timer = 0
             this.isAction.is = this.false
@@ -186,6 +188,7 @@ export class Player extends Entity {
           const gottenAmount = Random(1, 6)
           this.inventory[this.isAction.action] += gottenAmount
           putPlayer({ [this.isAction.action]: this.inventory[this.isAction.action] })
+          PanelView.BindInventoryItem(this.isAction.action,this.inventory[this.isAction.action])
           CollectorQuests(this.isAction.action, gottenAmount, this.quests, this.game.isometricBlocks)
           this.isAction.timer = 0
           PanelView.BindProgress(this.isAction.timer, this.isAction.interval)

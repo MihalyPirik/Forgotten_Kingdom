@@ -1,7 +1,7 @@
 import {GameController} from '../controllers/Game.js'
 import { Point } from './Point.js'
 export class Entity {
-    constructor(game, sprite, objX = 0, objY = 0, width = 255, height = 255, spriteWidth = 64, spriteHeight = 64,id=null,isInterior=false) {
+    constructor(game, sprite, objX = 0, objY = 0, width = 255, height = 255, spriteWidth = 230, spriteHeight = 230,id=null,isInterior=false) {
       /**
        * @type {GameController}
        */

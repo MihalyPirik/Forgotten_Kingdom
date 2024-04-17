@@ -80,6 +80,10 @@ if(value!=null){
         }
         if(this.player.isAction.is)
         {
+          this.gameView.ClearEntity(this.player)
+          SpriteController.MovePlayer(this.player)
+          this.gameView.RenderEntity(this.player)
+          
           if(this.player.isAction.canExecute)
           {
           this.player.Action()

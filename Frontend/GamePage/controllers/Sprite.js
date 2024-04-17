@@ -45,11 +45,55 @@ static MoveSprite(entity,angle)
 
   static MovePlayer=(player)=>
   {
-    if(!player.move.event){
-      if(player.frameX!=0)
+function ActionBase(frameY,isRightside) {
+  
+            if (player.move.timer > player.move.interval) {
+              
+              if (player.frameX < (isRightside?11:5)) {
+                player.frameX += 1
+                
+                
+              }
+              else {
+                player.frameX = isRightside?6:0
+              }
+              player.move.timer = 0
+            }
+            player.frameY = frameY
+            player.move.timer++
+}
+    if(player.isAction.is)
+    {
+      if(player.isAction.action == 'Stone'
+      ||
+      player.isAction.action == 'Iron'
+      ||
+      player.isAction.action == 'Coal')
       {
-        player.frameX = 0
+        if(player.frameX<6){
+          ActionBase(5,false)}
+          else
+          {
+            ActionBase(5,true)
+          }
       }
+      switch (player.isAction.action) {
+        case 'Fish':
+          ActionBase(7,false)
+          break;
+      case 'Wood':
+        ActionBase(6,false)
+        break;
+        case 'Wheat':
+          ActionBase(6,true)
+        default:
+          break;
+      }
+      return
+    }
+
+    if(!player.move.event){
+
     }
       else {
         
@@ -60,16 +104,17 @@ static MoveSprite(entity,angle)
         if (player.move.event.key == 'd') {
 
             newX += player.speed
+            if(player.frameX<6){player.frameX = 6}
             if (player.move.timer > player.move.interval) {
-              if (player.frameX < 5) {
+              if (player.frameX < 11) {
                 player.frameX += 1
               }
               else {
-                player.frameX = 0
+                player.frameX = 6
               }
               player.move.timer = 0
             }
-            player.frameY = 6
+            player.frameY = 2
         }
         if (player.move.event.key == 'a') {
             newX -= player.speed
@@ -82,7 +127,7 @@ static MoveSprite(entity,angle)
               }
               player.move.timer = 0
             }
-            player.frameY = 7
+            player.frameY = 2
         }
         if (player.move.event.key == 'w') {
 
@@ -96,7 +141,7 @@ static MoveSprite(entity,angle)
               }
               player.move.timer = 0
             }
-            player.frameY = 5
+            player.frameY = 3
         }
         if (player.move.event.key == 's') {
             newY += player.speed
@@ -109,7 +154,7 @@ static MoveSprite(entity,angle)
               }
               player.move.timer = 0
             }
-            player.frameY = 4
+            player.frameY = 2
         }
         player.move.timer++
         return new Point(newX,newY)

@@ -74,7 +74,7 @@ new Circle(game.width*0.337,game.height*0.523,game.width*0.01)
         [
             new Panel('navigationPanel',game.width*0.23,game.height*0.76,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},null,await GetIcon('directionSigns')),
             new Panel('navigationPanel',game.width*0.68,game.height*0.8,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},null,await GetIcon('directionSigns')),
-            new Panel('Action',game.width*0.63,game.height*0.61,game.width*0.03,false,{action:"Aratás"}),
+            new Panel('Action',game.width*0.63,game.height*0.61,game.width*0.03,false,{action:"Wheat"}),
             new Panel('enterInterior',game.width*0.4,game.height*0.52,game.width*0.05,false)
         ],
         0.12,
