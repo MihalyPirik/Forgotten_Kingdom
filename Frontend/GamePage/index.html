@@ -9,10 +9,7 @@
 </head>
 
 <body>
-
-
   <canvas id="game"></canvas>
-
 
   <template id="navigationPanel">
     <input type="button" id="forward" value="Ugrás {{name}}" />
@@ -49,9 +46,11 @@
   <template id="enterInterior">
     <input type="button" value="Belépés a házba">
   </template>
+
   <template id="leaveInterior">
     <input type="button" value="Kilépés a házból">
   </template>
+
   <template id="questPanel">
     <p>{{Quest.quest_name}}</p>
   </template>
@@ -68,6 +67,7 @@
     <label><input type="number" min="1"> oldal</label>
     <div id="items"></div>
   </template>
+
   <template id="newOffer">
     <form action="http://127.0.0.1:3000/market" method="post">
       <label>Kínált mennyiség: <input name="offeredAmount" type="number" min="1" value="1" required></label><br>
@@ -77,28 +77,26 @@
       <input type="submit" value="Feladás">
     </form>
   </template>
+
   <div id="charStats">
     <div>
-      <img id="pfp" src="./assets/icons/pfpBorder.png" />
+      <img id="pfp" src="./assets/portaits/Játékos.png" />
       <div class="progress">
         <div class="bar">100/100</div>
       </div>
     </div>
-    <span>
-      <span id="money" data-title="Pénz"><img class="navIMG" src="./assets/icons/coinIcon.png" /><span></span></span>
-      <span id="sword" data-title="Eszközök"><img class="navIMG"
-          src="./assets/icons/swordIcon.png" /><span>Eszközök</span></span>
-    </span>
-    <br />
-    <span id="inventory" data-title="Inventory"><img class="navIMG" src="./assets/icons/bagIcon.png" /></span>
-
+    <div id="functionPanel">
+      <span id="money"><img class="IMG" src="./assets/icons/coinIcon.png" /><span></span></span>
+      <span id="sword"><img class="IMG" src="./assets/icons/swordIcon.png" /></span>
+      <span id="inventory"><img class="IMG" src="./assets/icons/bagIcon.png" /></span>
+    </div>
   </div>
+
   <div id="quests">
     <h2>Aktív Küldetések</h2>
   </div>
-  <span data-title="Kilépés" id="logout"><img class="navIMG" src="./assets/icons/logout.png" /></span>
-  <span id="clock" data-title="Óra"><img src="./assets/icons/pocketWatch.png" class="navIMG" /></span>
-  <span id="map" data-title="Mini térkép"><img class="navIMG" src="./assets/icons/mapIcon.png" /></span>
+  <span id="logout"><img class="IMG" src="./assets/icons/logout.png" /></span>
+  <span id="map"><img class="IMG" src="./assets/icons/mapIcon.png" /></span>
   <p id="mouseCoordinates" class="relative"></p>
 
   <script type="module" src="main.js"></script>

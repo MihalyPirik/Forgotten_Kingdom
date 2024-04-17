@@ -331,9 +331,8 @@ export class PanelView {
     for (const item in player.inventory) {
       const img = document.createElement('img')
       img.src = `./assets/icons/${item}.png`
-      img.classList.add('navIMG')
+      img.classList.add('IMG')
       const span = document.createElement('span')
-      span.setAttribute('data-title', item)
       span.append(img)
       const div1 = document.createElement('div')
       div1.append(span)
@@ -508,6 +507,7 @@ export class PanelView {
 
   static ToolPanel(game) {
     const div = PanelView.#createTemplate()
+    div.id = 'sword'
     game.player.tools.forEach(tool => {
       const card = PanelView.GetOwnTemplate('toolPanel').content.cloneNode(true)
       const div2 = document.createElement('div')
