@@ -1,4 +1,4 @@
-const URL = "https://bgs.jedlik.eu:8100";
+const URL = "http://127.0.0.1:3000";
 const token = localStorage.getItem('token')
 
 export function base(url, method, data) {

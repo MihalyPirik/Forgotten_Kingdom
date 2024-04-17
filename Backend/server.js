@@ -20,12 +20,12 @@ const toolRouter = require("./routes/gameRoutes/toolRoutes");
 const questRouter = require("./routes/gameRoutes/questRoutes");
 const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes')
 
-const https = require('https');
-const fs = require('fs');
+// const https = require('https');
+// const fs = require('fs');
 
-const certDir = `/etc/letsencrypt/live`;
-const domain = `bgs.jedlik.eu`;
-const options = { key: fs.readFileSync(`${certDir}/${domain}/privkey.pem`), cert: fs.readFileSync(`${certDir}/${domain}/fullchain.pem`) };
+// const certDir = `/etc/letsencrypt/live`;
+// const domain = `bgs.jedlik.eu`;
+// const options = { key: fs.readFileSync(`${certDir}/${domain}/privkey.pem`), cert: fs.readFileSync(`${certDir}/${domain}/fullchain.pem`) };
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
@@ -36,7 +36,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://pmweb.hu");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, PATCH, DELETE"
@@ -120,8 +120,8 @@ app.use(
 )
 app.use(errorHandler);
 
-// app.listen(process.env.PORT, () => {
-//   console.log("Server started at port " + process.env.PORT || 3000);
-// });
+app.listen(process.env.PORT, () => {
+  console.log("Server started at port " + process.env.PORT || 3000);
+});
 
-https.createServer(options, app).listen(8100)
+// https.createServer(options, app).listen(8100)
