@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 require("./services/dbService");
 require("./models/relations");
-const { errorHandler } = require("./Controllers/errorController");
+const { errorHandler } = require("./controllers/errorController");
 const swaggerFile = require("./swagger_output.json");
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require("body-parser");
@@ -20,6 +20,13 @@ const toolRouter = require("./routes/gameRoutes/toolRoutes");
 const questRouter = require("./routes/gameRoutes/questRoutes");
 const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes')
 
+const https = require('https');
+const fs = require('fs');
+
+const certDir = `/etc/letsencrypt/live`;
+const domain = `bgs.jedlik.eu`;
+const options = { key: fs.readFileSync(`${certDir}/${domain}/privkey.pem`), cert: fs.readFileSync(`${certDir}/${domain}/fullchain.pem`) };
+
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(cors());
@@ -29,7 +36,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "https://pmweb.hu");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, PATCH, DELETE"
@@ -113,6 +120,8 @@ app.use(
 )
 app.use(errorHandler);
 
-app.listen(process.env.PORT, () => {
-  console.log("Server started at port " + process.env.PORT || 3000);
-});
+// app.listen(process.env.PORT, () => {
+//   console.log("Server started at port " + process.env.PORT || 3000);
+// });
+
+https.createServer(options, app).listen(8100)
