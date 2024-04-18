@@ -12,8 +12,8 @@
   <canvas id="game"></canvas>
 
   <template id="navigationPanel">
-    <input type="button" id="forward" value="Ugrás {{name}}" />
-    <input type="button" id="backward" value="Ugrás {{name}}" />
+    <input class="navigationButtons" type="button" id="forward" value="Ugrás {{name}}" />
+    <input class="navigationButtons" type="button" id="backward" value="Ugrás {{name}}" />
   </template>
 
   <template id="HighlightEntities">
@@ -27,7 +27,7 @@
 
   <template id="dead">
     <p>Meghaltál!</p>
-    <input type="button" value="Újraéledés" />
+    <input class="navigationButtonsDead" type="button" value="Újraéledés" />
   </template>
 
 
@@ -44,11 +44,11 @@
   </template>
 
   <template id="enterInterior">
-    <input type="button" value="Belépés a házba">
+    <input class="navigationButtonsEntity" type="button" value="Belépés a házba">
   </template>
 
   <template id="leaveInterior">
-    <input type="button" value="Kilépés a házból">
+    <input class="navigationButtonsEntity" type="button" value="Kilépés a házból">
   </template>
 
   <template id="questPanel">
@@ -62,7 +62,7 @@
   </template>
 
   <template id="shop">
-    <input type="button" value="Ajánlat feladása" id="newOffer">
+    <input class="navigationButtonsShop" type="button" value="Ajánlat feladása" id="newOffer">
     <label><input type="number" min="1"> db egy oldalon</label><br>
     <label><input type="number" min="1"> oldal</label>
     <div id="items"></div>
@@ -74,7 +74,7 @@
       <label>Kínált alapanyag: <select name="offeredType" required></select></label><br>
       <label>Kért mennyiség: <input name="soughtAmount" type="number" min="1" value="1" required></label><br>
       <label>Kért alapanyag: <select name="soughtType" required></select></label><br>
-      <input type="submit" value="Feladás">
+      <input class="navigationButtonsShop" type="submit" value="Feladás">
     </form>
   </template>
 

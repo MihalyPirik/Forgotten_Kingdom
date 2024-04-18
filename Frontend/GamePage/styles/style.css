@@ -33,8 +33,6 @@ img {
 }
 
 .gamePanel {
-  border: 5px solid black;
-  color: white;
   padding: 5px;
 }
 
@@ -143,6 +141,8 @@ div#HP div {
 }
 div#Action {
   min-width: 100px;
+  border: 3px solid black;
+  padding: 0px;
 }
 .portrait {
   display: inline-block;
@@ -202,7 +202,7 @@ div#Action {
 
 #ActionProgress {
   background-color: green;
-  height: 60px;
+  height: 50px;
 }
 
 #quests {
@@ -225,9 +225,12 @@ div#Action {
 }
 
 div#newOffer {
+  background: black;
   position: absolute;
   top: 0;
   right: auto;
+  padding: 5px;
+  color: gold;
 }
 
 #functionPanel {
@@ -250,4 +253,158 @@ div#newOffer {
 #functionPanel .IMG {
   width: 8vh;
   height: 8vh;
+}
+
+#navigationPanel {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  border-style: none;
+  font-size: 18px;
+}
+
+.navigationButtons {
+  background: url(/Frontend/GamePage/assets/buttons/button1.png) center
+    no-repeat;
+  background-size: 100% 100%;
+  transition-duration: 0.4s;
+  border-radius: 1rem;
+  font-weight: bold;
+  width: 90%;
+  min-width: 80px;
+  max-width: 110px;
+  padding: 5px;
+  margin: 2.5px;
+  font-size: 90%;
+  color: gold;
+  text-decoration: none;
+}
+
+.navigationButtons:hover {
+  background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
+  color: rgb(255, 255, 162);
+}
+
+.navigationButtonsEntity {
+  background: url(/Frontend/GamePage/assets/buttons/button1.png) center
+    no-repeat;
+  background-size: 100% 100%;
+  transition-duration: 0.4s;
+  border-radius: 1rem;
+  font-weight: bold;
+  width: 110%;
+  padding: 5px;
+  margin: 2.5px;
+  font-size: 90%;
+  color: gold;
+  text-decoration: none;
+}
+
+.navigationButtonsEntity:hover {
+  background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
+  color: rgb(255, 255, 162);
+}
+
+.navigationButtonsDead {
+  background: url(/Frontend/GamePage/assets/buttons/button1.png) center
+    no-repeat;
+  background-size: 100% 100%;
+  transition-duration: 0.4s;
+  border-radius: 1rem;
+  font-weight: bold;
+  width: 90%;
+  padding: 5px;
+  margin: 2.5px;
+  font-size: 90%;
+  color: gold;
+  text-decoration: none;
+}
+
+.navigationButtonsDead:hover {
+  background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
+  color: rgb(255, 255, 162);
+}
+
+.HighlightEntities {
+  background: url(/Frontend/GamePage/assets/gameBG/bg1.png);
+  border: 10px solid transparent;
+  border-image: url(/Frontend/GamePage/assets/gameBG/border2.png) 70;
+  color: gold;
+  height: 250;
+  min-width: 250px;
+  text-align: center;
+  scroll-behavior: smooth;
+  scroll-margin: 0;
+  scroll-padding: 0;
+  padding: 5px;
+  opacity: 0.9;
+}
+
+#dead {
+  background: url(/Frontend/GamePage/assets/gameBG/bg1.png);
+  border: 10px solid transparent;
+  border-image: url(/Frontend/GamePage/assets/gameBG/border2.png) 70;
+  color: gold;
+  text-align: center;
+  height: 150px;
+  width: 200px;
+}
+
+#message {
+  color: gold;
+  text-align: center;
+}
+
+#messageButton {
+  background: url(/Frontend/GamePage/assets/buttons/button1.png) center
+    no-repeat;
+  background-size: 100% 100%;
+  transition-duration: 0.4s;
+  border-radius: 1rem;
+  font-weight: bold;
+  width: 110%;
+  padding: 5px;
+  margin: 2.5px;
+  font-size: 90%;
+  color: gold;
+  text-decoration: none;
+}
+
+#messageButton:hover {
+  background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
+  color: rgb(255, 255, 162);
+}
+
+#shop {
+  background: url(/Frontend/GamePage/assets/gameBG/bg1.png);
+  border: 10px solid transparent;
+  border-image: url(/Frontend/GamePage/assets/gameBG/border2.png) 70;
+  color: gold;
+  height: 250;
+  min-width: 250px;
+  text-align: center;
+  scroll-behavior: smooth;
+  scroll-margin: 0;
+  scroll-padding: 0;
+  padding: 5px;
+}
+
+.navigationButtonsShop {
+  background: url(/Frontend/GamePage/assets/buttons/button1.png) center
+    no-repeat;
+  background-size: 100% 100%;
+  transition-duration: 0.4s;
+  border-radius: 1rem;
+  font-weight: bold;
+  width: 70%;
+  padding: 5px;
+  margin: 2.5px;
+  font-size: 90%;
+  color: gold;
+  text-decoration: none;
+}
+
+.navigationButtonsShop:hover {
+  background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
+  color: rgb(255, 255, 162);
 }
