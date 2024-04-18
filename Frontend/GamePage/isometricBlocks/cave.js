@@ -1,4 +1,7 @@
+import { Circle } from "../models/Circle.js";
+import { Line } from "../models/Line.js";
 import { Panel } from "../models/Panel.js";
+import { Point } from "../models/Point.js";
 import { IsometricBlock } from "../models/isometricBlock.js";
 import { GetIcon } from "../utils/imageLoader.js";
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js";
@@ -14,7 +17,46 @@ const CaveInterior = (game) => {
     inCave,
     null,
     [],
-    [],
+    [
+      new Line(new Point(game.width * 0.2008, game.height * 0.7846), new Point(game.width * 0.28418, game.height * 0.6325)),
+      new Circle(game.width * 0.28418, game.height * 0.6325, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.28418, game.height * 0.6325), new Point(game.width * 0.3493, game.height * 0.6045)),
+      new Circle(game.width * 0.3493, game.height * 0.6045, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.3493, game.height * 0.6045), new Point(game.width * 0.5961, game.height * 0.7111)),
+      new Circle(game.width * 0.5961, game.height * 0.7111, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.5961, game.height * 0.7111), new Point(game.width * 0.74358, game.height * 0.3995)),
+      new Circle(game.width * 0.74358, game.height * 0.3995, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.74358, game.height * 0.3995), new Point(game.width * 0.6794, game.height * 0.370600)),
+      new Circle(game.width * 0.6794, game.height * 0.370600, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.6794, game.height * 0.370600), new Point(game.width * 0.5544, game.height * 0.61283)),
+      new Circle(game.width * 0.5544, game.height * 0.61283, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.55448, game.height * 0.61283), new Point(game.width * 0.36431, game.height * 0.5331)),
+      new Circle(game.width * 0.36431, game.height * 0.5331, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.36431, game.height * 0.5331), new Point(game.width * 0.28418, game.height * 0.5817)),
+      new Circle(game.width * 0.28418, game.height * 0.5817, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.28418, game.height * 0.5817), new Point(game.width * 0.2051, game.height * 0.4523)),
+      new Circle(game.width * 0.2051, game.height * 0.4523, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.2051, game.height * 0.4523), new Point(game.width * 0.1506, game.height * 0.4875)),
+      new Circle(game.width * 0.1506, game.height * 0.4875, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.1506, game.height * 0.4875), new Point(game.width * 0.2211, game.height * 0.62422)),
+      new Circle(game.width * 0.220085, game.height * 0.6242, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.2211, game.height * 0.62422), new Point(game.width * 0.1388, game.height * 0.7536)),
+      new Circle(game.width * 0.1388, game.height * 0.7536, game.width * 0.01),
+
+      new Line(new Point(game.width * 0.1388, game.height * 0.7536), new Point(game.width * 0.2008, game.height * 0.7846)),
+      new Circle(game.width * 0.2008, game.height * 0.7846, game.width * 0.01),
+    ],
     [
       new Panel(
         "leaveInterior",
@@ -41,8 +83,8 @@ const CaveInterior = (game) => {
       ),
       new Panel(
         "Action",
-        game.width * 0.62,
-        game.height * 0.7,
+        game.width * 0.5833,
+        game.height * 0.6752,
         game.width * 0.03,
         false,
         { action: "Iron" }
@@ -51,6 +93,8 @@ const CaveInterior = (game) => {
     0.1,
     0.1
   );
+  game.player.objX = game.width * 0.47008
+  game.player.objY = game.width * 0.62008
   populateIsometricBlock(game, true);
   return game.currentBlock;
 };
@@ -60,7 +104,25 @@ export const Bánya = async (game) => {
     backGround,
     CaveInterior,
     [],
-    [],
+    [
+      new Line(new Point(game.width * 0.5053, game.height * 0.925), new Point(game.width * 0.7510, game.height * 0.7983)),
+      new Circle(game.width * 0.7510, game.height * 0.7983, game.width * 0.01),
+      new Line(new Point(game.width * 0.7510, game.height * 0.7983), new Point(game.width * 0.5747, game.height * 0.7430)),
+      new Circle(game.width * 0.5747, game.height * 0.7430, game.width * 0.01),
+      new Line(new Point(game.width * 0.5747, game.height * 0.7430), new Point(game.width * 0.5, game.height * 0.70626)),
+      new Circle(game.width * 0.5, game.height * 0.70626, game.width * 0.01),
+      new Line(new Point(game.width * 0.5, game.height * 0.70626), new Point(game.width * 0.5512, game.height * 0.6270)),
+      new Circle(game.width * 0.5512, game.height * 0.6270, game.width * 0.01),
+      new Line(new Point(game.width * 0.5512, game.height * 0.6270), new Point(game.width * 0.4551, game.height * 0.62154)),
+      new Circle(game.width * 0.4551, game.height * 0.62154, game.width * 0.01),
+      new Line(new Point(game.width * 0.4551, game.height * 0.6215), new Point(game.width * 0.3215, game.height * 0.73020)),
+      new Circle(game.width * 0.3215, game.height * 0.73020, game.width * 0.01),
+      new Line(new Point(game.width * 0.3215, game.height * 0.73020), new Point(game.width * 0.2232, game.height * 0.7891)),
+      new Circle(game.width * 0.2232, game.height * 0.7891, game.width * 0.01),
+      new Line(new Point(game.width * 0.2232, game.height * 0.7891), new Point(game.width * 0.5053, game.height * 0.925)),
+      new Circle(game.width * 0.5053, game.height * 0.925, game.width * 0.01),
+      new Circle(game.width * 0.5053, game.height * 0.5791, game.width * 0.08),
+    ],
     [
       new Panel(
         "navigationPanel",
@@ -68,8 +130,7 @@ export const Bánya = async (game) => {
         game.height * 0.85,
         game.width * 0.05,
         { forwardId: "forward", backwardId: "backward", direction: 1 },
-        null,
-        await GetIcon("directionSigns")
+        null
       ),
       new Panel(
         "navigationPanel",
@@ -77,14 +138,13 @@ export const Bánya = async (game) => {
         game.height * 0.85,
         game.width * 0.05,
         { forwardId: "forward", backwardId: "backward", direction: -1 },
-        null,
-        await GetIcon("directionSigns")
+        null
       ),
       new Panel(
         "enterInterior",
-        game.width * 0.46,
-        game.height * 0.54,
-        game.width * 0.08,
+        game.width * 0.5053,
+        game.height * 0.5791,
+        game.width * 0.1,
         false
       ),
     ],

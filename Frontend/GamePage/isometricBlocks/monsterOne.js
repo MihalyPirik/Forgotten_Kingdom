@@ -23,27 +23,31 @@ export const Szörny1=async(game)=>
         // new Monster('2','Skeleton',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
         ],
         [
-            new Line(new Point(game.width*0.506,game.height*0.82),
-            new Point(game.width*0.027,game.height*0.55)),
-            new Line(new Point(game.width*0.035,game.height*0.55),new Point(game.width*0.16,game.height*0.472)),
-            new Circle(game.width*0.2,game.height*0.44,game.width*0.05),
-            new Circle(game.width*0.256,game.height*0.4,game.width*0.03),
-            new Circle(game.width*0.315,game.height*0.4,game.width*0.035),
-            new Circle(game.width*0.366,game.height*0.331,game.width*0.035),
-            new Circle(game.width*0.426,game.height*0.287 ,game.width*0.05),
-            new Circle(game.width*0.517,game.height*0.327 ,game.width*0.05),
-            new Circle(game.width*0.623,game.height*0.36 ,game.width*0.06),
-            new Circle(game.width*0.7,game.height*0.432 ,game.width*0.05),
-            new Circle(game.width*0.8,game.height*0.487 ,game.width*0.057),
-            new Line(new Point(game.width*0.506,game.height*0.82),new Point(game.width*0.967,game.height*0.548)),
-            new Line(new Point(game.width*0.967,game.height*0.548),new Point(game.width*0.846,game.height*0.484)),
-            new Circle(game.width*0.339,game.height*0.365,game.width*0.02)
+            new Line(new Point(game.width*0.5064,game.height*0.7939),new Point(game.width*0.9711,game.height*0.530)),
+            new Circle(game.width*0.9711,game.height*0.530,game.width*0.01),
+
+            new Line(new Point(game.width*0.9711,game.height*0.530),new Point(game.width*0.8771,game.height*0.4803)),
+            new Circle(game.width*0.8771,game.height*0.4803,game.width*0.01),
+
+            new Line(new Point(game.width*0.8771,game.height*0.4803),new Point(game.width*0.80021,game.height*0.53623)),
+            new Circle(game.width*0.80021,game.height*0.53623,game.width*0.01),
+
+            new Line(new Point(game.width*0.80021,game.height*0.53623),new Point(game.width*0.46688,game.height*0.33333)),
+            new Circle(game.width*0.46688,game.height*0.33333,game.width*0.01),
+
+            new Line(new Point(game.width*0.46688,game.height*0.33333),new Point(game.width*0.03739,game.height*0.5341)),
+            new Circle(game.width*0.03739,game.height*0.5341,game.width*0.01),
+
+            new Line(new Point(game.width*0.03739,game.height*0.5341),new Point(game.width*0.5064,game.height*0.7939)),
+            new Circle(game.width*0.5064,game.height*0.7939,game.width*0.01),
         ],
         [
-            new Panel('navigationPanel',game.width*0.61,game.height*0.72,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},null,await GetIcon('directionSigns')),
+            new Panel('navigationPanel',game.width*0.6324,game.height*0.7505,game.width*0.07,{forwardId:'forward',backwardId:'backward',direction:-1},null),
         ],
         0.2,
         0.2
         )
+        game.player.objY=game.width*0.70807
+        game.player.objX=game.width*0.4882
         populateIsometricBlock(game)
 }

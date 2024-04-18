@@ -16,26 +16,22 @@ export const Szörny3=async(game)=>{
         [],
         [
             // x:0.89 ,y: 0.59
-            new Line(new Point(game.width*0.496,game.height*0.821),new Point(game.width*0.028,game.height*0.561)),
-            new Circle(game.width*0.067,game.height*0.545,game.width*0.044),
-            new Circle(game.width*0.11,game.height*0.5,game.width*0.04),
-            new Circle(game.width*0.152,game.height*0.444,game.width*0.04),
-            new Circle(game.width*0.21,game.height*0.4,game.width*0.04),
-            new Circle(game.width*0.27,game.height*0.36,game.width*0.04),
-            new Circle(game.width*0.341,game.height*0.34,game.width*0.04),
-            new Circle(game.width*0.41,game.height*0.33,game.width*0.04),
-            new Circle(game.width*0.49,game.height*0.33,game.width*0.04),
-            new Circle(game.width*0.571,game.height*0.347,game.width*0.04),
-            new Circle(game.width*0.644,game.height*0.385,game.width*0.04),
-            new Circle(game.width*0.707,game.height*0.433,game.width*0.04),
-            new Circle(game.width*0.769,game.height*0.487,game.width*0.04),
-            new Circle(game.width*0.82,game.height*0.54,game.width*0.04),
-            new Circle(game.width*0.87,game.height*0.58,game.width*0.04),
-            new Line(new Point(game.width*0.496,game.height*0.821),new Point(game.width*0.89,game.height*0.6))
+            new Line(new Point(game.width*0.4978,game.height*0.819),new Point(game.width*0.8707,game.height*0.6118)),
+            new Circle(game.width*0.8707,game.height*0.6118,game.width*0.01),
+
+            new Line(new Point(game.width*0.8707,game.height*0.6118),new Point(game.width*0.4743,game.height*0.3436)),
+            new Circle(game.width*0.4743,game.height*0.3436,game.width*0.01),
+
+            new Line(new Point(game.width*0.4743,game.height*0.3436),new Point(game.width*0.0737,game.height*0.5869)),
+            new Circle(game.width*0.0737,game.height*0.5869,game.width*0.01),
+
+            new Line(new Point(game.width*0.0737,game.height*0.5869),new Point(game.width*0.4978,game.height*0.819)),
+            new Circle(game.width*0.4978,game.height*0.819,game.width*0.01),
         ],
         [
-            new Panel('navigationPanel',0.6*game.width,0.75*game.height,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},game,null,await GetIcon('directionSigns'))
+            new Panel('navigationPanel',0.6217*game.width,0.777*game.height,game.width*0.07,{forwardId:'forward',backwardId:'backward',direction:-1},game,null,await GetIcon('directionSigns'))
         ]
     )
+    game.player.objY=game.width*0.7173
     populateIsometricBlock(game)
 }
