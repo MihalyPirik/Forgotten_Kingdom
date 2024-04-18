@@ -57,7 +57,7 @@ const postOffer = async (req, res, next) => {
       },
     });
   
-    const currentAmount = player.find(item => item.item == offeredType);
+    let currentAmount = player.find(item => item.item == offeredType);
     if(currentAmount){currentAmount=currentAmount.amount}
 
     if (!currentAmount) {
