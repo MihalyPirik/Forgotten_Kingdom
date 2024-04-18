@@ -73,11 +73,14 @@ export const Szörny2= async (game)=>{
         [
             new Panel('navigationPanel',game.width*0.29,game.height*0.64,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},null),
         ],
-        0.2,
-        0.2
+        0.08,
+        0.08
 
     )
-    game.player.objY=game.width*0.639
-    game.player.objX=game.width*0.3782
+    game.player.objX = game.width *0.3835
+    game.player.objY = game.height * 0.6485
     populateIsometricBlock(game)
+    game.player.width = game.width * 0.08
+    game.player.height = game.height * 0.08
+    game.player.radius = game.height * 0.038
 }

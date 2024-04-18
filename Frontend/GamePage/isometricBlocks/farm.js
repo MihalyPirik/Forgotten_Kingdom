@@ -61,9 +61,12 @@ const inFarmBlock = (game)=>{
         new Panel('leaveInterior',game.width*0.41,game.height*0.88,game.width*0.05,false)
     ]
     )
-    game.player.objX=game.width*0.5181
-    game.player.objY=game.width*0.79405
+    game.player.objX=game.width*0.50106
+    game.player.objY=game.height*0.80635
     populateIsometricBlock(game,true)
+    game.player.width = game.width * 0.18
+    game.player.height = game.height * 0.18
+    game.player.radius = game.height * 0.085
     return game.currentBlock
 }
 
@@ -121,9 +124,13 @@ export const Farm= async (game)=>{
             new Panel('Action',game.width*0.5032,game.height*0.8664,game.width*0.04,false,{action:"Wheat"}),
             new Panel('enterInterior',game.width*0.4166,game.height*0.5193,game.width*0.03,false)
         ],
-        0.12,
-        0.12
+        0.07,
+        0.07
     )
-    game.player.objX=game.width*0.65
+    game.player.objX = game.width * 0.4775
+    game.player.objY = game.height * 0.68647
     populateIsometricBlock(game)
+    game.player.width = game.width * 0.07
+    game.player.height = game.height * 0.07
+    game.player.radius = game.height * 0.033
 }

@@ -20,23 +20,28 @@ const inWitchBlock = (game) => {
             new Line(new Point(game.width * 0.4957, game.height * 0.9456), new Point(game.width * 0.82582, game.height * 0.7694)),
             new Circle(game.width * 0.8258, game.height * 0.7694, game.width * 0.01),
 
-            new Line(new Point(game.width * 0.8258, game.height * 0.7694), new Point(game.width * 0.5096, game.height *0.5952)),
+            new Line(new Point(game.width * 0.8258, game.height * 0.7694), new Point(game.width * 0.5096, game.height * 0.5952)),
             new Circle(game.width * 0.5096, game.height * 0.5952, game.width * 0.01),
 
             new Line(new Point(game.width * 0.5096, game.height * 0.5952), new Point(game.width * 0.339, game.height * 0.6875)),
-            new Circle(game.width * 0.339, game.height *0.6875, game.width * 0.01),
+            new Circle(game.width * 0.339, game.height * 0.6875, game.width * 0.01),
 
-            new Line(new Point(game.width * 0.339, game.height *0.6875), new Point(game.width * 0.2831, game.height * 0.8391)),
+            new Line(new Point(game.width * 0.339, game.height * 0.6875), new Point(game.width * 0.2831, game.height * 0.8391)),
             new Circle(game.width * 0.2831, game.height * 0.8391, game.width * 0.01),
 
-            new Line(new Point(game.width * 0.2831, game.height *0.8391), new Point(game.width * 0.4957, game.height * 0.9456)),
-            new Circle(game.width * 0.4957, game.height *0.9456, game.width * 0.01),
+            new Line(new Point(game.width * 0.2831, game.height * 0.8391), new Point(game.width * 0.4957, game.height * 0.9456)),
+            new Circle(game.width * 0.4957, game.height * 0.9456, game.width * 0.01),
         ],
         [
             new Panel('leaveInterior', game.width * 0.6805, game.height * 0.8729, game.width * 0.07, false)
         ]
     )
+    game.player.objX = game.width *0.48611
+    game.player.objY = game.height * 0.8534
     populateIsometricBlock(game, true)
+    game.player.width = game.width * 0.2
+    game.player.height = game.height * 0.2
+    game.player.radius = game.height * 0.095
     return game.currentBlock
 }
 export const Szörny4 = async (game) => {
@@ -74,9 +79,14 @@ export const Szörny4 = async (game) => {
             new Panel('navigationPanel', game.width * 0.41452, game.height * 0.9099, game.width * 0.07, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, await GetIcon('directionSigns')),
             new Panel('enterInterior', game.width * 0.43055, game.height * 0.6221, game.width * 0.1, false)
         ],
-        0.2,
-        0.2
+        0.08,
+        0.08
 
     )
+    game.player.objX = game.width * 0.5608
+    game.player.objY = game.height * 0.82581
     populateIsometricBlock(game)
+    game.player.width = game.width * 0.08
+    game.player.height = game.height * 0.08
+    game.player.radius = game.height * 0.04
 }
