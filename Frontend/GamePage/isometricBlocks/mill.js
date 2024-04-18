@@ -71,6 +71,8 @@ export const Malom = async (game) => {
       new Circle(game.width * 0.2264, game.height * 0.7971, game.width * 0.01),
       new Line(new Point(game.width * 0.2264, game.height * 0.7971), new Point(game.width * 0.49786, game.height * 0.9327)),
       new Circle(game.width * 0.49786, game.height * 0.9327, game.width * 0.01),
+
+      new Circle(game.width * 0.3386, game.height * 0.6844, game.width * 0.05),
     ],
     [
       navigationPanelX,

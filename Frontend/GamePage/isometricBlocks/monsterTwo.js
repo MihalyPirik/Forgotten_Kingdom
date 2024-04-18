@@ -69,6 +69,12 @@ export const Szörny2= async (game)=>{
             new Line(new Point(game.width*0.4636,game.height*0.75465),new Point(game.width*0.4850,game.height*0.67397)),
             new Circle(game.width*0.4850,game.height*0.67397,game.width*0.01),
 
+            new Circle(game.width*0.4861,game.height*0.736,game.width*0.03),
+            new Circle(game.width*0.47435,game.height*0.61065,game.width*0.036),
+            new Circle(game.width*0.44444,game.height*0.4948,game.width*0.03),
+            new Circle(game.width*0.6314,game.height*0.5071,game.width*0.03),  
+            new Circle(game.width*0.6143,game.height*0.6045,game.width*0.03),  
+
         ],
         [
             new Panel('navigationPanel',game.width*0.29,game.height*0.64,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:1},null),

@@ -56,6 +56,15 @@ const inFarmBlock = (game)=>{
 
         new Line(new Point(game.width*0.1549,game.height*0.74180),new Point(game.width*0.5032,game.height*0.9354)),
         new Circle(game.width*0.5032,game.height*0.9354,game.width*0.01),
+
+
+
+        new Circle(game.width*0.7585,game.height*0.7633,game.width*0.082),
+        new Circle(game.width*0.38355,game.height*0.6536,game.width*0.045),
+
+
+
+  
     ],
     [
         new Panel('leaveInterior',game.width*0.41,game.height*0.88,game.width*0.05,false)
@@ -112,6 +121,9 @@ export const Farm= async (game)=>{
             new Circle(game.width*0.1912,game.height*0.7311,game.width*0.01),
             new Line(new Point(game.width*0.1912,game.height*0.7311),new Point(game.width*0.5074,game.height*0.9192)),
             new Circle(game.width*0.5074,game.height*0.9192,game.width*0.01),
+
+
+            new Circle(game.width*0.5790,game.height*0.6885,game.width*0.03),
         ],
         [
             new Panel('navigationPanel',game.width*0.23,game.height*0.76,game.width*0.04,{forwardId:'forward',backwardId:'backward',direction:-1},null),

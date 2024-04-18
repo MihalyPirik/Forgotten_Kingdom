@@ -49,9 +49,9 @@ const blackSmithInterior = (game)=>{
 game.player.objX=game.width*0.4967
 game.player.objY=game.height*0.8288
 populateIsometricBlock(game,true)
-game.player.width=game.width*0.21
-game.player.height=game.height*0.21
-game.player.radius=game.height*0.1
+game.player.width=game.width*0.18
+game.player.height=game.height*0.18
+game.player.radius=game.height*0.062
 
 return game.currentBlock
 }
@@ -87,6 +87,9 @@ export const Kovács= async (game)=>{
             new Circle(game.width*0.0149,game.height*0.6473,game.width*0.01),
             new Line(new Point(game.width*0.0149,game.height*0.6473),new Point(game.width*0.47649,game.height*0.8996)),
             new Circle(game.width*0.47649,game.height*0.8996,game.width*0.01),
+
+
+            new Circle(game.width*0.5170,game.height*0.7510,game.width*0.045),
         ],
         [
             new Panel('enterInterior',game.width*0.3782,game.height*0.633,game.width*0.05,false),

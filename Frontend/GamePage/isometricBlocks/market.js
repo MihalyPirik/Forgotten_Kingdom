@@ -139,6 +139,19 @@ export const Piac = async (game) => {
 
                 new Line(new Point(game.width * 0.58333, game.height * 0.40676), new Point(game.width * 0.50641, game.height * 0.33606)),
                 new Circle(game.width * 0.50641, game.height * 0.33606, game.width * 0.01),
+
+
+                new Circle(game.width * 0.6004273, game.height * 0.79815573, game.width * 0.03),
+                new Circle(game.width *0.63034, game.height * 0.7141, game.width * 0.03),
+                new Circle(game.width *0.5737, game.height * 0.2766, game.width * 0.04),
+                new Circle(game.width *0.6089, game.height *0.2848, game.width * 0.055),
+                new Circle(game.width *0.5074, game.height *0.19569, game.width * 0.05),
+                new Circle(game.width *0.42521, game.height *0.255122, game.width * 0.05),
+                new Circle(game.width *0.25427, game.height *0.364, game.width * 0.05),
+                new Circle(game.width *0.20833, game.height *0.4518, game.width * 0.055),
+                new Circle(game.width *0.415, game.height *0.6721, game.width * 0.02),
+                new Circle(game.width *0.3878, game.height *0.516391, game.width * 0.04),
+                new Circle(game.width *0.58333, game.height *0.5071, game.width * 0.067),
             ],
             [
                 new Panel('navigationPanel', 0.9273 * game.width, 0.7877 * game.height, game.width * 0.07, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, game),
@@ -153,7 +166,7 @@ export const Piac = async (game) => {
     populateIsometricBlock(game)
     game.player.width = game.width * 0.06
     game.player.height = game.height * 0.06
-    game.player.radius = game.height * 0.028
+    game.player.radius = game.height * 0.014
 
 
 

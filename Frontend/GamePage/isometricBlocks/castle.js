@@ -106,6 +106,10 @@ export const Kastély = async (game) => {
             new Circle(game.width * 0.4316, game.height * 0.7099, game.width * 0.01),
             new Line(new Point(game.width * 0.4316, game.height * 0.7099), new Point(game.width * 0.4594, game.height * 0.7725)),
             new Circle(game.width * 0.4594, game.height * 0.7725, game.width * 0.01),
+
+
+            new Circle(game.width * 0.2735, game.height * 0.6004, game.width * 0.05),
+            new Circle(game.width * 0.3888, game.height *0.7428, game.width * 0.04),
         ],
         [
             new Panel('navigationPanel', game.width * 0.8066, game.height * 0.7882, game.width * 0.06, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, null),

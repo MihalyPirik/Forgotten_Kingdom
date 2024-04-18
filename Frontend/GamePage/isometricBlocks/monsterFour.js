@@ -31,6 +31,8 @@ const inWitchBlock = (game) => {
 
             new Line(new Point(game.width * 0.2831, game.height * 0.8391), new Point(game.width * 0.4957, game.height * 0.9456)),
             new Circle(game.width * 0.4957, game.height * 0.9456, game.width * 0.01),
+
+            new Circle(game.width * 0.298076, game.height * 0.6506147, game.width * 0.07),
         ],
         [
             new Panel('leaveInterior', game.width * 0.6805, game.height * 0.8729, game.width * 0.07, false)
@@ -73,6 +75,8 @@ export const Szörny4 = async (game) => {
             new Circle(game.width * 0.2735, game.height * 0.6842, game.width * 0.01),
             new Line(new Point(game.width * 0.2735, game.height * 0.6842), new Point(game.width * 0.1378, game.height * 0.7494)),
             new Circle(game.width * 0.1378, game.height * 0.7494, game.width * 0.01),
+
+            new Circle(game.width * 0.4423, game.height * 0.745, game.width * 0.03),
         ],
         [
             // 0.45, 0.88
