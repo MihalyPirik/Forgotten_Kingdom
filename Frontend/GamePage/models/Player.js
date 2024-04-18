@@ -131,6 +131,7 @@ export class Player extends Entity {
   }
 
   Attack(e) {
+    if(!this.game.currentBlock){return}
     for (const enemy of this.game.currentBlock.entities) {
       if (enemy instanceof Monster) {
         if (e.offsetX > enemy.objX - enemy.radius

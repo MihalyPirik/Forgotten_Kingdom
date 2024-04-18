@@ -18,6 +18,7 @@ export class IsometricBlock
         this.entityHeight=entityHeight
         this.maxNumberOfMonsters=4
         this.monsterSpawnInterval=700
+        this.timeoutReference=null
     }
     get numberOfMonsters()
         {
@@ -59,10 +60,10 @@ export class IsometricBlock
             })
             if(this.numberOfMonsters<this.maxNumberOfMonsters)
             {
-                setTimeout(callback,10000)
+                this.timeoutReference = setTimeout(callback,10000)
             }
         }
-setTimeout(callback,10000)
+this.timeoutReference = setTimeout(callback,10000)
     }
             }
         }

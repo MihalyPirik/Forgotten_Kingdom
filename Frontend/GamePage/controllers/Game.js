@@ -36,6 +36,7 @@ export class GameController {
     this.timer = 0;
     this.interval = 1000 / this.fps;
     this.debug = false;
+    this.HPGeneratorTimeoutReference = null
     /**
      * @type {Player}
      */
@@ -48,6 +49,9 @@ export class GameController {
   }
   set currentBlock(value) {
     if (value) {
+      if(this.currentBlock){
+      clearTimeout(this.currentBlock.timeoutReference)
+      }
       for (let i = 0; i < this.isometricBlocks.length; i++) {
         for (let j = 0; j < this.isometricBlocks[i].length; j++) {
           if (this.isometricBlocks[i][j].name == value.name) {
@@ -95,8 +99,21 @@ export class GameController {
         return;
       }
       this.player.attack.timer++;
+      if(this.player.HP<100 && !this.HPGeneratorTimeoutReference)
+      {
+this.HPGeneratorTimeoutReference = setInterval(()=> {
+  if(this.player.HP+10>100){this.player.HP+=100-this.player.HP}
+  else{this.player.HP+=10}
+  console.log('a');
+  this.gameView.BindPlayerHealth(this.player)
+},5000)
+      }
+      if(this.player.HP==100 && this.HPGeneratorTimeoutReference){
+        clearInterval(this.HPGeneratorTimeoutReference)
+        this.HPGeneratorTimeoutReference=null
+      }
       this.gameView.ClearContext();
-
+console.log(this.HPGeneratorTimeoutReference);
       let newPlayerPos = SpriteController.MovePlayer(this.player);
       for (const entity of this.currentBlock.entities) {
         let newPos = SpriteController.MoveMonster(entity);

@@ -140,9 +140,8 @@ export class GameView {
     this.context.lineWidth = 4
   }
   BindPlayerHealth = (player) => {
-
+    const bar = document.querySelector(".bar");
     if (player.HP >= 0) {
-      const bar = document.querySelector(".bar");
       bar.style.width = player.HP + '%'
       bar.innerHTML = player.HP + '/100'
     }
@@ -310,6 +309,10 @@ export class PanelView {
     const el = document.querySelector("div#dead")
     if (el) {
       el.remove()
+      const bar = document.querySelector('.progress .bar')
+      bar.style.width='100%'
+      bar.innerHTML='100/100'
+
     }
   }
 

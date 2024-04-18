@@ -53,7 +53,7 @@ export const CollectorQuests = (item, amount, questList, isometricBlocks) => {
         completedQuest.currentProgress += amount
         PanelView.ModifyQuestProgress(completedQuest.quest_id, completedQuest.currentProgress)
         putQuest(completedQuest.quest_id, { currentProgress: completedQuest.currentProgress })
-
+        
         if (completedQuest.currentProgress >= completedQuest.Quest.target_amount) {
             Story.StartConversation('during/' + completedQuest.quest_id, completedQuest)
             PanelView.GenerateQuestCard(completedQuest, isometricBlocks)

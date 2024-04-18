@@ -94,6 +94,10 @@ export class Story {
                     game.classList.remove('hide')
                     return
                 }
+                else
+                {
+                    Story.gameController.player.isInConversation = true
+                }
                 index++
                 Story.HideConversationPanel()
                 callback instanceof Function ? callback(index) : null
