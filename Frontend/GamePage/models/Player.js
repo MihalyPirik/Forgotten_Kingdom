@@ -15,12 +15,12 @@ export class Player extends Entity {
     this.tools = tools
     this.quests = quests
     this.name = name
-    this.attack = { timer: 0, attack: 10, interval: 60 }
+    this.attack = { timer: 0, attack: 10, interval: 10 }
     this.money = money
     this.isInConversation = false
-    this.isAction = { timer: 0, interval: 1000, is: false, action: null, canExecute: true }
+    this.isAction = { timer: 0, interval: 50, is: false, action: null, canExecute: true }
     this.#money = money
-    this.attackradius = 50
+    this.attackradius = 100
     this.inventory = inventory
     this.HP = HP
     this.#hp = HP
