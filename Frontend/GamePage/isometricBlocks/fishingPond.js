@@ -42,8 +42,11 @@ const PondInterior = (game) => {
         ]
     )
     game.player.objX = game.width * 0.54166
-    game.player.objY = game.width * 0.737704
+    game.player.objY = game.height * 0.737704
     populateIsometricBlock(game, true)
+    game.player.width = game.width * 0.22   
+    game.player.height = game.height * 0.22
+    game.player.radius = game.height * 0.105
     return game.currentBlock
 }
 
@@ -129,10 +132,14 @@ export const Horgásztó = async (game) => {
             new Panel('Action', game.width * 0.5096, game.height * 0.5423, game.width * 0.05, false, { action: "Fish" }),
             new Panel('enterInterior', game.width * 0.4091, game.height * 0.356, game.width * 0.05, false)
         ],
-        0.1,
-        0.1
+        0.045,
+        0.045
 
     )
-    game.player.objX = game.width * 0.5
+    game.player.objX = game.width * 0.24893
+    game.player.objY = game.height * 0.4477
     populateIsometricBlock(game)
+    game.player.width = game.width * 0.045
+    game.player.height = game.height * 0.045
+    game.player.radius = game.height * 0.02
 }

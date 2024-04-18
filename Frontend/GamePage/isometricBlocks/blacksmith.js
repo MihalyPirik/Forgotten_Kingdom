@@ -46,7 +46,12 @@ const blackSmithInterior = (game)=>{
     0.21
 
 )
+game.player.objX=game.width*0.4967
+game.player.objY=game.height*0.8288
 populateIsometricBlock(game,true)
+game.player.width=game.width*0.21
+game.player.height=game.height*0.21
+game.player.radius=game.height*0.1
 
 return game.currentBlock
 }
@@ -89,5 +94,10 @@ export const Kovács= async (game)=>{
             new Panel('navigationPanel',game.width*0.2414,game.height*0.79465,game.width*0.05,{forwardId:'forward',backwardId:'backward',direction:-1},null)
         ]
     )
+    game.player.objX=game.width*0.4775
+    game.player.objY=game.height*0.8227
     populateIsometricBlock(game)
+    game.player.width=game.width*0.07
+    game.player.height=game.height*0.07
+    game.player.radius=game.width*0.033
 }

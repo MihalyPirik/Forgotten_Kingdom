@@ -90,12 +90,16 @@ const CaveInterior = (game) => {
         { action: "Iron" }
       ),
     ],
-    0.1,
-    0.1
+    0.08,
+    0.08
   );
-  game.player.objX = game.width * 0.47008
-  game.player.objY = game.width * 0.62008
+  game.player.objX = game.width * 0.411324
+  game.player.objY = game.height *0.602459016
   populateIsometricBlock(game, true);
+  game.player.width = game.width * 0.08
+  game.player.height = game.height * 0.08
+  game.player.radius = game.height * 0.04
+
   return game.currentBlock;
 };
 export const Bánya = async (game) => {
@@ -148,8 +152,13 @@ export const Bánya = async (game) => {
         false
       ),
     ],
-    0.3,
-    0.3
+    0.13,
+    0.13
   );
+  game.player.objX = game.width * 0.50106
+  game.player.objY = game.height * 0.8493
   populateIsometricBlock(game);
+  game.player.width = game.width * 0.13
+  game.player.height = game.height * 0.13
+  game.player.radius = game.height * 0.064
 };

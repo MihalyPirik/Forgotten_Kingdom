@@ -350,12 +350,22 @@ div#newOffer {
   width: 200px;
 }
 
-#message {
+#NPCPanel p {
+  background: url(/Frontend/GamePage/assets/gameBG/bg1.png);
+  border: 10px solid transparent;
+  border-image: url(/Frontend/GamePage/assets/gameBG/border2.png) 70;
+  height: 50;
+  min-width: 50px;
+  text-align: center;
+  scroll-behavior: smooth;
+  scroll-margin: 0;
+  scroll-padding: 0;
+  padding: 5px;
   color: gold;
   text-align: center;
 }
 
-#messageButton {
+#NPCPanel input[type="button"] {
   background: url(/Frontend/GamePage/assets/buttons/button1.png) center
     no-repeat;
   background-size: 100% 100%;
@@ -370,7 +380,7 @@ div#newOffer {
   text-decoration: none;
 }
 
-#messageButton:hover {
+#NPCPanel input[type="button"]:hover {
   background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
   color: rgb(255, 255, 162);
 }

@@ -313,7 +313,6 @@ export class PanelView {
       const bar = document.querySelector('.progress .bar')
       bar.style.width='100%'
       bar.innerHTML='100/100'
-
     }
   }
 
@@ -504,14 +503,12 @@ export class PanelView {
     const el = element
     if (quest) {
       if (quest.is_completed) {
-        el.id = 'message'
-        el.innerHTML = 'Generate new quest'
+        el.innerHTML = '<p>Üdvözöllek bátor utazó!</p>'
         return
       }
       if (quest.is_active) {
         if (quest.currentProgress >= quest.Quest.target_amount) {
           const but = document.createElement('input')
-          but.id = 'messageButton'
           but.type = 'button'
           but.value = "Küldetés leadás"
           but.addEventListener('click', () => {
@@ -520,14 +517,12 @@ export class PanelView {
           el.append(but)
         }
         else {
-          el.id = 'message'
           el.innerHTML = '<p>Sok sikert kedves utazó!</p>'
         }
       }
       else {
         el.innerHTML += `<p>Szia van egy küldetésem számodra</p>`
         const but = document.createElement('input')
-        but.id = 'messageButton'
         but.type = 'button'
         but.value = "Küldetés felvétele"
         but.addEventListener('click', () => {
@@ -538,14 +533,12 @@ export class PanelView {
       }
     }
     else {
-      el.id = 'message'
       el.innerHTML = '<p>Üdvözöllek bátor utazó!</p>'
     }
     const anotherQuest = IsTargetResident(resident, resident.game.player.quests)
     if (anotherQuest) {
       if (anotherQuest.currentProgress < anotherQuest.Quest.target_amount) {
         const but = document.createElement('input')
-        but.id = 'messageButton'
         but.type = 'button'
         but.value = 'Párbeszéd indítása' + '(' + anotherQuest.Quest.quest_name + ')'
         but.addEventListener('click', () => {
