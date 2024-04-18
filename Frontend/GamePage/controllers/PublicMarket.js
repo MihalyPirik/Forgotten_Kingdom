@@ -27,5 +27,15 @@ export async function AddNewOffer(event,game) {
     new FormData(event.target).forEach((value,key)=>{
 data[key] = value
     })
+    game.player.inventory[data.offeredType]-=data.offeredAmount
    PanelView.AddNewOffer(await postOffer(data))
+}
+
+export async function DeleteOwnedOffer(offerID,game) {
+    deleteOffer(offerID)
+    PanelView.DeleteOffer(offerID)
+    const offer = (await getAllOffer('offer_id='+"'"+offerID+"'"))[0]
+    game.player.inventory[offer.offeredType]+=offer.offeredAmount
+
+    
 }

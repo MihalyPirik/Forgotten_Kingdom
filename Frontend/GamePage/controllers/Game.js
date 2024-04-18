@@ -113,7 +113,6 @@ this.HPGeneratorTimeoutReference = setInterval(()=> {
         this.HPGeneratorTimeoutReference=null
       }
       this.gameView.ClearContext();
-console.log(this.HPGeneratorTimeoutReference);
       let newPlayerPos = SpriteController.MovePlayer(this.player);
       for (const entity of this.currentBlock.entities) {
         let newPos = SpriteController.MoveMonster(entity);

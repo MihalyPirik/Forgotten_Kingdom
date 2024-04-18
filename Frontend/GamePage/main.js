@@ -68,6 +68,8 @@ const playerData = await getAllData()
 const inventory = await getInventory()
 
 game.player = new Player(playerData.player_name,character,playerData.HP,playerData.money,inventory,game,playerData.tools)
+const decodedToken = JSON.parse(atob(token.split(' ')[1].split('.')[1]))
+game.player.id = decodedToken.id
 game.player.tools = playerData.ToolTypes
 
 InitEvents(game)

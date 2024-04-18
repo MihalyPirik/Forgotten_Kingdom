@@ -158,6 +158,7 @@ export class Player extends Entity {
     this.money -= 10
     this.game.isometricBlocks[0][0](this.game)
     putPlayer({ HP: 100 })
+    this.HP=100
     this.isDead = false
   }
   Action = () => {

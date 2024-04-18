@@ -7,7 +7,7 @@ import { Circle } from '../models/Circle.js'
 import { Line } from '../models/Line.js'
 import { getAllOffer } from '../../services/marketService.js'
 import { getAllItems } from '../../services/playerService.js'
-import { AddNewOffer, BuyOffer } from '../controllers/PublicMarket.js'
+import { AddNewOffer, BuyOffer, DeleteOwnedOffer } from '../controllers/PublicMarket.js'
 import { Panel } from '../models/Panel.js'
 import { Entity } from '../models/Entity.js'
 export class GameView {
@@ -301,8 +301,8 @@ export class PanelView {
 
     const div = this.#CreatePanelElement("dead")
     const button = div.querySelector('input[type="button"]')
-    button.addEventListener('click', player.Respawn, { once: true })
     button.addEventListener('click', this.HideDeathDialog, { once: true })
+    button.addEventListener('click', player.Respawn, { once: true })
     document.querySelector('body').append(div)
 
   }
@@ -400,19 +400,32 @@ export class PanelView {
     const itemsContainer = element.querySelector('#items')
     itemsContainer.innerHTML = ''
     offers.forEach(offer => {
-      itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
-    })
-    itemsContainer.addEventListener('click', (e) => {
-      if (e.target instanceof HTMLInputElement) {
-        BuyOffer(e.target.parentElement.id, game)
+      if(offer.Player.player_id == game.player.id){
+        console.log('a');
+      itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='deleteBtn' type="button" value="Törlés"></div>`
       }
-    }
-    )
+      else
+      {
+        itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
+      }
+      itemsContainer.addEventListener('click', (e) => {
+        if (e.target instanceof HTMLInputElement && e.target.classList[0]=='buyBtn') {
+          console.log('BUY');
+          BuyOffer(e.target.parentElement.id, game)
+        }
+        else if(e.target instanceof HTMLInputElement)
+        {
+          console.log('Delete own offer');
+          DeleteOwnedOffer(e.target.parentElement.id,game)
+        }
+      }
+      )
+    })
   }
 
   static AddNewOffer(offer) {
     const itemsContainer = document.getElementById('items')
-    itemsContainer.innerHTML = `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input type="button" value="Buy"><br></div>` + itemsContainer.innerHTML
+    itemsContainer.innerHTML = `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class="deleteBtn" type="button" value="Törlés"><br></div>` + itemsContainer.innerHTML
   }
 
 

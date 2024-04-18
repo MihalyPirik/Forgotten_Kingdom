@@ -12,7 +12,7 @@ const getAllOffer = async (req, res, next) => {
     const startIndex = (page - 1) * limit
     const data = await Market.findAll({
       attributes: { exclude: ["player_id"] },
-      include: { model: Player, attributes: ["player_name"] },
+      include: { model: Player, attributes: ["player_name","player_id"] },
       offset: startIndex,
       limit: limit,
       where: ProcessQuery(Market, req.query)
