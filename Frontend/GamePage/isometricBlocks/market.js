@@ -156,7 +156,7 @@ export const Piac = async (game) => {
             [
                 new Panel('navigationPanel', 0.9273 * game.width, 0.7877 * game.height, game.width * 0.07, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, game),
                 new Panel('navigationPanel', 0.14743 * game.width, 0.8426 * game.height, game.width * 0.08, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, game),
-                new Panel('shop', game.width * 0.5608, game.height * 0.54405, game.width * 0.09, false)
+                new Panel('shop', game.width * 0.5608, game.height * 0.54405, game.width * 0.08, false)
             ],
             0.06,
             0.06
