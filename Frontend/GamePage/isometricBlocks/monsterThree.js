@@ -8,9 +8,9 @@ import { GetIcon } from '../utils/imageLoader.js'
 const backGround=new Image()
 backGround.src="./assets/blocks/EnemyThree.png"
 
-export const Szörny3=async(game)=>{
+export const Trollok=async(game)=>{
     game.currentBlock=new IsometricBlock(
-        'Szörny3',
+        'Trollok',
         backGround,
         null,
         [],

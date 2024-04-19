@@ -8,10 +8,10 @@ import {Farm} from './isometricBlocks/farm.js'
 import {Horgásztó} from './isometricBlocks/fishingPond.js'
 import {Erdő} from './isometricBlocks/forest.js'
 import {Piac} from './isometricBlocks/market.js'
-import {Szörny1} from './isometricBlocks/monsterOne.js'
-import {Szörny2} from './isometricBlocks/monsterTwo.js'
-import {Szörny3} from './isometricBlocks/monsterThree.js'
-import {Szörny4} from './isometricBlocks/monsterFour.js'
+import {Goblinok} from './isometricBlocks/monsterOne.js'
+import {Csontvázak} from './isometricBlocks/monsterTwo.js'
+import {Trollok} from './isometricBlocks/monsterThree.js'
+import {Boszorkány} from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from '../services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
 import { Story } from './controllers/Story.js'
@@ -45,14 +45,13 @@ const p = document.getElementById('mouseCoordinates')
 const character=new Image()
 character.src='./assets/maincharacters/player.png'
 
-
 window.addEventListener('load', () => {
   const gameView=new GameView(gameCanvas)
   const game= new GameController([
-    [Kastély,Malom,Bánya,Szörny1],
-    [Kovács,Piac,Erdő,Szörny2],
-    [Farm,Horgásztó,Szörny3],
-    [Szörny4]
+    [Kastély,Malom,Bánya,Goblinok],
+    [Kovács,Piac,Erdő,Csontvázak],
+    [Farm,Horgásztó,Trollok],
+    [Boszorkány]
   ],gameView)
 gameView.game=game
   
@@ -88,9 +87,6 @@ const questList = await getQuests("is_active=true&is_completed=false")
 game.player.quests=questList
 PanelView.QuestPanelShow(questList,game.isometricBlocks)
 
-
-
-
 let previousTime = 0
   const animate = (timeStamp) => {
     const deltaTime = timeStamp - previousTime
@@ -103,3 +99,21 @@ let previousTime = 0
 
   
 },{once:true})
+
+
+
+document.addEventListener('keydown', function() {
+  if (!audioStarted) {
+    const backgroundMusic = document.getElementById('backgroundMusic');
+    backgroundMusic.play();
+    audioStarted = true;
+  }
+});
+
+window.addEventListener('beforeunload', function(event) {
+  const backgroundMusic = document.getElementById('backgroundMusic');
+  backgroundMusic.pause(); 
+  backgroundMusic.currentTime = 0; 
+});
+
+let audioStarted = false;

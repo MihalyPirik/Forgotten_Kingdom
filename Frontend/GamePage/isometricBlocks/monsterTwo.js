@@ -11,9 +11,9 @@ const backGround=new Image()
 backGround.src="./assets/blocks/EnemyTwo.png"
 const monster=new Image()
 monster.src='./assets/monsterSprite.jfif'
-export const Szörny2= async (game)=>{
+export const Csontvázak= async (game)=>{
     game.currentBlock=new IsometricBlock(
-        'Szörny2',
+        'Csontvázak',
         backGround,
         null,
         [

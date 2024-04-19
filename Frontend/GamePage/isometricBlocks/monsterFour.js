@@ -13,7 +13,7 @@ inWitch.src = './assets/blocks/inWitch.png'
 
 
 const inWitchBlock = (game) => {
-    game.currentBlock = new IsometricBlock('Szörny4', inWitch, null,
+    game.currentBlock = new IsometricBlock('Boszorkány', inWitch, null,
         []
         ,
         [
@@ -48,9 +48,9 @@ const inWitchBlock = (game) => {
     game.player.radius = game.height * 0.066
     return game.currentBlock
 }
-export const Szörny4 = async (game) => {
+export const Boszorkány = async (game) => {
     game.currentBlock = new IsometricBlock(
-        'Szörny4',
+        'Boszorkány',
         backGround,
         inWitchBlock,
         [],

@@ -44,11 +44,11 @@
   </template>
 
   <template id="enterInterior">
-    <input class="navigationButtonsEntity" type="button" value="Belépés a házba">
+    <input class="navigationButtonsEntity" type="button" value="Belépés">
   </template>
 
   <template id="leaveInterior">
-    <input class="navigationButtonsEntity" type="button" value="Kilépés a házból">
+    <input class="navigationButtonsEntity" type="button" value="Kilépés">
   </template>
 
   <template id="questPanel">
@@ -99,6 +99,11 @@
   <span id="logout"><img class="IMG" src="./assets/icons/logout.png" /></span>
   <span id="map"><img class="IMG" src="./assets/icons/mapIcon.png" /></span>
   <p id="mouseCoordinates" class="relative"></p>
+
+
+  <audio id="backgroundMusic" loop>
+    <source src="/Frontend/GamePage/assets/no_copyright_medieval_song.mp3" type="audio/mpeg">
+  </audio>
 
   <script type="module" src="main.js"></script>
   <!-- <script type="module" src="../services/test.js"></script> -->
