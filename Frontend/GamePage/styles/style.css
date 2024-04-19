@@ -419,3 +419,22 @@ div#newOffer {
   background-image: url(/Frontend/GamePage/assets/buttons/button1H.png);
   color: rgb(255, 255, 162);
 }
+
+.mapIMG {
+  border-top: url(/Frontend/GamePage/assets/gameBG/borderTop.png);
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#map .closeButton {
+  position: fixed;
+  right: 25%;
+  top: 0;
+  width: 3vW;
+  height: 3vW;
+  z-index: 1;
+}

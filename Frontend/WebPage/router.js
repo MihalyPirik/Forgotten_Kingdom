@@ -8,14 +8,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path:'/',
-      name:'HomeRoot',
-      component:Home
-    },
-    {
-    path: '/home',
-    name: 'Home',
-    component: Home
+      path: '/',
+      name: 'Home',
+      component: Home
     },
     {
       path: '/regisztracio',
@@ -28,7 +23,7 @@ const router = createRouter({
       component: Report
     },
     {
-      path:'/:pathMatch(.*)*',
+      path: '/:pathMatch(.*)*',
       name: 'Not found',
       component: Not_Found_Page
     }
