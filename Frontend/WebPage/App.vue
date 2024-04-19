@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <div class="container w-50 p-0 text-center" id="border">
             <div class="row p-3" id="buttonPanel">
 
-                <div class="col-xl col-md-6 col-sm-12"><RouterLink to="/home">HOME</RouterLink></div>
+                <div class="col-xl col-md-6 col-sm-12"><RouterLink to="/">HOME</RouterLink></div>
 
                 <div class="col-xl col-md-6 col-sm-12"><RouterLink to="/rolunk">RÓLUNK</RouterLink></div>
 

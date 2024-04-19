@@ -117,12 +117,11 @@ export class GameView {
     }
   }
 
-/**
- * 
- * @param {Entity} entity 
- */
-  ClearEntity(entity)
-  {
+  /**
+   * 
+   * @param {Entity} entity 
+   */
+  ClearEntity(entity) {
     this.context.clearRect(
       entity.spriteX,
       entity.spriteY,
@@ -311,8 +310,8 @@ export class PanelView {
     if (el) {
       el.remove()
       const bar = document.querySelector('.progress .bar')
-      bar.style.width='100%'
-      bar.innerHTML='100/100'
+      bar.style.width = '100%'
+      bar.innerHTML = '100/100'
     }
   }
 
@@ -360,7 +359,7 @@ export class PanelView {
       if (counter == 3) {
         div.append(document.createElement('br'))
       }
-      div1.id=item
+      div1.id = item
       const div2 = document.createElement('div')
       div2.append(div1)
       div.append(div2)
@@ -371,17 +370,15 @@ export class PanelView {
     return div
   }
 
-  static BindInventoryItem(itemType,value)
-  {
+  static BindInventoryItem(itemType, value) {
     let element = document.querySelector('div#inventory')
-    if(!element)
-    {
+    if (!element) {
       return
     }
-      element = element.querySelector('#'+itemType)
-      element = element.childNodes
-      element = element[element.length-1]
-      element.nodeValue = value
+    element = element.querySelector('#' + itemType)
+    element = element.childNodes
+    element = element[element.length - 1]
+    element.nodeValue = value
   }
 
 
@@ -399,23 +396,20 @@ export class PanelView {
     const itemsContainer = element.querySelector('#items')
     itemsContainer.innerHTML = ''
     offers.forEach(offer => {
-      if(offer.Player.player_id == game.player.id){
-        console.log('a');
-      itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='deleteBtn' type="button" value="Törlés"></div>`
+      if (offer.Player.player_id == game.player.id) {
+        itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='deleteBtn' type="button" value="Törlés"></div>`
       }
-      else
-      {
+      else {
         itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
       }
       itemsContainer.addEventListener('click', (e) => {
-        if (e.target instanceof HTMLInputElement && e.target.classList[0]=='buyBtn') {
+        if (e.target instanceof HTMLInputElement && e.target.classList[0] == 'buyBtn') {
           console.log('BUY');
           BuyOffer(e.target.parentElement.id, game)
         }
-        else if(e.target instanceof HTMLInputElement)
-        {
+        else if (e.target instanceof HTMLInputElement) {
           console.log('Delete own offer');
-          DeleteOwnedOffer(e.target.parentElement.id,game)
+          DeleteOwnedOffer(e.target.parentElement.id, game)
         }
       }
       )
@@ -521,7 +515,6 @@ export class PanelView {
         }
       }
       else {
-        el.innerHTML += `<p>Szia van egy küldetésem számodra</p>`
         const but = document.createElement('input')
         but.type = 'button'
         but.value = "Küldetés felvétele"
@@ -563,6 +556,17 @@ export class PanelView {
       PanelView.#processElement(div2, tool)
       div.append(div2)
     })
+    document.querySelector('body').append(div)
+    return div
+  }
+
+  static MapPanel(game) {
+    const div = PanelView.#createTemplate()
+    div.id = 'map'
+    const mapImg = document.createElement('img')
+    mapImg.src = './assets/map/map.png'
+    mapImg.classList.add('mapIMG')
+    div.append(mapImg)
     document.querySelector('body').append(div)
     return div
   }

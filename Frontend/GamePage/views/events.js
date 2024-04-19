@@ -12,7 +12,6 @@ export const InitEvents = (game) => {
       panel = await handler(game)
     }
     else {
-      console.log(params);
       panel = await handler(game, ...params)
     }
     const btn = panel.querySelector('.closeButton')
@@ -95,4 +94,6 @@ export const InitEvents = (game) => {
   })
 
   document.getElementById('sword').addEventListener('click', (e) => { ShowPanel('sword', PanelView.ToolPanel, e.target) }, { once: true })
+  document.getElementById('map').addEventListener('click', (e) => { ShowPanel('map', PanelView.MapPanel, e.target) }, { once: true })
+  document.getElementById('logout').addEventListener('click', game.Logout, { once: true })
 }

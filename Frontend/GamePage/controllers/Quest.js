@@ -16,9 +16,6 @@ export const ExploringQuests = (blockX, blockY, questList, isometricBlocks) => {
         return element.Quest.blockX == blockX && element.Quest.blockY == blockY
     })
     if (completedQuest != undefined) {
-        console.log('entered monster1 block');
-        console.log(completedQuest);
-        console.log(isometricBlocks);
         completedQuest.currentProgress++
         putQuest(completedQuest.quest_id, { currentProgress: completedQuest.currentProgress })
         if (completedQuest.currentProgress >= completedQuest.Quest.target_amount) {

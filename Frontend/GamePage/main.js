@@ -86,7 +86,6 @@ game.gameView.BindPlayerHealth(game.player)
 const questList = await getQuests("is_active=true&is_completed=false")
 
 game.player.quests=questList
-console.log(questList);
 PanelView.QuestPanelShow(questList,game.isometricBlocks)
 
 

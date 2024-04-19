@@ -49,8 +49,8 @@ export class GameController {
   }
   set currentBlock(value) {
     if (value) {
-      if(this.currentBlock){
-      clearTimeout(this.currentBlock.timeoutReference)
+      if (this.currentBlock) {
+        clearTimeout(this.currentBlock.timeoutReference)
       }
       for (let i = 0; i < this.isometricBlocks.length; i++) {
         for (let j = 0; j < this.isometricBlocks[i].length; j++) {
@@ -99,18 +99,16 @@ export class GameController {
         return;
       }
       this.player.attack.timer++;
-      if(this.player.HP<100 && !this.HPGeneratorTimeoutReference)
-      {
-this.HPGeneratorTimeoutReference = setInterval(()=> {
-  if(this.player.HP+10>100){this.player.HP+=100-this.player.HP}
-  else{this.player.HP+=10}
-  console.log('a');
-  this.gameView.BindPlayerHealth(this.player)
-},5000)
+      if (this.player.HP < 100 && !this.HPGeneratorTimeoutReference) {
+        this.HPGeneratorTimeoutReference = setInterval(() => {
+          if (this.player.HP + 10 > 100) { this.player.HP += 100 - this.player.HP }
+          else { this.player.HP += 10 }
+          this.gameView.BindPlayerHealth(this.player)
+        }, 5000)
       }
-      if(this.player.HP==100 && this.HPGeneratorTimeoutReference){
+      if (this.player.HP == 100 && this.HPGeneratorTimeoutReference) {
         clearInterval(this.HPGeneratorTimeoutReference)
-        this.HPGeneratorTimeoutReference=null
+        this.HPGeneratorTimeoutReference = null
       }
       this.gameView.ClearContext();
       let newPlayerPos = SpriteController.MovePlayer(this.player);
@@ -207,5 +205,9 @@ this.HPGeneratorTimeoutReference = setInterval(()=> {
       this.timer = 0;
     }
     this.timer += deltaTime;
+  }
+  Logout() {
+    localStorage.removeItem("token");
+    window.location.href = "/forgottenkingdom";
   }
 }
