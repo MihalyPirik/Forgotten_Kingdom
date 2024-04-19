@@ -1,13 +1,16 @@
-Kovács: Szervusz! Már vártunk téged!
+Ulric: Szervusz! Már vártunk téged!
 Dominik, Ármin, Michail: Üdv!
-Dominik: Szeretnénk mi is támogatni téged. Az én hivatásomban a fegyvereink külső rétege ezüstből készül. A szörnyek nem nagyon szeretik. Éppen ezért, hoztam egy kis ezüst ércet a készülő fegyveredhez. Ulric-ot már beavattam az elkészítés részleteibe.
-Kovács: Hahahaha!
+Dominik: Szeretnénk mi is támogatni téged. Az én hivatásomban a fegyvereink külső rétege ezüstből készül. A szörnyek nem nagyon szeretik.
+Dominik: Éppen ezért, hoztam egy kis ezüst ércet a készülő fegyveredhez. Ulric-ot már beavattam az elkészítés részleteibe.
+Ulric: Hahahaha!
 Ármin: Jó magam is szeretnék segíteni. Egy rúnakövet hoztam a markolatba, ami meggátolja a fegyver repedését még a legnagyobb ütésektől is!
-Michail: Végezetül pedig itt egy speciális olaj, amit csak a királyság lovagjai használtak eddig. A harc előtt, öntsd majd rá a pengére.  Egy mérgező oldat, ami ha bejut a szervezetbe, akkor komoly károkat okoz. De ne aggódj! Csak mutánsokra veszélyes, úgyhogy bátran forgathatod a kardodat.
+Michail: Végezetül pedig itt egy speciális olaj, amit csak a királyság lovagjai használtak eddig. A harc előtt, öntsd majd rá a pengére.
+Michail: Ez egy mérgező oldat, ami ha bejut a szervezetbe, akkor komoly károkat okoz. De ne aggódj! Csak mutánsokra veszélyes, úgyhogy bátran forgathatod a kardodat.
 Játékos: Hálásan köszönöm mindenki támogatását!
 Michail: Ja és még valami! Én és a csapatom is veled fog tartani. Még ha nem is vagyunk olyan tehetségesek mint te, legalább teszünk róla, hogy a környező, gyengébb ellenfelekkel ne kelljen foglalkoznod.
 Játékos: Az nagy segítség lenne! Köszönöm szépen még egyszer, mindenkinek!
-Kovács: Na akkor készítsük el ezt az elit fegyvert! HaaaHAHAHAAHAA!
+Ulric: Na akkor készítsük el ezt az elit fegyvert!
+Ulric: HaaaHAHAHAAHAA!
 Mesélő: Pár nappal később!
-Kovács: Elkészült! Életem fő műve!
+Ulric: Elkészült! Életem fő műve!
 Játékos: Elképesztő! Ígérem, hogy ezzel, ma mindenkit vissza hozok. Itt az idő! Találkozom a lovagokkal és együtt indulunk az erdőbe.
