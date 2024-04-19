@@ -30,10 +30,8 @@ export class IsometricBlock
                 if(game.currentBlockX==0 && game.currentBlockY==3
                     || game.currentBlockX==1 && game.currentBlockY==3
                     || game.currentBlockX==2 && game.currentBlockY==2
-                    || game.currentBlockX==3 && game.currentBlockY==0
-                    )
-            {
-                
+                )
+            {               
             
             
             if(this.numberOfMonsters>=this.maxNumberOfMonsters)

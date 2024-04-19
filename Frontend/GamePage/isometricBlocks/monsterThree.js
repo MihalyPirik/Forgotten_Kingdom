@@ -38,5 +38,5 @@ export const Szörny3=async(game)=>{
     populateIsometricBlock(game)
     game.player.width = game.width * 0.08
     game.player.height = game.height * 0.08
-    game.player.radius = game.height * 0.038
+    game.player.radius = game.height * 0.015
 }

@@ -32,14 +32,16 @@ const MillInterior = (game) => {
     ],
     [
       new Panel('leaveInterior', game.width * 0.411, game.height * 0.9068, game.width * 0.07, false)
-    ]
+    ],
+    0.2,
+    0.2
   )
   game.player.objX = game.width *0.4978
   game.player.objY = game.height * 0.87397
   populateIsometricBlock(game, true)
   game.player.width = game.width * 0.16
   game.player.height = game.height * 0.16
-  game.player.radius = game.height * 0.075
+  game.player.radius = game.height * 0.052
   return game.currentBlock
 }
 

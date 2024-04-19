@@ -153,5 +153,5 @@ export const Horgásztó = async (game) => {
     populateIsometricBlock(game)
     game.player.width = game.width * 0.045
     game.player.height = game.height * 0.045
-    game.player.radius = game.height * 0.02
+    game.player.radius = game.height * 0.01
 }

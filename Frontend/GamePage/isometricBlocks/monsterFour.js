@@ -36,14 +36,16 @@ const inWitchBlock = (game) => {
         ],
         [
             new Panel('leaveInterior', game.width * 0.6805, game.height * 0.8729, game.width * 0.07, false)
-        ]
+        ],
+        0.22,
+        0.22
     )
     game.player.objX = game.width *0.48611
     game.player.objY = game.height * 0.8534
     populateIsometricBlock(game, true)
     game.player.width = game.width * 0.2
     game.player.height = game.height * 0.2
-    game.player.radius = game.height * 0.095
+    game.player.radius = game.height * 0.066
     return game.currentBlock
 }
 export const Szörny4 = async (game) => {

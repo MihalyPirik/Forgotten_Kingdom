@@ -109,15 +109,15 @@ export const Kastély = async (game) => {
 
 
             new Circle(game.width * 0.2735, game.height * 0.6004, game.width * 0.05),
-            new Circle(game.width * 0.3888, game.height *0.7428, game.width * 0.04),
+            new Circle(game.width * 0.3888, game.height *0.7428, game.width * 0.05),
         ],
         [
             new Panel('navigationPanel', game.width * 0.8066, game.height * 0.7882, game.width * 0.06, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, null),
             new Panel('navigationPanel', game.width * 0.1773, game.height * 0.800, game.width * 0.06, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, null),
             new Panel('enterInterior', game.width * 0.4006, game.height * 0.5681, game.width * 0.08, false),
         ],
-        0.035,
-        0.035
+        0.05,
+        0.05
     )
 
     game.player.objX = game.width * 0.5993
@@ -125,5 +125,5 @@ export const Kastély = async (game) => {
     populateIsometricBlock(game)
     game.player.width = game.width * 0.035
     game.player.height = game.height * 0.035
-    game.player.radius = game.height * 0.016
+    game.player.radius = game.height * 0.008
 }

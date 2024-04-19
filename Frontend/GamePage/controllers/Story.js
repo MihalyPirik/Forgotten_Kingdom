@@ -253,6 +253,7 @@ export class Story {
                 armin.isInterior = true
                 armin.blockX = 0
                 armin.blockY = 1
+                emma.isInterior = true
                 emma.blockX = 2
                 emma.blockY = 0
                 this.AddEntitiesToScene([emma, armin])

@@ -50,13 +50,13 @@ export const Erdő = async (game) => {
                 new Panel('navigationPanel', game.width * 0.2873, game.height * 0.7707, game.width * 0.08, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, null),
                 new Panel('navigationPanel', game.width * 0.7158, game.height * 0.7872, game.width * 0.1, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, null)
             ],
-            0.1,
-            0.1
+            0.125,
+            0.125
         )
     game.player.objX = game.width *0.4914
     game.player.objY = game.height *0.7612
     populateIsometricBlock(game)
     game.player.width = game.width * 0.1
     game.player.height = game.height * 0.1
-    game.player.radius = game.height * 0.046
+    game.player.radius = game.height * 0.023
 }

@@ -73,9 +73,9 @@ const inFarmBlock = (game)=>{
     game.player.objX=game.width*0.50106
     game.player.objY=game.height*0.80635
     populateIsometricBlock(game,true)
-    game.player.width = game.width * 0.18
-    game.player.height = game.height * 0.18
-    game.player.radius = game.height * 0.085
+    game.player.width = game.width * 0.15
+    game.player.height = game.height * 0.15
+    game.player.radius = game.height * 0.045
     return game.currentBlock
 }
 
