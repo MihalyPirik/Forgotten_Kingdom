@@ -1,4 +1,10 @@
 Mesélő: Hősünk ismét sikerrel járt és ezúttal megmentett egy csapat lovagot is.
-Lovag:  Köszönjük szépen, hogy megmentettél minket! Ezt az összes lovag nevében mondhatom! Az én nevem Michail. Jómagam és a csapatom ezen királyság védelmezői. Vagyis... csak voltunk.  Kudarcot vallottunk... Sokkal keményebben kellesz edzenünk ahoz, hogy olyanok lehessünk mint te. Hálásan köszönjük, még egyszer! Fiúk! Amint visszaértünk a kastélyhoz, a lakosok ellátása és segítése lesz az elsődleges feladatunk!
-Halász:  Köszönöm, hogy megmentettél harcos! Billy vagyok, egy egyszerű halász. Már azt hittem, hogy soha többé nem foghatok horgászbotot a kezemben! De hála neked, ez nem így lett. Ha érdekel a horgászat, akkor keress meg a legközelebbi tó mellett. Fizettséget kínálok a kifogott halakért cserébe.
+Michail:  Köszönjük szépen, hogy megmentettél minket! Ezt az összes lovag nevében mondhatom! Az én nevem Michail. Jómagam és a csapatom ezen királyság védelmezői. 
+Michail: Vagyis... csak voltunk.  Kudarcot vallottunk... Sokkal keményebben kellesz edzenünk ahoz, hogy olyanok lehessünk mint te. Hálásan köszönjük, még egyszer! 
+Michail: Fiúk! Amint visszaértünk a kastélyhoz, a lakosok ellátása és segítése lesz az elsődleges feladatunk!
+Flash:  Köszönöm, hogy megmentettél harcos! 
+Flash: Flash vagyok, a villámgyors horgász!
+Flash: Miért? Mert olyan gyorsan fogom ki a halakat akár a villám! 
+Flash: Már azt hittem, hogy soha többé nem foghatok horgászbotot a kezemben! De hála neked, ez nem így lett. 
+Flash: Ha érdekel a horgászat, akkor keress meg a legközelebbi tó mellett. Fizettséget kínálok a kifogott halakért cserébe.
 Játékos: *Lassan itt az ideje, hogy bejussak az erdő közepére. A utolsó áldozatokat is ki kell szabadítanom! De előtte, még egy sokkal erősebb fegyverre lesz szükségem.*

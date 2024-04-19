@@ -1,8 +1,11 @@
-Kovács: Úgy látom sikerrel jártál.
+Ulric: Úgy látom sikerrel jártál.
 Játékos: Igen!
-Kovács: Remek! Azonnal elkezdem a kardod javítását!
+Ulric: Remek! Azonnal elkezdem a kardod javítását!
 Mesélő: Egy nappal később!
-Kovács: Parancsolj! Jobb mint új korában! Hahahaha!
+Ulric: Parancsolj! Jobb mint új korában! 
+Ulric: Hahahaha!
 Játékos: Nagyon szépen köszönöm!
-Kovács: Viszont, miközben elraboltak láttam, hogy vannak sokkal erősebb szörnyek is az erdő mélyén. Nem biztos, hogy ez a kard elég lesz ahoz, hogy szembe nézz velük. Ha megmentettél mindenkit az erdő körül, akkor gyere vissza hozzám, még több alapanyaggal. Szükséged lesz erősebb fegyverekre. Hahahaha!
+Ulric: Viszont, miközben elraboltak láttam, hogy vannak sokkal erősebb szörnyek is az erdő mélyén. Nem biztos, hogy ez a kard elég lesz ahoz, hogy szembe nézz velük. 
+Ulric: Ha megmentettél mindenkit az erdő körül, akkor gyere vissza hozzám, még több alapanyaggal. Szükséged lesz erősebb fegyverekre. 
+Ulric: Hahahaha!
 Mesélő: Hősünk bólintással jelezte, hogy megértette a helyzetet. Majd elköszönt Ulric-tól, hogy még több lakosnak segíthessen.

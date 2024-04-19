@@ -3,21 +3,21 @@ Játékos: *Ez a hely... talán egy királyság lehetett? De most... mégis hol 
 Mesélő: Nagy bizonytalanságában, végül megpillant valakit a távolban.
 Mesélő: Egy idős kereskedő az, ki árucikkekkel a háta mögött reméli, hogy megéli a holnapot.
 Mesélő: Harcosunk közelebb kerül hozzá, a kereskedő felé fordul és megkönnyebbülten tapasztalja, hogy végre társaságot talált.
-Kereskedő: Üdvözöllek, utazó! Az én nevem Arthur! Ritka dolog, hogy valaki megfordul ezen az elhagyatott vidéken. E- Esetleg tetszik valami a kínálatomból?
+Arthur: Üdvözöllek, utazó! Az én nevem Arthur! Ritka dolog, hogy valaki megfordul ezen az elhagyatott vidéken. E- Esetleg tetszik valami a kínálatomból?
 Játékos: Üdvözlöm! Köszönöm, de... én csak csodálkozom, hogy még van itt valaki. Mi történt ezzel a hellyel?
 Mesélő: A kereskedő megnyugtatóan mosolyog, de szemeiben mély szomorúság tükröződik.
-Kereskedő: Áh, a királyságunk... Nos, nem is oly rég szörnyek támadták meg ezt a vidéket. Sokan vesztették életüket vagy lettek elrabolva. 
-Kereskedő: Ezt a helyet szépen lassan elfelejtik... De talán te!
+Arthur: Áh, a királyságunk... Nos, nem is oly rég szörnyek támadták meg ezt a vidéket. Sokan vesztették életüket vagy lettek elrabolva. 
+Arthur: Ezt a helyet szépen lassan elfelejtik... De talán te!
 Mesélő: Szemében egy pillanatra felcsillan a remény.
-Kereskedő: Te... talán még segíthetnél rajtunk!
+Arthur: Te... talán még segíthetnél rajtunk!
 Mesélő: Hősünk arca komolyá válik a kereskedő szavaitól. A történetet hallva megréműl, de mégis azt érzi, hogy nem hagyhatja magára azokat, akik még élnek.
 Játékos: Legyen! Szeretnék segíteni!
 Mesélő: A kereskedő reményekkel feltüzelve, elégedetten bólint, majd egy szinte már kicsorbult kardot és egy térképet nyújt át a kalandornak.
-Kereskedő: Akkor itt van egy kis felszerelés és egy térkép. A kard talán nem a legerősebb, de jobb, mint a semmi. A térkép segítségével eljuthatsz a szörnyek fészkeibe.
-Kereskedő: Kérlek, szabadítsd fel az áldozatokat, és hozd vissza a fényt ezen sötét időkbe!
+Arthur: Akkor itt van egy kis felszerelés és egy térkép. A kard talán nem a legerősebb, de jobb, mint a semmi. A térkép segítségével eljuthatsz a szörnyek fészkeibe.
+Arthur: Kérlek, szabadítsd fel az áldozatokat, és hozd vissza a fényt ezen sötét időkbe!
 Mesélő: A játékos hálásan veszi át a kardot és a térképet, majd határozottan néz a kereskedőre.
 Játékos: Köszönöm! Nem fogok csalódást okozni. Megígérem, hogy visszahozom az embereket, és újra virágzóvá teszem ezt a királyságot!
 Mesélő: A kereskedő bólint, majd megérinti a vállát biztatóan.
-Kereskedő: Hiszek benned, ifjú harcos! Legyen veled szerencse az úton!
+Arthur: Hiszek benned, ifjú harcos! Legyen veled szerencse az úton!
 Mesélő: Az utazó megköszöni a biztatást, majd egy időre elbúcsúzik a kereskedőtől.
 Játékos: Megígérem, hogy visszatérek!

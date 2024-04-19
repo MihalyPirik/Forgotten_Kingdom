@@ -114,13 +114,13 @@ const Player = dbConnection.define
             {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue: 0
+                defaultValue: 1
             },
             blockY:
             {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue: 0
+                defaultValue: 1
             }
         },
         {
