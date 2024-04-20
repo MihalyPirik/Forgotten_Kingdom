@@ -465,7 +465,7 @@ export class PanelView {
     else {
       switch (quest.Quest.category) {
         case "Killer":
-          div2.innerHTML += `<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p><p>${quest.currentProgress}/${quest.Quest.target_amount}</p>`
+          div2.innerHTML += `<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p>`
           break;
         case "Conversation":
           div2.innerHTML += `<p>Beszélj ${quest.Quest.target_resident} - ral</p>`

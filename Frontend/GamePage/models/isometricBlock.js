@@ -38,7 +38,8 @@ export class IsometricBlock
             {
                 return
             }
-            const monsterType=(await getAllEnemyType("enemy_name=Skeleton&level=1"))[0]
+            let monsterType
+            if(game.currentBlockX==0 && game.currentBlockY==3){monsterType=(await getAllEnemyType("enemy_name=Skeleton&level=1"))[0]}
             const sprite = new Image()
             sprite.src='assets/maincharacters/monsterSprite.gif'
             await sprite.decode()
