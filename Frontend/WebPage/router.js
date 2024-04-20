@@ -3,6 +3,7 @@ import Home from './components/Home.vue'
 import Regisztracio from '/components/Regisztracio.vue'
 import Not_Found_Page from './components/Not_Found_Page.vue'
 import Report from './components/Report.vue'
+import Galeria from './components/Galeria.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/report',
       name: 'Report',
       component: Report
+    },
+    {
+      path: '/galeria',
+      name: 'Galeria',
+      component: Galeria
     },
     {
       path: '/:pathMatch(.*)*',

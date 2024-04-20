@@ -141,12 +141,15 @@ div#HP div {
 }
 div#Action {
   min-width: 100px;
-  margin-left: 28%;
+}
+div#Action>div {
   border-top: 5px solid black;
   border-bottom: 5px solid black;
   background-color: grey;
   padding: 0px;
   opacity: 0.8;
+  width: 110%;
+  margin: 2.5px;
 }
 .portrait {
   display: inline-block;

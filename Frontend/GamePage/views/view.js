@@ -317,6 +317,7 @@ export class PanelView {
 
   static BindProgress(value, interval) {
     const el = document.getElementById('ActionProgress')
+    console.log(el);
     let width = el.parentElement.offsetWidth * value / interval
     if (width > 100) { width = 100 }
     el.style.width = width + '%'
@@ -324,6 +325,7 @@ export class PanelView {
 
   static SetFishActionView(element) {
     const but = document.createElement('input')
+    but.classList.add('navigationButtonsEntity')
     but.type = 'button'
     but.value = 'Horgászsás'
     element.append(but)
