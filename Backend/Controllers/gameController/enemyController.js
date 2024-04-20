@@ -26,7 +26,7 @@ const postEnemy = async (req, res, next) => {
     const blockX = req.body.blockX;
     const blockY = req.body.blockY;
     const enemy_type_id = req.body.enemy_type_id;
-    await Enemy.create({
+    const data = await Enemy.create({
       enemy_id: uuid.v1(),
       objX: objX,
       objY: objY,
@@ -36,7 +36,7 @@ const postEnemy = async (req, res, next) => {
       enemy_type_id: enemy_type_id
     });
 
-    res.status(201).json({ data: {message: "Sikeres felvétel!"} });
+    res.status(201).json({ data: data });
   } catch (error) {
     next(error);
   }
