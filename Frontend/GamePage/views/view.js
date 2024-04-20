@@ -468,13 +468,13 @@ export class PanelView {
           div2.innerHTML += `<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p>`
           break;
         case "Conversation":
-          div2.innerHTML += `<p>Beszélj ${quest.Quest.target_resident} - ral</p>`
+          div2.innerHTML += `<p>Beszélj ${quest.Quest.target_resident} - al</p>`
           break;
         case "Collector":
           div2.innerHTML += `<p>Szerezz ${quest.Quest.target_amount} db ${quest.Quest.Item.name} - t</p>`
           break;
         case "Exploring":
-          div2.innerHTML += `<p>Juss el a ${isometricBlocks[quest.Quest.blockX][quest.Quest.blockY].name} - re</p>`
+          div2.innerHTML += `<p>Juss el a ${isometricBlocks[quest.Quest.blockX][quest.Quest.blockY].name} - hoz</p>`
           break;
         default:
           break;
@@ -499,7 +499,7 @@ export class PanelView {
     const el = element
     if (quest) {
       if (quest.is_completed) {
-        el.innerHTML = '<p>Üdvözöllek bátor utazó!</p>'
+        el.innerHTML = '<p>Üdv!</p>'
         return
       }
       if (quest.is_active) {
@@ -528,7 +528,7 @@ export class PanelView {
       }
     }
     else {
-      el.innerHTML = '<p>Üdvözöllek bátor utazó!</p>'
+      el.innerHTML = '<p>Üdv!</p>'
     }
     const anotherQuest = IsTargetResident(resident, resident.game.player.quests)
     if (anotherQuest) {

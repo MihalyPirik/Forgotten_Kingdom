@@ -16,7 +16,7 @@ Lovag:  Köszönjük szépen, hogy megmentettél minket! Ezt az összes lovag ne
 	Fiúk! Amint visszaértünk a kastélyhoz, a lakosok ellátása és segítése lesz az elsődleges feladatunk!
 
 Halász:  Köszönöm, hogy megmentettél harcos!
-	 Billy vagyok, egy egyszerű halász.
+	 Flash vagyok, egy egyszerű halász.
 	 Már azt hittem, hogy soha többé nem foghatok horgászbotot a kezemben!
 	 De hála neked, ez nem így lett.
 	 Ha érdekel a horgászat, akkor keress meg a legközelebbi tó mellett.

@@ -4,7 +4,7 @@ Michail: Tudod... a sikerünk után elgondolkoztam valamin. Ezt a gondolatot elv
 Játékos: Ezt, hogy érted?
 Michail: Biztosan tudod, hogy a királyunkat sajnos nem tudtuk megmenteni. Ez rettenetes dolog, de mégis... a trón most üresen áll.
 Michail: ... .... ...... 
-Játékso: ... .... ......?
+Játékos: ... .... ......?
 Michail: A lényeg az... hogy szeretnénk, ha te lennél ennek a királyságnak az újdonsült uralkodója. Mindenki nagyon örülne annak, ha elfogadnád az ajánlatunkat.
 Játékos: Ez... nem is tudom mit mondhatnék...
 Michail: Én és a többiek mindenben támogatnánk.
@@ -12,7 +12,7 @@ Mesélő: Hősünk hálás mosollyal az arcán válaszolt.
 Játékos: Megtiszteltetés volna ezen királyság felett uralkodni!
 Mesélő: Az a ceremónia, ami ezt a mondatott követte... egyszerűen elképesztő volt. 
 Mesélő: Mindenki eljött a koronázásra. Hatalmas éljenzés volt... talán még a szomszédos királyságban is hallatszódott. 
-Meslélő: Az emberek két napon át mulattak. Én és a barátaim nagyon boldogok voltunk. Hálásan köszönjük neked, hogy végig segítetted az uralkodónkat, nehéz útján! Ez nélküled nem sikerült volna!
+Mesélő: Az emberek két napon át mulattak. Én és a barátaim nagyon boldogok voltunk. Hálásan köszönjük neked, hogy végig segítetted az uralkodónkat, nehéz útján! Ez nélküled nem sikerült volna!
 Dominik, Ármin, Michail: És mi is köszönjük neked, hogy végig vitted a játékunkat! Azonban itt még nincs teljesen vége! Várnak még rád tartalmak.
 Mesélő: Még valami! Rájöttetek-e már szerény személyem kilétére? 
 Mesélő: Hahahaha!

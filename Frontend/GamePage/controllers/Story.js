@@ -294,20 +294,20 @@ export class Story {
             const game = Story.gameController
             if (index == 1) {
                 const michailSprite = await GetSprite('Michail')
-                const billySprite = await GetSprite('Billy')
+                const FlashSprite = await GetSprite('Flash')
 
                 const michail = new NPC(game, 'Michail', michailSprite, game.width * 0.32, game.height * 0.64, 'Lovag')
-                const billy = new NPC(game, 'Billy', billySprite, game.width * 0.72, game.height * 0.52, 'Horgász')
+                const Flash = new NPC(game, 'Flash', FlashSprite, game.width * 0.72, game.height * 0.52, 'Horgász')
                 michail.blockX = 0
                 michail.blockY = 0
-                billy.blockX = 2
-                billy.blockY = 1
-                billy.objX = game.width * 0.25
-                billy.objY = game.height * 0.4
+                Flash.blockX = 2
+                Flash.blockY = 1
+                Flash.objX = game.width * 0.25
+                Flash.objY = game.height * 0.4
                 michail.objX = game.width * 0.26
                 michail.objY = game.height * 0.67
-                this.AddEntitiesToScene([michail, billy])
-                this.PostEntitis([michail, billy])
+                this.AddEntitiesToScene([michail, Flash])
+                this.PostEntitis([michail, Flash])
             }
         })
         if (filePath.includes('during')) {
