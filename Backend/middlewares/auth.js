@@ -11,6 +11,13 @@ const userAuth = async (req, res, next) => {
       if (err) {
         return res.status(403).json({ message: "Nincs jogod a következőre!" });
       } else {
+        if(decodedToken.exp - Math.floor(Date.now() / 1000) <= 1200)
+        {
+          const newToken = jwt.sign({ id: decodedToken.id }, process.env.SECRET_KEY, {
+            expiresIn: "1h",
+          });
+          res.setHeader("Authorization", `Bearer ${newToken}`);
+        }
         req.token = decodedToken;
         next();
       }
