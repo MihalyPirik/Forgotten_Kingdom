@@ -1,7 +1,7 @@
 Mesélő: Hősünk eléri az első szörnyeteg területét. A ködös erdő sűrű fái között óvatosan halad, figyelve minden lépését. Az elhagyatottság és a csend nyomasztó...
 Játékos: *Lélegezz, csak lélegezz! Menni fog! Számítanak rám!*
 Mesélő: A harcos sikeresen legyőzte az első szörnyeket, és kiszabadított két elrabolt lakost.
-Ulric: Köszönöm, bátor utazó! Nem tudom, mi lett volna velem nélküled. Az én nevem Ulric, a helyi kovács.Remélem minél hamarabb felkeresel majd a műhelyemben.Várni fog rád a jutalmam, amiért megmentetted az életem.
+Ulric: Köszönöm, bátor utazó! Nem tudom, mi lett volna velem nélküled. Az én nevem Ulric, a helyi kovács. Remélem minél hamarabb felkeresel majd a műhelyemben.Várni fog rád a jutalmam, amiért megmentetted az életem.
 Dominik: Szintúgy hálásan köszönöm, hogy megmentettél, barátom! Az én nevem Dominik. Egy szörnyvadász volnék, viszont a támadás előtt pár nappal eltört a bal kezem és képtelen voltam megvédeni a lakosokat. 
 Dominik: A sérült karom miatt tehát maradtak vállalt megbízásaim, amiket a közeljövőben nem leszek képes teljesíteni. 
 Dominik: Viszont... rajtad látszik, hogy nem ma kezdted! Te talán elvállalhatnád tőlem ezeket a feladatokat. Ha érdekel a dolog, később keress meg a piac környékén.
