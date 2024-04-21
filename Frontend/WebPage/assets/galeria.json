@@ -1,22 +1,117 @@
 [
   {
-    "src": "../Frontend/WebPage/dist/assets/LOGOv6-6e3f6b54.png",
-    "title": "Lorem, ipsum",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque natus fuga corrupti deserunt doloremque sit, ea sed dolor praesentium consequatur hic eligendi, dolorem ab recusandae?"
+    "src": "../Frontend/WebPage/assets/portraits/Játékos.png",
+    "title": "A főszereplő",
+    "description": "Egy titokzatos hófehér hajú nő, kinek ragyogóan zöld szemei azonnal megbűvölnek. Ha rákérdezel az arcán lévő sebhelyére, akkor talán egy elképesztő és hatalmas történettel lehetsz gazdagabb."
   },
   {
-    "src": "../Frontend/WebPage/dist/assets/LOGOv6-6e3f6b54.png",
-    "title": "Lorem, ipsum",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque natus fuga corrupti deserunt doloremque sit, ea sed dolor praesentium consequatur hic eligendi, dolorem ab recusandae?"
+    "src": "../Frontend/WebPage/assets/portraits/Arthur.png",
+    "title": "Arthur",
+    "description": "Egy idős, világot látott kereskedő, aki mindig hűen visszatér szülőföldjének királyságába."
   },
   {
-    "src": "../Frontend/WebPage/dist/assets/LOGOv6-6e3f6b54.png",
-    "title": "Lorem, ipsum",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque natus fuga corrupti deserunt doloremque sit, ea sed dolor praesentium consequatur hic eligendi, dolorem ab recusandae?"
+    "src": "../Frontend/WebPage/assets/portraits/Ulric.png",
+    "title": "Ulric",
+    "description": "Egy mindig pozitív kovács. Állítólag a mesterségének technikáit olyan szintre fejlesztette, amit csak az ősi török használtak. Jellegzetes nevetését talán mérföldekről is hallani..."
   },
   {
-    "src": "../Frontend/WebPage/dist/assets/LOGOv6-6e3f6b54.png",
-    "title": "Lorem, ipsum",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque natus fuga corrupti deserunt doloremque sit, ea sed dolor praesentium consequatur hic eligendi, dolorem ab recusandae?"
+    "src": "../Frontend/WebPage/assets/portraits/Emma.png",
+    "title": "Emma",
+    "description": "Egy aranyos leány, kinek mindene a természet. A családjától örökölt földeket nagy lelkesedéssel műveli."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Flash.png",
+    "title": "Flash",
+    "description": "Egy villámgyors férfi, aki megszállot horgász. Néha szokta emlegetni, hogy a jövőből érkezett és a kedvence elfoglaltsága a ..., mi is? Adatbázis kezelés volt?"
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Michail.png",
+    "title": "Michail",
+    "description": "Egy rettenhetetlen lovag, kinek helyén van a becsülete. Korán árva lett, de miután a király befogatta személyes köreibe azóta minden nap keményen edz, hogy senki se állhasson az útjába."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Ármin.png",
+    "title": "Ármin",
+    "description": "Egy hatalmas mágus. Már kiskorában észre vették a szülei, hogy képes varázslatokat idézni a kezeivel. Bámulatos, nem igaz?"
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Dominik.png",
+    "title": "Dominik",
+    "description": "Egy precíz szörnyvadász, aki gyerekként emberi mutációkon esett át, hogy a szakmája megbecsült tagjává válhasson. Állítólag a kardforgatást egy távoli vidég erődjében tanították meg neki."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Henry.png",
+    "title": "Henry",
+    "description": "Egy igazi félisten? Kedvenc ételének a kőlevest adta válaszul és kifejezetten rajong a skandináv istenekért. Ha teheted, akkor ne legyél az ellensége!"
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Minerva.png",
+    "title": "Minerva",
+    "description": "Egy elragadó boszorkány, kinek mindig jó illata van. Mély szegénységben élte gyerekkorát és a szülei két ezüstért adták el egy boszorkányokat képző iskolának."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/portraits/Mesélő.png",
+    "title": "Mesélő",
+    "description": "Csak egy idős mesélő... De vajon ki lehet ő valójában?"
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Castle.png",
+    "title": "A kastély",
+    "description": "Ez az épület már akkor állt amikor a királyság alapítása tervben sem volt. Állítólag egy ősi dinasztia hagyatéka."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Blacksmith.png",
+    "title": "A kovács háza",
+    "description": "Ulric saját két kezével építette fel ezt a kis házat. Mutatós darab."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Forest.png",
+    "title": "Erdő",
+    "description": "Csak egy átlagos erdő, ami fa vágáshoz tökéletes."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Market.png",
+    "title": "Piac",
+    "description": "A piac a királyság központja. A pompázó szökőkút körül minden nap alkudozásokat és üzlet kötéseket hallani."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Mill.png",
+    "title": "Malom",
+    "description": "Egy öreg malom, ami állítólag egy tehetséges mágus főzeteinek ad otthont."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Mine.png",
+    "title": "Bánya",
+    "description": "Csak egy átlagos bánya, ami az ércek szerzéséhez tökéletes."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Pond.png",
+    "title": "Horgásztó",
+    "description": "Sokan kedvelik ezt a helyet, főleg a horgászok körében. Állítolag egyszer egy tag képes volt egy perc alatt 15 halat kifogni. De, hogy lehetséges ez?"
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/WitchHouse.png",
+    "title": "A boszorkány tanyája",
+    "description": "A sűrű erdőben található ez a kis kunyhó. Mindig jó illatok hagyják el a ház ablakait. Ha szörnyek támadnának rád, akkor jobb ha követed az orrodat és menedéket kérsz ezen a helyen."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/Farm.png",
+    "title": "A farm",
+    "description": "A földes birtok közepén található ez az épület, melyben Emma él. Nyáron elképesztő látványt nyújt ez a hely."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/EnemyOne.png",
+    "title": "A külső erdő",
+    "description": "Csak puhány goblinok tanyája ez a hely."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/EnemyTwo.png",
+    "title": "Az erdő középső gyűrűje",
+    "description": "Egy sötét éjszakán, elátkozott csontvázak lepték el ezt a területet. Azóta sem lehet őket végleg kiírtani..."
+  },
+  {
+    "src": "../Frontend/WebPage/assets/blocks/EnemyThree.png",
+    "title": "Az erdő mélye",
+    "description": "Néhány termetes troll kedvenc üdülőhelynek választotta ezt a helyet. Nem tudni miért, de én szóltam!" 
   }
 ]

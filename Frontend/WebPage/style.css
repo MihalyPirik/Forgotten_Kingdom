@@ -28,15 +28,33 @@ nav>*{
   padding: 3px 0 3px 0
 }
 
-.paper{
+.first_paper{
   background-image: url(assets/paper.png);
   background-size: 100% 100%;
   min-height: 300px;
   font-weight: bold;
-  padding: 60px 15px 30px 15px;
+  padding: 10% 5% 10% 5%;
+  font-size: 22px;
 }
-.paper h4{
-  font-weight: inherit;}
+
+.second_row{
+  background-color: black;
+  background-size: 100% 100%;
+  min-height: 300px;
+  font-weight: bold;
+  padding: 10% 5% 10% 5%;
+  opacity: 0.8;
+  border-bottom: 10px solid;
+  border-top: 10px solid;
+  border-image: url(assets/border2.png) 70 repeat;
+  font-size: 25px;
+  color: gold;
+}
+
+.second_row h1{
+  font-size: 30px;
+  font-weight: bold;
+}
 
 #login {
   font-size: 20px;

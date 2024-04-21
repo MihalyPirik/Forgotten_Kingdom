@@ -1,0 +1,17 @@
+[
+    {
+      "src": "../Frontend/WebPage/assets/portraits/Michail.png",
+      "title": "Pirik Mihály",
+      "description": "A játék backend fejlesztője"
+    },
+    {
+      "src": "../Frontend/WebPage/assets/portraits/Ármin.png",
+      "title": "Pintér Ármin",
+      "description": "A játék frontend fejlesztője"
+    },
+    {
+      "src": "../Frontend/WebPage/assets/portraits/Dominik.png",
+      "title": "Obsitos Dominik",
+      "description": "A játék grafikus fejlesztője"
+    }
+]

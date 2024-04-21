@@ -4,6 +4,7 @@ import Regisztracio from '/components/Regisztracio.vue'
 import Not_Found_Page from './components/Not_Found_Page.vue'
 import Report from './components/Report.vue'
 import Galeria from './components/Galeria.vue'
+import Rolunk from './components/Rolunk.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/galeria',
       name: 'Galeria',
       component: Galeria
+    },
+    {
+      path: '/rolunk',
+      name: 'Rolunk',
+      component: Rolunk
     },
     {
       path: '/:pathMatch(.*)*',

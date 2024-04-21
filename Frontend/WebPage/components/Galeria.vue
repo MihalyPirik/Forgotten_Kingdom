@@ -23,9 +23,10 @@ import jsonData from '../assets/galeria.json';
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border: 2px solid #ccc;
   border-radius: 10px;
   color: gold;
+  border-bottom: 10px solid;
+  border-image: url(../assets/border2.png) 70 repeat;
 }
 
 .image-block {
@@ -44,12 +45,14 @@ import jsonData from '../assets/galeria.json';
 }
 
 .text-block h2 {
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
 .text-block p {
-  font-size: 12px;
+  font-size: 20px;
+  font-weight: bold;
   line-height: 1.6;
 }
 </style>

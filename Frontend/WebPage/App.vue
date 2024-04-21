@@ -5,8 +5,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
     <header>
         <nav class="navbar-brand d-flex flex-row-reverse">
-            <RouterLink to="/home" class="me-3" href=""><img src="./assets/ig_logo.png" alt="" width="25" height="25"></RouterLink>
-            <RouterLink to="/home" class="me-3" href=""><img src="./assets/fb_logo.png" alt="" width="25" height="25"></RouterLink>
+            <RouterLink to="/home" class="me-3" href=""><img src="./assets/ig_logo.png" alt="" width="30" height="30"></RouterLink>
+            <RouterLink to="/home" class="me-3" href=""><img src="./assets/fb_logo.png" alt="" width="30" height="30"></RouterLink>
         </nav>
     </header>
 
@@ -35,7 +35,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <footer>
         <div class="container w-50" id="footer">
             <h1>KAPCSOLAT</h1>
-            <p>info@forgottenkingdom.hu</p>
+            <p>forgottenkingdom887@gmail.com</p>
             <p>Győr, Szent István út 7.</p>
         </div>
     </footer>
