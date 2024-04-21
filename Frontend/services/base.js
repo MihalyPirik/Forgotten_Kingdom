@@ -10,7 +10,14 @@ export function base(url, method, data) {
     },
     body: data ? JSON.stringify(data) : null
   })
-    .then(async res => { return await res.json() })
+    .then(async res => {
+      const newToken = res.headers.get('Authorization')
+      if(newToken!==null)
+      {
+        localStorage.setItem('token',newToken)
+      }
+       return await res.json() 
+      })
     .then(res => { return res.data })
     .catch(err => { return err.message })
 }

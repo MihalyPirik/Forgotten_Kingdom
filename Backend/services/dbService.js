@@ -20,7 +20,8 @@ const dbConnection=new Sequelize
     dialect:'mariadb',
     define: {
       timestamps: false
-    }
+    },
+    logging: false
   }
 )
 const Test=async()=>
