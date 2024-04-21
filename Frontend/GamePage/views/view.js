@@ -572,4 +572,15 @@ export class PanelView {
     document.querySelector('body').append(div)
     return div
   }
+
+  static InformationPanel(game) {
+    const div = PanelView.#createTemplate()
+    div.id = 'information'
+    const informationIMG = document.createElement('img')
+    informationIMG.src = './assets/information/information.png'
+    informationIMG.classList.add('informationIMG')
+    div.append(informationIMG)
+    document.querySelector('body').append(div)
+    return div
+  }
 }

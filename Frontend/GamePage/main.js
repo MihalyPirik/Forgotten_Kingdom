@@ -1,17 +1,17 @@
 import { GameController } from './controllers/Game.js'
 import { Player } from './models/Player.js'
 import { Malom } from './isometricBlocks/mill.js'
-import {Kastély} from './isometricBlocks/castle.js'
-import {Bánya} from './isometricBlocks/cave.js'
-import {Kovács} from './isometricBlocks/blacksmith.js'
-import {Farm} from './isometricBlocks/farm.js'
-import {Horgásztó} from './isometricBlocks/fishingPond.js'
-import {Erdő} from './isometricBlocks/forest.js'
-import {Piac} from './isometricBlocks/market.js'
-import {Goblinok} from './isometricBlocks/monsterOne.js'
-import {Csontvázak} from './isometricBlocks/monsterTwo.js'
-import {Trollok} from './isometricBlocks/monsterThree.js'
-import {Boszorkány} from './isometricBlocks/monsterFour.js'
+import { Kastély } from './isometricBlocks/castle.js'
+import { Bánya } from './isometricBlocks/cave.js'
+import { Kovács } from './isometricBlocks/blacksmith.js'
+import { Farm } from './isometricBlocks/farm.js'
+import { Horgásztó } from './isometricBlocks/fishingPond.js'
+import { Erdő } from './isometricBlocks/forest.js'
+import { Piac } from './isometricBlocks/market.js'
+import { Goblinok } from './isometricBlocks/monsterOne.js'
+import { Csontvázak } from './isometricBlocks/monsterTwo.js'
+import { Trollok } from './isometricBlocks/monsterThree.js'
+import { Boszorkány } from './isometricBlocks/monsterFour.js'
 import { getAllData, getInventory } from '../services/playerService.js'
 import { GameView, PanelView } from './views/view.js'
 import { Story } from './controllers/Story.js'
@@ -34,86 +34,85 @@ const gameCanvas = document.querySelector('canvas')
 // ).mount('#mouseCoordinates')
 
 const token = localStorage.getItem('token')
-if(!token)
-{
+if (!token) {
   document.querySelector('body').innerHTML = '<h1>Nem vagy bejelentkezve</h1>'
   throw new Error('Script execution was terminated due to the absence of an auetntication token!')
 }
 
 const p = document.getElementById('mouseCoordinates')
 
-const character=new Image()
-character.src='./assets/maincharacters/player.png'
+const character = new Image()
+character.src = './assets/maincharacters/player.png'
 
 window.addEventListener('load', () => {
-  const gameView=new GameView(gameCanvas)
-  const game= new GameController([
-    [Kastély,Malom,Bánya,Goblinok],
-    [Kovács,Piac,Erdő,Csontvázak],
-    [Farm,Horgásztó,Trollok],
+  const gameView = new GameView(gameCanvas)
+  const game = new GameController([
+    [Kastély, Malom, Bánya, Goblinok],
+    [Kovács, Piac, Erdő, Csontvázak],
+    [Farm, Horgásztó, Trollok],
     [Boszorkány]
-  ],gameView)
-gameView.game=game
-  
-init(game)
+  ], gameView)
+  gameView.game = game
 
-Story.gameController = game
-Story.gameView = gameView
+  init(game)
 
-async function init(game)
-{
-  
-const playerData = await getAllData()
-const inventory = await getInventory()
+  Story.gameController = game
+  Story.gameView = gameView
 
-game.player = new Player(playerData.player_name,character,playerData.HP,playerData.money,inventory,game,playerData.tools)
-const decodedToken = JSON.parse(atob(token.split(' ')[1].split('.')[1]))
-game.player.id = decodedToken.id
-game.player.tools = playerData.ToolTypes
+  async function init(game) {
 
-InitEvents(game)
+    const playerData = await getAllData()
+    const inventory = await getInventory()
+
+    game.player = new Player(playerData.player_name, character, playerData.HP, playerData.money, inventory, game, playerData.tools)
+    const decodedToken = JSON.parse(atob(token.split(' ')[1].split('.')[1]))
+    game.player.id = decodedToken.id
+    game.player.tools = playerData.ToolTypes
+
+    InitEvents(game)
 
 
-addEventListener('keydown', (e) => {if(e.key=='f'){if(game.debug){game.debug = false}else{game.debug=e}} })
-  gameView.canvas.addEventListener('click',(e)=>{
-    p.innerText='Percantage coordinates:\n\n'+'Xcoord:'+e.offsetX/game.width+'\n\nYcoord:'+e.offsetY/game.height
-})
+    addEventListener('keydown', (e) => { if (e.key == 'f') { if (game.debug) { game.debug = false } else { game.debug = e } } })
+    gameView.canvas.addEventListener('click', (e) => {
+      p.innerText = 'Percantage coordinates:\n\n' + 'Xcoord:' + e.offsetX / game.width + '\n\nYcoord:' + e.offsetY / game.height
+    })
 
-await game.isometricBlocks[playerData.blockX][playerData.blockY](game)
+    await game.isometricBlocks[playerData.blockX][playerData.blockY](game)
 
-game.gameView.BindPlayerHealth(game.player)
-const questList = await getQuests("is_active=true&is_completed=false")
+    game.gameView.BindPlayerHealth(game.player)
+    const questList = await getQuests("is_active=true&is_completed=false")
 
-game.player.quests=questList
-PanelView.QuestPanelShow(questList,game.isometricBlocks)
+    game.player.quests = questList
+    PanelView.QuestPanelShow(questList, game.isometricBlocks)
 
-let previousTime = 0
-  const animate = (timeStamp) => {
-    const deltaTime = timeStamp - previousTime
-    previousTime = timeStamp
-    game.gameLoop(deltaTime)
-    requestAnimationFrame(animate)
+    let previousTime = 0
+    const animate = (timeStamp) => {
+      const deltaTime = timeStamp - previousTime
+      previousTime = timeStamp
+      game.gameLoop(deltaTime)
+      requestAnimationFrame(animate)
+    }
+    animate(0)
   }
-  animate(0)
-}
 
-  
-},{once:true})
+
+}, { once: true })
 
 
 
-document.addEventListener('keydown', function() {
+document.addEventListener('keydown', function () {
   if (!audioStarted) {
-    const backgroundMusic = document.getElementById('backgroundMusic');
+    let backgroundMusic = document.getElementById('backgroundMusic');
     backgroundMusic.play();
+    backgroundMusic.volume = 0.03;
     audioStarted = true;
   }
 });
 
-window.addEventListener('beforeunload', function(event) {
-  const backgroundMusic = document.getElementById('backgroundMusic');
-  backgroundMusic.pause(); 
-  backgroundMusic.currentTime = 0; 
+window.addEventListener('beforeunload', function (event) {
+  let backgroundMusic = document.getElementById('backgroundMusic');
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0;
 });
 
 let audioStarted = false;
