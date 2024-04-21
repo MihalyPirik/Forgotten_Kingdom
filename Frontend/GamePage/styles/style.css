@@ -87,6 +87,15 @@ img {
   left: -70px;
   top: -25px;
 }
+#information {
+  left: calc(100% - 9vw);
+  top: calc(100% - 4.5vw);
+}
+#information:hover:after {
+  position: absolute;
+  left: -70px;
+  top: -25px;
+}
 #map {
   position: absolute;
   top: calc(100% - 4.5vw);
@@ -437,6 +446,25 @@ div#newOffer {
 }
 
 #map .closeButton {
+  position: fixed;
+  right: 25%;
+  top: 0;
+  width: 3vW;
+  height: 3vW;
+  z-index: 1;
+}
+
+.informationIMG {
+  border-top: url(/Frontend/GamePage/assets/gameBG/borderTop.png);
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#information .closeButton {
   position: fixed;
   right: 25%;
   top: 0;

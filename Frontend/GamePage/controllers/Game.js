@@ -208,6 +208,6 @@ export class GameController {
   }
   Logout() {
     localStorage.removeItem("token");
-    window.location.href = "/forgottenkingdom";
+    window.location.href = "http://127.0.0.1:5500/Frontend/WebPage/dist/index.html";
   }
 }

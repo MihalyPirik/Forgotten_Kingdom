@@ -2,18 +2,18 @@
 
 describe("home page", () => {
   it("should render the main page", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
   });
 
   it("should have a form", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173");
     cy.get("#forms").get("#login").contains("BEJELENTKEZÉS");
     cy.get("form").find("input").should("have.length", 2);
     cy.get("form").find("button").should("have.length", 1).contains("BELÉPÉS");
   });
 
   it("should login with correct credentials and redirect to game page", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("form").find("input").eq(0).type("teszt@teszt.hu");
     cy.get("form").find("input").eq(1).type("12345678");
     cy.get("form").find("button").click();
@@ -25,35 +25,35 @@ describe("home page", () => {
   });
 
   it("should handle login with incorrect credentials", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("form").find("input").eq(0).type("rossz@teszt.hu");
     cy.get("form").find("input").eq(1).type("rosszjelszo");
     cy.get("form").find("button").click();
 
     cy.get("#forms").find("p").eq(0).should("be.visible");
 
-    cy.url().should("eq", "http://localhost:5173/forgottenkingdom/");
+    cy.url().should("eq", "http://localhost:5173/");
   });
 });
 
 describe("registration page", () => {
   it("should render the registration page", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#forms").contains("REGISZTRÁCIÓ").click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/regisztracio"
+      "http://localhost:5173/regisztracio"
     );
   });
 
   it("should have a form", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#forms").contains("REGISZTRÁCIÓ").click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/regisztracio"
+      "http://localhost:5173/regisztracio"
     );
 
     cy.get("form").get("h3").contains("Regisztráció");
@@ -65,12 +65,12 @@ describe("registration page", () => {
   });
 
   it("should register with correct credentials", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#forms").contains("REGISZTRÁCIÓ").click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/regisztracio"
+      "http://localhost:5173/regisztracio"
     );
 
     cy.get("form").find("input").eq(0).type("teszt1");
@@ -82,12 +82,12 @@ describe("registration page", () => {
   });
 
   it("should handle registration with incorrect credentials", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#forms").contains("REGISZTRÁCIÓ").click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/regisztracio"
+      "http://localhost:5173/regisztracio"
     );
 
     cy.get("form").find("input").eq(0).type("teszt1");
@@ -101,21 +101,21 @@ describe("registration page", () => {
 
 describe("report page", () => {
   it("should render the report page", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#buttonPanel").find("div").eq(3).click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/report"
+      "http://localhost:5173/report"
     );
   });
   it("should have a form", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#buttonPanel").find("div").eq(3).click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/report"
+      "http://localhost:5173/report"
     );
 
     cy.get("form").get("h3").contains("Report");
@@ -127,12 +127,12 @@ describe("report page", () => {
       .contains("Küldés");
   });
   it("should send a report with correct credentials", () => {
-    cy.visit("http://localhost:5173/forgottenkingdom/");
+    cy.visit("http://localhost:5173/");
     cy.get("#buttonPanel").find("div").eq(3).click();
 
     cy.url().should(
       "eq",
-      "http://localhost:5173/forgottenkingdom/report"
+      "http://localhost:5173/report"
     );
 
     cy.get("form").find("input").eq(0).type("teszt1@teszt.hu");
