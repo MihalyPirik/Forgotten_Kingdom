@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 require("./services/dbService");
 require("./models/relations");
-const { errorHandler } = require("./controllers/errorController");
+const { errorHandler } = require("./Controllers/errorController");
 const swaggerFile = require("./swagger_output.json");
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require("body-parser");
