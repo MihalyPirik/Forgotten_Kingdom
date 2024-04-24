@@ -1,4 +1,4 @@
-const { getAllEnemyTypes } = require('../../controllers/gameController/enemyTypeController');
+const { getAllEnemyTypes } = require('../../Controllers/gameController/enemyTypeController');
 const { userAuth } = require('../../middlewares/auth');
 
 const enemyTypeRouter = require('express').Router({ mergeParams: true });
