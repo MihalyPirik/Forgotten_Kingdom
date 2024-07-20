@@ -140,6 +140,6 @@ describe("report page", () => {
     cy.get("form").find("textarea").eq(0).type("Ez a report teszt");
     cy.get("form").find("button").click();
 
-    cy.get("form").find("p").contains("Sikeres report küldése!");
+    cy.get("form").find("p").contains("Sikeres a report küldése!");
   });
 });

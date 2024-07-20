@@ -9,7 +9,6 @@ const { errorHandler } = require("./Controllers/errorController");
 const swaggerFile = require("./swagger_output.json");
 const swaggerUi = require("swagger-ui-express");
 const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
 
 const userRouter = require("./routes/userRoutes");
 const playerRouter = require("./routes/gameRoutes/playerRoutes");
@@ -18,7 +17,8 @@ const residentRouter = require("./routes/gameRoutes/residentRoutes");
 const marketRouter = require("./routes/gameRoutes/marketRoutes");
 const toolRouter = require("./routes/gameRoutes/toolRoutes");
 const questRouter = require("./routes/gameRoutes/questRoutes");
-const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes')
+const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes');
+const emailRouter = require('./routes/emailRoutes');
 
 // const https = require('https');
 // const fs = require('fs');
@@ -44,35 +44,6 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
   res.setHeader("Access-Control-Expose-Headers", "Authorization");
   next();
-});
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: "", // email
-    pass: "", // kulcs
-  },
-  secure: true,
-});
-
-app.post("/send-email", (req, res) => {
-  const { from, subject, text } = req.body;
-
-  const mailOptions = {
-    from: from,
-    to: "", // email
-    subject: subject,
-    text: text,
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      res.status(500).send("A report nem került elküldésre!");
-    }
-    res.status(200).send("Sikeres report küldése!");
-  });
 });
 
 app.use(
@@ -117,7 +88,8 @@ app.use(
   "/enemyType",
   enemyTypeRouter
   // #swagger.tags = ['EnemyType']
-)
+);
+app.use('/send-email', emailRouter);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
