@@ -51,6 +51,14 @@ const Player = dbConnection.define
                     }
                 }
             },
+            email_verification_token: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            email_verified: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
+            },
             password:
             {
                 type: DataTypes.STRING,
