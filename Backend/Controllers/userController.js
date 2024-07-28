@@ -29,13 +29,13 @@ const postRegistration = async (req, res, next) => {
       secure: true,
       service: 'gmail',
       auth: {
-        user: 'misipirik@gmail.com', // email
-        pass: 'ntrv dhqm ivqe lgdk', // kulcs
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
       },
     });
 
     const mailOptions = {
-      from: 'misipirik@gmail.com', // email
+      from: process.env.EMAIL_USER,
       to: email,
       subject: 'Email hitelesítés',
       text: `Kérjük, hitelesítse az email címét a következő linkre kattintva: http://127.0.0.1:3000/user/verify-email?token=${token}&id=${playerId}`
