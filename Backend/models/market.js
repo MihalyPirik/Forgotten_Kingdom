@@ -1,8 +1,8 @@
-const { DataTypes } = require("sequelize");
-const dbConnection = require("../services/dbService");
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
 
 const Market = dbConnection.define(
-  "Market",
+  'Market',
   {
     offer_id: {
       type: DataTypes.UUID,
@@ -26,12 +26,12 @@ const Market = dbConnection.define(
     }
   },
   {
-    tableName: "offers",
+    tableName: 'offers',
     timestamps: true
   }
 );
 Market.associate = (models) => {
-  Market.belongsTo(models.Player, { foreignKey: "player_id", onDelete: "CASCADE" });
+  Market.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' });
 };
 
 module.exports = Market;

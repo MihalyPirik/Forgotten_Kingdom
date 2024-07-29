@@ -1,14 +1,14 @@
-const dbConnection = require("../services/dbService");
-const { DataTypes } = require("sequelize")
+const dbConnection = require('../services/dbService');
+const { DataTypes } = require('sequelize');
 
 const Inventory = dbConnection.define(
     'Inventory',
     {
-        amount:DataTypes.INTEGER
+        amount: DataTypes.INTEGER
     },
     {
-        tableName:'inventory'
+        tableName: 'inventory'
     }
 )
 
-module.exports = Inventory
+module.exports = Inventory;

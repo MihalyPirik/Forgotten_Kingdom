@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import jsonData from '../assets/galeria.json';
+import jsonData from "../assets/galeria.json";
 </script>
 
 <style scoped>

@@ -36,7 +36,7 @@ const MillInterior = (game) => {
     0.2,
     0.2
   )
-  game.player.objX = game.width *0.4978
+  game.player.objX = game.width * 0.4978
   game.player.objY = game.height * 0.87397
   populateIsometricBlock(game, true)
   game.player.width = game.width * 0.16
@@ -45,10 +45,7 @@ const MillInterior = (game) => {
   return game.currentBlock
 }
 
-
 export const Malom = async (game) => {
-
-
   const navigationPanelX = new Panel('navigationPanel', 0.6976 * game.width, 0.8561 * game.height, game.width * 0.07, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, game)
   const navigationPanelY = new Panel('navigationPanel', 0.2318 * game.width, 0.833 * game.height, game.width * 0.08, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, game)
 
@@ -82,7 +79,7 @@ export const Malom = async (game) => {
       new Panel('enterInterior', game.width * 0.36, game.height * 0.61, game.width * 0.12, false)
     ],
   )
-  game.player.objX = game.width *0.4978
+  game.player.objX = game.width * 0.4978
   game.player.objY = game.height * 0.87397
   populateIsometricBlock(game)
   game.player.width = game.width * 0.06

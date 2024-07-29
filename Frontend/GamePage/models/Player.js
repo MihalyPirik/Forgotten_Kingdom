@@ -50,7 +50,6 @@ export class Player extends Entity {
     return this.#hp
   }
 
-
   Knockback(enemy) {
     const dx = enemy.objX - this.objX
     const dy = enemy.objY - this.objY
@@ -92,9 +91,6 @@ export class Player extends Entity {
       }, 10)
     }
 
-
-
-
     if (enemy.objX > newEnemyObjX && enemy.objY > newEnemyObjY) {
       const inter = setInterval(() => {
         if (enemy.objY <= newEnemyObjY && enemy.objX <= newEnemyObjX) {
@@ -110,7 +106,6 @@ export class Player extends Entity {
 
       }, 10)
     }
-
 
     if (enemy.objX > newEnemyObjX && enemy.objY < newEnemyObjY) {
       const inter = setInterval(() => {
@@ -131,7 +126,7 @@ export class Player extends Entity {
   }
 
   Attack(e) {
-    if(!this.game.currentBlock){return}
+    if (!this.game.currentBlock) { return }
     for (const enemy of this.game.currentBlock.entities) {
       if (enemy instanceof Monster) {
         if (e.offsetX > enemy.objX - enemy.radius
@@ -158,7 +153,7 @@ export class Player extends Entity {
     this.money -= 10
     this.game.isometricBlocks[0][0](this.game)
     putPlayer({ HP: 100 })
-    this.HP=100
+    this.HP = 100
     this.isDead = false
   }
   Action = () => {
@@ -190,7 +185,7 @@ export class Player extends Entity {
           const gottenAmount = Random(1, 6)
           this.inventory[this.isAction.action] += gottenAmount
           putPlayer({ [this.isAction.action]: this.inventory[this.isAction.action] })
-          PanelView.BindInventoryItem(this.isAction.action,this.inventory[this.isAction.action])
+          PanelView.BindInventoryItem(this.isAction.action, this.inventory[this.isAction.action])
           CollectorQuests(this.isAction.action, gottenAmount, this.quests, this.game.isometricBlocks)
           this.isAction.timer = 0
           PanelView.BindProgress(this.isAction.timer, this.isAction.interval)
@@ -200,5 +195,4 @@ export class Player extends Entity {
         break;
     }
   }
-
 }

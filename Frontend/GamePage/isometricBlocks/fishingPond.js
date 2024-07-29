@@ -13,8 +13,6 @@ backGround.src = "./assets/blocks/Pond.png"
 // start X: 0.524,  Y: 0.578
 // end X:0.397 , Y: 0.495
 
-
-
 const charSprite = new Image()
 charSprite.src = './assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
@@ -27,13 +25,12 @@ const PondInterior = (game) => {
         null,
         [],
         [
-
             new Line(new Point(game.width * 0.49786, game.height * 0.9006), new Point(game.width * 0.7553, game.height * 0.7602)),
             new Circle(game.width * 0.7553, game.height * 0.7602, game.width * 0.01),
             new Line(new Point(game.width * 0.7553, game.height * 0.7602), new Point(game.width * 0.554487, game.height * 0.608)),
-            new Circle(game.width *0.554487, game.height * 0.608, game.width * 0.01),
+            new Circle(game.width * 0.554487, game.height * 0.608, game.width * 0.01),
             new Line(new Point(game.width * 0.554487, game.height * 0.608), new Point(game.width * 0.28632, game.height * 0.78790)),
-            new Circle(game.width * 0.28632, game.height *0.78790, game.width * 0.01),
+            new Circle(game.width * 0.28632, game.height * 0.78790, game.width * 0.01),
             new Line(new Point(game.width * 0.28632, game.height * 0.78790), new Point(game.width * 0.49786, game.height * 0.9006)),
             new Circle(game.width * 0.49786, game.height * 0.9006, game.width * 0.01),
         ],
@@ -44,7 +41,7 @@ const PondInterior = (game) => {
     game.player.objX = game.width * 0.54166
     game.player.objY = game.height * 0.737704
     populateIsometricBlock(game, true)
-    game.player.width = game.width * 0.22   
+    game.player.width = game.width * 0.22
     game.player.height = game.height * 0.22
     game.player.radius = game.height * 0.105
     return game.currentBlock
@@ -107,9 +104,9 @@ export const Horgásztó = async (game) => {
             new Circle(game.width * 0.6196, game.height * 0.3674, game.width * 0.01),
             new Line(new Point(game.width * 0.6196, game.height * 0.3674), new Point(game.width * 0.5256, game.height * 0.3747)),
             new Circle(game.width * 0.5256, game.height * 0.3747, game.width * 0.01),
-            new Line(new Point(game.width * 0.5256, game.height * 0.3747), new Point(game.width * 0.4059829, game.height *0.454918)),
+            new Line(new Point(game.width * 0.5256, game.height * 0.3747), new Point(game.width * 0.4059829, game.height * 0.454918)),
             new Circle(game.width * 0.4059829, game.height * 0.454918, game.width * 0.01),
-            new Line(new Point(game.width * 0.4059829, game.height *0.454918), new Point(game.width * 0.5245, game.height * 0.5331)),
+            new Line(new Point(game.width * 0.4059829, game.height * 0.454918), new Point(game.width * 0.5245, game.height * 0.5331)),
             new Circle(game.width * 0.5245, game.height * 0.5331, game.width * 0.01),
             new Line(new Point(game.width * 0.5245, game.height * 0.5331), new Point(game.width * 0.5053, game.height * 0.54419)),
             new Circle(game.width * 0.5053, game.height * 0.54419, game.width * 0.01),
@@ -126,17 +123,16 @@ export const Horgásztó = async (game) => {
             new Line(new Point(game.width * 0.6549, game.height * 0.722), new Point(game.width * 0.7168, game.height * 0.6924)),
             new Circle(game.width * 0.6549, game.height * 0.722, game.width * 0.01),
 
-
-            new Circle(game.width * 0.4412, game.height * 0.34118, game.width * 0.04),          
+            new Circle(game.width * 0.4412, game.height * 0.34118, game.width * 0.04),
             new Circle(game.width * 0.464743, game.height * 0.32684, game.width * 0.04),
-            new Circle(game.width * 0.5256, game.height *0.27561, game.width * 0.049),
-            new Circle(game.width *0.435, game.height *0.7991, game.width * 0.027),
-            new Circle(game.width *0.1346, game.height *0.519, game.width * 0.044),
-            new Circle(game.width *0.12286, game.height *0.449, game.width * 0.07),
-            new Circle(game.width *0.21794, game.height *0.56557, game.width * 0.035),
-            new Circle(game.width *0.5726, game.height *0.4016, game.width * 0.045),
-            new Circle(game.width *0.7916, game.height *0.553278, game.width * 0.03),
-            new Circle(game.width *0.3952, game.height *0.7131, game.width * 0.042),
+            new Circle(game.width * 0.5256, game.height * 0.27561, game.width * 0.049),
+            new Circle(game.width * 0.435, game.height * 0.7991, game.width * 0.027),
+            new Circle(game.width * 0.1346, game.height * 0.519, game.width * 0.044),
+            new Circle(game.width * 0.12286, game.height * 0.449, game.width * 0.07),
+            new Circle(game.width * 0.21794, game.height * 0.56557, game.width * 0.035),
+            new Circle(game.width * 0.5726, game.height * 0.4016, game.width * 0.045),
+            new Circle(game.width * 0.7916, game.height * 0.553278, game.width * 0.03),
+            new Circle(game.width * 0.3952, game.height * 0.7131, game.width * 0.042),
         ],
         [
             new Panel('navigationPanel', 0.2446 * game.width, 0.7688 * game.height, game.width * 0.05, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, game),

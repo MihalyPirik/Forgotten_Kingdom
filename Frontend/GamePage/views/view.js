@@ -1,15 +1,15 @@
-import { getQuests, putQuest } from '../../services/questService.js'
-import { GameController } from '../controllers/Game.js'
-import { PanelController } from '../controllers/Panel.js'
-import { ConversationQuests, IsTargetResident } from '../controllers/Quest.js'
-import { Story } from '../controllers/Story.js'
-import { Circle } from '../models/Circle.js'
-import { Line } from '../models/Line.js'
-import { getAllOffer } from '../../services/marketService.js'
-import { getAllItems } from '../../services/playerService.js'
-import { AddNewOffer, BuyOffer, DeleteOwnedOffer } from '../controllers/PublicMarket.js'
-import { Panel } from '../models/Panel.js'
-import { Entity } from '../models/Entity.js'
+import { getQuests, putQuest } from '../../services/questService.js';
+import { GameController } from '../controllers/Game.js';
+import { PanelController } from '../controllers/Panel.js';
+import { ConversationQuests, IsTargetResident } from '../controllers/Quest.js';
+import { Story } from '../controllers/Story.js';
+import { Circle } from '../models/Circle.js';
+import { Line } from '../models/Line.js';
+import { getAllOffer } from '../../services/marketService.js';
+import { getAllItems } from '../../services/playerService.js';
+import { AddNewOffer, BuyOffer, DeleteOwnedOffer } from '../controllers/PublicMarket.js';
+import { Panel } from '../models/Panel.js';
+import { Entity } from '../models/Entity.js';
 export class GameView {
   constructor(canvas, game) {
     /**
@@ -139,7 +139,7 @@ export class GameView {
     this.context.lineWidth = 4
   }
   BindPlayerHealth = (player) => {
-    const bar = document.querySelector(".bar");
+    const bar = document.querySelector('.bar');
     if (player.HP >= 0) {
       bar.style.width = player.HP + '%'
       bar.innerHTML = player.HP + '/100'
@@ -182,7 +182,7 @@ export class PanelView {
   static #CreatePanelElement(panelInstance) {
     const div = document.createElement('div')
     div.id = panelInstance.id || panelInstance
-    div.className = "gamePanel"
+    div.className = 'gamePanel'
     div.append(PanelView.GetOwnTemplate(panelInstance).content.cloneNode(true))
     return div
   }
@@ -279,9 +279,9 @@ export class PanelView {
     if (document.getElementById(context.id)) {
       return
     }
-    const div = this.#CreatePanelElement("HighlightEntities")
+    const div = this.#CreatePanelElement('HighlightEntities')
     div.id = context.id
-    div.classList.add("HighlightEntities")
+    div.classList.add('HighlightEntities')
     this.#processElement(div, context)
     div.querySelector('div#HP div').style.width = context.HP + '%'
     document.querySelector('body').append(div)
@@ -294,11 +294,11 @@ export class PanelView {
   }
 
   static ShowDeathDialog(player) {
-    if (document.querySelector("div#dead")) {
+    if (document.querySelector('div#dead')) {
       return
     }
 
-    const div = this.#CreatePanelElement("dead")
+    const div = this.#CreatePanelElement('dead')
     const button = div.querySelector('input[type="button"]')
     button.addEventListener('click', this.HideDeathDialog, { once: true })
     button.addEventListener('click', player.Respawn, { once: true })
@@ -306,7 +306,7 @@ export class PanelView {
 
   }
   static HideDeathDialog() {
-    const el = document.querySelector("div#dead")
+    const el = document.querySelector('div#dead')
     if (el) {
       el.remove()
       const bar = document.querySelector('.progress .bar')
@@ -399,10 +399,10 @@ export class PanelView {
     itemsContainer.innerHTML = ''
     offers.forEach(offer => {
       if (offer.Player.player_id == game.player.id) {
-        itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='deleteBtn' type="button" value="Törlés"></div>`
+        itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='deleteBtn' type='button' value='Törlés'></div>`
       }
       else {
-        itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type="button" value="Buy"></div>`
+        itemsContainer.innerHTML += `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='buyBtn' type='button' value='Buy'></div>`
       }
       itemsContainer.addEventListener('click', (e) => {
         if (e.target instanceof HTMLInputElement && e.target.classList[0] == 'buyBtn') {
@@ -420,7 +420,7 @@ export class PanelView {
 
   static AddNewOffer(offer) {
     const itemsContainer = document.getElementById('items')
-    itemsContainer.innerHTML = `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class="deleteBtn" type="button" value="Törlés"><br></div>` + itemsContainer.innerHTML
+    itemsContainer.innerHTML = `<div id=${offer.offer_id}><img src='./assets/icons/${offer.offeredType}.png'> ${offer.offeredAmount} <img src='./assets/icons/${offer.soughtType}.png'> ${offer.soughtAmount} <input class='deleteBtn' type='button' value='Törlés'><br></div>` + itemsContainer.innerHTML
   }
 
 
@@ -452,11 +452,11 @@ export class PanelView {
 
   static GenerateQuestCard(quest, isometricBlocks) {
     let div2 = document.getElementById('quests').querySelector('#' + quest.quest_id)
-    if (div2) { div2.innerHTML = "" }
+    if (div2) { div2.innerHTML = '' }
     if (!div2) {
       div2 = document.createElement('div')
     }
-    div2.classList.add("questCard")
+    div2.classList.add('questCard')
     div2.id = quest.quest_id
     div2.innerHTML += `<p>${quest.quest_id}</p>`
     if (quest.currentProgress >= quest.Quest.target_amount) {
@@ -464,22 +464,22 @@ export class PanelView {
     }
     else {
       switch (quest.Quest.category) {
-        case "Killer":
+        case 'Killer':
           div2.innerHTML += `<p>Ölj meg ${quest.Quest.target_amount} db ${quest.Quest.EnemyType.enemy_name} - t</p>`
           break;
-        case "Conversation":
+        case 'Conversation':
           div2.innerHTML += `<p>Beszélj ${quest.Quest.target_resident} - al</p>`
           break;
-        case "Collector":
+        case 'Collector':
           div2.innerHTML += `<p>Szerezz ${quest.Quest.target_amount} db ${quest.Quest.Item.name} - t</p>`
           break;
-        case "Exploring":
+        case 'Exploring':
           div2.innerHTML += `<p>Juss el a ${isometricBlocks[quest.Quest.blockX][quest.Quest.blockY].name} - hoz</p>`
           break;
         default:
           break;
       }
-      div2.innerHTML += `<p><span id="progress">${quest.currentProgress}</span>/${quest.Quest.target_amount}</p>`
+      div2.innerHTML += `<p><span id='progress'>${quest.currentProgress}</span>/${quest.Quest.target_amount}</p>`
     }
 
     this.#processElement(div2, quest)
@@ -506,7 +506,7 @@ export class PanelView {
         if (quest.currentProgress >= quest.Quest.target_amount) {
           const but = document.createElement('input')
           but.type = 'button'
-          but.value = "Küldetés leadás"
+          but.value = 'Küldetés leadás'
           but.addEventListener('click', () => {
             Story.StartConversation('after/' + quest.Quest.quest_name, quest)
           }, { once: true })
@@ -519,7 +519,7 @@ export class PanelView {
       else {
         const but = document.createElement('input')
         but.type = 'button'
-        but.value = "Küldetés felvétele"
+        but.value = 'Küldetés felvétele'
         but.addEventListener('click', () => {
           Story.StartConversation('pre/' + quest.Quest.quest_name, quest)
         }, { once: true }
@@ -541,7 +541,7 @@ export class PanelView {
           Story.StartConversation('during/' + anotherQuest.Quest.quest_name, anotherQuest)
         }, { once: true }
         )
-        el.innerHTML = ""
+        el.innerHTML = ''
         el.append(but)
       }
     }
@@ -553,7 +553,7 @@ export class PanelView {
     game.player.tools.forEach(tool => {
       const card = PanelView.GetOwnTemplate('toolPanel').content.cloneNode(true)
       const div2 = document.createElement('div')
-      div2.classList.add("toolCard")
+      div2.classList.add('toolCard')
       div2.append(card)
       PanelView.#processElement(div2, tool)
       div.append(div2)

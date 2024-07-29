@@ -9,7 +9,6 @@ import { Story } from '../controllers/Story.js'
 import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
 import { GetIcon } from '../utils/imageLoader.js'
 
-
 /**
  * 
  * x: 0.339, 0.423
@@ -68,7 +67,6 @@ const CastleInterior = (game) => {
     return game.currentBlock
 }
 
-
 export const Kastély = async (game) => {
 
     game.currentBlock = new IsometricBlock(
@@ -109,7 +107,7 @@ export const Kastély = async (game) => {
 
 
             new Circle(game.width * 0.2735, game.height * 0.6004, game.width * 0.05),
-            new Circle(game.width * 0.3888, game.height *0.7428, game.width * 0.05),
+            new Circle(game.width * 0.3888, game.height * 0.7428, game.width * 0.05),
         ],
         [
             new Panel('navigationPanel', game.width * 0.8066, game.height * 0.7882, game.width * 0.06, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, null),

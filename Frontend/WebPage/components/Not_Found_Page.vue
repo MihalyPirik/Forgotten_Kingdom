@@ -4,7 +4,7 @@
     </div>
 </template>
 <style scoped>
-*{
-    color:white
+* {
+    color: white
 }
 </style>

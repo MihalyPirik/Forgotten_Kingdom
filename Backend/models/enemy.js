@@ -1,7 +1,6 @@
-const { DataTypes } = require("sequelize")
-const dbConnection = require("../services/dbService")
-const EnemyType = require("./enemyType")
-
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
+const EnemyType = require('./enemyType');
 
 const Enemy = dbConnection.define
     (
@@ -41,9 +40,9 @@ const Enemy = dbConnection.define
                 type: DataTypes.INTEGER,
                 allowNull: true,
             },
-            isInterior:{
-                type:DataTypes.BOOLEAN,
-                defaultValue:false
+            isInterior: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
             }
         },
         {
@@ -51,14 +50,14 @@ const Enemy = dbConnection.define
             hooks:
             {
                 beforeCreate: async (enemy) => {
-                    const enemy_type = await enemy.getEnemyType()
-                    enemy.HP = enemy_type.HP
+                    const enemy_type = await enemy.getEnemyType();
+                    enemy.HP = enemy_type.HP;
                 }
             },
         }
     )
 Enemy.associate = (models) => {
-    Enemy.belongsTo(models.Player, { foreignKey:  'world_id', onDelete: "CASCADE" })
-    Enemy.belongsTo(models.EnemyType, { foreignKey:  'enemy_type_id' })
+    Enemy.belongsTo(models.Player, { foreignKey: 'world_id', onDelete: 'CASCADE' });
+    Enemy.belongsTo(models.EnemyType, { foreignKey: 'enemy_type_id' });
 }
-module.exports = Enemy
+module.exports = Enemy;

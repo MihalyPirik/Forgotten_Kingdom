@@ -1,11 +1,11 @@
-require("dotenv").config();
-const jwt = require("jsonwebtoken");
-const Player = require("../models/player");
-const uuid = require("uuid");
-const { ValidationError, UniqueConstraintError } = require("sequelize");
-const bcrypt = require("bcrypt");
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
+const uuid = require('uuid');
+const { ValidationError, UniqueConstraintError } = require('sequelize');
+const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const Player = require('../models/player');
 
 const postRegistration = async (req, res, next) => {
   try {
@@ -43,7 +43,7 @@ const postRegistration = async (req, res, next) => {
 
     await transporter.sendMail(mailOptions);
 
-    res.status(201).json({ data: { message: "Sikeres regisztráció! Ellenőrizze az email címét a hitelesítéshez." } });
+    res.status(201).json({ data: { message: 'Sikeres regisztráció! Ellenőrizze az email címét a hitelesítéshez.' } });
   } catch (error) {
     if (error instanceof ValidationError) {
       res.status(400).json({ message: error.errors[0].message });
@@ -58,10 +58,10 @@ const postRegistration = async (req, res, next) => {
 const postLogin = async (req, res, next) => {
   const { email, password } = req.body;
   if (email == undefined) {
-    return res.status(401).json({ message: "Kérjük adja meg az email címét." });
+    return res.status(401).json({ message: 'Kérjük adja meg az email címét.' });
   }
   if (password == undefined) {
-    return res.status(401).json({ message: "Kérjük adja meg a jelszavát." });
+    return res.status(401).json({ message: 'Kérjük adja meg a jelszavát.' });
   }
   try {
     const user = await Player.findOne({ where: { email: email } });
@@ -69,18 +69,18 @@ const postLogin = async (req, res, next) => {
       if (user.email_verified == true) {
         if (await user.comparePassword(password)) {
           const token = jwt.sign({ id: user.player_id }, process.env.SECRET_KEY, {
-            expiresIn: "1h",
+            expiresIn: '1h',
           });
-          res.setHeader("Authorization", `Bearer ${token}`);
-          res.status(200).json({ data: { message: "Sikeres bejelentkezés!" } });
+          res.setHeader('Authorization', `Bearer ${token}`);
+          res.status(200).json({ data: { message: 'Sikeres bejelentkezés!' } });
         } else {
-          res.status(401).json({ message: "Hibás jelszó!" });
+          res.status(401).json({ message: 'Hibás jelszó!' });
         }
       } else {
-        res.status(401).json({ message: "Email cím nincs hitelesítve!" });
+        res.status(401).json({ message: 'Email cím nincs hitelesítve!' });
       }
     } else {
-      res.status(401).json({ message: "Hibás email cím!" });
+      res.status(401).json({ message: 'Hibás email cím!' });
     }
   } catch (error) {
     next(error);
@@ -94,14 +94,14 @@ const verifyEmail = async (req, res, next) => {
     const player = await Player.findOne({ where: { player_id: id, email_verification_token: token } });
 
     if (!player) {
-      return res.status(400).json({ message: "Érvénytelen hitelesítő link." });
+      return res.status(400).json({ message: 'Érvénytelen hitelesítő link.' });
     }
 
     player.email_verified = true;
     player.email_verification_token = null;
     await player.save();
 
-    res.status(200).json("Email sikeresen hitelesítve!").toString();
+    res.status(200).json('Email sikeresen hitelesítve!').toString();
   } catch (error) {
     next(error);
   }
@@ -133,7 +133,7 @@ const putUser = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ data: { message: "Sikeres módosítás!" } });
+    res.status(200).json({ data: { message: 'Sikeres módosítás!' } });
   } catch (error) {
     next(error);
   }

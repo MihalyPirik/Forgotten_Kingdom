@@ -11,7 +11,6 @@ backGround.src = './assets/blocks/Witch.png'
 const inWitch = new Image()
 inWitch.src = './assets/blocks/inWitch.png'
 
-
 const inWitchBlock = (game) => {
     game.currentBlock = new IsometricBlock('Boszorkány', inWitch, null,
         []
@@ -40,7 +39,7 @@ const inWitchBlock = (game) => {
         0.22,
         0.22
     )
-    game.player.objX = game.width *0.48611
+    game.player.objX = game.width * 0.48611
     game.player.objY = game.height * 0.8534
     populateIsometricBlock(game, true)
     game.player.width = game.width * 0.2

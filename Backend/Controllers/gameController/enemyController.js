@@ -1,15 +1,15 @@
-const Enemy = require("../../models/enemy");
-const EnemyType = require("../../models/enemyType");
-const uuid = require("uuid");
-const ProcessQuery = require('../../utils/queryProcessor')
+const Enemy = require('../../models/enemy');
+const EnemyType = require('../../models/enemyType');
+const uuid = require('uuid');
+const ProcessQuery = require('../../utils/queryProcessor');
 const getAllEnemies = async (req, res, next) => {
   try {
-    const query = ProcessQuery(Enemy,req.query)
-    query.world_id = req.token.id
+    const query = ProcessQuery(Enemy, req.query);
+    query.world_id = req.token.id;
     const data = await Enemy.findAll({
-      attributes: { exclude: ["world_id", "enemy_type_id"] },
-      include: { model: EnemyType, attributes: { exclude: ["enemy_type_id"] } },
-      where:query
+      attributes: { exclude: ['world_id', 'enemy_type_id'] },
+      include: { model: EnemyType, attributes: { exclude: ['enemy_type_id'] } },
+      where: query
     });
     res.status(200).json({ data: data });
   } catch (error) {
@@ -65,7 +65,7 @@ const putEnemy = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ data: {message: "Sikeres módosítás!"} });
+    res.status(200).json({ data: { message: 'Sikeres módosítás!' } });
   } catch (error) {
     next(error);
   }
@@ -76,9 +76,9 @@ const deleteEnemy = async (req, res, next) => {
     const isDeleted = await Enemy.destroy({ where: { enemy_id: req.params.enemy_id } });
 
     if (isDeleted == 0) {
-      return res.status(404).json({ message: "Ilyen ellenség nem létezik!" })
+      return res.status(404).json({ message: 'Ilyen ellenség nem létezik!' })
     }
-    res.status(200).json({ data: {message: "Sikeres törlés!"} });
+    res.status(200).json({ data: { message: 'Sikeres törlés!' } });
   } catch (error) {
     next(error);
   }

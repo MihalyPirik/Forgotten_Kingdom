@@ -1,18 +1,18 @@
-const Player = require("../../models/player");
-const Market = require("../../models/market");
-const Inventory = require("../../models/inventory");
-const uuid = require("uuid");
-const ProcessQuery = require('../../utils/queryProcessor')
+const Player = require('../../models/player');
+const Market = require('../../models/market');
+const Inventory = require('../../models/inventory');
+const uuid = require('uuid');
+const ProcessQuery = require('../../utils/queryProcessor');
 
 const getAllOffer = async (req, res, next) => {
   try {
 
-    const page = req.query.page || 1
-    const limit = req.query.limit || 25
-    const startIndex = (page - 1) * limit
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 25;
+    const startIndex = (page - 1) * limit;
     const data = await Market.findAll({
-      attributes: { exclude: ["player_id"] },
-      include: { model: Player, attributes: ["player_name","player_id"] },
+      attributes: { exclude: ['player_id'] },
+      include: { model: Player, attributes: ['player_name', 'player_id'] },
       offset: startIndex,
       limit: limit,
       where: ProcessQuery(Market, req.query)
@@ -26,14 +26,14 @@ const getAllOffer = async (req, res, next) => {
 const getAllPlayerOffer = async (req, res, next) => {
   try {
     const player_id = req.token.id;
-    console.log("token:", req.token.id);
+    console.log('token:', req.token.id);
 
     const data = await Market.findAll({
       where: {
         player_id: player_id,
       },
-      attributes: { exclude: ["player_id"] },
-      include: { model: Player, attributes: ["player_name"] },
+      attributes: { exclude: ['player_id'] },
+      include: { model: Player, attributes: ['player_name'] },
     });
     res.status(200).json({ data: data });
   } catch (error) {
@@ -56,9 +56,9 @@ const postOffer = async (req, res, next) => {
         player_id: player_id,
       },
     });
-  
+
     let currentAmount = player.find(item => item.item == offeredType);
-    if(currentAmount){currentAmount=currentAmount.amount}
+    if (currentAmount) { currentAmount = currentAmount.amount }
 
     if (!currentAmount) {
       return res.status(400).json({ data: { message: `Nincs ilyen alapanyagod!` } });
@@ -79,7 +79,7 @@ const postOffer = async (req, res, next) => {
 
     await Inventory.decrement(
       {
-        "amount": offeredAmount
+        'amount': offeredAmount
       },
       {
         where: {
@@ -120,7 +120,7 @@ const putOffer = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ data: { message: "Sikeres módosítás!" } });
+    res.status(200).json({ data: { message: 'Sikeres módosítás!' } });
   } catch (error) {
     next(error);
   }
@@ -144,7 +144,7 @@ const deleteOffer = async (req, res, next) => {
 
     await Inventory.increment(
       {
-        "amount": offer.offeredAmount
+        'amount': offer.offeredAmount
       },
       {
         where: {
@@ -158,9 +158,9 @@ const deleteOffer = async (req, res, next) => {
       where: { offer_id: req.params.offer_id },
     });
     if (isDeleted == 0) {
-      return res.status(404).json({ message: "Ilyen ajánlat nem létezik!" });
+      return res.status(404).json({ message: 'Ilyen ajánlat nem létezik!' });
     }
-    res.status(200).json({ data: { message: "Sikeres törlés!" } });
+    res.status(200).json({ data: { message: 'Sikeres törlés!' } });
   } catch (error) {
     next(error);
   }
@@ -190,7 +190,7 @@ const buyOffer = async (req, res, next) => {
 
     await Inventory.increment(
       {
-        "amount": soughtAmount
+        'amount': soughtAmount
       },
       {
         where: {
@@ -202,7 +202,7 @@ const buyOffer = async (req, res, next) => {
 
     await Inventory.increment(
       {
-        "amount": offer.offeredAmount,
+        'amount': offer.offeredAmount,
       },
       {
         where: {
@@ -214,7 +214,7 @@ const buyOffer = async (req, res, next) => {
 
     await Inventory.decrement(
       {
-        "amount": soughtAmount
+        'amount': soughtAmount
       },
       {
         where: {
@@ -228,12 +228,12 @@ const buyOffer = async (req, res, next) => {
       where: { offer_id: req.params.offer_id },
     });
 
-    res.status(200).json({ data: { message: "Sikeres vásárlás!" } });
+    res.status(200).json({ data: { message: 'Sikeres vásárlás!' } });
 
   } catch (error) {
     next(error);
   }
-}
+};
 
 module.exports = {
   getAllOffer,

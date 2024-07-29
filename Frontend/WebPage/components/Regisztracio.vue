@@ -1,16 +1,14 @@
 <script setup>
-import { ref } from 'vue'
-import { FormRegistration } from '../services/apiService';
+import { ref } from "vue";
+import { FormRegistration } from "../services/apiService";
 
 let name, email, password;
 
-
-let mess = ref("")
+let mess = ref("");
 const Regisztracio = async () => {
   mess.value = await FormRegistration(name, email, password)
   console.log(mess.value);
-}
-
+};
 </script>
 <template>
   <div class="col">

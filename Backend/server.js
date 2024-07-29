@@ -1,22 +1,24 @@
-require("dotenv").config();
-const cookie = require("cookie-parser");
-const express = require("express");
-const cors = require("cors");
-const app = express();
-require("./services/dbService");
-require("./models/relations");
-const { errorHandler } = require("./Controllers/errorController");
-const swaggerFile = require("./swagger_output.json");
-const swaggerUi = require("swagger-ui-express");
-const bodyParser = require("body-parser");
+require('dotenv').config();
 
-const userRouter = require("./routes/userRoutes");
-const playerRouter = require("./routes/gameRoutes/playerRoutes");
-const enemyRouter = require("./routes/gameRoutes/enemyRoutes");
-const residentRouter = require("./routes/gameRoutes/residentRoutes");
-const marketRouter = require("./routes/gameRoutes/marketRoutes");
-const toolRouter = require("./routes/gameRoutes/toolRoutes");
-const questRouter = require("./routes/gameRoutes/questRoutes");
+const cookie = require('cookie-parser');
+const express = require('express');
+const cors = require('cors');
+const { errorHandler } = require('./Controllers/errorController');
+const swaggerFile = require('./swagger_output.json');
+const swaggerUi = require('swagger-ui-express');
+const bodyParser = require('body-parser');
+const app = express();
+
+require('./services/dbService');
+require('./models/relations');
+
+const userRouter = require('./routes/userRoutes');
+const playerRouter = require('./routes/gameRoutes/playerRoutes');
+const enemyRouter = require('./routes/gameRoutes/enemyRoutes');
+const residentRouter = require('./routes/gameRoutes/residentRoutes');
+const marketRouter = require('./routes/gameRoutes/marketRoutes');
+const toolRouter = require('./routes/gameRoutes/toolRoutes');
+const questRouter = require('./routes/gameRoutes/questRoutes');
 const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes');
 const emailRouter = require('./routes/emailRoutes');
 
@@ -27,7 +29,7 @@ const emailRouter = require('./routes/emailRoutes');
 // const domain = `bgs.jedlik.eu`;
 // const options = { key: fs.readFileSync(`${certDir}/${domain}/privkey.pem`), cert: fs.readFileSync(`${certDir}/${domain}/fullchain.pem`) };
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(cors());
 app.use(cookie());
@@ -36,64 +38,68 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE"
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, PATCH, DELETE'
   );
-  res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
-  res.setHeader("Access-Control-Expose-Headers", "Authorization");
+  res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+  res.setHeader('Access-Control-Expose-Headers', 'Authorization');
   next();
 });
 
 app.use(
-  "/user",
+  '/user',
   userRouter
   // #swagger.tags = ['User']
 );
 app.use(
-  "/player",
+  '/player',
   playerRouter
   // #swagger.tags = ['Player']
   /* #swagger.security = [{
-            "bearerAuth": []
+            'bearerAuth': []
     }] */
 );
 app.use(
-  "/enemies",
+  '/enemies',
   enemyRouter
   // #swagger.tags = ['Enemy']
 );
 app.use(
-  "/residents",
+  '/residents',
   residentRouter
   // #swagger.tags = ['Resident']
 );
 app.use(
-  "/tool",
+  '/tool',
   toolRouter
   // #swagger.tags = ['Tool']
 );
 app.use(
-  "/quest",
+  '/quest',
   questRouter
   // #swagger.tags = ['Quest']
 );
 app.use(
-  "/market",
+  '/market',
   marketRouter
   // #swagger.tags = ['Market']
 );
 app.use(
-  "/enemyType",
+  '/enemyType',
   enemyTypeRouter
   // #swagger.tags = ['EnemyType']
 );
-app.use('/send-email', emailRouter);
+app.use(
+  '/send-email',
+  emailRouter
+  // #swagger.tags = ['Send Email']
+);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
-  console.log("Server started at port " + process.env.PORT || 3000);
+  console.log('Server started at port ' + process.env.PORT || 3000);
 });
 
 // https.createServer(options, app).listen(8100)

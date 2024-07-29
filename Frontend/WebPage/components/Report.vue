@@ -1,27 +1,27 @@
 <script setup>
-import { ref } from 'vue';
-var result = ref('');
+import { ref } from "vue";
+var result = ref("");
 
 const email = {
-  from: '',
-  subject: '',
-  text: ''
+  from: "",
+  subject: "",
+  text: ""
 };
 
 async function sendEmail() {
   try {
-    const response = await fetch('http://127.0.0.1:3000/send-email', {
-      method: 'POST',
+    const response = await fetch("http://127.0.0.1:3000/send-email", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(email)
     });
     result.value = await response.text();
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
-}
+};
 </script>
 
 <template>

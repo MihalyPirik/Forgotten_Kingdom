@@ -3,8 +3,8 @@ const { userAuth } = require('../../middlewares/auth');
 
 const enemyTypeRouter = require('express').Router({ mergeParams: true });
 
-enemyTypeRouter.use(userAuth)
+enemyTypeRouter.use(userAuth);
 
-enemyTypeRouter.get('/',getAllEnemyTypes)
+enemyTypeRouter.get('/', getAllEnemyTypes);
 
-module.exports=enemyTypeRouter
+module.exports = enemyTypeRouter;

@@ -1,14 +1,14 @@
-import { Monster } from "../models/Monster.js";
-import { NPC } from "../models/NPC.js";
-import { Player } from "../models/Player.js";
-import { Point } from "../models/Point.js";
-import { IsometricBlock } from "../models/isometricBlock.js";
-import { GameView, PanelView } from "../views/view.js";
-import { SpriteController } from "./Sprite.js";
-import { Entity } from "../models/Entity.js";
-import { putPlayer } from "../../services/playerService.js";
-import { deleteEnemy, putEnemy } from "../../services/enemyService.js";
-import { ExploringQuests, KillerQuests } from "./Quest.js";
+import { Monster } from '../models/Monster.js';
+import { NPC } from '../models/NPC.js';
+import { Player } from '../models/Player.js';
+import { Point } from '../models/Point.js';
+import { IsometricBlock } from '../models/isometricBlock.js';
+import { GameView, PanelView } from '../views/view.js';
+import { SpriteController } from './Sprite.js';
+import { Entity } from '../models/Entity.js';
+import { putPlayer } from '../../services/playerService.js';
+import { deleteEnemy, putEnemy } from '../../services/enemyService.js';
+import { ExploringQuests, KillerQuests } from './Quest.js';
 
 export class GameController {
   #currentBlock;
@@ -62,7 +62,7 @@ export class GameController {
             putPlayer({ blockX: i, blockY: j });
             this.#currentBlock = value;
             this.gameView.SetBackGround(value.backGround.src);
-            const panels = document.getElementsByClassName("gamePanel");
+            const panels = document.getElementsByClassName('gamePanel');
             for (let i = 0; i < panels.length; i++) {
               panels[i].remove();
             }
@@ -74,7 +74,7 @@ export class GameController {
     }
     if (value != null) {
       throw new ReferenceError(
-        "The isometricBlock is not registered in the matrix!"
+        'The isometricBlock is not registered in the matrix!'
       );
     }
   }
@@ -207,7 +207,7 @@ export class GameController {
     this.timer += deltaTime;
   }
   Logout() {
-    localStorage.removeItem("token");
-    window.location.href = "http://127.0.0.1:5500/Frontend/WebPage/dist/index.html";
+    localStorage.removeItem('token');
+    window.location.href = 'http://127.0.0.1:5500/Frontend/WebPage/dist/index.html';
   }
 }

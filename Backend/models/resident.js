@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize")
-const dbConnection = require("../services/dbService")
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
 
 const Resident = dbConnection.define
     (
@@ -54,8 +54,8 @@ const Resident = dbConnection.define
         }
     )
 Resident.associate = (models) => {
-    Resident.belongsTo(models.QuestStat, { foreignKey: 'quest_id' })
+    Resident.belongsTo(models.QuestStat, { foreignKey: 'quest_id' });
+    Resident.belongsTo(models.Player, { foreignKey: 'world_id', onDelete: 'CASCADE' });
     // Resident.hasMany(models.Quest,{foreignKey:'target_resident'})
-    Resident.belongsTo(models.Player, { foreignKey: 'world_id', onDelete: "CASCADE" });
 }
-module.exports = Resident
+module.exports = Resident;

@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize");
-const dbConnection = require("../services/dbService");
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
 
 const Item = dbConnection.define(
     'Item',
@@ -7,22 +7,21 @@ const Item = dbConnection.define(
         name:
         {
             type: DataTypes.STRING,
-            primaryKey:true,
-            validate:{
-                isIn:[["stone","wood","coal","fish","wheat","iron"]]
+            primaryKey: true,
+            validate: {
+                isIn: [['stone', 'wood', 'coal', 'fish', 'wheat', 'iron']]
             }
         }
     },
     {
-        tableName:'items'
+        tableName: 'items'
     }
 )
 
-Item.associate = (models) =>
-{
-    
-    Item.hasMany(models.Quest,{foreignKey:'item'})
-    Item.belongsToMany(models.Player,{through:models.Inventory,foreignKey:'item'})
+Item.associate = (models) => {
+
+    Item.hasMany(models.Quest, { foreignKey: 'item' });
+    Item.belongsToMany(models.Player, { through: models.Inventory, foreignKey: 'item' });
 }
 
-module.exports = Item
+module.exports = Item;

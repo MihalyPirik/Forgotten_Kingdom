@@ -1,6 +1,5 @@
-const { DataTypes } = require("sequelize")
-const dbConnection = require("../services/dbService")
-
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
 
 const ToolType = dbConnection.define
     (
@@ -9,7 +8,7 @@ const ToolType = dbConnection.define
             tool_type_id:
             {
                 type: DataTypes.INTEGER,
-                autoIncrement:true,
+                autoIncrement: true,
                 primaryKey: true
             },
             tool_name:
@@ -38,7 +37,7 @@ const ToolType = dbConnection.define
         }
     )
 ToolType.associate = (models) => {
-    ToolType.belongsToMany(models.Player, { through: models.Tool, foreignKey: "tool_type_id" })
-    ToolType.hasMany(models.Tool, { foreignKey: 'tool_type_id' })
+    ToolType.belongsToMany(models.Player, { through: models.Tool, foreignKey: 'tool_type_id' });
+    ToolType.hasMany(models.Tool, { foreignKey: 'tool_type_id' });
 }
-module.exports = ToolType
+module.exports = ToolType;

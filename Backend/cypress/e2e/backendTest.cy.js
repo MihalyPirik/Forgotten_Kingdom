@@ -1,10 +1,10 @@
-const apiURL = "http://localhost:3000/player/";
-let token = "";
+const apiURL = 'http://localhost:3000/player/';
+let token = '';
 
-const player_name = "teszt";
+const player_name = 'teszt';
 const HP = 100;
 const money = 100;
-const world_name = "New World";
+const world_name = 'New World';
 const objX = 0;
 const objY = 0;
 const blockX = 0;
@@ -14,33 +14,33 @@ describe('Player test', () => {
   it('should player registration data and check it', () => {
     cy.request({
       method: 'POST',
-      url: "http://localhost:3000/user/registration",
+      url: 'http://localhost:3000/user/registration',
       body: {
-        name: "teszt1",
-        email: "teszt@teszt1.hu",
-        password: "123456789"
+        name: 'teszt1',
+        email: 'teszt@teszt1.hu',
+        password: '123456789'
       }
     }).then((response) => {
       expect(response.status).to.equal(201);
       expect(response.body).to.have.property('data');
       expect(response.body.data).to.be.an('object').that.is.not.empty;
-      expect(response.body.data.message).to.equal("Sikeres regisztráció!");
+      expect(response.body.data.message).to.equal('Sikeres regisztráció!');
     });
   });
 
   it('should player login data and check it', () => {
     cy.request({
       method: 'POST',
-      url: "http://localhost:3000/user/login",
+      url: 'http://localhost:3000/user/login',
       body: {
-        email: "teszt@teszt1.hu",
-        password: "123456789"
+        email: 'teszt@teszt1.hu',
+        password: '123456789'
       }
     }).then((response) => {
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('data');
       expect(response.body.data).to.be.an('object').that.is.not.empty;
-      expect(response.body.data.message).to.equal("Sikeres bejelentkezés!");
+      expect(response.body.data.message).to.equal('Sikeres bejelentkezés!');
 
       token = response.headers.authorization;
     });
@@ -52,10 +52,10 @@ describe('Player test', () => {
       url: apiURL,
       headers: { Authorization: token },
       body: {
-        player_name: "teszt",
+        player_name: 'teszt',
         HP: 100,
         money: 100,
-        world_name: "New World",
+        world_name: 'New World',
         objX: 0,
         objY: 0,
         blockX: 0,
@@ -65,7 +65,7 @@ describe('Player test', () => {
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('data');
       expect(response.body.data).to.be.an('object').that.is.not.empty;
-      expect(response.body.data.message).to.equal("Sikeres módosítás!");
+      expect(response.body.data.message).to.equal('Sikeres módosítás!');
     });
   });
 
@@ -102,7 +102,7 @@ describe('Player test', () => {
       expect(response.status).to.equal(200);
       expect(response.body).to.have.property('data');
       expect(response.body.data).to.be.an('object').that.is.not.empty;
-      expect(response.body.data.message).to.equal("Sikeres törlés!");
+      expect(response.body.data.message).to.equal('Sikeres törlés!');
     });
   });
 });

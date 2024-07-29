@@ -1,5 +1,5 @@
-const { DataTypes } = require("sequelize")
-const dbConnection = require("../services/dbService")
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
 
 const QuestStat = dbConnection.define
     (
@@ -26,10 +26,10 @@ const QuestStat = dbConnection.define
             tableName: 'quest_stat'
         }
     )
-    QuestStat.associate = (models) => {
-        QuestStat.hasOne(models.Resident, { foreignKey: 'quest_id'})
-        QuestStat.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' })
-        QuestStat.belongsTo(models.Quest, { foreignKey: 'quest_id' })
+QuestStat.associate = (models) => {
+    QuestStat.hasOne(models.Resident, { foreignKey: 'quest_id' });
+    QuestStat.belongsTo(models.Player, { foreignKey: 'player_id', onDelete: 'CASCADE' });
+    QuestStat.belongsTo(models.Quest, { foreignKey: 'quest_id' });
 }
 
-module.exports = QuestStat
+module.exports = QuestStat;

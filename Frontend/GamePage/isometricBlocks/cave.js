@@ -94,7 +94,7 @@ const CaveInterior = (game) => {
     0.08
   );
   game.player.objX = game.width * 0.411324
-  game.player.objY = game.height *0.602459016
+  game.player.objY = game.height * 0.602459016
   populateIsometricBlock(game, true);
   game.player.width = game.width * 0.08
   game.player.height = game.height * 0.08

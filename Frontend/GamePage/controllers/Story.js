@@ -1,11 +1,11 @@
-import { postEnemy } from "../../services/enemyService.js"
-import { getQuests, putQuest } from "../../services/questService.js"
-import { getAllResidents, postResident, putResident } from "../../services/residentService.js"
-import { Monster } from "../models/Monster.js"
-import { NPC } from "../models/NPC.js"
-import { GetPortrait, GetSprite } from "../utils/imageLoader.js"
-import { GameView, PanelView } from "../views/view.js"
-import { GameController } from "./Game.js"
+import { postEnemy } from '../../services/enemyService.js';
+import { getQuests, putQuest } from '../../services/questService.js';
+import { getAllResidents, postResident, putResident } from '../../services/residentService.js';
+import { Monster } from '../models/Monster.js';
+import { NPC } from '../models/NPC.js';
+import { GetPortrait, GetSprite } from '../utils/imageLoader.js';
+import { GameView, PanelView } from '../views/view.js';
+import { GameController } from './Game.js';
 
 export class Story {
     /**
@@ -22,7 +22,7 @@ export class Story {
     static async ShowConversationPanel(conversationtexts, currentDialogueIndex) {
         const game = document.querySelector('#game')
         game.classList.add('hide')
-        
+
         const panel = document.createElement('div')
         panel.classList.add('conversationPanel')
         document.querySelector('body').append(panel)
@@ -35,7 +35,7 @@ export class Story {
             panel.innerHTML = `
             
             <figure>
-            <img class="portrait" src='./assets/portaits/${speakerName}.png'>
+            <img class='portrait' src='./assets/portaits/${speakerName}.png'>
             <figcaption>${speakerName}</figcaption>
             </figure>
             <div></div>
@@ -94,8 +94,7 @@ export class Story {
                     game.classList.remove('hide')
                     return
                 }
-                else
-                {
+                else {
                     Story.gameController.player.isInConversation = true
                 }
                 index++
@@ -158,7 +157,7 @@ export class Story {
     static async First(filePath, completedQuest) {
         Story.BasePlayConversation(filePath)
 
-        if (filePath.includes("during")) {
+        if (filePath.includes('during')) {
             const secondmainQuest = (await getQuests('is_mainstory=2'))[0]
             completedQuest.is_completed = true
             secondmainQuest.Resident = completedQuest.Resident

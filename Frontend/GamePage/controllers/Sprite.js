@@ -1,5 +1,5 @@
-import { Monster } from "../models/Monster.js"
-import { Point } from "../models/Point.js"
+import { Monster } from '../models/Monster.js';
+import { Point } from '../models/Point.js';
 
 export class SpriteController {
   /**
@@ -392,7 +392,4 @@ export class SpriteController {
     }
     return new Point(monsterInstance.objX, monsterInstance.objY)
   }
-
-
 }
-

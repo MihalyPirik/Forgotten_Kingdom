@@ -1,13 +1,13 @@
-const Tool = require("../../models/tool");
-const ToolType = require("../../models/toolType");
-const uuid = require("uuid");
-const Player = require('../../models/player')
+const Tool = require('../../models/tool');
+const ToolType = require('../../models/toolType');
+const uuid = require('uuid');
+const Player = require('../../models/player');
 
 const getTool = async (req, res, next) => {
   try {
     const player_id = req.token.id;
 
-    const data = await (await Player.findByPk(player_id)).getToolTypes({joinTableAttributes:[]})
+    const data = await (await Player.findByPk(player_id)).getToolTypes({ joinTableAttributes: [] });
     res.status(200).json({ data: data });
   } catch (error) {
     next(error);
@@ -17,7 +17,7 @@ const getTool = async (req, res, next) => {
 const postTool = async (req, res, next) => {
   try {
     const player_id = req.token.id;
-    
+
     const tool_type_id = req.body.tool_type_id;
     await Tool.create({
       tool_id: uuid.v1(),
@@ -25,7 +25,7 @@ const postTool = async (req, res, next) => {
       tool_type_id: tool_type_id
     });
 
-    res.status(201).json({ data: {message: "Sikeres felvétel!"} });
+    res.status(201).json({ data: { message: 'Sikeres felvétel!' } });
   } catch (error) {
     next(error);
     console.log(error);
@@ -47,7 +47,7 @@ const putTool = async (req, res, next) => {
       }
     );
 
-    res.status(200).json({ data: {message: "Sikeres módosítás!"} });
+    res.status(200).json({ data: { message: 'Sikeres módosítás!' } });
   } catch (error) {
     next(error);
   }
@@ -57,9 +57,9 @@ const deleteTool = async (req, res, next) => {
   try {
     const isDeleted = await Tool.destroy({ where: { tool_id: req.params.tool_id } });
     if (isDeleted == 0) {
-      return res.status(404).json({ message: "Ilyen fegyver nem létezik!" })
+      return res.status(404).json({ message: 'Ilyen fegyver nem létezik!' })
     }
-    res.status(200).json({ data: {message: "Sikeres törlés!"} });
+    res.status(200).json({ data: { message: 'Sikeres törlés!' } });
   } catch (error) {
     next(error);
   }

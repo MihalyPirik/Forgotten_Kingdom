@@ -1,21 +1,21 @@
-const Resident = require("../models/resident.js");
-const QuestStat = require("../models/questStat.js");
-const Item = require("../models/item");
-const Inventory = require("../models/inventory.js");
-const uuid = require("uuid");
+const Resident = require('../models/resident.js');
+const QuestStat = require('../models/questStat.js');
+const Item = require('../models/item');
+const Inventory = require('../models/inventory.js');
+const uuid = require('uuid');
 
 async function SetInitialState(user) {
     await Resident.bulkCreate([
         {
             resident_id: uuid.v1(),
-            resident_name: "Arthur",
-            profession: "Kereskedő",
+            resident_name: 'Arthur',
+            profession: 'Kereskedő',
             objX: 0.73,
             objY: 0.4,
             blockX: 1,
             blockY: 1,
             world_id: user.player_id,
-            quest_id: "First",
+            quest_id: 'First',
             isInterior: 0
         }
     ]);
@@ -23,102 +23,102 @@ async function SetInitialState(user) {
     await Inventory.bulkCreate([
         {
             amount: 0,
-            item: "Coal",
+            item: 'Coal',
             player_id: user.player_id
         },
         {
             amount: 0,
-            item: "Fish",
+            item: 'Fish',
             player_id: user.player_id
         },
         {
             amount: 0,
-            item: "Iron",
+            item: 'Iron',
             player_id: user.player_id
         },
         {
             amount: 0,
-            item: "Stone",
+            item: 'Stone',
             player_id: user.player_id
         },
         {
             amount: 0,
-            item: "Wheat",
+            item: 'Wheat',
             player_id: user.player_id
         },
         {
             amount: 0,
-            item: "Wood",
+            item: 'Wood',
             player_id: user.player_id
         },
     ]);
 
     await QuestStat.bulkCreate([
         {
-            quest_id: "First",
+            quest_id: 'First',
             is_completed: 0,
             is_active: 1,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Second",
+            quest_id: 'Second',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Third",
+            quest_id: 'Third',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Fourth",
+            quest_id: 'Fourth',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Fifth",
+            quest_id: 'Fifth',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Sixth",
+            quest_id: 'Sixth',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Seventh",
+            quest_id: 'Seventh',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Eight",
+            quest_id: 'Eight',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Ninth",
+            quest_id: 'Ninth',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,
             player_id: user.player_id,
         },
         {
-            quest_id: "Tenth",
+            quest_id: 'Tenth',
             is_completed: 0,
             is_active: 0,
             currentProgress: 0,

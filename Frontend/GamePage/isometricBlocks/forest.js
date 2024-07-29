@@ -40,10 +40,10 @@ export const Erdő = async (game) => {
 
 
                 new Circle(game.width * 0.382, game.height * 0.578, game.width * 0.032),
-                new Circle(game.width * 0.33226, game.height *0.4303, game.width * 0.052),
-                new Circle(game.width * 0.4455, game.height *0.3370, game.width * 0.09),
-                new Circle(game.width * 0.542735, game.height *0.3985, game.width * 0.05),
-                new Circle(game.width *0.706196581, game.height *0.64754, game.width * 0.06),
+                new Circle(game.width * 0.33226, game.height * 0.4303, game.width * 0.052),
+                new Circle(game.width * 0.4455, game.height * 0.3370, game.width * 0.09),
+                new Circle(game.width * 0.542735, game.height * 0.3985, game.width * 0.05),
+                new Circle(game.width * 0.706196581, game.height * 0.64754, game.width * 0.06),
             ],
             [
                 new Panel('Action', game.width * 0.3376, game.height * 0.4290, game.width * 0.078, false, { action: "Wood" }),
@@ -53,8 +53,8 @@ export const Erdő = async (game) => {
             0.125,
             0.125
         )
-    game.player.objX = game.width *0.4914
-    game.player.objY = game.height *0.7612
+    game.player.objX = game.width * 0.4914
+    game.player.objY = game.height * 0.7612
     populateIsometricBlock(game)
     game.player.width = game.width * 0.1
     game.player.height = game.height * 0.1

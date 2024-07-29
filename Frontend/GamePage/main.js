@@ -22,8 +22,6 @@ import { getAllTools } from '../services/toolService.js'
 
 const gameCanvas = document.querySelector('canvas')
 
-
-
 // const app = createApp({
 //   setup()
 //   {
@@ -94,11 +92,7 @@ window.addEventListener('load', () => {
     }
     animate(0)
   }
-
-
 }, { once: true })
-
-
 
 document.addEventListener('keydown', function () {
   if (!audioStarted) {

@@ -1,7 +1,6 @@
-const { DataTypes } = require("sequelize")
-const dbConnection = require("../services/dbService")
-const Resident = require("./resident")
-
+const { DataTypes } = require('sequelize');
+const dbConnection = require('../services/dbService');
+const Resident = require('./resident');
 
 const Quest = dbConnection.define
     (
@@ -10,9 +9,9 @@ const Quest = dbConnection.define
             quest_name:
             {
                 type: DataTypes.STRING,
-                primaryKey:true
+                primaryKey: true
             },
-            mainstory_group:DataTypes.STRING,
+            mainstory_group: DataTypes.STRING,
             is_mainstory:
             {
                 type: DataTypes.INTEGER,
@@ -22,11 +21,11 @@ const Quest = dbConnection.define
             category: {
                 type: DataTypes.ENUM('Collector', 'Conversation', 'Exploring', 'Killer'),
                 allowNull: false,
-              },
-              blockX:DataTypes.INTEGER,
-              blockY:DataTypes.INTEGER,
-              target_amount:DataTypes.INTEGER,
-              target_resident:DataTypes.STRING
+            },
+            blockX: DataTypes.INTEGER,
+            blockY: DataTypes.INTEGER,
+            target_amount: DataTypes.INTEGER,
+            target_resident: DataTypes.STRING
 
         },
         {
@@ -34,12 +33,11 @@ const Quest = dbConnection.define
         }
     )
 Quest.associate = (models) => {
-    Quest.belongsToMany(models.Player, { through: {model:models.QuestStat,unique:false}, foreignKey: "quest_id" })
-    Quest.hasMany(models.QuestStat, { foreignKey: 'quest_id'})
-    Quest.belongsTo(models.Item,{foreignKey:'item'})
-    Quest.belongsTo(models.EnemyType,{foreignKey:'enemy_type'})
+    Quest.belongsToMany(models.Player, { through: { model: models.QuestStat, unique: false }, foreignKey: 'quest_id' });
+    Quest.hasMany(models.QuestStat, { foreignKey: 'quest_id' });
+    Quest.belongsTo(models.Item, { foreignKey: 'item' });
+    Quest.belongsTo(models.EnemyType, { foreignKey: 'enemy_type' });
     // Quest.belongsTo(models.Resident,{foreignKey:'target_resident'})
-
 }
 
-module.exports = Quest
+module.exports = Quest;

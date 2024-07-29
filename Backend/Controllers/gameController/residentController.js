@@ -1,16 +1,16 @@
-const Resident = require("../../models/resident");
-const Quest = require("../../models/quest");
-const QuestStat = require('../../models/questStat')
-const uuid = require("uuid");
-const QueryProcessor = require('../../utils/queryProcessor')
+const Resident = require('../../models/resident');
+const Quest = require('../../models/quest');
+const QuestStat = require('../../models/questStat');
+const uuid = require('uuid');
+const QueryProcessor = require('../../utils/queryProcessor');
 const getAllResidents = async (req, res, next) => {
     try {
-        const query = QueryProcessor(Resident,req.query)
-query.world_id = req.token.id
+        const query = QueryProcessor(Resident, req.query);
+        query.world_id = req.token.id;
         const data = await Resident.findAll({
-            where:query,
-            attributes: { exclude: ["world_id", "quest_id"] },
-            include: { model: QuestStat, where:{player_id:req.token.id}, include:[Quest,{model:Resident,where:{world_id:req.token.id}}],required:false },
+            where: query,
+            attributes: { exclude: ['world_id', 'quest_id'] },
+            include: { model: QuestStat, where: { player_id: req.token.id }, include: [Quest, { model: Resident, where: { world_id: req.token.id } }], required: false },
         });
         res.status(200).json({ data: data });
     } catch (error) {
@@ -30,7 +30,7 @@ const postResident = async (req, res, next) => {
         const resident_name = req.body.resident_name;
         const profession = req.body.profession;
         const quest_id = req.body.quest_id;
-        const isInterior = req.body.isInterior
+        const isInterior = req.body.isInterior;
         await Resident.create({
             resident_id: uuid.v1(),
             objX: objX,
@@ -41,10 +41,10 @@ const postResident = async (req, res, next) => {
             profession: profession,
             world_id: world_id,
             quest_id: quest_id,
-            isInterior:isInterior
+            isInterior: isInterior
         });
 
-        res.status(201).json({ data: {message: "Sikeres felvétel!"} });
+        res.status(201).json({ data: { message: 'Sikeres felvétel!' } });
     } catch (error) {
         next(error);
     }
@@ -59,7 +59,7 @@ const putResident = async (req, res, next) => {
         const resident_name = req.body.resident_name;
         const profession = req.body.profession;
         const quest_id = req.body.quest_id;
-        const IsInterior = req.body.IsInterior
+        const IsInterior = req.body.IsInterior;
         await Resident.update(
             {
                 objX: objX,
@@ -69,7 +69,7 @@ const putResident = async (req, res, next) => {
                 resident_name: resident_name,
                 profession: profession,
                 quest_id: quest_id,
-                isInterior:IsInterior
+                isInterior: IsInterior
             },
             {
                 where: {
@@ -79,7 +79,7 @@ const putResident = async (req, res, next) => {
             }
         );
 
-        res.status(200).json({ data: {message: "Sikeres módosítás!"} });
+        res.status(200).json({ data: { message: 'Sikeres módosítás!' } });
     } catch (error) {
         next(error);
     }
