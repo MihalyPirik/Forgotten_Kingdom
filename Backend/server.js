@@ -21,6 +21,8 @@ const toolRouter = require('./routes/gameRoutes/toolRoutes');
 const questRouter = require('./routes/gameRoutes/questRoutes');
 const enemyTypeRouter = require('./routes/gameRoutes/enemyTypeRoutes');
 const emailRouter = require('./routes/emailRoutes');
+const forgetPasswordRouter = require('./routes/forgetPasswordRoutes');
+require('./utils/cleanExpiredTokens');
 
 // const https = require('https');
 // const fs = require('fs');
@@ -95,6 +97,11 @@ app.use(
   '/send-email',
   emailRouter
   // #swagger.tags = ['Send Email']
+);
+app.use(
+  '/password',
+  forgetPasswordRouter
+  // #swagger.tags = ['Forget Password']
 );
 app.use(errorHandler);
 
