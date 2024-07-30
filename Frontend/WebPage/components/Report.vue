@@ -1,44 +1,32 @@
 <script setup>
 import { ref } from "vue";
-var result = ref("");
+import { sendEmail } from "../services/apiService";
 
-const email = {
-  from: "",
-  subject: "",
-  text: ""
-};
+const mess = ref("");
+const from = ref("");
+const subject = ref("");
+const text = ref("");
 
-async function sendEmail() {
-  try {
-    const response = await fetch("http://127.0.0.1:3000/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(email)
-    });
-    result.value = await response.text();
-  } catch (error) {
-    console.error("Error:", error);
-  }
+const SendEmail = async () => {
+  mess.value = await sendEmail(from.value, subject.value, text.value);
 };
 </script>
 
 <template>
   <div class="col">
 
-    <form @submit.prevent="sendEmail" class="d-flex flex-column justify-content-evenly align-items-center"
+    <form @submit.prevent="SendEmail" class="d-flex flex-column justify-content-evenly align-items-center"
       method="POST">
 
       <h3>Report</h3>
       <div class="w-100">
         <input placeholder="name@example.com" id="to" type="email" class="reportForm form-control mx-auto"
-          v-model="email.from" required>
-        <input placeholder="Title" id="subject" type="text" class="reportForm form-control mx-auto"
-          v-model="email.subject" required>
-        <textarea placeholder="Text" id="text" class="reportForm form-control mx-auto" v-model="email.text"
+          v-model="from" required>
+        <input placeholder="Title" id="subject" type="text" class="reportForm form-control mx-auto" v-model="subject"
+          required>
+        <textarea placeholder="Text" id="text" class="reportForm form-control mx-auto" v-model="text"
           required></textarea>
-        <p v-if="result">{{ result }}</p>
+        <p>{{ mess }}</p>
       </div>
 
       <button type="submit" class="btn btn-primary">Küldés</button>

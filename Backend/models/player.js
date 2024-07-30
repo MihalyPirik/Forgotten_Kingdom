@@ -34,7 +34,7 @@ const Player = dbConnection.define
             {
                 type: DataTypes.STRING,
                 allowNull: false,
-                unique: { msg: 'Ez az email cím már foglalt' },
+                unique: { msg: 'Ez az email cím már foglalt!' },
                 validate:
                 {
                     isEmail:
@@ -129,6 +129,18 @@ const Player = dbConnection.define
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 defaultValue: 1
+            },
+            resetPasswordToken: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            newPassword: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            resetPasswordExpires: {
+                type: DataTypes.DATE,
+                allowNull: true
             }
         },
         {

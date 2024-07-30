@@ -1,7 +1,6 @@
-const express = require('express');
 const { sendEmail } = require('../Controllers/emailController');
 
-const emailRouter = express.Router();
+const emailRouter = require('express').Router();
 
 emailRouter.post('/', sendEmail);
 

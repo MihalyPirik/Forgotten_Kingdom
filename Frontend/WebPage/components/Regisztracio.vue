@@ -2,18 +2,19 @@
 import { ref } from "vue";
 import { FormRegistration } from "../services/apiService";
 
-let name, email, password;
+const mess = ref("");
+const name = ref("");
+const email = ref("");
+const password = ref("");
 
-let mess = ref("");
-const Regisztracio = async () => {
-  mess.value = await FormRegistration(name, email, password)
-  console.log(mess.value);
+const Registration = async () => {
+  mess.value = await FormRegistration(name.value, email.value, password.value);
 };
 </script>
 <template>
   <div class="col">
 
-    <form @submit.prevent="Regisztracio" class="d-flex flex-column justify-content-evenly align-items-center"
+    <form @submit.prevent="Registration" class="d-flex flex-column justify-content-evenly align-items-center"
       method="POST">
 
       <h3>Regisztráció</h3>

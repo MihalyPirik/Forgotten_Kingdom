@@ -5,6 +5,7 @@ import Not_Found_Page from "./components/Not_Found_Page.vue";
 import Report from "./components/Report.vue";
 import Galeria from "./components/Galeria.vue";
 import Rolunk from "./components/Rolunk.vue";
+import ForgetPassword from "./components/ForgetPassword.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: "/rolunk",
       name: "Rolunk",
       component: Rolunk
+    },
+    {
+      path: "/forget-password",
+      name: "Új jelszó igénylés",
+      component: ForgetPassword
     },
     {
       path: "/:pathMatch(.*)*",

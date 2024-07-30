@@ -2,12 +2,10 @@
 import { ref } from "vue";
 import { FormLogin } from "../services/apiService";
 
-
 let email, password;
 let mess = ref();
 const Login = async () => {
     mess.value = await FormLogin(email, password)
-
 };
 
 </script>
@@ -31,7 +29,7 @@ const Login = async () => {
                     <button class="px-1 btn button" type="submit">BELÉPÉS</button>
                 </form>
                 <p>{{ mess }}</p>
-                <RouterLink id="forgetPass" to="/home">Elfelejtett jelszó</RouterLink>
+                <RouterLink id="forgetPass" to="/forget-password">Elfelejtett jelszó</RouterLink>
                 <div id="borderLine"></div>
                 <p>NINCS MÉG FIÓKOD?</p>
                 <RouterLink class="button btn" to="/regisztracio">REGISZTRÁCIÓ</RouterLink>

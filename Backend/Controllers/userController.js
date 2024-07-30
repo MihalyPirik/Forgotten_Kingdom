@@ -1,8 +1,8 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const uuid = require('uuid');
-const { ValidationError, UniqueConstraintError } = require('sequelize');
 const bcrypt = require('bcrypt');
+const { ValidationError, UniqueConstraintError } = require('sequelize');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const Player = require('../models/player');
@@ -66,7 +66,7 @@ const postLogin = async (req, res, next) => {
   try {
     const user = await Player.findOne({ where: { email: email } });
     if (user) {
-      if (user.email_verified == true) {
+      if (user.email_verified) {
         if (await user.comparePassword(password)) {
           const token = jwt.sign({ id: user.player_id }, process.env.SECRET_KEY, {
             expiresIn: '1h',
@@ -77,10 +77,10 @@ const postLogin = async (req, res, next) => {
           res.status(401).json({ message: 'Hibás jelszó!' });
         }
       } else {
-        res.status(401).json({ message: 'Email cím nincs hitelesítve!' });
+        res.status(401).json({ message: 'Az email cím nincs hitelesítve!' });
       }
     } else {
-      res.status(401).json({ message: 'Hibás email cím!' });
+      res.status(401).json({ message: 'Ilyen email címmel nincs regisztrálva felhasználó!' });
     }
   } catch (error) {
     next(error);
@@ -101,7 +101,7 @@ const verifyEmail = async (req, res, next) => {
     player.email_verification_token = null;
     await player.save();
 
-    res.status(200).json('Email sikeresen hitelesítve!').toString();
+    res.status(200).json('Az email sikeresen hitelesítve!').toString();
   } catch (error) {
     next(error);
   }

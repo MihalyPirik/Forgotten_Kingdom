@@ -35,4 +35,16 @@ export const putUser = (playerId, data) => {
     });
 };
 
+export const sendEmail = async (from, subject, text) => {
+  return axios.post("/send-email", ({ "from": from, "subject": subject, "text": text }))
+    .then(async res => { return await res.data })
+    .catch(async err => { return await err.response })
+}
+
+export const forgetPassword = async (email, newPassword, newPasswordAgain) => {
+  return axios.post("/password/forget-password", ({ "email": email, "newPassword": newPassword, "newPasswordAgain": newPasswordAgain }))
+    .then(async res => { return await res.data.message })
+    .catch(async err => { return await err.response.data.message })
+}
+
 // window.location.href="http://127.0.0.1:5500/Frontend/components/Game_Page/Game.html"
