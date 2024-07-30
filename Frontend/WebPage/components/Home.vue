@@ -21,9 +21,9 @@ const Login = async () => {
                 <h3 id="login">BEJELENTKEZÉS</h3>
                 <form class="d-flex flex-column justify-content-evenly align-items-center" @submit.prevent="Login">
                     <div class="w-100">
-                        <input v-model="email" placeholder="name@example.com" type="email" class="form-control mx-auto"
+                        <input v-model="email" placeholder="valami@valami.hu" type="email" class="form-control mx-auto"
                             id="InputEmail" aria-describedby="emailHelp">
-                        <input v-model="password" placeholder="Password" type="password" class="form-control mx-auto"
+                        <input v-model="password" placeholder="jelszó" type="password" class="form-control mx-auto"
                             id="InputPassword" aria-describedby="passwordHelp">
                     </div>
                     <button class="px-1 btn button" type="submit">BELÉPÉS</button>
@@ -32,7 +32,7 @@ const Login = async () => {
                 <RouterLink id="forgetPass" to="/forget-password">Elfelejtett jelszó</RouterLink>
                 <div id="borderLine"></div>
                 <p>NINCS MÉG FIÓKOD?</p>
-                <RouterLink class="button btn" to="/regisztracio">REGISZTRÁCIÓ</RouterLink>
+                <RouterLink class="button btn" to="/registration">REGISZTRÁCIÓ</RouterLink>
             </div>
         </div>
     </div>
@@ -50,7 +50,8 @@ const Login = async () => {
             </p>
             <p>-A térképet és a táskádban fellelhető tartalmakat bármikor megnézheted, a hozzájuk kapcsolódó ikonokra
                 való kattintással.</p>
-            <p>-Ha játék során, esetleges hibával találkoznál, akkor frissítsd az oldalt, vagy lépj be ismét a játékba.
+            <p>-Ha játék során esetleges hibával találkoznál, akkor frissítsd az oldalt, vagy lépj be ismét, illetve
+                jelezd nekünk a hibajelentő segítségével.
             </p>
         </div>
     </div>

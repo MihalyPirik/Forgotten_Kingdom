@@ -19,11 +19,11 @@ const Registration = async () => {
 
       <h3>Regisztráció</h3>
       <div class="w-100">
-        <input v-model="name" placeholder="name" type="text" class="registrationForm form-control mx-auto"
+        <input v-model="name" placeholder="játékos név" type="text" class="registrationForm form-control mx-auto"
           aria-describedby="nameHelp">
-        <input v-model="email" placeholder="name@example.com" type="email" class="registrationForm form-control mx-auto"
+        <input v-model="email" placeholder="valami@valami.hu" type="email" class="registrationForm form-control mx-auto"
           aria-describedby="emailHelp">
-        <input v-model="password" placeholder="Password" type="password" class="registrationForm form-control mx-auto"
+        <input v-model="password" placeholder="jelszó" type="password" class="registrationForm form-control mx-auto"
           aria-describedby="passwordHelp">
         <p>{{ mess }}</p>
       </div>
@@ -54,6 +54,7 @@ button {
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   color: white;
+  font-size: var(--buttonfontsize);
 }
 
 button:hover {

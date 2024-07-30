@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "./components/Home.vue";
-import Regisztracio from "/components/Regisztracio.vue";
+import Registration from "./components/Registration.vue";
 import Not_Found_Page from "./components/Not_Found_Page.vue";
 import Report from "./components/Report.vue";
-import Galeria from "./components/Galeria.vue";
-import Rolunk from "./components/Rolunk.vue";
+import Gallery from "./components/Gallery.vue";
+import AboutUs from "./components/AboutUs.vue";
 import ForgetPassword from "./components/ForgetPassword.vue";
 
 const router = createRouter({
@@ -12,37 +12,30 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "Home",
       component: Home
     },
     {
-      path: "/regisztracio",
-      name: "Regisztracio",
-      component: Regisztracio
+      path: "/registration",
+      component: Registration
     },
     {
       path: "/report",
-      name: "Report",
       component: Report
     },
     {
-      path: "/galeria",
-      name: "Galeria",
-      component: Galeria
+      path: "/gallery",
+      component: Gallery
     },
     {
-      path: "/rolunk",
-      name: "Rolunk",
-      component: Rolunk
+      path: "/about-us",
+      component: AboutUs
     },
     {
       path: "/forget-password",
-      name: "Új jelszó igénylés",
       component: ForgetPassword
     },
     {
       path: "/:pathMatch(.*)*",
-      name: "Not found",
       component: Not_Found_Page
     }
   ]

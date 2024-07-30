@@ -18,13 +18,13 @@ const SendEmail = async () => {
     <form @submit.prevent="SendEmail" class="d-flex flex-column justify-content-evenly align-items-center"
       method="POST">
 
-      <h3>Report</h3>
+      <h3>Hibajelentő</h3>
       <div class="w-100">
-        <input placeholder="name@example.com" id="to" type="email" class="reportForm form-control mx-auto"
+        <input placeholder="valami@valami.hu" id="to" type="email" class="reportForm form-control mx-auto"
           v-model="from" required>
-        <input placeholder="Title" id="subject" type="text" class="reportForm form-control mx-auto" v-model="subject"
+        <input placeholder="tárgy" id="subject" type="text" class="reportForm form-control mx-auto" v-model="subject"
           required>
-        <textarea placeholder="Text" id="text" class="reportForm form-control mx-auto" v-model="text"
+        <textarea placeholder="üzenet" id="text" class="reportForm form-control mx-auto" v-model="text"
           required></textarea>
         <p>{{ mess }}</p>
       </div>
@@ -42,14 +42,15 @@ form {
 
 input {
   width: 50%;
-  max-width: 250px;
+  max-width: 500px;
   min-width: var(--inputminwidth);
 }
 
 textarea {
   width: 50%;
-  max-width: 250px;
+  max-width: 500px;
   min-width: var(--inputminwidth);
+  height: 200px !important;
 }
 
 button {
@@ -61,6 +62,8 @@ button {
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   color: white;
+  width: var(--buttonminwidth);
+  font-size: var(--buttonfontsize);
 }
 
 button:hover {
@@ -71,6 +74,7 @@ button:hover {
 
 form * {
   margin: 0;
-  margin-bottom: 5px;
+  margin-top: 4px;
+  margin-bottom: 6px;
 }
 </style>

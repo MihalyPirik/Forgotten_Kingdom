@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import jsonData from "../assets/rolunk.json";
+import jsonData from "../assets/gallery.json";
 </script>
 
 <style scoped>
@@ -45,13 +45,13 @@ import jsonData from "../assets/rolunk.json";
 }
 
 .text-block h2 {
-  font-size: 25px;
+  font-size: 2.4vh !important;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .text-block p {
-  font-size: 20px;
+  font-size: 2.2vh !important;
   font-weight: bold;
   line-height: 1.6;
 }

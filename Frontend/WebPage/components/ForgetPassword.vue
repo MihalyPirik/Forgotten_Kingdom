@@ -19,11 +19,11 @@ const Reset = async () => {
 
       <h3>Új jelszó igénylése</h3>
       <div class="w-100">
-        <input placeholder="name@example.com" id="to" type="email" class="newPassForm form-control mx-auto"
+        <input placeholder="valami@valami.hu" id="to" type="email" class="newPassForm form-control mx-auto"
           v-model="email" required>
-        <input placeholder="new password" id="newPassword" type="password" class="newPassForm form-control mx-auto"
+        <input placeholder="új jelszó" id="newPassword" type="password" class="newPassForm form-control mx-auto"
           v-model="newPassword" required>
-        <input placeholder="new password again" id="newPasswordAgain" type="password"
+        <input placeholder="új jelszó megint" id="newPasswordAgain" type="password"
           class="newPassForm form-control mx-auto" v-model="newPasswordAgain" required>
           <p>{{ mess }}</p>
       </div>
@@ -54,6 +54,8 @@ button {
   background-repeat: no-repeat;
   transition-duration: 0.4s;
   color: white;
+  width: var(--buttonminwidth);
+  font-size: var(--buttonfontsize);
 }
 
 button:hover {

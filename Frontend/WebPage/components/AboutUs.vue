@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import jsonData from "../assets/galeria.json";
+import jsonData from "../assets/aboutUs.json";
 </script>
 
 <style scoped>
@@ -45,13 +45,13 @@ import jsonData from "../assets/galeria.json";
 }
 
 .text-block h2 {
-  font-size: 25px;
+  font-size: 2.6vh !important;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .text-block p {
-  font-size: 20px;
+  font-size: 2.4vh !important;
   font-weight: bold;
   line-height: 1.6;
 }

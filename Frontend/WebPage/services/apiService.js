@@ -24,7 +24,7 @@ export const FormLogin = async (email, password) => {
     .catch(async err => { console.log(err); return await err.response.data.message })
 }
 
-export const putUser = (playerId, data) => {
+export const putUser = async (playerId, data) => {
   return axios
     .put("/user/" + playerId, data)
     .then(async (res) => {
