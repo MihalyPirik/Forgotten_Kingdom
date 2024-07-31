@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const { ValidationError, UniqueConstraintError } = require('sequelize');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const path = require('path');
 const Player = require('../models/player');
 
 const postRegistration = async (req, res, next) => {
@@ -94,14 +95,14 @@ const verifyEmail = async (req, res, next) => {
     const player = await Player.findOne({ where: { player_id: id, email_verification_token: token } });
 
     if (!player) {
-      return res.status(400).json({ message: 'Érvénytelen hitelesítő link.' });
+      return res.sendFile(path.join(__dirname, '..', '..', 'Frontend/WebPage/public/answerPages/invalidLink.html'));
     }
 
     player.email_verified = true;
     player.email_verification_token = null;
     await player.save();
 
-    res.status(200).json('Az email sikeresen hitelesítve!').toString();
+    res.sendFile(path.join(__dirname, '..', '..', 'Frontend/WebPage/public/answerPages/emailVerified.html'));
   } catch (error) {
     next(error);
   }

@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const { Op } = require('sequelize');
+const path = require('path');
 const Player = require('../models/player');
 
 const forgetPassword = async (req, res, next) => {
@@ -73,7 +74,7 @@ const resetPassword = async (req, res, next) => {
     });
 
     if (!user) {
-      return res.status(401).json({ message: 'A token érvénytelen vagy lejárt!' });
+      return res.sendFile(path.join(__dirname, '..', '..', 'Frontend/WebPage/public/answerPages/invalidLink.html'));
     }
 
     user.password = await bcrypt.hash(user.newPassword, await bcrypt.genSalt(10));
@@ -83,7 +84,7 @@ const resetPassword = async (req, res, next) => {
 
     await user.save();
 
-    res.status(200).json('A jelszó sikeresen módosítva!').toString();
+    res.sendFile(path.join(__dirname, '..', '..', 'Frontend/WebPage/public/answerPages/forgetPassword.html'));
   } catch (error) {
     next(error);
   }

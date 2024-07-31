@@ -7,6 +7,7 @@ const { errorHandler } = require('./Controllers/errorController');
 const swaggerFile = require('./swagger_output.json');
 const swaggerUi = require('swagger-ui-express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 
 require('./services/dbService');
@@ -39,6 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, '..', '..', 'Frontend/WebPage/dist')));
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
