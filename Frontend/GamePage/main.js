@@ -33,7 +33,17 @@ const gameCanvas = document.querySelector('canvas')
 
 const token = localStorage.getItem('token')
 if (!token) {
-  document.querySelector('body').innerHTML = '<h1>Nem vagy bejelentkezve</h1>'
+  const message = 'Nem vagy bejelentkezve!'
+  document.querySelector('body').innerHTML =
+    `<div
+    style="position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;">
+    <h1>${message}</h1>
+    </div>`
   throw new Error('Script execution was terminated due to the absence of an auetntication token!')
 }
 
@@ -69,11 +79,11 @@ window.addEventListener('load', () => {
 
     InitEvents(game)
 
-
-    addEventListener('keydown', (e) => { if (e.key == 'f') { if (game.debug) { game.debug = false } else { game.debug = e } } })
-    gameView.canvas.addEventListener('click', (e) => {
-      p.innerText = 'Percantage coordinates:\n\n' + 'Xcoord:' + e.offsetX / game.width + '\n\nYcoord:' + e.offsetY / game.height
-    })
+    // koordináta kijelző
+    // addEventListener('keydown', (e) => { if (e.key == 'f') { if (game.debug) { game.debug = false } else { game.debug = e } } })
+    // gameView.canvas.addEventListener('click', (e) => {
+    //   p.innerText = 'Percantage coordinates:\n\n' + 'Xcoord:' + e.offsetX / game.width + '\n\nYcoord:' + e.offsetY / game.height
+    // })
 
     await game.isometricBlocks[playerData.blockX][playerData.blockY](game)
 
