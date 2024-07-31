@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const dbConnection = require('../services/dbService');
-const EnemyType = require('./enemyType');
 
 const Enemy = dbConnection.define
     (

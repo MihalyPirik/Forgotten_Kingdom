@@ -10,8 +10,8 @@ const models =
     Tool: require('./tool'),
     ToolType: require('./toolType'),
     QuestStat: require('./questStat'),
-    Player: require('./player')
-
+    Player: require('./player'),
+    AuditTrail: require('./auditTrail')
 
 }
 Object.keys(models).forEach(key => {

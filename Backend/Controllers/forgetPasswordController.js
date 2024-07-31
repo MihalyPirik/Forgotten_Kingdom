@@ -4,7 +4,9 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 const { Op } = require('sequelize');
 const path = require('path');
+
 const Player = require('../models/player');
+const AuditTrail = require('../models/auditTrail');
 
 const forgetPassword = async (req, res, next) => {
   const { email, newPassword, newPasswordAgain } = req.body;
@@ -44,14 +46,42 @@ const forgetPassword = async (req, res, next) => {
 
         await transporter.sendMail(mailOptions);
 
+        await AuditTrail.create({
+          player_id: user.player_id,
+          event_type: 'RESETPASSWORD',
+          event_time: new Date(),
+          status: 'SUCCESS',
+        });
+
         res.status(200).json({ message: 'E-mail elküldve a jelszó módosításához. Ellenőrizze az e-mail fiókját!' });
       } else {
+        await AuditTrail.create({
+          player_id: user.player_id,
+          event_type: 'RESETPASSWORD',
+          event_time: new Date(),
+          status: 'Az email cím nincs hitelesítve!',
+        });
+
         res.status(401).json({ message: 'Az email cím nincs hitelesítve!' });
       }
     } else {
+      await AuditTrail.create({
+        player_id: null,
+        event_type: 'RESETPASSWORD',
+        event_time: new Date(),
+        status: 'Ilyen email címmel nincs regisztrálva felhasználó!',
+      });
+
       res.status(401).json({ message: 'Ilyen email címmel nincs regisztrálva felhasználó!' });
     }
   } catch (error) {
+    await AuditTrail.create({
+      player_id: null,
+      event_type: 'RESETPASSWORD',
+      event_time: new Date(),
+      status: `${error.message}`,
+    });
+
     next(error);
   }
 };
@@ -60,7 +90,13 @@ const resetPassword = async (req, res, next) => {
   const { token } = req.query;
 
   if (!token) {
-    return res.status(401).json({ message: 'Minden adat kötelező!' });
+    await AuditTrail.create({
+      event_type: 'RESETPASSWORD_AUF',
+      event_time: new Date(),
+      status: 'Hiányzó token!'
+    });
+
+    return res.status(401).json({ message: 'Hiányzó token!' });
   }
 
   try {
@@ -74,18 +110,37 @@ const resetPassword = async (req, res, next) => {
     });
 
     if (!user) {
+      await AuditTrail.create({
+        event_type: 'RESETPASSWORD_AUF',
+        event_time: new Date(),
+        status: 'Érvénytelen hitelesítő link!'
+      });
+
       return res.sendFile(path.join(__dirname, '..', '..', 'Frontend/WebPage/public/answerPages/invalidLink.html'));
     }
 
-    user.password = await bcrypt.hash(user.newPassword, await bcrypt.genSalt(10));
+    user.password = user.newPassword;
     user.resetPasswordToken = null;
     user.resetPasswordExpires = null;
     user.newPassword = null;
 
     await user.save();
 
+    await AuditTrail.create({
+      player_id: user.player_id,
+      event_type: 'RESETPASSWORD_AUF',
+      event_time: new Date(),
+      status: 'SUCCESS'
+    });
+
     res.sendFile(path.join(__dirname, '..', '..', 'Frontend/WebPage/public/answerPages/forgetPassword.html'));
   } catch (error) {
+    await AuditTrail.create({
+      event_type: 'RESETPASSWORD_AUF',
+      event_time: new Date(),
+      status: `${error.message}`
+    });
+
     next(error);
   }
 };
