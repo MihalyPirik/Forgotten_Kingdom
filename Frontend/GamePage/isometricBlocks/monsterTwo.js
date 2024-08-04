@@ -9,17 +9,15 @@ import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround = new Image()
 backGround.src = "./assets/blocks/EnemyTwo.png"
-const monster = new Image()
-monster.src = './assets/monsterSprite.jfif'
+
+const customSpriteURL = './assets/monsters/skeleton_sprite_sheet.png'
+
 export const Csontvázak = async (game) => {
     game.currentBlock = new IsometricBlock(
         'Csontvázak',
         backGround,
         null,
-        [
-            //     new Monster('1','Werewolf',game,monster,game.width*0.65,game.height*0.77,100,3,3,2),
-            // new Monster('2','Skeleton',game,monster,game.width*0.7,game.height*0.77,100,3,3,2)
-        ],
+        [],
         [
             new Line(new Point(game.width * 0.4850, game.height * 0.67397), new Point(game.width * 0.4476, game.height * 0.64699)),
             new Circle(game.width * 0.4476, game.height * 0.64699, game.width * 0.01),
@@ -80,12 +78,13 @@ export const Csontvázak = async (game) => {
             new Panel('navigationPanel', game.width * 0.29, game.height * 0.64, game.width * 0.05, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, null),
         ],
         0.08,
-        0.08
+        0.08,
+        customSpriteURL
 
     )
     game.player.objX = game.width * 0.3835
     game.player.objY = game.height * 0.6485
-    populateIsometricBlock(game)
+    populateIsometricBlock(game, false, customSpriteURL)
     game.player.width = game.width * 0.08
     game.player.height = game.height * 0.08
     game.player.radius = game.height * 0.015

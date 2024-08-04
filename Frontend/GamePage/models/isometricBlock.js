@@ -6,7 +6,7 @@ import { Monster } from "./Monster.js"
 
 export class IsometricBlock {
 
-    constructor(name, backGround, interior, entities = [], barriers = [], panels = [], entityWidth = 0.15, entityHeight = 0.15) {
+    constructor(name, backGround, interior, entities = [], barriers = [], panels = [], entityWidth = 0.15, entityHeight = 0.15, spriteURL = 'assets/monsters/goblin_sprite_sheet.png') {
         this.name = name
         this.interior = interior
         this.entities = entities
@@ -18,7 +18,9 @@ export class IsometricBlock {
         this.maxNumberOfMonsters = 4
         this.monsterSpawnInterval = 700
         this.timeoutReference = null
+        this.spriteURL = spriteURL
     }
+
     get numberOfMonsters() {
         return this.entities.filter(entity => { return entity instanceof Monster }).length
     }
@@ -39,14 +41,14 @@ export class IsometricBlock {
             else if (game.currentBlockX == 1 && game.currentBlockY == 3) { monsterType = (await getAllEnemyType("enemy_name=Skeleton&level=1"))[0] }
             else if (game.currentBlockX == 2 && game.currentBlockY == 2) { monsterType = (await getAllEnemyType("enemy_name=Troll&level=1"))[0] }
             const sprite = new Image()
-            sprite.src = 'assets/maincharacters/monsterSprite.gif'
+            sprite.src = this.spriteURL
             await sprite.decode()
             const callback = async () => {
                 const xCoord = game.width * RandomFloatNumber(0.26, 0.72)
                 const yCoord = game.height * RandomFloatNumber(0.43, 0.66)
                 const newMonster = new Monster(undefined, monsterType.enemy_name, game, sprite, xCoord, yCoord, monsterType.HP, monsterType.attack, monsterType.level, 2)
-                newMonster.spriteWidth = 130
-                newMonster.spriteHeight = 110
+                newMonster.spriteWidth = 230
+                newMonster.spriteHeight = 230
                 newMonster.width = game.width * game.currentBlock.entityWidth
                 newMonster.height = game.height * game.currentBlock.entityHeight
                 this.entities.push(newMonster)

@@ -4,12 +4,15 @@ import { Monster } from "../models/Monster.js"
 import { NPC } from "../models/NPC.js"
 import { Panel } from "../models/Panel.js"
 import { GetSprite } from "./imageLoader.js"
-const charSprite = new Image()
-charSprite.src = './assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
-const monsterSprite = new Image()
-monsterSprite.src = './assets/maincharacters/monsterSprite.gif'
-export const populateIsometricBlock = async (game, isInterior = false) => {
+export const populateIsometricBlock = async (game, isInterior = false, monsterSpriteURL = './assets/monsters/goblin_sprite_sheet.png') => {
+    const monsterSprite = new Image()
+    monsterSprite.src = monsterSpriteURL
+
+    await new Promise((resolve) => {
+        monsterSprite.onload = () => resolve()
+        monsterSprite.onerror = () => resolve()
+    })
 
     getAllEnemies(`blockX=${game.currentBlockX}&blockY=${game.currentBlockY}&isInterior=${isInterior}`)
         .then(res => {
@@ -17,8 +20,8 @@ export const populateIsometricBlock = async (game, isInterior = false) => {
                 const enemy = new Monster(e.enemy_id, e.EnemyType.enemy_name, game, monsterSprite, game.width * e.objX, game.height * e.objY, e.HP, e.EnemyType.attack, e.EnemyType.level, 4)
                 enemy.width = game.width * game.currentBlock.entityWidth
                 enemy.height = game.height * game.currentBlock.entityHeight
-                enemy.spriteWidth = 130
-                enemy.spriteHeight = 110
+                enemy.spriteWidth = 230
+                enemy.spriteHeight = 230
                 enemy.speed = 2
                 game.currentBlock.entities.push(enemy)
             })

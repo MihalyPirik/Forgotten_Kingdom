@@ -5,10 +5,7 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
     <header>
         <nav class="navbar-brand d-flex flex-row-reverse">
-            <RouterLink to="/" class="me-3" href=""><img src="./assets/ig_logo.png" alt="" width="30" height="30">
-            </RouterLink>
-            <RouterLink to="/" class="me-3" href=""><img src="./assets/fb_logo.png" alt="" width="30" height="30">
-            </RouterLink>
+            <a class="me-3" href="http://www.instagram.com/forgotten_kingdom_official/"><img src="./assets/ig_logo.png" alt="" width="30" height="30"></a>
         </nav>
     </header>
 
@@ -41,7 +38,6 @@ import { RouterLink, RouterView } from "vue-router";
         <div class="container w-50" id="footer">
             <h1>KAPCSOLAT</h1>
             <p>forgottenkingdom887@gmail.com</p>
-            <p>Győr, Szent István út 7.</p>
         </div>
     </footer>
 </template>

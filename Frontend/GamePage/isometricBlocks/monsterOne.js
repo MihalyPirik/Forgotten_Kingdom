@@ -7,10 +7,12 @@ import { Circle } from "../models/Circle.js"
 import { Story } from "../controllers/Story.js"
 import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 import { GetIcon } from "../utils/imageLoader.js"
-const monster = new Image()
-monster.src = './assets/monsterSprite.jfif'
+
 const backGround = new Image()
 backGround.src = "./assets/blocks/EnemyOne.png"
+
+const customSpriteURL = './assets/monsters/goblin_sprite_sheet.png'
+
 export const Goblinok = async (game) => {
     game.currentBlock = new IsometricBlock(
         'Goblinok',
@@ -44,11 +46,12 @@ export const Goblinok = async (game) => {
             new Panel('navigationPanel', game.width * 0.6324, game.height * 0.7505, game.width * 0.07, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, null),
         ],
         0.08,
-        0.08
+        0.08,
+        customSpriteURL
     )
     game.player.objX = game.width * 0.5085
     game.player.objY = game.height * 0.6700
-    populateIsometricBlock(game)
+    populateIsometricBlock(game, false, customSpriteURL)
     game.player.width = game.width * 0.08
     game.player.height = game.height * 0.08
     game.player.radius = game.height * 0.015

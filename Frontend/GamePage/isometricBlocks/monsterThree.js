@@ -5,8 +5,11 @@ import { Circle } from '../models/Circle.js'
 import { Panel } from '../models/Panel.js'
 import { populateIsometricBlock } from '../utils/populateIsometricBlocks.js'
 import { GetIcon } from '../utils/imageLoader.js'
+
 const backGround = new Image()
 backGround.src = "./assets/blocks/EnemyThree.png"
+
+const customSpriteURL = './assets/monsters/troll_sprite_sheet.png'
 
 export const Trollok = async (game) => {
     game.currentBlock = new IsometricBlock(
@@ -30,11 +33,14 @@ export const Trollok = async (game) => {
         ],
         [
             new Panel('navigationPanel', 0.6217 * game.width, 0.777 * game.height, game.width * 0.07, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, game, null, await GetIcon('directionSigns'))
-        ]
+        ],
+        0.08,
+        0.08,
+        customSpriteURL
     )
     game.player.objX = game.width * 0.49358
     game.player.objY = game.height * 0.74385
-    populateIsometricBlock(game)
+    populateIsometricBlock(game, false, customSpriteURL)
     game.player.width = game.width * 0.08
     game.player.height = game.height * 0.08
     game.player.radius = game.height * 0.015

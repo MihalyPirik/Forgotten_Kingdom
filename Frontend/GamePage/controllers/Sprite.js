@@ -3,40 +3,56 @@ import { Point } from '../models/Point.js';
 
 export class SpriteController {
   /**
- * 
- * @param {Entity} entity
- */
+   * 
+   * @param {Entity} entity
+   */
   static MoveSprite(entity, angle) {
-    // 2.35 - 0.78 - előre
-    // 0.78 - -1.57 - jobbra
-    // -1.57 - -2.35 - lefele
-    // -2.35 - 2.35 - balra
+    // 0.78 - 2.35 - lefele
+    // 2.35 - -2.35 - jobbra
+    // -2.35 - -0.78 - felfele
+    // -0.78 - 0.78 - balra
 
-    if (angle >= 0.78 && angle <= 2.35) { entity.frameY = 3 } // előre
-    else if (angle >= 2.35 || angle <= -2.35) { entity.frameY = 5 } // jobbra
-    else if (angle >= -2.35 && angle <= -1.25) { entity.frameY = 3 } // balra
-    else if (angle >= -1.57 && angle <= 0.78) { entity.frameY = 4 } // lefele
-
-    if (angle >= 0.78 && angle <= 2.35 && entity.isAttack) { entity.frameY = 0 } // előre
-    else if (angle >= 2.35 || angle <= -2.35 && entity.isAttack) { entity.frameY = 2 } // jobbra
-    else if (angle >= -2.35 && angle <= -1.25 && entity.isAttack) { entity.frameY = 0 } // balra
-    else if (angle >= -1.57 && angle <= 0.78 && entity.isAttack) { entity.frameY = 1 } // lefele
+    if (entity.isAttack) {
+      // Támadás
+      if (angle >= 0.78 && angle <= 2.35) { // lefele támadás
+        entity.frameY = 2;
+        entity.frameX = entity.frameX % 6; // 0-5
+      } else if (angle >= 2.35 || angle <= -2.35) { // balra támadás
+        entity.frameY = 2;
+        entity.frameX = 6 + (entity.frameX % 6); // 6-11
+      } else if (angle >= -2.35 && angle <= -0.78) { // felfele támadás
+        entity.frameY = 2;
+        entity.frameX = 6 + (entity.frameX % 6); // 6-11
+      } else if (angle >= -0.78 && angle <= 0.78) { // jobbra támadás
+        entity.frameY = 2;
+        entity.frameX = entity.frameX % 6; // 0-5
+      }
+    } else {
+      // Mozgás
+      if (angle >= 0.78 && angle <= 2.35) { // lefele mozgás
+        entity.frameY = 0;
+        entity.frameX = 6 + (entity.frameX % 6); // 6-11
+      } else if (angle >= 2.35 || angle <= -2.35) { // jobbra mozgás
+        entity.frameY = 1;
+        entity.frameX = 6 + (entity.frameX % 6); // 6-11
+      } else if (angle >= -2.35 && angle <= -0.78) { // felfele mozgás
+        entity.frameY = 1;
+        entity.frameX = entity.frameX % 6; // 0-5
+      } else if (angle >= -0.78 && angle <= 0.78) { // balra mozgás
+        entity.frameY = 0;
+        entity.frameX = entity.frameX % 6; // 0-5
+      }
+    }
 
     if (entity.move.timer > entity.move.interval) {
-      let numberOfRows = 3
-      if (entity.isAttack) {
-        numberOfRows = 6
-
+      if (entity.frameX < 11) {
+        entity.frameX += 1;
+      } else {
+        entity.frameX = 0;
       }
-      if (entity.frameX < numberOfRows) {
-        entity.frameX += 1
-      }
-      else {
-        entity.frameX = 0
-      }
-      entity.move.timer = 0
+      entity.move.timer = 0;
     }
-    entity.move.timer++
+    entity.move.timer++;
   }
 
 
