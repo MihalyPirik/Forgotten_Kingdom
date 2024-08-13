@@ -535,7 +535,7 @@ export class PanelView {
       if (anotherQuest.currentProgress < anotherQuest.Quest.target_amount) {
         const but = document.createElement('input')
         but.type = 'button'
-        but.value = 'Párbeszéd indítása' + '(' + anotherQuest.Quest.quest_name + ')'
+        but.value = `${anotherQuest.Quest.quest_name} küldetés indítása`
         but.addEventListener('click', () => {
           ConversationQuests(anotherQuest)
           Story.StartConversation('during/' + anotherQuest.Quest.quest_name, anotherQuest)
