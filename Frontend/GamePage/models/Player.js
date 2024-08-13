@@ -150,11 +150,17 @@ export class Player extends Entity {
     }
   }
   Respawn = () => {
-    this.money -= 10
-    this.game.isometricBlocks[0][0](this.game)
-    putPlayer({ HP: 100 })
-    this.HP = 100
-    this.isDead = false
+    this.money -= 10;
+    this.game.isometricBlocks[0][0](this.game);
+    putPlayer({ HP: 100, Fish: 0, Wood: 0, Coal: 0, Stone: 0, Wheat: 0, Iron: 0 });
+    this.HP = 100;
+    this.inventory.Fish = 0;
+    this.inventory.Wood = 0;
+    this.inventory.Coal = 0;
+    this.inventory.Stone = 0;
+    this.inventory.Wheat = 0;
+    this.inventory.Iron = 0;
+    this.isDead = false;
   }
   Action = () => {
     switch (this.isAction.action) {
