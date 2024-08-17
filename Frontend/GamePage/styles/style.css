@@ -32,6 +32,12 @@ img {
   vertical-align: middle;
 }
 
+.IMGmap {
+  width: 10vw;
+  height: 10vw;
+  vertical-align: middle;
+}
+
 .gamePanel {
   padding: 5px;
 }
@@ -98,7 +104,8 @@ img {
 }
 #map {
   position: absolute;
-  top: calc(100% - 4.5vw);
+  top: calc(88% - 4.5vw);
+  left: calc(5% - 4.5vw);
 }
 .globalPanel {
   top: 50%;

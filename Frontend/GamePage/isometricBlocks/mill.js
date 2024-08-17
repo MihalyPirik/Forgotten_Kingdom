@@ -33,8 +33,8 @@ const MillInterior = (game) => {
     [
       new Panel('leaveInterior', game.width * 0.411, game.height * 0.9068, game.width * 0.07, false)
     ],
-    0.2,
-    0.2
+    0.15,
+    0.15
   )
   game.player.objX = game.width * 0.4978
   game.player.objY = game.height * 0.87397
@@ -78,6 +78,8 @@ export const Malom = async (game) => {
       navigationPanelY,
       new Panel('enterInterior', game.width * 0.36, game.height * 0.61, game.width * 0.12, false)
     ],
+    0.07,
+    0.07
   )
   game.player.objX = game.width * 0.4978
   game.player.objY = game.height * 0.87397

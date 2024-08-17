@@ -9,8 +9,6 @@ import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround = new Image()
 backGround.src = "./assets/blocks/Farm.png"
-const charSprite = new Image()
-charSprite.src = './assets/maincharacters/char_a_p1_0bas_humn_v01.png'
 
 const inFarm = new Image()
 inFarm.src = './assets/blocks/inFarm.png'

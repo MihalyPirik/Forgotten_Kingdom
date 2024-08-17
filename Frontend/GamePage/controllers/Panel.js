@@ -30,7 +30,9 @@ export class PanelController {
       return [nextY, previousX]
     }
   }
+
   static GetEntityOnMouse(e, enemies) {
+    let found = false;
     for (const enemy of enemies) {
       if (e.offsetX > enemy.objX - enemy.radius
         &&
@@ -40,12 +42,14 @@ export class PanelController {
         &&
         e.offsetY < enemy.objY + enemy.radius
       ) {
-        PanelView.ShowHighlight(enemy)
-        break
-      }
-      else {
-        PanelView.HideHighlight(enemy.id)
+        PanelView.ShowHighlight(enemy);
+        found = true;
+        break;
       }
     }
+    if (!found) {
+      PanelView.HideHighlightForAll();
+    }
   }
+
 }

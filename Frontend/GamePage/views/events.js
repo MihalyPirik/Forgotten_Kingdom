@@ -26,9 +26,14 @@ export const InitEvents = (game) => {
   addEventListener('keydown', (e) => { game.player.move.event = e })
   addEventListener('keyup', () => { game.player.move.event = null })
 
+  document.getElementById('game').addEventListener('mousemove', (e) => {
+    PanelController.GetEntityOnMouse(e, game.currentBlock.entities);
+  });
 
-  document.getElementById('game').addEventListener('mousemove', (e) => { PanelController.GetEntityOnMouse(e, game.currentBlock.entities) })
-  document.getElementById('game').addEventListener('click', (e) => { game.player.Attack(e) })
+  document.getElementById('game').addEventListener('click', (e) => {
+    game.player.Attack(e);
+    PanelView.HideHighlightForAll();
+  });
 
   let TogglePlayerActionWrapperReference;
   function TogglePlayerAction(e, action, game) {
@@ -96,4 +101,10 @@ export const InitEvents = (game) => {
   document.getElementById('map').addEventListener('click', (e) => { ShowPanel('map', PanelView.MapPanel, e.target) }, { once: true })
   document.getElementById('information').addEventListener('click', (e) => { ShowPanel('information', PanelView.InformationPanel, e.target) }, { once: true })
   document.getElementById('logout').addEventListener('click', game.Logout, { once: true })
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key.toLowerCase() === 'm') {
+      ShowPanel('map', PanelView.MapPanel, document.getElementById('map'));
+    }
+  });
 }

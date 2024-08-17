@@ -293,6 +293,12 @@ export class PanelView {
     }
   }
 
+  static HideHighlightForAll() {
+    const highlights = document.querySelectorAll('.HighlightEntities');
+    highlights.forEach(el => el.remove());
+  }
+
+
   static ShowDeathDialog(player) {
     if (document.querySelector('div#dead')) {
       return

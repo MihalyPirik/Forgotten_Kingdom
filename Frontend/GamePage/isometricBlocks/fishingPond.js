@@ -13,9 +13,6 @@ backGround.src = "./assets/blocks/Pond.png"
 // start X: 0.524,  Y: 0.578
 // end X:0.397 , Y: 0.495
 
-const charSprite = new Image()
-charSprite.src = './assets/maincharacters/char_a_p1_0bas_humn_v01.png'
-
 const inPond = new Image()
 inPond.src = './assets/blocks/inPond.png'
 const PondInterior = (game) => {
@@ -36,7 +33,9 @@ const PondInterior = (game) => {
         ],
         [
             new Panel('leaveInterior', game.width * 0.6378, game.height * 0.851, game.width * 0.06, false)
-        ]
+        ],
+        0.25,
+        0.25
     )
     game.player.objX = game.width * 0.54166
     game.player.objY = game.height * 0.737704

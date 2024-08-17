@@ -39,8 +39,8 @@ const blackSmithInterior = (game) => {
         [
             new Panel('leaveInterior', game.width * 0.6720, game.height * 0.850, game.width * 0.07, false)
         ],
-        0.21,
-        0.21
+        0.18,
+        0.18
 
     )
     game.player.objX = game.width * 0.4967
@@ -92,7 +92,9 @@ export const Kovács = async (game) => {
             new Panel('enterInterior', game.width * 0.3782, game.height * 0.633, game.width * 0.05, false),
             new Panel('navigationPanel', game.width * 0.7403, game.height * 0.7707, game.width * 0.05, { forwardId: 'forward', backwardId: 'backward', direction: 1 }, null),
             new Panel('navigationPanel', game.width * 0.2414, game.height * 0.79465, game.width * 0.05, { forwardId: 'forward', backwardId: 'backward', direction: -1 }, null)
-        ]
+        ],
+        0.07,
+        0.07
     )
     game.player.objX = game.width * 0.4775
     game.player.objY = game.height * 0.8227

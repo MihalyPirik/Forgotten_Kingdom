@@ -17,9 +17,6 @@ import { GetIcon } from '../utils/imageLoader.js'
 const backGround = new Image()
 backGround.src = "./assets/blocks/Castle.png"
 
-const charSprite = new Image()
-charSprite.src = './assets/maincharacters/char_a_p1_0bas_humn_v01.png'
-
 const inCastle = new Image()
 inCastle.src = './assets/blocks/inCastle.png'
 

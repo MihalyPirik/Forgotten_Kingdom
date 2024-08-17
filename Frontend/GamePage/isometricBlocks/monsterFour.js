@@ -36,8 +36,8 @@ const inWitchBlock = (game) => {
         [
             new Panel('leaveInterior', game.width * 0.6805, game.height * 0.8729, game.width * 0.07, false)
         ],
-        0.22,
-        0.22
+        0.19,
+        0.19
     )
     game.player.objX = game.width * 0.48611
     game.player.objY = game.height * 0.8534

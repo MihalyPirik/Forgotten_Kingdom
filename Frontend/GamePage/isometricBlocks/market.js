@@ -11,8 +11,7 @@ import { populateIsometricBlock } from "../utils/populateIsometricBlocks.js"
 
 const backGround = new Image()
 backGround.src = "./assets/blocks/Market.png"
-const charSprite = new Image()
-charSprite.src = './assets/maincharacters/char_a_p1_0bas_humn_v01.png'
+
 export const Piac = async (game) => {
     game.currentBlock = new IsometricBlock
         (
